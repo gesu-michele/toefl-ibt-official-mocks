@@ -1,0 +1,2150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOEFL iBT Reading Mock 1 - Official Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ets-teal: #005d5d;
+      --ets-teal-dark: #004444;
+      --ets-teal-light: #4ecdc4;
+      --ets-gold: #d4af37;
+      --canvas-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border-soft: #cbd5e1;
+      --border-subtle: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent-blue: #2563eb;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-passage: 'Merriweather', Georgia, serif;
+      --font-mono: 'JetBrains Mono', Consolas, monospace;
+      --font-signature: 'Comic Neue', cursive, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--canvas-bg);
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      font-size: 18px;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header.ets-navbar {
+      height: 68px;
+      background-color: var(--ets-teal);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      user-select: none;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-timer-pill {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffffff;
+    }
+
+    .nav-timer-pill.time-warning {
+      background: rgba(239, 68, 68, 0.35);
+      border-color: #ef4444;
+      color: #fca5a5;
+      animation: pulseAlert 1.5s infinite;
+    }
+
+    @keyframes pulseAlert {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .ets-pill-btn {
+      background-color: #ffffff;
+      color: var(--ets-teal);
+      border: 1px solid transparent;
+      padding: 8px 24px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    .ets-pill-btn:hover:not(:disabled) {
+      background-color: #f1f5f9;
+      transform: translateY(-1px);
+    }
+
+    .ets-pill-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .ets-ghost-btn {
+      background: rgba(255,255,255,0.15);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 7px 18px;
+      border-radius: 9999px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s ease;
+    }
+
+    .ets-ghost-btn:hover {
+      background: rgba(255,255,255,0.28);
+    }
+
+    .ets-subbar {
+      height: 52px;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+      display: flex;
+      align-items: center;
+      padding: 0 28px;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .subbar-separator {
+      margin: 0 10px;
+      color: var(--border-soft);
+    }
+
+    main.workspace {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      max-width: 1380px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 28px 24px 40px 24px;
+    }
+
+    .screen-view {
+      display: none;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .screen-view.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .intro-card {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 44px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      max-width: 880px;
+      margin: 20px auto;
+    }
+
+    .intro-card h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 14px;
+    }
+
+    .intro-card p {
+      font-size: 19px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .exam-timer-notice-box {
+      background: #f0fdfa;
+      border-left: 5px solid var(--ets-teal);
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 17px;
+      color: #0f4a4a;
+      line-height: 1.6;
+    }
+
+    .exam-timer-notice-box strong {
+      color: var(--ets-teal-dark);
+    }
+
+    .ets-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 26px 0;
+      border: 1.5px solid var(--text-main);
+    }
+
+    .ets-table th {
+      background-color: var(--ets-teal-light);
+      color: var(--text-main);
+      padding: 14px 18px;
+      font-weight: 700;
+      text-align: left;
+      border: 1px solid var(--text-main);
+      font-size: 18px;
+    }
+
+    .ets-table td {
+      padding: 16px 18px;
+      border: 1px solid var(--text-main);
+      font-size: 17px;
+    }
+
+    .task-instruction-header {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 26px;
+      text-align: center;
+      color: #000000;
+    }
+
+    .ctest-container {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 45px 50px;
+      max-width: 980px;
+      margin: 0 auto;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+    }
+
+    .ctest-paragraph {
+      font-size: 20px;
+      line-height: 2.25;
+      color: #111827;
+      word-spacing: 2px;
+    }
+
+    .ctest-boxes {
+      display: inline-flex;
+      gap: 3px;
+      margin-left: 2px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    .char-input {
+      width: 25px;
+      height: 32px;
+      text-align: center;
+      background: #e2e8f0;
+      border: 1px solid #94a3b8;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: #000000;
+      text-transform: lowercase;
+      outline: none;
+      transition: all 0.15s ease;
+    }
+
+    .char-input:focus {
+      background: #ffffff;
+      border-color: var(--ets-teal);
+      box-shadow: 0 0 0 2px rgba(0, 93, 93, 0.3);
+    }
+
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    @media (max-width: 992px) {
+      .split-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .premium-mail-client {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+      font-family: var(--font-ui);
+    }
+
+    .mail-window-header {
+      background: #f1f5f9;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mail-window-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+
+    .mail-app-badge {
+      font-size: 13px;
+      font-weight: 600;
+      color: #64748b;
+      letter-spacing: 0.3px;
+    }
+
+    .mail-body-content {
+      padding: 32px 34px;
+      font-size: 19px;
+      line-height: 1.75;
+      color: #1e293b;
+      background: #ffffff;
+    }
+
+    .mail-subject-heading {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 14px;
+    }
+
+    .mail-body-content p {
+      margin-bottom: 20px;
+    }
+
+    .mail-body-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .premium-announcement-card {
+      background: #ffffff;
+      border: 2px solid #0f172a;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+    }
+
+    .announcement-top-bar {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .announcement-inner-body {
+      padding: 32px 34px;
+      font-size: 19px;
+      line-height: 1.75;
+      color: #1e293b;
+    }
+
+    .announcement-headline {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 20px;
+    }
+
+    .announcement-inner-body p {
+      margin-bottom: 18px;
+    }
+
+    .announcement-inner-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .premium-post-card {
+      background: #ffffff;
+      border: 2px solid #0f172a;
+      border-radius: 14px;
+      padding: 32px 34px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      min-height: 360px;
+    }
+
+    .post-user-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .avatar-wrapper-real {
+      width: 64px;
+      height: 64px;
+      border-radius: 26px;
+      border: 2px solid var(--ets-teal);
+      overflow: hidden;
+      box-shadow: 0 3px 8px rgba(0, 93, 93, 0.2);
+      flex-shrink: 0;
+      background: #f1f5f9;
+    }
+
+    .avatar-wrapper-real img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+
+    .post-author-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .post-author-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+
+    .post-content-body {
+      font-size: 19px;
+      line-height: 1.75;
+      color: #1e293b;
+    }
+
+    .chat-chain-container {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    }
+
+    .chat-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .chat-avatar-real {
+      width: 50px;
+      height: 50px;
+      border-radius: 20px;
+      border: 2px solid #38bdf8;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #e0f2fe;
+    }
+
+    .chat-avatar-real img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+
+    .chat-bubble-content {
+      flex: 1;
+    }
+
+    .chat-sender-title {
+      font-weight: 700;
+      font-size: 17px;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .chat-message-text {
+      font-size: 18px;
+      color: #334155;
+      line-height: 1.55;
+    }
+
+    .academic-passage-card {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 38px 40px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      height: auto;
+      max-height: none;
+      overflow: visible;
+    }
+
+    .academic-passage-card h2 {
+      font-size: 27px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-align: center;
+      color: #0f172a;
+    }
+
+    .passage-paragraphs {
+      font-family: var(--font-passage);
+      font-size: 19px;
+      line-height: 1.8;
+      color: #1e293b;
+    }
+
+    .passage-paragraphs p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .text-target-bold {
+      font-weight: 700;
+      color: #000000;
+      background: #fef08a;
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+
+    .question-card {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 34px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    .question-stem-title {
+      font-size: 21px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 24px;
+      line-height: 1.45;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .option-btn-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 15px 18px;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .option-btn-row:hover {
+      background-color: #f1f5f9;
+      border-color: var(--border-soft);
+    }
+
+    .option-btn-row.selected {
+      border-color: var(--ets-teal);
+      background-color: #f0fdfa;
+    }
+
+    .ets-radio-indicator {
+      width: 22px;
+      height: 22px;
+      border: 2px solid #94a3b8;
+      border-radius: 50%;
+      margin-top: 2px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+
+    .option-btn-row.selected .ets-radio-indicator {
+      border-color: var(--ets-teal);
+    }
+
+    .option-btn-row.selected .ets-radio-indicator::after {
+      content: "";
+      width: 12px;
+      height: 12px;
+      background: var(--ets-teal);
+      border-radius: 50%;
+    }
+
+    .option-text-label {
+      font-size: 18px;
+      color: #334155;
+      line-height: 1.45;
+    }
+
+    .diagnostic-panel {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 44px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    .diag-title-area {
+      text-align: center;
+      margin-bottom: 34px;
+      border-bottom: 2px solid var(--border-subtle);
+      padding-bottom: 22px;
+    }
+
+    .diag-title-area h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--ets-teal);
+      margin-bottom: 8px;
+    }
+
+    .score-summary-deck {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .score-summary-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-soft);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .score-summary-card .score-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .score-summary-card .score-val {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--ets-teal);
+      font-family: var(--font-mono);
+    }
+
+    .score-summary-card.below-a1 .score-val {
+      color: #b91c1c;
+    }
+
+    .klippy-feedback-wrapper {
+      background: #f0fdfa;
+      border-left: 5px solid var(--ets-teal);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .klippy-title-row {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ets-teal-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .items-audit-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .audit-row-card {
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: 20px 24px;
+      background: #ffffff;
+    }
+
+    .audit-row-card.pass {
+      border-left: 6px solid var(--accent-green);
+    }
+
+    .audit-row-card.fail {
+      border-left: 6px solid var(--accent-red);
+    }
+
+    .audit-head {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .audit-user-row {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: #334155;
+    }
+
+    .audit-quote-citation {
+      background: #f1f5f9;
+      border-left: 3px solid #94a3b8;
+      padding: 8px 12px;
+      font-size: 15px;
+      font-style: italic;
+      color: #1e293b;
+      margin: 8px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .audit-explanation-block {
+      font-size: 16px;
+      line-height: 1.55;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-top: 8px;
+    }
+
+    .audit-row-card.pass .audit-explanation-block {
+      background: #f0fdf4;
+      color: #14532d;
+    }
+
+    .audit-row-card.fail .audit-explanation-block {
+      background: #fef2f2;
+      color: #7f1d1d;
+    }
+
+    .actions-footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .finish-action-btn {
+      background-color: var(--ets-teal);
+      color: #ffffff;
+      border: none;
+      padding: 14px 38px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0, 93, 93, 0.25);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .finish-action-btn:hover {
+      background-color: var(--ets-teal-dark);
+      transform: translateY(-1px);
+    }
+
+    .secondary-dash-btn {
+      background-color: #f1f5f9;
+      color: var(--text-main);
+      border: 1.5px solid var(--border-soft);
+      padding: 14px 28px;
+      font-size: 17px;
+      font-weight: 600;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .secondary-dash-btn:hover {
+      background-color: #e2e8f0;
+      transform: translateY(-1px);
+    }
+
+    footer.ets-corporate-footer {
+      background-color: #ffffff;
+      border-top: 1px solid #e2e8f0;
+      margin-top: auto;
+      padding: 30px 20px 34px 20px;
+      position: relative;
+    }
+
+    .footer-gradient-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #005d5d 0%, #d4af37 50%, #4ecdc4 100%);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .footer-author-signature {
+      font-family: var(--font-signature);
+      font-size: 44px;
+      font-weight: 700;
+      color: #005d5d;
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+      display: inline-block;
+      text-shadow: 0 1px 2px rgba(0, 93, 93, 0.15);
+    }
+
+    .footer-badges-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-pill-signature {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      color: #0f172a;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .badge-pill-signature.badge-ceo {
+      background: #f0fdfa;
+      border-color: #5eead4;
+      color: #0f766e;
+      font-weight: 700;
+    }
+
+    .badge-separator-dot {
+      width: 7px;
+      height: 7px;
+      background: #d4af37;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top ETS Navbar -->
+  <header class="ets-navbar">
+    <div class="navbar-left">
+      <div class="nav-timer-pill" id="timerPill">
+        <span>⏱</span>
+        <span id="timerText">45:00</span>
+      </div>
+      <button class="ets-ghost-btn" id="toggleTimerBtn" type="button" onclick="toggleTimerVisibility()">Hide Time</button>
+    </div>
+    <div class="navbar-right">
+      <button class="ets-ghost-btn" id="volumeBtn" type="button" onclick="alert('Audio volume is standard for reading prompts.')">Volume 🔊</button>
+      <button class="ets-pill-btn" id="navBackBtn" type="button" onclick="handleNavigationBack()">&lt; Back</button>
+      <button class="ets-pill-btn" id="navNextBtn" type="button" onclick="handleNavigationNext()">Begin &gt;</button>
+    </div>
+  </header>
+
+  <!-- ETS Sub-bar -->
+  <div class="ets-subbar">
+    <span>Reading</span>
+    <span class="subbar-separator">|</span>
+    <span id="subbarProgress">Overview</span>
+  </div>
+
+  <!-- Workspace Container -->
+  <main class="workspace">
+
+    <!-- Screen 0: Welcome Section -->
+    <section id="screen-welcome" class="screen-view active">
+      <div class="intro-card">
+        <h1>Reading Section</h1>
+        <p>In the Reading section, you will answer questions to demonstrate how well you understand academic and non-academic texts in English. There are three types of tasks.</p>
+
+        <div class="exam-timer-notice-box">
+          <strong>Official Test Duration Note:</strong> In the official ETS TOEFL iBT exam, candidates receive <strong>30 minutes</strong> for the complete Reading Section. For this personalized diagnostic mock test, you are granted extended coaching time of <strong>up to 45 minutes (45:00)</strong> with an active real-time countdown timer to ensure deep analysis and pedagogical review.
+        </div>
+
+        <table class="ets-table">
+          <thead>
+            <tr>
+              <th style="width: 32%;">Type of Task</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Complete the Words</strong></td>
+              <td>Fill in the missing letters in a paragraph.</td>
+            </tr>
+            <tr>
+              <td><strong>Read in Daily Life</strong></td>
+              <td>Answer questions about everyday reading material (emails, announcements, social posts, chats).</td>
+            </tr>
+            <tr>
+              <td><strong>Read an Academic Passage</strong></td>
+              <td>Answer questions about academic passages.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Screen 1: Module 1 Intro -->
+    <section id="screen-m1-intro" class="screen-view">
+      <div class="intro-card">
+        <h1>Module 1</h1>
+        <p>The timer will show you how much time you have to complete your exam session.</p>
+        <p>In an actual test, you <strong>WILL NOT</strong> be able to return to Module 1 once you have begun Module 2.</p>
+      </div>
+    </section>
+
+    <!-- Screen 2: M1 - C-Test (Amazon Rainforest) -->
+    <section id="screen-m1-q1" class="screen-view">
+      <h2 class="task-instruction-header">Fill in the missing letters in the paragraph</h2>
+      <div class="ctest-container">
+        <div class="ctest-paragraph">
+          The Amazon rainforest is one of the most biodiverse regions on Earth. It produ<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="1" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="1" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="1" data-idx="2"></span>
+          a signi<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="4"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="5"></span>
+          amount o<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="3" data-idx="0"></span>
+          the planet's ox<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="4" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="4" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="4" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="4" data-idx="3"></span>
+          and regu<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="4"></span>
+          global tempe<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="4"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="5"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="6"></span>.
+          However, defore<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="7" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="7" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="7" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="7" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="7" data-idx="4"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="7" data-idx="5"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="7" data-idx="6"></span>
+          caused by logg<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="8" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="8" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="8" data-idx="2"></span>,
+          agriculture, and ur<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="2"></span>
+          expansion threa<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="3"></span>
+          this delicate ecosystem. As trees are cut down, many species lose their habitats, and carbon dioxide levels rise. Conservation efforts focus on promoting sustainable practices, reforestation, and international cooperation to protect this vital natural resource for future generations.
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 3: M1 - Notice Item 11 -->
+    <section id="screen-m1-q11" class="screen-view">
+      <h2 class="task-instruction-header">Read a notice</h2>
+      <div class="split-layout">
+        <div class="premium-mail-client">
+          <div class="mail-window-header">
+            <div class="mail-window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="mail-app-badge">Mail Client &bull; Inbox</span>
+            <div style="width: 40px;"></div>
+          </div>
+          <div class="mail-body-content">
+            <div class="mail-subject-heading">Subject: Important update</div>
+            <p>Dear Customers,</p>
+            <p>Starting October 20, all returns must be initiated within 14 days of delivery. Items must be unused, in their original packaging, and accompanied by the receipt. For your convenience, online purchases can now be returned directly to any of our physical stores. Refunds will be processed within 5–7 business days.</p>
+            <p>We appreciate your understanding as we continue to improve your shopping experience.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the main purpose of the notice?</div>
+          <div class="options-list" data-q="m1_11">
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) To clarify how to track shipped orders</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) To thank customers for their recent purchases</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) To inform customers about updated return procedures</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) To remind customers about online shopping benefits</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 4: M1 - Notice Item 12 -->
+    <section id="screen-m1-q12" class="screen-view">
+      <h2 class="task-instruction-header">Read a notice</h2>
+      <div class="split-layout">
+        <div class="premium-mail-client">
+          <div class="mail-window-header">
+            <div class="mail-window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="mail-app-badge">Mail Client &bull; Inbox</span>
+            <div style="width: 40px;"></div>
+          </div>
+          <div class="mail-body-content">
+            <div class="mail-subject-heading">Subject: Important update</div>
+            <p>Dear Customers,</p>
+            <p>Starting October 20, all returns must be initiated within 14 days of delivery. Items must be unused, in their original packaging, and accompanied by the receipt. For your convenience, online purchases can now be returned directly to any of our physical stores. Refunds will be processed within 5–7 business days.</p>
+            <p>We appreciate your understanding as we continue to improve your shopping experience.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What new option is available to customers?</div>
+          <div class="options-list" data-q="m1_12">
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) They can return items after the 14-day period</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) They can exchange items without a receipt</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) They can request a refund by phone only</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) They can return online orders at store locations</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 5: M1 - Announcement Item 13 -->
+    <section id="screen-m1-q13" class="screen-view">
+      <h2 class="task-instruction-header">Read an announcement</h2>
+      <div class="split-layout">
+        <div class="premium-announcement-card">
+          <div class="announcement-top-bar">
+            <span>Corporate Announcement</span>
+            <span>Internal Notice</span>
+          </div>
+          <div class="announcement-inner-body">
+            <div class="announcement-headline">Attention!</div>
+            <p>In an effort to reduce waste, our company is eliminating disposable cups and utensils in the break room. Employees are encouraged to bring reusable mugs and containers.</p>
+            <p>Recycling bins for paper and plastic have also been added on each floor. These small steps will help us lower our environmental impact and create a more sustainable workplace.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the main goal of the new initiative?</div>
+          <div class="options-list" data-q="m1_13">
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) To make the office look more modern</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) To reduce the company’s negative effect on the environment</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) To introduce new rules for employee behavior</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) To promote teamwork through shared spaces</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 6: M1 - Announcement Item 14 -->
+    <section id="screen-m1-q14" class="screen-view">
+      <h2 class="task-instruction-header">Read an announcement</h2>
+      <div class="split-layout">
+        <div class="premium-announcement-card">
+          <div class="announcement-top-bar">
+            <span>Corporate Announcement</span>
+            <span>Internal Notice</span>
+          </div>
+          <div class="announcement-inner-body">
+            <div class="announcement-headline">Attention!</div>
+            <p>In an effort to reduce waste, our company is eliminating disposable cups and utensils in the break room. Employees are encouraged to bring reusable mugs and containers.</p>
+            <p>Recycling bins for paper and plastic have also been added on each floor. These small steps will help us lower our environmental impact and create a more sustainable workplace.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What are employees expected to do under the new policy?</div>
+          <div class="options-list" data-q="m1_14">
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Use their own mugs and containers instead of disposable ones</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) Avoid eating in the office during work hours</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Purchase all their meals from outside vendors</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Bring extra utensils for their coworkers</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 7: M1 - Academic Passage Item 15 -->
+    <section id="screen-m1-q15" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Enigma of Animal Magnetoreception</h2>
+          <div class="passage-paragraphs">
+            <p>Many species, from migratory birds to sea turtles, navigate vast distances with astonishing precision, a feat believed to be enabled by magnetoreception—the ability to detect Earth's magnetic field. The exact biological mechanism, however, remains one of science's most enduring mysteries.</p>
+            <p>One leading hypothesis posits the use of cryptochromes, light-sensitive proteins in the retina that may form a radical pair upon photon absorption, creating a quantum-entangled state whose chemistry is influenced by the geomagnetic field, effectively allowing the animal to "see" magnetic lines as visual patterns.</p>
+            <p>A competing theory suggests the presence of magnetite, a magnetic iron oxide, in certain cells, which could act like a microscopic compass needle, translating magnetic information into neural signals.</p>
+            <p>Intriguingly, these mechanisms are not necessarily mutually exclusive; an organism might employ both for different purposes, such as using a magnetite-based compass for a directional sense and a cryptochrome-based map for positional awareness. Unraveling this sensory modality not only illuminates animal behavior but also pushes the boundaries of biophysics and quantum biology.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the primary purpose of the passage?</div>
+          <div class="options-list" data-q="m1_15">
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) To argue for the superiority of the cryptochrome hypothesis over the magnetite theory.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) To describe competing scientific explanations for a biological navigation ability.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) To detail the migratory patterns of specific bird and turtle species.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) To explain the quantum mechanical principles of radical pairs.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 8: M1 - Academic Passage Item 16 -->
+    <section id="screen-m1-q16" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Enigma of Animal Magnetoreception</h2>
+          <div class="passage-paragraphs">
+            <p>Many species, from migratory birds to sea turtles, navigate vast distances with astonishing precision, a feat believed to be enabled by magnetoreception—the ability to detect Earth's magnetic field. The exact biological mechanism, however, remains one of science's most enduring mysteries.</p>
+            <p>One leading hypothesis <span class="text-target-bold">posits</span> the use of cryptochromes, light-sensitive proteins in the retina that may form a radical pair upon photon absorption, creating a quantum-entangled state whose chemistry is influenced by the geomagnetic field, effectively allowing the animal to "see" magnetic lines as visual patterns.</p>
+            <p>A competing theory suggests the presence of magnetite, a magnetic iron oxide, in certain cells, which could act like a microscopic compass needle, translating magnetic information into neural signals.</p>
+            <p>Intriguingly, these mechanisms are not necessarily mutually exclusive; an organism might employ both for different purposes, such as using a magnetite-based compass for a directional sense and a cryptochrome-based map for positional awareness. Unraveling this sensory modality not only illuminates animal behavior but also pushes the boundaries of biophysics and quantum biology.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">The word "posits" in the passage is closest in meaning to</div>
+          <div class="options-list" data-q="m1_16">
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) disproves.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) questions.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) proposes.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) complicates.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 9: M1 - Academic Passage Item 17 -->
+    <section id="screen-m1-q17" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Enigma of Animal Magnetoreception</h2>
+          <div class="passage-paragraphs">
+            <p>Many species, from migratory birds to sea turtles, navigate vast distances with astonishing precision, a feat believed to be enabled by magnetoreception—the ability to detect Earth's magnetic field. The exact biological mechanism, however, remains one of science's most enduring mysteries.</p>
+            <p>One leading hypothesis posits the use of cryptochromes, light-sensitive proteins in the retina that may form a radical pair upon photon absorption, creating a quantum-entangled state whose chemistry is influenced by the geomagnetic field, effectively allowing the animal to "see" magnetic lines as visual patterns.</p>
+            <p>A competing theory suggests the presence of magnetite, a magnetic iron oxide, in certain cells, which could act like a microscopic compass needle, translating magnetic information into neural signals.</p>
+            <p>Intriguingly, these mechanisms are not necessarily mutually exclusive; an organism might employ both for different purposes, such as using a magnetite-based compass for a directional sense and a cryptochrome-based map for positional awareness. Unraveling this sensory modality not only illuminates animal behavior but also pushes the boundaries of biophysics and quantum biology.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">According to the passage, how might cryptochromes allow an animal to perceive magnetic fields?</div>
+          <div class="options-list" data-q="m1_17">
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) By creating a physical compass needle within the eye.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) By converting magnetic signals directly into sound.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) By influencing visual patterns through quantum chemistry.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) By storing iron oxide particles in retinal cells.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 10: M1 - Academic Passage Item 18 -->
+    <section id="screen-m1-q18" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Enigma of Animal Magnetoreception</h2>
+          <div class="passage-paragraphs">
+            <p>Many species, from migratory birds to sea turtles, navigate vast distances with astonishing precision, a feat believed to be enabled by magnetoreception—the ability to detect Earth's magnetic field. The exact biological mechanism, however, remains one of science's most enduring mysteries.</p>
+            <p>One leading hypothesis posits the use of cryptochromes, light-sensitive proteins in the retina that may form a radical pair upon photon absorption, creating a quantum-entangled state whose chemistry is influenced by the geomagnetic field, effectively allowing the animal to "see" magnetic lines as visual patterns.</p>
+            <p>A competing theory suggests the presence of magnetite, a magnetic iron oxide, in certain cells, which could act like a microscopic compass needle, translating magnetic information into neural signals.</p>
+            <p>Intriguingly, these mechanisms are not necessarily mutually exclusive; an organism might employ both for different purposes, such as using a magnetite-based compass for a directional sense and a cryptochrome-based map for positional awareness. Unraveling this sensory modality not only illuminates animal behavior but also pushes the boundaries of biophysics and quantum biology.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What can be inferred from the statement that the two mechanisms are "not necessarily mutually exclusive"?</div>
+          <div class="options-list" data-q="m1_18">
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Most scientists now agree that magnetite is the primary mechanism.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) An animal could potentially use both a magnetic map and a compass.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) The cryptochrome theory has been definitively proven.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Magnetoreception is a simple, well-understood process.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 11: M1 - Academic Passage Item 19 -->
+    <section id="screen-m1-q19" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Enigma of Animal Magnetoreception</h2>
+          <div class="passage-paragraphs">
+            <p>Many species, from migratory birds to sea turtles, navigate vast distances with astonishing precision, a feat believed to be enabled by magnetoreception—the ability to detect Earth's magnetic field. The exact biological mechanism, however, remains one of science's most enduring mysteries.</p>
+            <p>One leading hypothesis posits the use of cryptochromes, light-sensitive proteins in the retina that may form a radical pair upon photon absorption, creating a quantum-entangled state whose chemistry is influenced by the geomagnetic field, effectively allowing the animal to "see" magnetic lines as visual patterns.</p>
+            <p>A competing theory suggests the presence of magnetite, a magnetic iron oxide, in certain cells, which could act like a microscopic compass needle, translating magnetic information into neural signals.</p>
+            <p>Intriguingly, these mechanisms are not necessarily mutually exclusive; an organism might employ both for different purposes, such as using a magnetite-based compass for a directional sense and a cryptochrome-based map for positional awareness. Unraveling this sensory modality not only illuminates animal behavior but also pushes the boundaries of biophysics and quantum biology.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">The author mentions "biophysics and quantum biology" primarily to</div>
+          <div class="options-list" data-q="m1_19">
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) suggest that magnetoreception is an implausible phenomenon.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) highlight the interdisciplinary significance of the research.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) criticize the complexity of modern scientific theories.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) list the only two fields capable of solving the mystery.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 12: End of Module 1 -->
+    <section id="screen-m1-end" class="screen-view">
+      <div class="intro-card">
+        <h1>End of Module 1</h1>
+        <p>Select <strong>Next</strong> to continue to Module 2.</p>
+        <p style="font-size:17px; color:#64748b;">Notice: The session countdown will continuously track your total remaining test time for Module 2.</p>
+      </div>
+    </section>
+
+    <!-- Screen 13: Module 2 Intro -->
+    <section id="screen-m2-intro" class="screen-view">
+      <div class="intro-card">
+        <h1>Module 2</h1>
+        <p>In this module, you will continue with the second block of reading tasks.</p>
+        <p>Your active exam timer in the top bar indicates your remaining time.</p>
+      </div>
+    </section>
+
+    <!-- Screen 14: M2 - C-Test (Language and Thought) -->
+    <section id="screen-m2-q1" class="screen-view">
+      <h2 class="task-instruction-header">Fill in the missing letters in the paragraph</h2>
+      <div class="ctest-container">
+        <div class="ctest-paragraph">
+          Language plays a crucial role in shaping how humans think and interact. Some lingu<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="1" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="1" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="1" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="1" data-idx="3"></span>
+          argue th<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="2" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="2" data-idx="1"></span>
+          the stru<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="4"></span>
+          of a lan<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="4" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="4" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="4" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="4" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="4" data-idx="4"></span>
+          influences the w<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="5" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="5" data-idx="1"></span>
+          its spea<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="3"></span>
+          perceive the wo<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="7" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="7" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="7" data-idx="2"></span>.
+          For ex<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="8" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="8" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="8" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="8" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="8" data-idx="4"></span>,
+          languages that have m<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="9" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="9" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="9" data-idx="2"></span>
+          words f<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="10" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="10" data-idx="1"></span>
+          colors may help speakers distinguish subtle shades more easily. Others claim that thought exists independently of language. Despite this debate, most researchers agree that language enables abstract thinking, social organization, and the transmission of culture across generations.
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 15: M2 - Post Item 11 -->
+    <section id="screen-m2-q11" class="screen-view">
+      <h2 class="task-instruction-header">Read a post</h2>
+      <div class="split-layout">
+        <div class="premium-post-card">
+          <div class="post-user-header">
+            <div class="avatar-wrapper-real">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=256&q=80" alt="Stella">
+            </div>
+            <div class="post-author-block">
+              <div class="post-author-name">Stella</div>
+            </div>
+          </div>
+          <div class="post-content-body">
+            Just finished my first day volunteering at the animal shelter — what an amazing experience! The staff were welcoming, and the animals are so full of energy. It’s heartbreaking to see how many are waiting for adoption, but the team works hard to find each one a loving home. Can’t wait to go back next weekend!
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the writer’s attitude toward volunteering at the shelter?</div>
+          <div class="options-list" data-q="m2_11">
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) She thinks the work is meaningful but too emotionally difficult.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) She feels grateful for the experience and plans to continue.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) She is still getting used to the new environment.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) She believes the shelter could be better organized.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 16: M2 - Post Item 12 -->
+    <section id="screen-m2-q12" class="screen-view">
+      <h2 class="task-instruction-header">Read a post</h2>
+      <div class="split-layout">
+        <div class="premium-post-card">
+          <div class="post-user-header">
+            <div class="avatar-wrapper-real">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=256&q=80" alt="Stella">
+            </div>
+            <div class="post-author-block">
+              <div class="post-author-name">Stella</div>
+            </div>
+          </div>
+          <div class="post-content-body">
+            Just finished my first day volunteering at the animal shelter — what an amazing experience! The staff were welcoming, and the animals are so full of energy. It’s heartbreaking to see how many are waiting for adoption, but the team works hard to find each one a loving home. Can’t wait to go back next weekend!
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What can be inferred about the animal shelter?</div>
+          <div class="options-list" data-q="m2_12">
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) It limits volunteer participation to special events.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) It mainly focuses on providing medical treatment to animals.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) It recently moved to a new location.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) It depends on volunteers as part of its daily operations.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 17: M2 - Chat Chain Item 13 -->
+    <section id="screen-m2-q13" class="screen-view">
+      <h2 class="task-instruction-header">Read a chain of messages.</h2>
+      <div class="split-layout">
+        <div class="chat-chain-container">
+          <div class="chat-row">
+            <div class="chat-avatar-real">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Liam">
+            </div>
+            <div class="chat-bubble-content">
+              <div class="chat-sender-title">Liam</div>
+              <div class="chat-message-text">Hey, are we still meeting at the café at 5?</div>
+            </div>
+          </div>
+          <div class="chat-row">
+            <div class="chat-avatar-real" style="border-color:#ec4899;">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Nora">
+            </div>
+            <div class="chat-bubble-content">
+              <div class="chat-sender-title">Nora</div>
+              <div class="chat-message-text">Let's make it 5:30. Traffic is awful today.</div>
+            </div>
+          </div>
+          <div class="chat-row">
+            <div class="chat-avatar-real">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Liam">
+            </div>
+            <div class="chat-bubble-content">
+              <div class="chat-sender-title">Liam</div>
+              <div class="chat-message-text">No problem. Should I get us a table?</div>
+            </div>
+          </div>
+          <div class="chat-row">
+            <div class="chat-avatar-real" style="border-color:#ec4899;">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Nora">
+            </div>
+            <div class="chat-bubble-content">
+              <div class="chat-sender-title">Nora</div>
+              <div class="chat-message-text">Yes, please! I'll be there as soon as I can.</div>
+            </div>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What does Liam agree to do?</div>
+          <div class="options-list" data-q="m2_13">
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Arrive first to secure a place for them</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) Wait for Nora outside the café</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Choose the best table</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Change the meeting place</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 18: M2 - Chat Chain Item 14 -->
+    <section id="screen-m2-q14" class="screen-view">
+      <h2 class="task-instruction-header">Read a chain of messages.</h2>
+      <div class="split-layout">
+        <div class="chat-chain-container">
+          <div class="chat-row">
+            <div class="chat-avatar-real">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Liam">
+            </div>
+            <div class="chat-bubble-content">
+              <div class="chat-sender-title">Liam</div>
+              <div class="chat-message-text">Hey, are we still meeting at the café at 5?</div>
+            </div>
+          </div>
+          <div class="chat-row">
+            <div class="chat-avatar-real" style="border-color:#ec4899;">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Nora">
+            </div>
+            <div class="chat-bubble-content">
+              <div class="chat-sender-title">Nora</div>
+              <div class="chat-message-text">Let's make it 5:30. Traffic is awful today.</div>
+            </div>
+          </div>
+          <div class="chat-row">
+            <div class="chat-avatar-real">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Liam">
+            </div>
+            <div class="chat-bubble-content">
+              <div class="chat-sender-title">Liam</div>
+              <div class="chat-message-text">No problem. Should I get us a table?</div>
+            </div>
+          </div>
+          <div class="chat-row">
+            <div class="chat-avatar-real" style="border-color:#ec4899;">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Nora">
+            </div>
+            <div class="chat-bubble-content">
+              <div class="chat-sender-title">Nora</div>
+              <div class="chat-message-text">Yes, please! I'll be there as soon as I can.</div>
+            </div>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">Why is Nora going to arrive later than planned?</div>
+          <div class="options-list" data-q="m2_14">
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) She is worried about the traffic</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) She has another appointment before meeting Liam</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) She's running behind because of traffic</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) She had to take a different route to the café</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 19: M2 - Academic Passage Item 15 -->
+    <section id="screen-m2-q15" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Fallacy of Sunk Costs</h2>
+          <div class="passage-paragraphs">
+            <p>The sunk cost fallacy is a cognitive bias where individuals continue a behavior or endeavor based on previously invested resources (time, money, effort) rather than a rational assessment of future outcomes. This fallacy arises from an emotional aversion to loss, leading people to "throw good money after bad" to avoid feeling that their initial investment was wasted. For instance, someone might sit through a terrible movie because they paid for the ticket, even though leaving would free up time for a more enjoyable activity.</p>
+            <p>Economists argue that rational decision-making requires ignoring sunk costs, as they are irrecoverable and should not factor into marginal decisions.</p>
+            <p>The fallacy has significant implications in business, where projects with diminishing returns are often prolonged due to substantial prior investment, and in public policy, where governments may continue funding failing initiatives to avoid political embarrassment. Overcoming this bias requires a conscious shift in focus from past expenditures to prospective costs and benefits.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">Which of the following best summarizes the main idea of the passage?</div>
+          <div class="options-list" data-q="m2_15">
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Financial investments should always be pursued to completion.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) Emotional attachment to past investments can lead to irrational decisions.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Economists have successfully eliminated the sunk cost fallacy in business.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Public policy is immune to cognitive biases like the sunk cost fallacy.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 20: M2 - Academic Passage Item 16 -->
+    <section id="screen-m2-q16" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Fallacy of Sunk Costs</h2>
+          <div class="passage-paragraphs">
+            <p>The sunk cost fallacy is a cognitive bias where individuals continue a behavior or endeavor based on previously invested resources (time, money, effort) rather than a rational assessment of future outcomes. This fallacy arises from an emotional aversion to loss, leading people to <span class="text-target-bold">"throw good money after bad"</span> to avoid feeling that their initial investment was wasted. For instance, someone might sit through a terrible movie because they paid for the ticket, even though leaving would free up time for a more enjoyable activity.</p>
+            <p>Economists argue that rational decision-making requires ignoring sunk costs, as they are irrecoverable and should not factor into marginal decisions.</p>
+            <p>The fallacy has significant implications in business, where projects with diminishing returns are often prolonged due to substantial prior investment, and in public policy, where governments may continue funding failing initiatives to avoid political embarrassment. Overcoming this bias requires a conscious shift in focus from past expenditures to prospective costs and benefits.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">The phrase "throw good money after bad" in the passage refers to</div>
+          <div class="options-list" data-q="m2_16">
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A)制作 a wise investment based on past success.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) investing more in a failing venture due to prior losses.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) donating money to a charitable cause.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) carefully calculating future returns.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 21: M2 - Academic Passage Item 17 -->
+    <section id="screen-m2-q17" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Fallacy of Sunk Costs</h2>
+          <div class="passage-paragraphs">
+            <p>The sunk cost fallacy is a cognitive bias where individuals continue a behavior or endeavor based on previously invested resources (time, money, effort) rather than a rational assessment of future outcomes. This fallacy arises from an emotional aversion to loss, leading people to "throw good money after bad" to avoid feeling that their initial investment was wasted. For instance, someone might sit through a terrible movie because they paid for the ticket, even though leaving would free up time for a more enjoyable activity.</p>
+            <p>Economists argue that rational decision-making requires ignoring sunk costs, as they are irrecoverable and should not factor into marginal decisions.</p>
+            <p>The fallacy has significant implications in business, where projects with diminishing returns are often prolonged due to substantial prior investment, and in public policy, where governments may continue funding failing initiatives to avoid political embarrassment. Overcoming this bias requires a conscious shift in focus from past expenditures to prospective costs and benefits.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">According to the passage, a rational economic decision is one that</div>
+          <div class="options-list" data-q="m2_17">
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) prioritizes the recovery of all initial costs.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) is based solely on the amount of money already spent.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) considers the emotional weight of past investments.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) focuses on future outcomes, ignoring irrecoverable costs.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 22: M2 - Academic Passage Item 18 -->
+    <section id="screen-m2-q18" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Fallacy of Sunk Costs</h2>
+          <div class="passage-paragraphs">
+            <p>The sunk cost fallacy is a cognitive bias where individuals continue a behavior or endeavor based on previously invested resources (time, money, effort) rather than a rational assessment of future outcomes. This fallacy arises from an emotional aversion to loss, leading people to "throw good money after bad" to avoid feeling that their initial investment was wasted. For instance, someone might sit through a terrible movie because they paid for the ticket, even though leaving would free up time for a more enjoyable activity.</p>
+            <p>Economists argue that rational decision-making requires ignoring sunk costs, as they are irrecoverable and should not factor into marginal decisions.</p>
+            <p>The fallacy has significant implications in business, where projects with diminishing returns are often prolonged due to substantial prior investment, and in public policy, where governments may continue funding failing initiatives to avoid political embarrassment. Overcoming this bias requires a conscious shift in focus from past expenditures to prospective costs and benefits.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">Why does the author mention public policy?</div>
+          <div class="options-list" data-q="m2_18">
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) To provide an example of a domain where the sunk cost fallacy is irrelevant.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) To illustrate the broad applicability and negative consequences of the bias.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) To argue that political embarrassment is a rational reason to continue projects.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) To suggest that governments are better at avoiding the fallacy than businesses.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 23: M2 - Academic Passage Item 19 -->
+    <section id="screen-m2-q19" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Fallacy of Sunk Costs</h2>
+          <div class="passage-paragraphs">
+            <p>The sunk cost fallacy is a cognitive bias where individuals continue a behavior or endeavor based on previously invested resources (time, money, effort) rather than a rational assessment of future outcomes. This fallacy arises from an emotional aversion to loss, leading people to "throw good money after bad" to avoid feeling that their initial investment was wasted. For instance, someone might sit through a terrible movie because they paid for the ticket, even though leaving would free up time for a more enjoyable activity.</p>
+            <p>Economists argue that rational decision-making requires ignoring sunk costs, as they are irrecoverable and should not factor into marginal decisions.</p>
+            <p>The fallacy has significant implications in business, where projects with diminishing returns are often prolonged due to substantial prior investment, and in public policy, where governments may continue funding failing initiatives to avoid political embarrassment. Overcoming this bias requires a conscious shift in focus from past expenditures to prospective costs and benefits.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">It can be inferred from the passage that overcoming the sunk cost fallacy involves</div>
+          <div class="options-list" data-q="m2_19">
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) increasing one's emotional attachment to past decisions.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) conducting a more thorough analysis of already-spent resources.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) re-evaluating decisions based on their future potential.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) avoiding any project that requires significant initial investment.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 24: End of Reading Section -->
+    <section id="screen-m2-end" class="screen-view">
+      <div class="intro-card">
+        <h1>End of Reading Section</h1>
+        <p>Thank you for completing the reading section.</p>
+        <p>Select <strong>Next</strong> to generate your diagnostic assessment score and review pedagogical insights.</p>
+      </div>
+    </section>
+
+    <!-- Screen 25: Diagnostic Evaluation -->
+    <section id="screen-diagnostic" class="screen-view">
+      <div class="diagnostic-panel">
+        <div class="diag-title-area">
+          <h2>TOEFL iBT Reading Diagnostic Report</h2>
+          <p style="color:#64748b; font-size:16px;">Mock Test 1 &bull; Official Modular Assessment</p>
+        </div>
+
+        <div class="score-summary-deck">
+          <div class="score-summary-card">
+            <div class="score-title">Raw Score</div>
+            <div class="score-val" id="diagRaw">0 / 38</div>
+            <div style="font-size:14px; color:#64748b; margin-top:4px;">Total accurate answers</div>
+          </div>
+          <div class="score-summary-card">
+            <div class="score-title">Scaled Score</div>
+            <div class="score-val" id="diagScaled">0 / 30</div>
+            <div style="font-size:14px; color:#64748b; margin-top:4px;">Official ETS Band Conversion</div>
+          </div>
+          <div class="score-summary-card" id="cefrCard">
+            <div class="score-title">CEFR Level</div>
+            <div class="score-val" id="diagCefr" style="font-size:30px;">Below A1</div>
+            <div style="font-size:14px; color:#64748b; margin-top:4px;">International Framework</div>
+          </div>
+        </div>
+
+        <div class="klippy-feedback-wrapper">
+          <div class="klippy-title-row">
+            <span>📎</span> Klippy's Pedagogical Performance Audit
+          </div>
+          <p id="klippyReportSummary" style="color:#1e293b; font-size:17px; line-height:1.65;">
+            Analyzing telemetry, lexical morphology, and context clue discrimination...
+          </p>
+        </div>
+
+        <h3 style="font-size: 22px; font-weight:700; margin-bottom:18px;">Comprehensive Pedagogical Item-by-Item Review</h3>
+        <div class="items-audit-grid" id="auditItemsContainer"></div>
+
+        <div class="actions-footer-container">
+          <button class="finish-action-btn" id="continueListeningBtn" type="button" onclick="goToListeningSection()">
+            Continue to Listening Section &rarr;
+          </button>
+          <button class="secondary-dash-btn" id="returnDashboardBtn" type="button" onclick="goToDashboard()">
+            Return to Mock Dashboard
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Corporate Footer -->
+  <footer class="ets-corporate-footer">
+    <div class="footer-gradient-bar"></div>
+    <div class="footer-content">
+      <div class="footer-author-signature">Dr. Jesús Miguel Lima E.</div>
+      <div class="footer-badges-list">
+        <span class="badge-pill-signature badge-ceo">CEO of JM ELT Solutions</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">Celta &amp; Delta Trainer</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">Exam Trainer</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">Teacher Trainer</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">University Professor</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const ctest1Details = {
+      1: { full: "produces", root: "produ", ans: "ces", clue: "The Amazon rainforest... It produ[ces] a signi[ficant] amount", role: "Third-person singular present verb agreeing with subject 'It' (the rainforest)." },
+      2: { full: "significant", root: "signi", ans: "ficant", clue: "a signi[ficant] amount of the planet's oxygen", role: "Descriptive adjective qualifying 'amount of oxygen' indicating large volume." },
+      3: { full: "of", root: "o", ans: "f", clue: "amount o[f] the planet's oxygen", role: "Structural preposition required to complete the quantifier phrase 'amount of'." },
+      4: { full: "oxygen", root: "ox", ans: "ygen", clue: "the planet's ox[ygen] and regu[lates] global tempe[ratures]", role: "Non-count noun denoting atmospheric gas generated via vegetal respiration." },
+      5: { full: "regulates", root: "regu", ans: "lates", clue: "and regu[lates] global tempe[ratures]", role: "Finite verb parallel to 'produces' with 3rd-person singular suffix '-s'." },
+      6: { full: "temperatures", root: "tempe", ans: "ratures", clue: "global tempe[ratures]", role: "Plural noun referring to global thermal readings across the planet." },
+      7: { full: "deforestation", root: "defore", ans: "station", clue: "However, defore[station] caused by logg[ing]...", role: "Action noun with Latinate suffix '-ation' designating mass forest clearing." },
+      8: { full: "logging", root: "logg", ans: "ing", clue: "caused by logg[ing], agriculture, and ur[ban] expansion", role: "Gerund noun designating commercial timber harvesting." },
+      9: { full: "urban", root: "ur", ans: "ban", clue: "and ur[ban] expansion", role: "Classifying adjective pairing with 'expansion' to indicate residential/city growth." },
+      10: { full: "threatens", root: "threa", ans: "tens", clue: "expansion threa[tens] this delicate ecosystem", role: "Transitive verb taking singular '-s' governed by singular subject 'expansion'." }
+    };
+
+    const ctest2Details = {
+      1: { full: "linguists", root: "lingu", ans: "ists", clue: "Some lingu[ists] argue th[at]...", role: "Plural agent noun designating researchers of human language governed by 'Some'." },
+      2: { full: "that", root: "th", ans: "at", clue: "argue th[at] the stru[cture] of a lan[guage]...", role: "Complementizer conjunction introducing the reported proposition." },
+      3: { full: "structure", root: "stru", ans: "cture", clue: "the stru[cture] of a lan[guage]", role: "Abstract singular noun denoting internal grammar and syntactic framework." },
+      4: { full: "language", root: "lan", ans: "guage", clue: "of a lan[guage] influences the w[ay]...", role: "Core thematic noun denoting human linguistic communication systems." },
+      5: { full: "way", root: "w", ans: "ay", clue: "influences the w[ay] its spea[kers] perceive...", role: "Idiomatic head noun meaning 'manner' or 'cognitive framework'." },
+      6: { full: "speakers", root: "spea", ans: "kers", clue: "its spea[kers] perceive the wo[rld]", role: "Plural agent noun denoting the human users of a given tongue." },
+      7: { full: "world", root: "wo", ans: "rld", clue: "perceive the wo[rld]", role: "Head direct object noun signifying external sensory reality." },
+      8: { full: "example", root: "ex", ans: "ample", clue: "For ex[ample], languages that have m[any]...", role: "Fixed discourse connective 'For example' presenting evidence for relativity." },
+      9: { full: "many", root: "m", ans: "any", clue: "languages that have m[any] words f[or] colors", role: "Quantifier modifying plural countable noun 'words' (Key: 'any')." },
+      10: { full: "for", root: "f", ans: "or", clue: "words f[or] colors", role: "Functional preposition expressing specific designation or semantic domain." }
+    };
+
+    const mcAccurateExplanations = {
+      m1_11: {
+        title: "Notice Purpose (Customer Returns)",
+        citation: "Text: 'Starting October 20, all returns must be initiated within 14 days of delivery... online purchases can now be returned directly to any of our physical stores.'",
+        passRationale: "Outstanding analysis! You pinpointed that the notice functions strictly to announce updated return guidelines (14 days) and in-store physical return drop-offs.",
+        failRationale: "Analysis of Error: The email contains zero instructions for tracking parcel shipments (A) and offers no formal customer gratitude (B). Option (C) is the only accurate summary because every line outlines revised policies and physical drop-off procedures."
+      },
+      m1_12: {
+        title: "Notice Detail (New Customer Option)",
+        citation: "Text: 'For your convenience, online purchases can now be returned directly to any of our physical stores.'",
+        passRationale: "Precise text retrieval! You correctly located the explicit sentence introducing in-person physical store drop-offs for digital purchases.",
+        failRationale: "Analysis of Error: Notice the strict criteria: items cannot be returned after 14 days (A), receipts are strictly required (B), and phone refunds are never stated (C). Option (D) matches the exact service newly introduced in paragraph 2."
+      },
+      m1_13: {
+        title: "Announcement Goal (Eco-friendly Workplace)",
+        citation: "Text: 'These small steps will help us lower our environmental impact and create a more sustainable workplace.'",
+        passRationale: "Superb macro-comprehension! You recognized that removing disposable utensils and deploying recycling bins serves the single stated purpose of lessening the company's ecological footprint.",
+        failRationale: "Analysis of Error: The memo makes no mention of interior office aesthetics (A) or behavioral penalties (C). The closing sentence defines the explicit mission: lowering corporate environmental impact (B)."
+      },
+      m1_14: {
+        title: "Announcement Expectation (Employee Actions)",
+        citation: "Text: 'Employees are encouraged to bring reusable mugs and containers.'",
+        passRationale: "Direct factual hit! You accurately identified that workers are requested to bring personal washable drinkware and food containers from home.",
+        failRationale: "Analysis of Error: The company does not prohibit eating at work (B) nor require buying food from external catering (C). The actionable directive for employees is to use personal reusable mugs and containers (A)."
+      },
+      m1_15: {
+        title: "Academic Passage Purpose (Animal Magnetoreception)",
+        citation: "Text: 'One leading hypothesis posits the use of cryptochromes... A competing theory suggests the presence of magnetite...'",
+        passRationale: "Flawless rhetorical mapping! You recognized that the author objectively contrasts two competing hypotheses explaining biological magnetic detection.",
+        failRationale: "Analysis of Error: The author never claims cryptochromes are superior (A) and does not map geographic flight paths of birds (C). The entire text is structured to present competing explanations for magnetoreception (B)."
+      },
+      m1_16: {
+        title: "Academic Vocabulary in Context ('posits')",
+        citation: "Text: 'One leading hypothesis posits the use of cryptochromes, light-sensitive proteins in the retina...'",
+        passRationale: "Sharp semantic precision! In scientific methodology, to 'posit' an explanation is to propose or advance a hypothesis as a starting point for evaluation.",
+        failRationale: "Analysis of Error: Hypotheses do not 'disprove' (A) or 'complicate' (D) their own frameworks. The text introduces a theoretical model; hence, it 'proposes' (C) cryptochromes as the explanatory mechanism."
+      },
+      m1_17: {
+        title: "Academic Factual Detail (Cryptochrome Mechanism)",
+        citation: "Text: '...creating a quantum-entangled state whose chemistry is influenced by the geomagnetic field, effectively allowing the animal to \"see\" magnetic lines as visual patterns.'",
+        passRationale: "High-level scientific comprehension! You traced the biochemical radical pair pathway to its stated manifestation: perceiving visual patterns.",
+        failRationale: "Analysis of Error: Compass needles pertain to magnetite, not cryptochromes (A), and sonic conversion is completely absent (B). The passage states that quantum biochemical reactions allow the animal to see visual patterns (C)."
+      },
+      m1_18: {
+        title: "Academic Inference ('Not Mutually Exclusive')",
+        citation: "Text: '...an organism might employ both for different purposes, such as using a magnetite-based compass for a directional sense and a cryptochrome-based map for positional awareness.'",
+        passRationale: "Exceptional deductive logic! 'Not mutually exclusive' indicates that both sensory systems can operate simultaneously to provide complementary positional and directional data.",
+        failRationale: "Analysis of Error: The phrase does not imply unanimous scientific consensus (A) or definitive empirical proof (C). It logically means an animal could use both mechanisms in tandem for different navigation tasks (B)."
+      },
+      m1_19: {
+        title: "Academic Rhetorical Purpose (Biophysics & Quantum Biology)",
+        citation: "Text: 'Unraveling this sensory modality not only illuminates animal behavior but also pushes the boundaries of biophysics and quantum biology.'",
+        passRationale: "Insightful conclusion reading! You recognized that invoking subatomic physics illustrates how biological discoveries cross over and advance other scientific disciplines.",
+        failRationale: "Analysis of Error: The author does not assert that magnetoreception is impossible (A) or that only two sciences can solve it (D). The mention demonstrates the far-reaching interdisciplinary significance of the phenomenon (B)."
+      },
+      m2_11: {
+        title: "Social Post Attitude (Shelter Volunteering)",
+        citation: "Text: '...what an amazing experience!... but the team works hard to find each one a loving home. Can't wait to go back next weekend!'",
+        passRationale: "Exact emotional evaluation! Stella's enthusiastic praise and eager anticipation of returning prove she values the work and intends to stay involved.",
+        failRationale: "Analysis of Error: Stella does not find the work too overwhelming to continue (A), nor is she detached (C). Her explicit declaration 'Can't wait to go back next weekend!' validates gratitude and commitment to continue (B)."
+      },
+      m2_12: {
+        title: "Social Post Inference (Shelter Operations)",
+        citation: "Text: '...it's heartbreaking to see how many are waiting for adoption, but the team works hard to find each one a loving home. Can't wait to go back next weekend!'",
+        passRationale: "Nuanced operational deduction! Welcoming community members to assist with the substantial population of shelter animals indicates that regular operations rely heavily on volunteer staffing.",
+        failRationale: "Analysis of Error: Stella is participating on a normal weekend, disproving special event limits (A), and medical treatments are not the central topic (B). The steady inflow of animals needing homes establishes reliance on volunteer aid (D)."
+      },
+      m2_13: {
+        title: "Chat Chain Agreement (Liam's Table Request)",
+        citation: "Text: 'Liam: Should I get us a table? / Nora: Yes, please! I'll be there as soon as I can.'",
+        passRationale: "Practical communicative mastery! You tracked the interaction: since Liam arrives earlier, he secures a table for both of them.",
+        failRationale: "Analysis of Error: Liam does not propose waiting outdoors in the cold (B) or relocating to a new venue (D). His inquiry about getting a table is affirmed by Nora, confirming he will arrive first to secure seating (A)."
+      },
+      m2_14: {
+        title: "Chat Chain Cause & Effect (Nora's Delay)",
+        citation: "Text: 'Nora: Let's make it 5:30. Traffic is awful today.'",
+        passRationale: "Direct causality identification! Nora clearly cites heavy vehicular traffic as the cause forcing her to push back the meetup by thirty minutes.",
+        failRationale: "Analysis of Error: Nora does not cite another appointment (B) or an altered travel route (D). She states plainly that 'traffic is awful today', which is making her run behind schedule (C)."
+      },
+      m2_15: {
+        title: "Academic Main Idea (Sunk Cost Fallacy)",
+        citation: "Text: 'The sunk cost fallacy is a cognitive bias where individuals continue a behavior or endeavor based on previously invested resources... This fallacy arises from an emotional aversion to loss...'",
+        passRationale: "Exemplary macro-synthesis! You captured the central argument: irrational human persistence in failing projects is driven by emotional attachment to sunk investments.",
+        failRationale: "Analysis of Error: Economists have not eliminated the bias (C), and completing bad investments is never recommended (A). The passage focuses on how emotional reluctance to accept past losses leads to irrational actions (B)."
+      },
+      m2_16: {
+        title: "Academic Idiom in Context ('Throw good money after bad')",
+        citation: "Text: '...leading people to \"throw good money after bad\" to avoid feeling that their initial investment was wasted.'",
+        passRationale: "Precise idiomatic decoding! The expression describes squandering additional resources on a failing project purely to mask or deny an earlier financial error.",
+        failRationale: "Analysis of Error: This idiom has nothing to do with philanthropy (C) or careful financial forecasting (D). It specifically denotes continuing to pour capital into a failing endeavor because of prior losses (B)."
+      },
+      m2_17: {
+        title: "Academic Factual Detail (Rational Economic Decision)",
+        citation: "Text: 'Economists argue that rational decision-making requires ignoring sunk costs, as they are irrecoverable and should not factor into marginal decisions.'",
+        passRationale: "Flawless economic deduction! A rational decision isolates forward-looking costs and returns, completely ignoring unrecoverable past investments.",
+        failRationale: "Analysis of Error: Standard economics explicitly advises against trying to recover historical costs at all costs (A). A truly rational decision looks only at future marginal outcomes, ignoring sunk costs (D)."
+      },
+      m2_18: {
+        title: "Academic Rhetorical Purpose (Public Policy Mention)",
+        citation: "Text: '...and in public policy, where governments may continue funding failing initiatives to avoid political embarrassment.'",
+        passRationale: "Sharp structural analysis! Introducing state governance illustrates that the sunk cost fallacy is not merely a personal flaw, but an institutional pitfall causing massive societal waste.",
+        failRationale: "Analysis of Error: The text does not claim public policy is free from cognitive biases (D), nor that political face-saving is rational (C). It mentions public policy to prove how widespread and damaging this bias is across major sectors (B)."
+      },
+      m2_19: {
+        title: "Academic Inference (Overcoming the Fallacy)",
+        citation: "Text: 'Overcoming this bias requires a conscious shift in focus from past expenditures to prospective costs and benefits.'",
+        passRationale: "Insightful inferential synthesis! Escaping this psychological trap demands discarding past emotional baggage and assessing choices solely on prospective utility.",
+        failRationale: "Analysis of Error: Clinging to past decisions (A) or fixating on past receipts (B) reinforces the trap. Overcoming the bias requires re-evaluating choices strictly on their future potential (C)."
+      }
+    };
+
+    const testScreens = [
+      { id: 'screen-welcome', module: 0, subbar: 'Overview', showTimer: true, allowBack: false, nextLabel: 'Begin >' },
+      { id: 'screen-m1-intro', module: 1, subbar: 'Module 1 Directions', showTimer: true, allowBack: false, nextLabel: 'Begin >' },
+      { id: 'screen-m1-q1', module: 1, subbar: 'Questions 1–10 of 19', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-m1-q11', module: 1, subbar: 'Question 11 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q12', module: 1, subbar: 'Question 12 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q13', module: 1, subbar: 'Question 13 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q14', module: 1, subbar: 'Question 14 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q15', module: 1, subbar: 'Question 15 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q16', module: 1, subbar: 'Question 16 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q17', module: 1, subbar: 'Question 17 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q18', module: 1, subbar: 'Question 18 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q19', module: 1, subbar: 'Question 19 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-end', module: 1, subbar: 'End of Module 1', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-m2-intro', module: 2, subbar: 'Module 2 Directions', showTimer: true, allowBack: false, nextLabel: 'Begin >' },
+      { id: 'screen-m2-q1', module: 2, subbar: 'Questions 1–10 of 19', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-m2-q11', module: 2, subbar: 'Question 11 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q12', module: 2, subbar: 'Question 12 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q13', module: 2, subbar: 'Question 13 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q14', module: 2, subbar: 'Question 14 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q15', module: 2, subbar: 'Question 15 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q16', module: 2, subbar: 'Question 16 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q17', module: 2, subbar: 'Question 17 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q18', module: 2, subbar: 'Question 18 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q19', module: 2, subbar: 'Question 19 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-end', module: 2, subbar: 'End of Reading Section', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-diagnostic', module: 3, subbar: 'Diagnostic Evaluation', showTimer: false, allowBack: false, nextLabel: 'Next >' }
+    ];
+
+    let currentScreenIndex = 0;
+
+    const officialKey = {
+      m1_c: { 1: "ces", 2: "ficant", 3: "f", 4: "ygen", 5: "lates", 6: "ratures", 7: "station", 8: "ing", 9: "ban", 10: "tens" },
+      m1_mc: { m1_11: "C", m1_12: "D", m1_13: "B", m1_14: "A", m1_15: "B", m1_16: "C", m1_17: "C", m1_18: "B", m1_19: "B" },
+      m2_c: { 1: "ists", 2: "at", 3: "cture", 4: "guage", 5: "ay", 6: "kers", 7: "rld", 8: "ample", 9: "any", 10: "or" },
+      m2_mc: { m2_11: "B", m2_12: "D", m2_13: "A", m2_14: "C", m2_15: "B", m2_16: "B", m2_17: "D", m2_18: "B", m2_19: "C" }
+    };
+
+    const userAnswers = {
+      m1_c: {},
+      m1_mc: {},
+      m2_c: {},
+      m2_mc: {}
+    };
+
+    let timeRemaining = 45 * 60;
+    let timerInterval = null;
+    let isTimerVisible = true;
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        if (timeRemaining > 0) {
+          timeRemaining--;
+          updateTimerDisplay();
+        } else {
+          clearInterval(timerInterval);
+          handleTimeExpired();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const minutes = Math.floor(timeRemaining / 60);
+      const seconds = timeRemaining % 60;
+      const formatted = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      const elem = document.getElementById('timerText');
+      const pill = document.getElementById('timerPill');
+      if (elem) elem.textContent = formatted;
+
+      if (timeRemaining <= 180 && pill) {
+        pill.classList.add('time-warning');
+      }
+    }
+
+    function toggleTimerVisibility() {
+      const pill = document.getElementById('timerPill');
+      const btn = document.getElementById('toggleTimerBtn');
+      isTimerVisible = !isTimerVisible;
+      if (isTimerVisible) {
+        pill.style.visibility = 'visible';
+        btn.textContent = 'Hide Time';
+      } else {
+        pill.style.visibility = 'hidden';
+        btn.textContent = 'Show Time';
+      }
+    }
+
+    function handleTimeExpired() {
+      alert("Session time has concluded. Transitioning to your comprehensive diagnostic report.");
+      goToScreen(25);
+    }
+
+    function setupCTestListeners() {
+      const inputs = document.querySelectorAll('.char-input');
+      inputs.forEach((input, index) => {
+        input.addEventListener('input', (e) => {
+          const val = e.target.value.toLowerCase();
+          const sec = e.target.getAttribute('data-sec');
+          const word = e.target.getAttribute('data-word');
+          const idx = e.target.getAttribute('data-idx');
+
+          const dict = sec === 'm1' ? userAnswers.m1_c : userAnswers.m2_c;
+          if (!dict[word]) dict[word] = [];
+          dict[word][idx] = val;
+
+          if (val && index < inputs.length - 1) {
+            inputs[index + 1].focus();
+          }
+        });
+
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && !input.value && index > 0) {
+            inputs[index - 1].focus();
+          }
+        });
+      });
+    }
+
+    function selectOption(qKey, val, element) {
+      if (qKey.startsWith('m1_')) {
+        userAnswers.m1_mc[qKey] = val;
+      } else {
+        userAnswers.m2_mc[qKey] = val;
+      }
+      const parent = element.closest('.options-list');
+      parent.querySelectorAll('.option-btn-row').forEach(row => row.classList.remove('selected'));
+      element.classList.add('selected');
+    }
+
+    function updateScreenView() {
+      const cfg = testScreens[currentScreenIndex];
+
+      document.querySelectorAll('.screen-view').forEach(s => s.classList.remove('active'));
+      const activeEl = document.getElementById(cfg.id);
+      if (activeEl) activeEl.classList.add('active');
+
+      document.getElementById('subbarProgress').textContent = cfg.subbar;
+      const nextBtn = document.getElementById('navNextBtn');
+      const backBtn = document.getElementById('navBackBtn');
+
+      nextBtn.textContent = cfg.nextLabel;
+      nextBtn.disabled = false;
+      backBtn.disabled = !cfg.allowBack;
+
+      const timerPill = document.getElementById('timerPill');
+      const toggleBtn = document.getElementById('toggleTimerBtn');
+
+      if (cfg.showTimer) {
+        timerPill.style.display = 'flex';
+        toggleBtn.style.display = 'inline-flex';
+        if (!timerInterval) startTimer();
+      } else {
+        timerPill.style.display = 'none';
+        toggleBtn.style.display = 'none';
+      }
+
+      if (cfg.id === 'screen-diagnostic') {
+        renderDiagnostics();
+        nextBtn.style.display = 'none';
+        backBtn.style.display = 'none';
+      } else {
+        nextBtn.style.display = 'inline-flex';
+        backBtn.style.display = 'inline-flex';
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goToScreen(idx) {
+      if (idx >= 0 && idx < testScreens.length) {
+        currentScreenIndex = idx;
+        updateScreenView();
+      }
+    }
+
+    function handleNavigationNext() {
+      if (currentScreenIndex < testScreens.length - 1) {
+        goToScreen(currentScreenIndex + 1);
+      }
+    }
+
+    function handleNavigationBack() {
+      const cfg = testScreens[currentScreenIndex];
+      if (cfg.allowBack && currentScreenIndex > 0) {
+        goToScreen(currentScreenIndex - 1);
+      }
+    }
+
+    function goToListeningSection() {
+      window.location.href = 'listening-mock01.html';
+    }
+
+    function goToDashboard() {
+      window.location.href = 'index.html';
+    }
+
+    function calculateStrictScore(rawScore) {
+      const scaledScore = Math.round((rawScore / 38) * 30);
+      
+      let cefr = "";
+      let levelDesc = "";
+      let feedbackTone = "";
+
+      if (rawScore === 0) {
+        cefr = "Below A1";
+        levelDesc = "No Scored Proficiency";
+        feedbackTone = "No responses were answered correctly. A score of 0 indicates that baseline language proficiency could not be measured on this evaluation.";
+      } else if (scaledScore <= 3) {
+        cefr = "A1";
+        levelDesc = "Breakthrough / Beginner";
+        feedbackTone = "Emergent recognition of isolated vocabulary, but insufficient comprehension for academic or structured texts.";
+      } else if (scaledScore <= 8) {
+        cefr = "A2";
+        levelDesc = "Waystage / Elementary";
+        feedbackTone = "Can identify basic factual notices and short everyday sentences, but encounters substantial difficulty with contextual morphology and academic reasoning.";
+      } else if (scaledScore <= 14) {
+        cefr = "B1";
+        levelDesc = "Threshold / Intermediate";
+        feedbackTone = "Satisfactory grasp of routine everyday texts and clear factual announcements. Needs further development in synthesizing complex academic arguments and low-frequency collocations.";
+      } else if (scaledScore <= 23) {
+        cefr = "B2";
+        levelDesc = "Vantage / Upper-Intermediate";
+        feedbackTone = "Solid, independent reading proficiency. Accurately identifies author intentions, paragraph structures, and contextual nuances in academic passages with minor gaps in high-level inference.";
+      } else if (scaledScore <= 28) {
+        cefr = "C1";
+        levelDesc = "Effective Operational Proficiency / Advanced";
+        feedbackTone = "Exceptional analytical mastery. Demonstrates fluent word restoration and subtle distractor discrimination across both colloquial and demanding academic domains.";
+      } else {
+        cefr = "C2";
+        levelDesc = "Mastery / Fluent";
+        feedbackTone = "Flawless score execution reflecting native or near-native academic reading mastery under standard standardized time pressure.";
+      }
+
+      return { scaledScore, cefr, levelDesc, feedbackTone };
+    }
+
+    function evaluateExam() {
+      let rawScore = 0;
+      const itemAudits = [];
+
+      for (let i = 1; i <= 10; i++) {
+        const u = (userAnswers.m1_c[i] || []).join('');
+        const c = officialKey.m1_c[i];
+        const isPass = u.toLowerCase() === c.toLowerCase();
+        if (isPass) rawScore++;
+        const info = ctest1Details[i];
+        itemAudits.push({
+          num: `M1 Q${i}`,
+          label: `Complete the Words: "${info.root}${info.ans}"`,
+          user: u || '(blank)',
+          correct: c,
+          isPass: isPass,
+          citation: `Context: "${info.clue}..."`,
+          exp: isPass 
+            ? `Appraisal: Flawless morphological restoration! You accurately formed the word "${info.full}". Role: ${info.role}`
+            : `Correction: Expected missing letters "${info.ans}" to complete the target word "${info.full}". Role: ${info.role}. Your input was "${u || '(blank)'}".`
+        });
+      }
+
+      for (let k in officialKey.m1_mc) {
+        const u = userAnswers.m1_mc[k] || '(none)';
+        const c = officialKey.m1_mc[k];
+        const isPass = u === c;
+        if (isPass) rawScore++;
+        const itemMeta = mcAccurateExplanations[k];
+        itemAudits.push({
+          num: `M1 ${k.replace('m1_', 'Q')}`,
+          label: itemMeta.title,
+          user: u,
+          correct: c,
+          isPass: isPass,
+          citation: itemMeta.citation,
+          exp: isPass ? itemMeta.passRationale : itemMeta.failRationale
+        });
+      }
+
+      for (let i = 1; i <= 10; i++) {
+        const u = (userAnswers.m2_c[i] || []).join('');
+        const c = officialKey.m2_c[i];
+        const isPass = u.toLowerCase() === c.toLowerCase();
+        if (isPass) rawScore++;
+        const info = ctest2Details[i];
+        itemAudits.push({
+          num: `M2 Q${i}`,
+          label: `Complete the Words: "${info.root}${info.ans}"`,
+          user: u || '(blank)',
+          correct: c,
+          isPass: isPass,
+          citation: `Context: "${info.clue}..."`,
+          exp: isPass 
+            ? `Appraisal: Precise lexical reconstruction! You correctly built "${info.full}". Role: ${info.role}`
+            : `Correction: Expected missing letters "${info.ans}" to complete "${info.full}". Role: ${info.role}. Your input was "${u || '(blank)'}".`
+        });
+      }
+
+      for (let k in officialKey.m2_mc) {
+        const u = userAnswers.m2_mc[k] || '(none)';
+        const c = officialKey.m2_mc[k];
+        const isPass = u === c;
+        if (isPass) rawScore++;
+        const itemMeta = mcAccurateExplanations[k];
+        itemAudits.push({
+          num: `M2 ${k.replace('m2_', 'Q')}`,
+          label: itemMeta.title,
+          user: u,
+          correct: c,
+          isPass: isPass,
+          citation: itemMeta.citation,
+          exp: isPass ? itemMeta.passRationale : itemMeta.failRationale
+        });
+      }
+
+      const scoreData = calculateStrictScore(rawScore);
+      return { 
+        rawScore, 
+        scaledScore: scoreData.scaledScore, 
+        cefr: scoreData.cefr, 
+        levelDesc: scoreData.levelDesc, 
+        feedbackTone: scoreData.feedbackTone, 
+        itemAudits 
+      };
+    }
+
+    function renderDiagnostics() {
+      const results = evaluateExam();
+
+      document.getElementById('diagRaw').textContent = `${results.rawScore} / 38`;
+      document.getElementById('diagScaled').textContent = `${results.scaledScore} / 30`;
+      document.getElementById('diagCefr').textContent = `${results.cefr}`;
+      
+      const cefrCard = document.getElementById('cefrCard');
+      if (results.rawScore === 0) {
+        cefrCard.classList.add('below-a1');
+      } else {
+        cefrCard.classList.remove('below-a1');
+      }
+
+      localStorage.setItem('toefl_reading_score_01', results.scaledScore);
+      localStorage.setItem('toefl_reading_raw_01', results.rawScore);
+      localStorage.setItem('toefl_mock01_status', 'reading_done');
+
+      const klippySummary = document.getElementById('klippyReportSummary');
+      klippySummary.textContent = `${results.feedbackTone} Official Level: ${results.cefr} (${results.levelDesc}). Review the comprehensive item analysis below to identify exact textual justifications and distractor mechanics.`;
+
+      const container = document.getElementById('auditItemsContainer');
+      container.innerHTML = '';
+
+      results.itemAudits.forEach(item => {
+        const row = document.createElement('div');
+        row.className = `audit-row-card ${item.isPass ? 'pass' : 'fail'}`;
+        row.innerHTML = `
+          <div class="audit-head">
+            <span>${item.num}: ${item.label}</span>
+            <span style="color:${item.isPass ? '#10b981' : '#ef4444'}">${item.isPass ? '✔ Correct (+1 Pt)' : '✘ Incorrect (0 Pts)'}</span>
+          </div>
+          <div class="audit-user-row">
+            <strong>Your Answer:</strong> <span style="font-family:var(--font-mono); font-weight:700;">${item.user}</span> &nbsp;|&nbsp; 
+            <strong>Official Key:</strong> <span style="font-family:var(--font-mono); font-weight:700; color:var(--ets-teal);">${item.correct}</span>
+          </div>
+          <div class="audit-quote-citation">${item.citation}</div>
+          <div class="audit-explanation-block">
+            <strong>Pedagogical Analysis:</strong> ${item.exp}
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setupCTestListeners();
+      updateScreenView();
+      updateTimerDisplay();
+      startTimer();
+    });
+  </script>
+</body>
+</html>

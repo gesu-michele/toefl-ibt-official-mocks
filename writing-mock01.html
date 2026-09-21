@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOEFL iBT Writing Section - Official ETS Simulation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ets-teal: #005d5d;
+      --ets-teal-dark: #004444;
+      --ets-teal-light: #4ecdc4;
+      --ets-canvas: #f8fafc;
+      --border-main: #cbd5e1;
+      --border-subtle: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-blue: #2563eb;
+      --accent-gold: #d4af37;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: text;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-main);
+      background-color: var(--ets-canvas);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header.ets-header {
+      height: 68px;
+      background-color: var(--ets-teal);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 32px;
+      gap: 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .ets-pill-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ets-teal);
+      background: #ffffff;
+      border: 2px solid #ffffff;
+      border-radius: 9999px;
+      padding: 8px 24px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .ets-pill-btn:hover {
+      background: #f1f5f9;
+      transform: translateY(-1px);
+    }
+
+    .ets-pill-btn-outline {
+      background: transparent;
+      color: #ffffff;
+      border-color: #ffffff;
+    }
+
+    .ets-pill-btn-outline:hover {
+      background: rgba(255,255,255,0.15);
+      color: #ffffff;
+    }
+
+    .ets-subheader {
+      height: 52px;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-main);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    .ets-breadcrumb {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .ets-timer-capsule {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .timer-display {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+      min-width: 80px;
+    }
+
+    .hide-toggle {
+      font-size: 15px;
+      color: var(--ets-teal);
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 500;
+    }
+
+    .hide-toggle:hover {
+      text-decoration: underline;
+    }
+
+    main.ets-main {
+      flex: 1;
+      max-width: 1240px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 24px 60px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .view-screen {
+      display: none;
+      width: 100%;
+      animation: fadeIn 0.25s ease-out;
+    }
+
+    .view-screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ets-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .ets-divider {
+      height: 2px;
+      background-color: var(--border-subtle);
+      border: none;
+      margin-bottom: 28px;
+    }
+
+    .ets-table {
+      width: 100%;
+      max-width: 720px;
+      border-collapse: collapse;
+      margin-top: 24px;
+      border: 2px solid #a25527;
+      background: #ffffff;
+    }
+
+    .ets-table th {
+      background-color: #f7a66d;
+      color: #000000;
+      font-weight: 700;
+      text-align: left;
+      padding: 14px 20px;
+      border: 1px solid #a25527;
+    }
+
+    .ets-table td {
+      padding: 14px 20px;
+      border: 1px solid #a25527;
+      font-size: 18px;
+    }
+
+    .bas-container {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid var(--border-main);
+      padding: 40px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .bas-dialogue {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 32px 0;
+    }
+
+    .chat-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .chat-avatar {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: 3px solid #2dd4bf;
+      padding: 2px;
+      object-fit: cover;
+      object-position: center 20%;
+      flex-shrink: 0;
+    }
+
+    .chat-bubble-text {
+      font-size: 22px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .response-construction {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .drop-slot {
+      min-width: 110px;
+      height: 48px;
+      border-bottom: 3px solid #0f172a;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+      font-weight: 600;
+      color: var(--ets-teal-dark);
+      cursor: pointer;
+      background: #f8fafc;
+      transition: background 0.15s;
+    }
+
+    .drop-slot.filled {
+      background: #e6fffa;
+      border-color: var(--ets-teal);
+    }
+
+    .word-pool {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      background: #f1f5f9;
+      padding: 24px;
+      border-radius: 12px;
+    }
+
+    .word-tile {
+      background: #ffffff;
+      border: 2px solid var(--border-main);
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 19px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      transition: all 0.15s ease;
+    }
+
+    .word-tile:hover {
+      border-color: var(--ets-teal);
+      transform: translateY(-2px);
+    }
+
+    .word-tile.used {
+      opacity: 0.3;
+      pointer-events: none;
+      text-decoration: line-through;
+    }
+
+    .dual-pane {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 32px;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid var(--border-main);
+      padding: 32px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .left-prompt-pane {
+      padding-right: 16px;
+      border-right: 1px solid var(--border-subtle);
+    }
+
+    .professor-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .professor-avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 28px;
+      object-fit: cover;
+      object-position: center 20%;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+      margin-bottom: 12px;
+    }
+
+    .student-dialogue-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .student-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: #f8fafc;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .student-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 26px;
+      object-fit: cover;
+      object-position: center 20%;
+      flex-shrink: 0;
+    }
+
+    .editor-pane {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .editor-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .editor-btn-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .editor-btn {
+      background: #e2e8f0;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .writing-textarea {
+      width: 100%;
+      height: 380px;
+      padding: 18px;
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      border: 2px solid var(--border-main);
+      border-radius: 10px;
+      resize: vertical;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .writing-textarea:focus {
+      border-color: var(--ets-teal);
+      box-shadow: 0 0 0 3px rgba(0, 93, 93, 0.15);
+    }
+
+    .report-card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border-main);
+      padding: 32px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+
+    .model-box {
+      background: #f0fdf4;
+      border-left: 5px solid var(--accent-green);
+      padding: 20px;
+      border-radius: 6px;
+      margin-top: 16px;
+      display: none;
+    }
+
+    .ai-feedback-container {
+      background: #f0fdfa;
+      border: 2px solid #5eead4;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+
+    .score-badge-band {
+      display: inline-block;
+      background: #005d5d;
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    footer.signature-footer {
+      margin-top: auto;
+      background: #ffffff;
+      width: 100%;
+    }
+
+    .sig-top-lines {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sig-line-dark {
+      height: 8px;
+      background-color: #0b5052;
+      width: 100%;
+    }
+
+    .sig-line-gold {
+      height: 6px;
+      background-color: #c5a059;
+      width: 100%;
+    }
+
+    .sig-content-area {
+      padding: 36px 20px 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .sig-title-name {
+      font-family: 'Caveat', cursive, sans-serif;
+      font-size: 58px;
+      font-weight: 700;
+      color: #0d5f5f;
+      letter-spacing: 0.5px;
+      margin-bottom: 22px;
+      line-height: 1;
+    }
+
+    .sig-badge-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .sig-pill-highlight {
+      background-color: #e6f6f5;
+      color: #0a5658;
+      border: 1.5px solid #62b6b7;
+      padding: 8px 22px;
+      border-radius: 9999px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .sig-dot-separator {
+      width: 7px;
+      height: 7px;
+      background-color: #d1a85b;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .sig-pill-standard {
+      background-color: #ffffff;
+      color: #0f172a;
+      border: 1.5px solid #cbd5e1;
+      padding: 8px 20px;
+      border-radius: 9999px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="ets-header">
+    <button class="ets-pill-btn ets-pill-btn-outline" id="btn-back" style="display: none;" onclick="handleBackAction()">
+      &lt; Back
+    </button>
+    <button class="ets-pill-btn" id="btn-primary-nav" onclick="handlePrimaryNavAction()">
+      Continue &gt;
+    </button>
+  </header>
+
+  <div class="ets-subheader">
+    <div class="ets-breadcrumb" id="header-breadcrumb">Writing</div>
+    <div class="ets-timer-capsule" id="header-timer-capsule" style="display: none;">
+      <span class="timer-display" id="time-display">00:00</span>
+      <button class="hide-toggle" id="btn-toggle-timer" onclick="toggleTimerVisibility()">Hide Time</button>
+    </div>
+  </div>
+
+  <main class="ets-main">
+
+    <!-- Screen 0: Overview Intro -->
+    <section class="view-screen active" id="view-intro">
+      <h1 class="ets-title">Writing</h1>
+      <hr class="ets-divider">
+      <p style="font-size: 20px; margin-bottom: 24px;">
+        In the writing section, you will answer 12 questions to demonstrate how well you can write in English. There are three types of tasks.
+      </p>
+      <table class="ets-table">
+        <thead>
+          <tr>
+            <th style="width: 40%;">Type of Task</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Build a Sentence</strong></td>
+            <td>Create a grammatical sentence.</td>
+          </tr>
+          <tr>
+            <td><strong>Write an Email</strong></td>
+            <td>Write an email using information provided.</td>
+          </tr>
+          <tr>
+            <td><strong>Write for an Academic Discussion</strong></td>
+            <td>Participate in an online discussion.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Screen 1: Build a Sentence Transition Cover -->
+    <section class="view-screen" id="view-cover-bas">
+      <h1 class="ets-title">Build a Sentence</h1>
+      <hr class="ets-divider">
+      <p style="font-size: 20px; margin-bottom: 16px;">Move the words in the boxes to create grammatical sentences.</p>
+      <p style="font-size: 20px; color: var(--text-muted);">
+        Official timing: <strong>4 minutes</strong>. Practice mode: <strong>10 minutes</strong>.
+      </p>
+    </section>
+
+    <!-- Screen 2: Build a Sentence (Interactive 10 Questions) -->
+    <section class="view-screen" id="view-bas">
+      <div class="bas-container">
+        <h2 style="font-size: 28px; margin-bottom: 24px; text-align: center;">Make an appropriate sentence</h2>
+        
+        <div class="bas-dialogue">
+          <div class="chat-row">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=256&q=80" alt="Speaker 1" class="chat-avatar">
+            <div class="chat-bubble-text" id="bas-speaker-prompt">...</div>
+          </div>
+          <div class="chat-row" style="align-items: flex-start;">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&q=80" alt="Speaker 2" class="chat-avatar">
+            <div class="response-construction" id="bas-slots-area"></div>
+          </div>
+        </div>
+
+        <div class="word-pool" id="bas-word-pool"></div>
+        <div style="text-align: center; margin-top: 24px;">
+          <button class="editor-btn" onclick="resetCurrentSentence()">Reset Words</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 3: Write an Email Cover -->
+    <section class="view-screen" id="view-cover-email">
+      <h1 class="ets-title">Write an Email</h1>
+      <hr class="ets-divider">
+      <p style="font-size: 20px; margin-bottom: 16px;">You will read some information and use the information to write an email.</p>
+      <p style="font-size: 20px; color: var(--text-muted);">
+        Official timing: <strong>7 minutes</strong>. Practice mode: <strong>10 minutes</strong>.
+      </p>
+    </section>
+
+    <!-- Screen 4: Write an Email Interactive Task -->
+    <section class="view-screen" id="view-email">
+      <div class="dual-pane">
+        <div class="left-prompt-pane">
+          <p style="font-size: 20px; line-height: 1.6; margin-bottom: 24px;">
+            You reserved a study room in the library, but when you arrived, it was already occupied.
+          </p>
+          <p style="font-size: 20px; font-weight: 700; margin-bottom: 16px;">
+            Write an email to the library staff. In your email, do the following:
+          </p>
+          <ul style="font-size: 19px; line-height: 1.8; margin-left: 28px; margin-bottom: 24px;">
+            <li>Describe the problem.</li>
+            <li>Explain why you need the room.</li>
+            <li>Ask for a solution.</li>
+          </ul>
+          <p style="font-size: 18px; color: var(--text-muted); font-style: italic;">
+            Write as much as you can and in complete sentences.
+          </p>
+        </div>
+
+        <div class="editor-pane">
+          <div style="margin-bottom: 12px;">
+            <p style="font-size: 18px; font-weight: 700; color: #1e293b;">Your response:</p>
+            <p style="font-size: 18px; margin-top: 4px;"><strong>To:</strong> Library staff</p>
+            <p style="font-size: 18px;"><strong>Subject:</strong> Study Room Reservation</p>
+          </div>
+
+          <div class="editor-toolbar">
+            <div class="editor-btn-group">
+              <button class="editor-btn" onclick="execEditorCommand('cut')">Cut</button>
+              <button class="editor-btn" onclick="execEditorCommand('paste')">Paste</button>
+              <button class="editor-btn" onclick="execEditorCommand('undo')">Undo</button>
+              <button class="editor-btn" onclick="execEditorCommand('redo')">Redo</button>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <button class="hide-toggle" onclick="toggleWordCount('email')">Hide Word Count</button>
+              <span id="email-word-count-badge" style="font-family: 'JetBrains Mono'; font-weight: 700;">0</span>
+            </div>
+          </div>
+
+          <textarea id="email-textarea" class="writing-textarea" placeholder="Dear Library Staff,&#10;&#10;I am writing to report a situation regarding my study room reservation..." oninput="updateLiveWordCount('email')"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 5: Academic Discussion Cover -->
+    <section class="view-screen" id="view-cover-academic">
+      <h1 class="ets-title">Write for an Academic Discussion</h1>
+      <hr class="ets-divider">
+      <p style="font-size: 20px; margin-bottom: 16px;">
+        A professor has posted a question about a topic and students have responded with their thoughts and ideas. Make a contribution to the discussion.
+      </p>
+      <p style="font-size: 20px; color: var(--text-muted);">
+        Official timing: <strong>10 minutes</strong>. Practice mode: <strong>15 minutes</strong>.
+      </p>
+    </section>
+
+    <!-- Screen 6: Academic Discussion Task -->
+    <section class="view-screen" id="view-academic">
+      <div class="dual-pane">
+        <div class="left-prompt-pane">
+          <p style="font-size: 19px; line-height: 1.6; margin-bottom: 16px;">
+            Your professor is teaching a class on social studies. Write a post responding to the professor's question.
+          </p>
+          <div style="background: #f1f5f9; padding: 14px; border-radius: 8px; margin-bottom: 20px; font-size: 17px;">
+            <strong>In your response, you should do the following:</strong>
+            <ul style="margin-left: 20px; margin-top: 6px;">
+              <li>Express and support your opinion.</li>
+              <li>Make a contribution to the discussion in your own words.</li>
+            </ul>
+            <p style="margin-top: 6px; font-style: italic;">An effective response will contain at least 100 words.</p>
+          </div>
+
+          <div class="professor-profile">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80" alt="Professor" class="professor-avatar">
+            <p style="font-size: 18px; line-height: 1.5; color: #1e293b;">
+              <strong>Professor:</strong> Some countries have recently shortened the standard workweek to four days instead of five. Supporters say this leads to better work-life balance, higher productivity, and happier employees. Critics worry that it could harm businesses and reduce overall output. Do you think a four-day workweek is a good idea? Why or why not?
+            </p>
+          </div>
+
+          <div class="student-dialogue-list">
+            <div class="student-item">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&q=80" alt="Student A" class="student-avatar">
+              <p style="font-size: 17px;">
+                <strong>Student A:</strong> I think a four-day workweek is a great idea because people are more productive when they rest more. Working fewer but more focused days can improve results and give employees more time for family and relaxation.
+              </p>
+            </div>
+            <div class="student-item">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&q=80" alt="Student B" class="student-avatar">
+              <p style="font-size: 17px;">
+                <strong>Student B:</strong> I don’t support a shorter workweek because some industries need constant attention. Paying the same salary for fewer hours could hurt businesses, and some employees might still work long, stressful days.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="editor-pane">
+          <div class="editor-toolbar">
+            <div class="editor-btn-group">
+              <button class="editor-btn" onclick="execEditorCommand('cut')">Cut</button>
+              <button class="editor-btn" onclick="execEditorCommand('paste')">Paste</button>
+              <button class="editor-btn" onclick="execEditorCommand('undo')">Undo</button>
+              <button class="editor-btn" onclick="execEditorCommand('redo')">Redo</button>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <button class="hide-toggle" onclick="toggleWordCount('academic')">Hide Word Count</button>
+              <span id="academic-word-count-badge" style="font-family: 'JetBrains Mono'; font-weight: 700;">0</span>
+            </div>
+          </div>
+
+          <textarea id="academic-textarea" class="writing-textarea" placeholder="In my opinion, adopting a four-day workweek presents substantial advantages that outweigh the potential challenges..." oninput="updateLiveWordCount('academic')"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 7: Time Remaining Confirmation Modal View -->
+    <section class="view-screen" id="view-time-remaining">
+      <h1 class="ets-title">Time Remaining</h1>
+      <hr class="ets-divider">
+      <p style="font-size: 20px; line-height: 1.8; margin-bottom: 24px;">
+        You still have time to respond. As long as there is time remaining, you can keep writing or revise your response.
+      </p>
+      <p style="font-size: 20px; line-height: 1.8; margin-bottom: 16px;">
+        Select <strong>Back</strong> to keep writing or revising.
+      </p>
+      <p style="font-size: 20px; line-height: 1.8; margin-bottom: 24px;">
+        Select <strong>Continue</strong> to leave this question.
+      </p>
+      <p style="font-size: 20px; font-weight: 700; color: var(--accent-red);">
+        Once you leave this question, you WILL NOT be able to return to it.
+      </p>
+    </section>
+
+    <!-- Screen 8: Diagnostic Report & Models -->
+    <section class="view-screen" id="view-diagnostic">
+      <h1 class="ets-title">End of Writing Section - Performance Evaluation</h1>
+      <hr class="ets-divider">
+
+      <!-- AI Evaluation Trigger -->
+      <div style="text-align: center; margin-bottom: 32px; background: #f0fdfa; border: 2px dashed #0d9488; border-radius: 12px; padding: 24px;">
+        <h3 style="font-size: 22px; color: #005d5d; margin-bottom: 8px;">🤖 Automated Official ETS AI Evaluation</h3>
+        <p style="font-size: 17px; color: var(--text-muted); margin-bottom: 16px;">
+          Click the button below to analyze your texts using the official 1.0 – 6.0 Band Scale and receive detailed pedagogical feedback.
+        </p>
+        <button class="ets-pill-btn" id="btn-run-ai" style="background: var(--ets-teal); color: #ffffff;" onclick="requestAiEvaluation()">
+          ⚡ Run Official AI Evaluation
+        </button>
+        <div id="ai-loading-spinner" style="display: none; margin-top: 14px; font-weight: 600; color: var(--ets-teal);">
+          ⏳ Evaluating writing performance against official rubrics... Please wait.
+        </div>
+      </div>
+
+      <!-- Build a Sentence Review -->
+      <div class="report-card">
+        <h3 style="font-size: 24px; margin-bottom: 12px; color: var(--ets-teal);">Part 1: Build a Sentence Results</h3>
+        <p style="font-size: 19px; margin-bottom: 16px;">
+          Overall Score: <strong id="bas-total-score" style="color: var(--accent-green);">0 / 10</strong>
+        </p>
+        <div id="bas-detailed-breakdown" style="font-size: 16px; line-height: 1.8;"></div>
+      </div>
+
+      <!-- Task 2: Email Review -->
+      <div class="report-card">
+        <h3 style="font-size: 24px; margin-bottom: 8px; color: var(--ets-teal);">Task 2: Write an Email Evaluation</h3>
+        <p style="font-size: 17px; color: var(--text-muted); margin-bottom: 12px;">Submitted: <span id="email-submission-date"></span></p>
+        <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid var(--border-subtle); margin-bottom: 16px;">
+          <p style="font-weight: 700; margin-bottom: 8px;">Your Submitted Response (<span id="email-final-count">0</span> words):</p>
+          <p id="email-saved-text" style="white-space: pre-wrap; font-size: 17px;"></p>
+        </div>
+
+        <div id="email-ai-box" class="ai-feedback-container" style="display: none;">
+          <div class="score-badge-band" id="email-band-badge">Band 0.0 (CEFR)</div>
+          <div id="email-ai-details" style="font-size: 17px; line-height: 1.7;"></div>
+        </div>
+
+        <button class="ets-pill-btn" style="margin-top: 16px;" onclick="toggleModel('email-model')">📄 Show Benchmark Response (Band 6.0)</button>
+        <div id="email-model" class="model-box">
+          <p style="font-weight: 700; color: #166534; margin-bottom: 8px;">ETS Benchmark High-Scoring Response:</p>
+          <p style="font-size: 18px; line-height: 1.7; color: #14532d;">
+            Dear Library Staff,<br><br>
+            I am writing to report an urgent scheduling conflict regarding study room 3B, which I had reserved for this afternoon from 2:00 PM to 4:00 PM. Upon my arrival, the room was already occupied by another student group who stated they were unaware of my reservation.<br><br>
+            My classmates and I urgently require this quiet space because we must finalize and record a collaborative multimedia capstone project that is due tomorrow morning. The project requires specialized group discussion and audio recording equipment that cannot be utilized in standard quiet study halls without causing a disruption.<br><br>
+            Could you please look into this booking conflict immediately? If this specific room cannot be vacated, we would appreciate it if you could reassign our team to an alternative private room or audiovisual cubicle so we can finish our academic assignment on schedule.<br><br>
+            Thank you for your prompt assistance and understanding.<br><br>
+            Sincerely,<br>
+            Alex Morgan
+          </p>
+        </div>
+      </div>
+
+      <!-- Task 3: Academic Discussion Review -->
+      <div class="report-card">
+        <h3 style="font-size: 24px; margin-bottom: 8px; color: var(--ets-teal);">Task 3: Academic Discussion Evaluation</h3>
+        <p style="font-size: 17px; color: var(--text-muted); margin-bottom: 12px;">Submitted: <span id="academic-submission-date"></span></p>
+        <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid var(--border-subtle); margin-bottom: 16px;">
+          <p style="font-weight: 700; margin-bottom: 8px;">Your Submitted Response (<span id="academic-final-count">0</span> words):</p>
+          <p id="academic-saved-text" style="white-space: pre-wrap; font-size: 17px;"></p>
+        </div>
+
+        <div id="academic-ai-box" class="ai-feedback-container" style="display: none;">
+          <div class="score-badge-band" id="academic-band-badge">Band 0.0 (CEFR)</div>
+          <div id="academic-ai-details" style="font-size: 17px; line-height: 1.7;"></div>
+        </div>
+
+        <button class="ets-pill-btn" style="margin-top: 16px;" onclick="toggleModel('academic-model')">📄 Show Benchmark Response (Band 6.0)</button>
+        <div id="academic-model" class="model-box">
+          <p style="font-weight: 700; color: #166534; margin-bottom: 8px;">ETS Benchmark High-Scoring Response:</p>
+          <p style="font-size: 18px; line-height: 1.7; color: #14532d;">
+            While both classmates make compelling observations, I firmly agree with Student A that transitioning to a four-day workweek represents a progressive and highly beneficial initiative. While Student B raises a legitimate concern regarding operational continuity in customer-facing industries, modern business logistics have consistently demonstrated that staggered team rotations can maintain five- or six-day coverage without burdening individual staff members.<br><br>
+            From my perspective, extended rest directly correlates with heightened cognitive performance and reduced occupational burnout. When employees are afforded a three-day weekend, they return to the office recharged, displaying superior problem-solving efficiency and sustained motivation. Consequently, companies frequently observe that four condensed days yield equivalent, if not superior, creative output compared to five sluggish workdays. Therefore, implementing a flexible four-day schedule benefits worker welfare without compromising overall economic output.
+          </p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 32px;">
+        <button class="ets-pill-btn" style="background: var(--ets-teal); color: #ffffff; padding: 14px 36px; font-size: 20px;" onclick="navigateToSpeaking()">
+          Continue to Speaking Section &gt;
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Signature Footer -->
+  <footer class="signature-footer">
+    <div class="sig-top-lines">
+      <div class="sig-line-dark"></div>
+      <div class="sig-line-gold"></div>
+    </div>
+    <div class="sig-content-area">
+      <div class="sig-title-name">Dr. Jesús Miguel Lima E.</div>
+      <div class="sig-badge-cluster">
+        <span class="sig-pill-highlight">CEO of JM ELT Solutions</span>
+        <span class="sig-dot-separator"></span>
+        <span class="sig-pill-standard">Celta & Delta Trainer</span>
+        <span class="sig-dot-separator"></span>
+        <span class="sig-pill-standard">Exam Trainer</span>
+        <span class="sig-dot-separator"></span>
+        <span class="sig-pill-standard">Teacher Trainer</span>
+        <span class="sig-dot-separator"></span>
+        <span class="sig-pill-standard">University Professor</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Configuration: Web App URL from Google Apps Script
+    const APPS_SCRIPT_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbyJjUFTRYHJ2DfXLBS9o6a_QZJpbxc1nYZVZvLvhRDuyvJ2a6CCVuzs8veKa15G2dCE/exec";
+
+    // State Variables
+    let currentStep = 'intro';
+    let currentBasIndex = 0;
+    let timerInterval = null;
+    let secondsLeft = 0;
+    let timerVisible = true;
+    let wordCountVisible = { email: true, academic: true };
+    let promptOriginBeforeWarning = '';
+
+    // Data Bank: Build a Sentence
+    const basQuestions = [
+      {
+        prompt: "I'm worried about the math test tomorrow.",
+        answer: ["We", "could", "have", "a", "study", "session", "tonight."],
+        displayPunctuation: ".",
+        pool: ["session", "has", "tonight", "have", "we", "could", "a study"],
+        normalizedAnswer: "We could have a study session tonight."
+      },
+      {
+        prompt: "The café near the park has great coffee.",
+        answer: ["Have", "you", "ever", "been", "there"],
+        displayPunctuation: "?",
+        pool: ["there", "ever", "been", "have", "you", "to"],
+        normalizedAnswer: "Have you ever been there?"
+      },
+      {
+        prompt: "My cousin is getting married in July.",
+        answer: ["Where", "is", "the", "wedding", "held"],
+        displayPunctuation: "?",
+        pool: ["wedding", "where", "the", "held", "is"],
+        normalizedAnswer: "Where is the wedding held?"
+      },
+      {
+        prompt: "I lost my umbrella this morning.",
+        structure: ["slot", "slot", "slot", "static:another", "slot", "slot", "slot"],
+        answerSequence: ["You", "could", "get", "one", "at", "the", "store."],
+        pool: ["could", "one", "store", "go", "you", "get", "to", "at the"],
+        normalizedAnswer: "You could get another one at the store."
+      },
+      {
+        prompt: "Our professor canceled class today.",
+        structure: ["slot", "slot", "slot", "static:online", "slot", "slot"],
+        answerSequence: ["We'll", "have", "an", "meeting", "instead."],
+        pool: ["a", "meeting", "an", "have", "instead", "we'll"],
+        normalizedAnswer: "We'll have an online meeting instead."
+      },
+      {
+        prompt: "I'm looking for a part-time job.",
+        answer: ["Where", "are", "you", "going", "to", "apply"],
+        displayPunctuation: "?",
+        pool: ["apply", "job", "where", "to", "going", "are", "you"],
+        normalizedAnswer: "Where are you going to apply?"
+      },
+      {
+        prompt: "My friend just moved into a new apartment.",
+        answer: ["How", "much", "rent", "does", "he", "pay"],
+        displayPunctuation: "?",
+        pool: ["he", "much", "how", "rent", "does", "pay"],
+        normalizedAnswer: "How much rent does he pay?"
+      },
+      {
+        prompt: "The concert tickets sold out fast.",
+        answer: ["When", "do", "you", "think", "they", "will", "have", "another", "concert"],
+        displayPunctuation: "?",
+        pool: ["another", "think", "concert", "they will", "you", "have", "when", "do"],
+        normalizedAnswer: "When do you think they will have another concert?"
+      },
+      {
+        prompt: "I need to print my assignment.",
+        answer: ["The", "printers", "are", "on", "the", "second", "floor"],
+        displayPunctuation: ".",
+        pool: ["printers", "the", "on the", "floor", "second", "are"],
+        normalizedAnswer: "The printers are on the second floor."
+      },
+      {
+        prompt: "I really liked the restaurant we tried yesterday.",
+        answer: ["What", "was", "your", "favorite", "dish", "there"],
+        displayPunctuation: "?",
+        pool: ["dish", "favorite", "your", "was", "what", "there"],
+        normalizedAnswer: "What was your favorite dish there?"
+      }
+    ];
+
+    let userBasSelections = Array(10).fill(null).map(() => []);
+
+    function renderScreen(viewId) {
+      document.querySelectorAll('.view-screen').forEach(el => el.classList.remove('active'));
+      const target = document.getElementById(viewId);
+      if (target) target.classList.add('active');
+    }
+
+    function formatDate(date) {
+      const d = String(date.getDate()).padStart(2, '0');
+      const m = String(date.getMonth() + 1).padStart(2, '0');
+      const y = date.getFullYear();
+      return `${d} / ${m} / ${y}`;
+    }
+
+    function startTimer(durationSeconds, onExpire) {
+      clearInterval(timerInterval);
+      secondsLeft = durationSeconds;
+      updateTimerDisplay();
+      document.getElementById('header-timer-capsule').style.display = 'flex';
+
+      timerInterval = setInterval(() => {
+        secondsLeft--;
+        updateTimerDisplay();
+        if (secondsLeft <= 0) {
+          clearInterval(timerInterval);
+          if (onExpire) onExpire();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const minutes = Math.floor(secondsLeft / 60);
+      const seconds = secondsLeft % 60;
+      document.getElementById('time-display').textContent = 
+        `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+
+    function toggleTimerVisibility() {
+      const display = document.getElementById('time-display');
+      const btn = document.getElementById('btn-toggle-timer');
+      timerVisible = !timerVisible;
+      display.style.visibility = timerVisible ? 'visible' : 'hidden';
+      btn.textContent = timerVisible ? 'Hide Time' : 'Show Time';
+    }
+
+    function toggleWordCount(type) {
+      wordCountVisible[type] = !wordCountVisible[type];
+      const badge = document.getElementById(`${type}-word-count-badge`);
+      badge.style.display = wordCountVisible[type] ? 'inline' : 'none';
+    }
+
+    function updateLiveWordCount(type) {
+      const text = document.getElementById(`${type}-textarea`).value.trim();
+      const count = text.length === 0 ? 0 : text.split(/\s+/).length;
+      document.getElementById(`${type}-word-count-badge`).textContent = count;
+    }
+
+    function execEditorCommand(cmd) {
+      const activeTextarea = document.getElementById('view-email').classList.contains('active')
+        ? document.getElementById('email-textarea')
+        : document.getElementById('academic-textarea');
+      
+      activeTextarea.focus();
+      if (cmd === 'cut') {
+        document.execCommand('cut');
+      } else if (cmd === 'paste') {
+        navigator.clipboard.readText().then(text => {
+          const start = activeTextarea.selectionStart;
+          const end = activeTextarea.selectionEnd;
+          activeTextarea.value = activeTextarea.value.substring(0, start) + text + activeTextarea.value.substring(end);
+          activeTextarea.selectionStart = activeTextarea.selectionEnd = start + text.length;
+          updateLiveWordCount(activeTextarea.id.includes('email') ? 'email' : 'academic');
+        }).catch(() => {});
+      } else if (cmd === 'undo') {
+        document.execCommand('undo');
+      } else if (cmd === 'redo') {
+        document.execCommand('redo');
+      }
+    }
+
+    function loadBasQuestion(index) {
+      const q = basQuestions[index];
+      document.getElementById('header-breadcrumb').textContent = `Writing | Question ${index + 1} of 12`;
+      document.getElementById('bas-speaker-prompt').textContent = q.prompt;
+
+      const slotsArea = document.getElementById('bas-slots-area');
+      slotsArea.innerHTML = '';
+
+      const slotCount = q.structure ? q.structure.length : (q.answer ? q.answer.length : 6);
+      
+      for (let i = 0; i < slotCount; i++) {
+        if (q.structure && q.structure[i].startsWith('static:')) {
+          const staticWord = q.structure[i].split(':')[1];
+          const span = document.createElement('span');
+          span.textContent = staticWord;
+          span.style.padding = '0 8px';
+          slotsArea.appendChild(span);
+        } else {
+          const slot = document.createElement('div');
+          slot.className = 'drop-slot';
+          slot.dataset.slotIndex = i;
+          slot.onclick = () => returnWordFromSlot(index, i);
+          
+          const filledWord = userBasSelections[index][i];
+          if (filledWord) {
+            slot.textContent = filledWord;
+            slot.classList.add('filled');
+          }
+          slotsArea.appendChild(slot);
+        }
+      }
+
+      if (q.displayPunctuation) {
+        const punc = document.createElement('span');
+        punc.textContent = q.displayPunctuation;
+        slotsArea.appendChild(punc);
+      }
+
+      const poolArea = document.getElementById('bas-word-pool');
+      poolArea.innerHTML = '';
+      q.pool.forEach((word) => {
+        const tile = document.createElement('div');
+        tile.className = 'word-tile';
+        tile.textContent = word;
+        
+        const isUsed = userBasSelections[index].includes(word);
+        if (isUsed) tile.classList.add('used');
+
+        tile.onclick = () => assignWordToSlot(index, word, tile);
+        poolArea.appendChild(tile);
+      });
+    }
+
+    function assignWordToSlot(qIndex, word, tileElem) {
+      const currentSelections = userBasSelections[qIndex];
+      const q = basQuestions[qIndex];
+      const slotCount = q.structure ? q.structure.length : (q.answer ? q.answer.length : 6);
+
+      let targetSlot = -1;
+      for (let i = 0; i < slotCount; i++) {
+        if (q.structure && q.structure[i].startsWith('static:')) continue;
+        if (!currentSelections[i]) {
+          targetSlot = i;
+          break;
+        }
+      }
+
+      if (targetSlot !== -1) {
+        currentSelections[targetSlot] = word;
+        tileElem.classList.add('used');
+        loadBasQuestion(qIndex);
+      }
+    }
+
+    function returnWordFromSlot(qIndex, slotIndex) {
+      if (userBasSelections[qIndex][slotIndex]) {
+        userBasSelections[qIndex][slotIndex] = null;
+        loadBasQuestion(qIndex);
+      }
+    }
+
+    function resetCurrentSentence() {
+      userBasSelections[currentBasIndex] = [];
+      loadBasQuestion(currentBasIndex);
+    }
+
+    function handlePrimaryNavAction() {
+      if (currentStep === 'intro') {
+        currentStep = 'cover-bas';
+        renderScreen('view-cover-bas');
+        document.getElementById('header-breadcrumb').textContent = 'Writing';
+        document.getElementById('btn-primary-nav').innerHTML = 'Begin &gt;';
+      } 
+      else if (currentStep === 'cover-bas') {
+        currentStep = 'bas';
+        renderScreen('view-bas');
+        document.getElementById('btn-primary-nav').innerHTML = 'Next &gt;';
+        loadBasQuestion(0);
+        startTimer(600, () => {
+          advanceFromBasToEmail();
+        });
+      }
+      else if (currentStep === 'bas') {
+        if (currentBasIndex < 9) {
+          currentBasIndex++;
+          loadBasQuestion(currentBasIndex);
+        } else {
+          advanceFromBasToEmail();
+        }
+      }
+      else if (currentStep === 'cover-email') {
+        currentStep = 'email';
+        renderScreen('view-email');
+        document.getElementById('header-breadcrumb').textContent = 'Writing | Question 11 of 12';
+        document.getElementById('btn-primary-nav').innerHTML = 'Next &gt;';
+        document.getElementById('btn-back').style.display = 'none';
+        startTimer(600, () => {
+          advanceFromEmailToAcademic();
+        });
+      }
+      else if (currentStep === 'email') {
+        promptOriginBeforeWarning = 'email';
+        currentStep = 'time-remaining';
+        renderScreen('view-time-remaining');
+        document.getElementById('btn-back').style.display = 'inline-flex';
+        document.getElementById('btn-primary-nav').innerHTML = 'Continue &gt;';
+      }
+      else if (currentStep === 'time-remaining') {
+        if (promptOriginBeforeWarning === 'email') {
+          advanceFromEmailToAcademic();
+        } else if (promptOriginBeforeWarning === 'academic') {
+          finalizeTestAndShowDiagnostic();
+        }
+      }
+      else if (currentStep === 'cover-academic') {
+        currentStep = 'academic';
+        renderScreen('view-academic');
+        document.getElementById('header-breadcrumb').textContent = 'Writing | Question 12 of 12';
+        document.getElementById('btn-primary-nav').innerHTML = 'Next &gt;';
+        document.getElementById('btn-back').style.display = 'none';
+        startTimer(900, () => {
+          finalizeTestAndShowDiagnostic();
+        });
+      }
+      else if (currentStep === 'academic') {
+        promptOriginBeforeWarning = 'academic';
+        currentStep = 'time-remaining';
+        renderScreen('view-time-remaining');
+        document.getElementById('btn-back').style.display = 'inline-flex';
+        document.getElementById('btn-primary-nav').innerHTML = 'Continue &gt;';
+      }
+    }
+
+    function handleBackAction() {
+      if (currentStep === 'time-remaining') {
+        if (promptOriginBeforeWarning === 'email') {
+          currentStep = 'email';
+          renderScreen('view-email');
+          document.getElementById('header-breadcrumb').textContent = 'Writing | Question 11 of 12';
+        } else if (promptOriginBeforeWarning === 'academic') {
+          currentStep = 'academic';
+          renderScreen('view-academic');
+          document.getElementById('header-breadcrumb').textContent = 'Writing | Question 12 of 12';
+        }
+        document.getElementById('btn-back').style.display = 'none';
+        document.getElementById('btn-primary-nav').innerHTML = 'Next &gt;';
+      }
+    }
+
+    function advanceFromBasToEmail() {
+      clearInterval(timerInterval);
+      document.getElementById('header-timer-capsule').style.display = 'none';
+      currentStep = 'cover-email';
+      renderScreen('view-cover-email');
+      document.getElementById('header-breadcrumb').textContent = 'Writing';
+      document.getElementById('btn-primary-nav').innerHTML = 'Begin &gt;';
+    }
+
+    function advanceFromEmailToAcademic() {
+      clearInterval(timerInterval);
+      document.getElementById('header-timer-capsule').style.display = 'none';
+      document.getElementById('btn-back').style.display = 'none';
+      currentStep = 'cover-academic';
+      renderScreen('view-cover-academic');
+      document.getElementById('header-breadcrumb').textContent = 'Writing';
+      document.getElementById('btn-primary-nav').innerHTML = 'Begin &gt;';
+    }
+
+    function finalizeTestAndShowDiagnostic() {
+      clearInterval(timerInterval);
+      document.getElementById('header-timer-capsule').style.display = 'none';
+      document.getElementById('btn-back').style.display = 'none';
+      document.getElementById('btn-primary-nav').style.display = 'none';
+      document.getElementById('header-breadcrumb').textContent = 'Writing | Performance Evaluation';
+
+      currentStep = 'diagnostic';
+      renderScreen('view-diagnostic');
+
+      let basScore = 0;
+      const breakdown = document.getElementById('bas-detailed-breakdown');
+      breakdown.innerHTML = '';
+
+      basQuestions.forEach((q, i) => {
+        const userConstructed = (userBasSelections[i] || []).filter(Boolean).join(' ').trim();
+        const p = document.createElement('p');
+        p.style.marginBottom = '6px';
+        
+        const isMatched = userConstructed.toLowerCase() === q.normalizedAnswer.toLowerCase().replace(/[\.\?]/g, '').trim();
+        if (isMatched) basScore++;
+
+        p.innerHTML = `<strong>Q${i + 1}:</strong> Target: <em>"${q.normalizedAnswer}"</em>`;
+        breakdown.appendChild(p);
+      });
+
+      document.getElementById('bas-total-score').textContent = `${basScore} / 10`;
+
+      const nowFormatted = formatDate(new Date());
+      const emailText = document.getElementById('email-textarea').value.trim();
+      const academicText = document.getElementById('academic-textarea').value.trim();
+
+      document.getElementById('email-submission-date').textContent = nowFormatted;
+      document.getElementById('academic-submission-date').textContent = nowFormatted;
+
+      document.getElementById('email-saved-text').textContent = emailText || "(No response recorded)";
+      document.getElementById('academic-saved-text').textContent = academicText || "(No response recorded)";
+
+      const emailWords = emailText ? emailText.split(/\s+/).length : 0;
+      const academicWords = academicText ? academicText.split(/\s+/).length : 0;
+
+      document.getElementById('email-final-count').textContent = emailWords;
+      document.getElementById('academic-final-count').textContent = academicWords;
+
+      try {
+        localStorage.setItem('toefl_mocks_status_01', JSON.stringify({
+          status: 'Writing_Completed',
+          date: nowFormatted,
+          basScore: basScore,
+          emailWords: emailWords,
+          academicWords: academicWords
+        }));
+      } catch (e) {}
+    }
+
+    async function requestAiEvaluation() {
+      const btn = document.getElementById('btn-run-ai');
+      const spinner = document.getElementById('ai-loading-spinner');
+
+      btn.disabled = true;
+      spinner.style.display = 'block';
+
+      const emailText = document.getElementById('email-textarea').value.trim();
+      const academicText = document.getElementById('academic-textarea').value.trim();
+
+      try {
+        const response = await fetch(APPS_SCRIPT_WEBAPP_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({ emailText, academicText })
+        });
+
+        const data = await response.json();
+        spinner.style.display = 'none';
+
+        // Render Email Evaluation
+        const emailBox = document.getElementById('email-ai-box');
+        document.getElementById('email-band-badge').textContent = `Band ${data.email.band} (${data.email.cefr}) • Historical Equiv: ${data.email.ptsEquiv}`;
+        document.getElementById('email-ai-details').innerHTML = `
+          <p><strong>• Opening & Tone:</strong> ${data.email.openingFeedback}</p>
+          <p style="margin-top:6px;"><strong>• Grammar & Syntax:</strong> ${data.email.grammarAndSyntax}</p>
+          <p style="margin-top:6px;"><strong>• Lexical Range (C1/C2):</strong> ${data.email.lexicalSuggestions}</p>
+          <p style="margin-top:6px;"><strong>• Task Achievement:</strong> ${data.email.taskAchievement}</p>
+        `;
+        emailBox.style.display = 'block';
+
+        // Render Academic Discussion Evaluation
+        const academicBox = document.getElementById('academic-ai-box');
+        document.getElementById('academic-band-badge').textContent = `Band ${data.academic.band} (${data.academic.cefr}) • Historical Equiv: ${data.academic.ptsEquiv}`;
+        document.getElementById('academic-ai-details').innerHTML = `
+          <p><strong>• Grammar & Complexity:</strong> ${data.academic.grammarAndSyntax}</p>
+          <p style="margin-top:6px;"><strong>• Academic Collocations:</strong> ${data.academic.lexicalSuggestions}</p>
+          <p style="margin-top:6px;"><strong>• Argument Development:</strong> ${data.academic.development}</p>
+          <p style="margin-top:6px;"><strong>• Cohesion & Transitions:</strong> ${data.academic.cohesion}</p>
+        `;
+        academicBox.style.display = 'block';
+
+      } catch (err) {
+        spinner.style.display = 'none';
+        btn.disabled = false;
+        alert("No se pudo completar la evaluación. Verifica la conexión.");
+      }
+    }
+
+    function toggleModel(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function navigateToSpeaking() {
+      window.location.href = 'speaking-mock01.html';
+    }
+  </script>
+</body>
+</html>
