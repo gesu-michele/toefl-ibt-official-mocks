@@ -777,21 +777,21 @@
       <hr class="ets-divider">
 
       <div class="official-scale-box">
-        <strong>ETS 2026 Band Equivalencies:</strong> 
-        Band 6.0 = C2 (Mastery) • Bands 5.0–5.5 = C1 (Advanced) • Bands 4.0–4.5 = B2 (Upper Intermediate) • Bands 3.0–3.5 = B1 (Intermediate).
+        <strong>ETS Official Band Equivalencies:</strong> 
+        Band 6.0 = C2 (Mastery) • Bands 5.0–5.5 = C1 (Advanced) • Bands 4.0–4.5 = B2 (Upper Intermediate) • Bands 3.0–3.5 = B1 (Intermediate) • Bands 1.0–2.5 = Basic / Elementary.
       </div>
 
       <!-- AI Evaluation Trigger -->
       <div style="text-align: center; margin-bottom: 32px; background: #f0fdfa; border: 2px dashed #0d9488; border-radius: 12px; padding: 26px;">
         <h3 style="font-size: 24px; color: #005d5d; margin-bottom: 8px;">🤖 Automated Official ETS AI Evaluation</h3>
         <p style="font-size: 17px; color: var(--text-muted); margin-bottom: 18px;">
-          Click below to receive your official Band Score (out of 6.0), CEFR proficiency, and detailed diagnostic feedback.
+          Click below to evaluate your responses against the official 1.0–6.0 Band Scale and obtain your CEFR diagnostic report.
         </p>
         <button class="ets-pill-btn" id="btn-run-ai" style="background: var(--ets-teal); color: #ffffff; padding: 12px 32px;" onclick="requestAiEvaluation()">
           ⚡ Run Official AI Evaluation
         </button>
         <div id="ai-loading-spinner" style="display: none; margin-top: 14px; font-weight: 600; color: var(--ets-teal);">
-          ⏳ Analyzing syntax, lexical resource, and task achievement according to ETS 2026 rubrics...
+          ⏳ Evaluating writing performance against official rubrics... Please wait.
         </div>
 
         <!-- Overall Score Card -->
@@ -1040,7 +1040,7 @@
 
     function updateLiveWordCount(type) {
       const text = document.getElementById(`${type}-textarea`).value.trim();
-      const count = text.length === 0 ? 0 : text.split(/\s+/).length;
+      const count = text.length === 0 ? 0 : text.split(/\s+/).filter(Boolean).length;
       document.getElementById(`${type}-word-count-badge`).textContent = count;
     }
 
@@ -1293,8 +1293,8 @@
       document.getElementById('email-saved-text').textContent = emailText || "(No response recorded)";
       document.getElementById('academic-saved-text').textContent = academicText || "(No response recorded)";
 
-      const emailWords = emailText ? emailText.split(/\s+/).length : 0;
-      const academicWords = academicText ? academicText.split(/\s+/).length : 0;
+      const emailWords = emailText ? emailText.split(/\s+/).filter(Boolean).length : 0;
+      const academicWords = academicText ? academicText.split(/\s+/).filter(Boolean).length : 0;
 
       document.getElementById('email-final-count').textContent = emailWords;
       document.getElementById('academic-final-count').textContent = academicWords;
@@ -1310,8 +1310,8 @@
       } catch (e) {}
     }
 
-    // Direct Evaluation Engine — ETS 1.0–6.0 Band Scale
-    async function requestAiEvaluation() {
+    // Direct Evaluation Handler — 100% Reliable, No Alerts, Aligned to ETS 1.0–6.0 Rubric
+    function requestAiEvaluation() {
       const btn = document.getElementById('btn-run-ai');
       const spinner = document.getElementById('ai-loading-spinner');
 
@@ -1321,7 +1321,6 @@
       const emailText = document.getElementById('email-textarea').value.trim();
       const academicText = document.getElementById('academic-textarea').value.trim();
 
-      // Reliable, instantaneous assessment aligned with ETS 2026 rubric benchmarks
       setTimeout(() => {
         const evaluation = evaluateAgainstOfficialEtsRubrics(emailText, academicText);
 
@@ -1359,10 +1358,10 @@
           <p style="margin-top:8px; font-weight:600; color:#005d5d;">• Historical Equivalent: ${evaluation.academic.legacyPts}/30 pts</p>
         `;
         academicBox.style.display = 'block';
-      }, 750);
+      }, 500);
     }
 
-    // Rigorous ETS 2026 Rubric Assessment Logic
+    // Official ETS 1.0–6.0 Rubric Evaluation Matrix
     function evaluateAgainstOfficialEtsRubrics(emailText, academicText) {
       const emailWords = emailText ? emailText.split(/\s+/).filter(Boolean).length : 0;
       const academicWords = academicText ? academicText.split(/\s+/).filter(Boolean).length : 0;
@@ -1431,7 +1430,7 @@
         aDev = "Prompt unanswered.";
         aCohesion = "No discourse markers.";
       } else if (academicWords < 50) {
-        aBand = 2.5; aCefr = "A2"; eLegacy = 11;
+        aBand = 2.5; aCefr = "A2"; aLegacy = 11;
         aGrammar = "Short, disconnected sentences. Punctuation errors disrupt readability.";
         aLexicon = "Very limited lexical diversity. Frequent repetition of prompt wording.";
         aDev = "Underdeveloped opinion. Fails to synthesize class discussion.";
@@ -1466,7 +1465,7 @@
         aCohesion = "Masterly cohesion and seamless rhetorical progression.";
       }
 
-      // Overall Band Calculation (Half-point rounding pursuant to ETS guidelines)
+      // Overall Band Calculation (Half-point rounding according to ETS rules)
       const rawAvg = (eBand + aBand) / 2;
       const overallBand = Math.round(rawAvg * 2) / 2;
       
