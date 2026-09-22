@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOEFL iBT Listening - Mock 02 | JM ELT Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    @font-face {
+      font-family: 'AnanthaSignature';
+      src: url('Anantha%20Signature%20For%20Personal%20Use.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    :root {
+      --ets-teal: #005d5d;
+      --ets-teal-dark: #004444;
+      --ets-teal-light: #4ecdc4;
+      --bg-white: #ffffff;
+      --bg-canvas: #f8fafc;
+      --border-color: #cbd5e1;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent-gold: #d4af37;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-blue: #2563eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-size: 18px;
+    }
+
+    .ets-top-bar {
+      height: 68px;
+      background-color: var(--ets-teal);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      gap: 16px;
+    }
+
+    .top-left-cluster {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .timer-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 6px 14px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ets-volume-btn {
+      background: transparent;
+      border: 1.5px solid rgba(255, 255, 255, 0.7);
+      color: #ffffff;
+      border-radius: 22px;
+      padding: 7px 18px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .ets-volume-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .ets-pill-btn {
+      background: #ffffff;
+      color: var(--ets-teal);
+      border: none;
+      border-radius: 24px;
+      padding: 10px 28px;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      transition: all 0.2s;
+    }
+
+    .ets-pill-btn:hover {
+      background: #f1f5f9;
+      transform: translateY(-1px);
+    }
+
+    .ets-sub-bar {
+      height: 52px;
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 36px;
+      font-size: 18px;
+      font-weight: 800;
+      color: #1e293b;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1140px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ets-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 46px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    .ets-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 18px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 14px;
+    }
+
+    .ets-desc {
+      font-size: 19px;
+      line-height: 1.7;
+      color: #334155;
+      margin-bottom: 28px;
+    }
+
+    .ets-table {
+      width: 100%;
+      max-width: 760px;
+      border-collapse: collapse;
+      margin: 24px 0 32px 0;
+      border: 1.5px solid #005d5d;
+    }
+
+    .ets-table th {
+      background: var(--ets-teal-light);
+      color: #004747;
+      padding: 12px 18px;
+      text-align: left;
+      font-weight: 800;
+      border: 1.5px solid #005d5d;
+      font-size: 18px;
+    }
+
+    .ets-table td {
+      padding: 14px 18px;
+      border: 1.5px solid #005d5d;
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    .ets-warning-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 24px;
+    }
+
+    .stimulus-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 40px 32px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    }
+
+    .stimulus-title {
+      font-size: 36px;
+      font-weight: 900;
+      color: #000000;
+      margin-bottom: 24px;
+    }
+
+    .stimulus-image-frame {
+      width: 100%;
+      max-width: 480px;
+      min-height: 300px;
+      max-height: 360px;
+      border-radius: 28px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      border: 2.5px solid #cbd5e1;
+      background: #f8fafc;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+    }
+
+    .stimulus-image-frame.active-audio {
+      border-color: var(--ets-teal);
+      box-shadow: 0 0 24px rgba(0, 93, 93, 0.4);
+      transform: scale(1.02);
+    }
+
+    .stimulus-image-frame img {
+      width: 100%;
+      height: 100%;
+      max-height: 340px;
+      object-fit: contain;
+      object-position: center center;
+      border-radius: 20px;
+    }
+
+    .question-top-idx {
+      font-size: 18px;
+      font-weight: 700;
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+
+    .question-prompt {
+      font-size: 28px;
+      font-weight: 800;
+      color: #000000;
+      margin-bottom: 34px;
+      line-height: 1.35;
+    }
+
+    .question-grid {
+      display: grid;
+      grid-template-columns: 330px 1fr;
+      gap: 44px;
+      align-items: flex-start;
+    }
+
+    .question-grid.full-width {
+      grid-template-columns: 1fr;
+    }
+
+    .speaker-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 26px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+
+    .speaker-photo-frame {
+      width: 100%;
+      height: 300px;
+      border-radius: 24px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      border: 1.5px solid #cbd5e1;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .speaker-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 22px;
+    }
+
+    .btn-play-audio {
+      background: var(--ets-teal);
+      color: #ffffff;
+      border: none;
+      border-radius: 22px;
+      padding: 14px 22px;
+      font-size: 16.5px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+      width: 100%;
+      justify-content: center;
+      box-shadow: 0 3px 8px rgba(0, 93, 93, 0.25);
+    }
+
+    .btn-play-audio:hover {
+      background: var(--ets-teal-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-play-audio.playing {
+      background: #b91c1c;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 18px 22px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+      border: 2px solid #e2e8f0;
+      background: #ffffff;
+    }
+
+    .option-item:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+    }
+
+    .option-item.selected {
+      background: #edf7f7;
+      border-color: var(--ets-teal);
+    }
+
+    .option-radio {
+      width: 24px;
+      height: 24px;
+      border: 2.5px solid #64748b;
+      border-radius: 50%;
+      margin-top: 2px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .option-item.selected .option-radio {
+      border-color: var(--ets-teal);
+    }
+
+    .option-radio-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: transparent;
+    }
+
+    .option-item.selected .option-radio-dot {
+      background: var(--ets-teal);
+    }
+
+    .option-text {
+      font-size: 19px;
+      color: #1e293b;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    /* FEEDBACK CARD & ETS 0-6 / CEFR BENCHMARK */
+    .results-hero {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 36px;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin: 28px 0 20px 0;
+    }
+
+    .metric-box {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .metric-box.highlight {
+      background: #eef8f8;
+      border-color: var(--ets-teal-light);
+    }
+
+    .metric-label {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #64748b;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .metric-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: var(--ets-teal);
+      line-height: 1;
+    }
+
+    .cefr-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #0f172a;
+      background: #ffffff;
+      border: 2px solid var(--accent-gold);
+      padding: 6px 20px;
+      border-radius: 30px;
+      margin-top: 4px;
+    }
+
+    .level-desc-box {
+      background: #f1f5f9;
+      border-left: 5px solid var(--ets-teal);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      text-align: left;
+      font-size: 16.5px;
+      line-height: 1.6;
+      color: #334155;
+      margin-top: 14px;
+    }
+
+    .audit-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .audit-card.correct {
+      border-left: 8px solid var(--accent-green);
+    }
+
+    .audit-card.incorrect {
+      border-left: 8px solid var(--accent-red);
+    }
+
+    .btn-feedback-audio {
+      background: #f8fafc;
+      color: var(--ets-teal);
+      border: 1.5px solid var(--ets-teal);
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 14.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      transition: all 0.2s;
+    }
+
+    .btn-feedback-audio:hover {
+      background: #e6f2f2;
+    }
+
+    .klippy-box {
+      background: #fffbeb;
+      border-left: 4px solid var(--accent-gold);
+      padding: 16px 18px;
+      margin-top: 14px;
+      border-radius: 0 10px 10px 0;
+      font-size: 17px;
+      line-height: 1.6;
+      color: #78350f;
+    }
+
+    .action-banner {
+      background: #f0fdf4;
+      border: 2px solid var(--accent-green);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      margin-top: 36px;
+    }
+
+    .btn-forward-writing {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      font-size: 20px;
+      font-weight: 800;
+      padding: 16px 36px;
+      border-radius: 28px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+      transition: all 0.2s;
+    }
+
+    .btn-forward-writing:hover {
+      background: #047857;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+      border-top: 2px solid #e2e8f0;
+      padding: 24px 24px 28px 24px;
+      text-align: center;
+      margin-top: auto;
+      position: relative;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--ets-teal), var(--accent-gold), var(--ets-teal-light));
+    }
+
+    .signature-card {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .signature-area {
+      font-family: 'AnanthaSignature', cursive, sans-serif;
+      font-size: 2.8rem;
+      background: linear-gradient(135deg, #005d5d 0%, #007a7a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2px;
+      filter: drop-shadow(0 1px 2px rgba(0, 93, 93, 0.15));
+      letter-spacing: 0.5px;
+    }
+
+    .credentials-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 8px 12px;
+      margin-top: 4px;
+    }
+
+    .cred-badge {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0f172a;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 4px 12px;
+      border-radius: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cred-badge.highlight {
+      color: #005d5d;
+      border-color: var(--ets-teal-light);
+      background: #e6f7f7;
+    }
+
+    .cred-dot {
+      color: var(--accent-gold);
+      font-weight: 900;
+    }
+
+    @media (max-width: 820px) {
+      .question-grid {
+        grid-template-columns: 1fr;
+      }
+      .speaker-card {
+        margin-bottom: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ets-top-bar">
+    <div class="top-left-cluster">
+      <div class="timer-pill" id="timer-badge">⏱ <span id="timer-display">45:00</span></div>
+      <button class="ets-volume-btn" onclick="testVolumeAudio()">Volume 🔊</button>
+    </div>
+    <div id="nav-action-slot"></div>
+  </div>
+
+  <div class="ets-sub-bar" id="sub-bar-title">
+    <span>Listening — Mock 02</span>
+    <span id="sub-bar-track" style="font-size:15px; color:#64748b;">TOEFL iBT Full Diagnostic</span>
+  </div>
+
+  <main id="stage-content"></main>
+
+  <footer>
+    <div class="signature-card">
+      <div class="signature-area">Dr. Jesús Miguel Lima E.</div>
+      <div class="credentials-badges">
+        <span class="cred-badge highlight">CEO of JM ELT Solutions</span>
+        <span class="cred-dot">•</span>
+        <span class="cred-badge">Celta &amp; Delta Trainer</span>
+        <span class="cred-dot">•</span>
+        <span class="cred-badge">Exam Trainer</span>
+        <span class="cred-dot">•</span>
+        <span class="cred-badge">Teacher Trainer</span>
+        <span class="cred-dot">•</span>
+        <span class="cred-badge">University Professor</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const PHOTOS = {
+      femaleStudent1: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&h=750&q=80",
+      femaleStudent2: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&h=750&q=80",
+      femaleStudent3: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&h=750&q=80",
+      femaleStudent4: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&h=750&q=80",
+      femaleHost: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&h=750&q=80",
+      femaleProfessor: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&h=750&q=80",
+
+      maleStudent1: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&h=750&q=80",
+      maleStudent2: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&h=750&q=80",
+      maleStudent3: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&h=750&q=80",
+      maleStudent4: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&h=750&q=80",
+      maleHost: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&h=750&q=80",
+
+      dialogueLibrary: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&h=500&q=80",
+      dialogueCampusPair: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&h=500&q=80"
+    };
+
+    const MODULE1_DATA = {
+      standaloneQuestions: [
+        {
+          id: 1,
+          prompt: 'Choose the best response',
+          image: PHOTOS.femaleStudent1,
+          speechParts: [{ speaker: 'female', text: "Could you email me the notes later?" }],
+          options: ["I wrote everything down.", "The email was long.", "Sure thing.", "Notes are helpful."],
+          key: 2,
+          fullScript: "Could you email me the notes later?",
+          klippy: "Colloquial acceptance of an informal request requires an affirmative acknowledgment ('Sure thing.')."
+        },
+        {
+          id: 2,
+          prompt: 'Choose the best response',
+          image: PHOTOS.maleStudent1,
+          speechParts: [{ speaker: 'male', text: "You were right, the answer was C." }],
+          options: ["I knew it!", "The test was hard.", "Multiple choice is tricky.", "I changed my answer."],
+          key: 0,
+          fullScript: "You were right, the answer was C.",
+          klippy: "When a colleague confirms your prediction was right, an informal validation phrase fits naturally ('I knew it!')."
+        },
+        {
+          id: 3,
+          prompt: 'Choose the best response',
+          image: PHOTOS.femaleStudent2,
+          speechParts: [{ speaker: 'female', text: "I got accepted into graduate school!" }],
+          options: ["Graduate programs are hard.", "Congratulations!", "Happy holidays!", "Schools are expensive."],
+          key: 1,
+          fullScript: "I got accepted into graduate school!",
+          klippy: "Exciting academic milestones require an immediate congratulations formula."
+        },
+        {
+          id: 4,
+          prompt: 'Choose the best response',
+          image: PHOTOS.maleStudent2,
+          speechParts: [{ speaker: 'male', text: "Is the lecture hall accessible?" }],
+          options: ["The hall is big.", "I sat in the back.", "Accessibility is important.", "Yes, there's an elevator."],
+          key: 3,
+          fullScript: "Is the lecture hall accessible?",
+          klippy: "Specific facility questions demand clear factual confirmation with the relevant infrastructure ('Yes, there's an elevator.')."
+        },
+        {
+          id: 5,
+          prompt: 'Choose the best response',
+          image: PHOTOS.femaleStudent3,
+          speechParts: [{ speaker: 'female', text: "I missed the deadline by one day." }],
+          options: ["Deadlines are strict.", "One day doesn't matter.", "You should email the instructor.", "I missed it too."],
+          key: 2,
+          fullScript: "I missed the deadline by one day.",
+          klippy: "Academic dilemmas regarding submissions warrant advising prompt faculty communication."
+        },
+        {
+          id: 6,
+          prompt: 'Choose the best response',
+          image: PHOTOS.maleStudent3,
+          speechParts: [{ speaker: 'male', text: "I got a perfect score on the exam!" }],
+          options: ["Scores are posted online.", "Get out of here! Seriously?", "I studied all night.", "Exams are stressful."],
+          key: 1,
+          fullScript: "I got a perfect score on the exam!",
+          klippy: "Conversational English frequently expresses enthusiastic surprise via idiomatic disbelief ('Get out of here! Seriously?')."
+        },
+        {
+          id: 7,
+          prompt: 'Choose the best response',
+          image: PHOTOS.femaleStudent2,
+          speechParts: [{ speaker: 'female', text: "The instructions mention APA style." }],
+          options: ["Formatting does not make a difference.", "I prefer MLA.", "Then you should follow APA format.", "Styles are confusing."],
+          key: 2,
+          fullScript: "The instructions mention APA style.",
+          klippy: "Guidelines in academic assignments must be directly complied with ('Then you should follow APA format.')."
+        },
+        {
+          id: 8,
+          prompt: 'Choose the best response',
+          image: PHOTOS.maleStudent4,
+          speechParts: [{ speaker: 'male', text: "You missed class yesterday, everything okay?" }],
+          options: ["Thursdays are always busy.", "The lecture was difficult.", "I was feeling under the weather.", "Class was canceled."],
+          key: 2,
+          fullScript: "You missed class yesterday, everything okay?",
+          klippy: "Inquiries about absences are pragmatically addressed by providing the reason ('I was feeling under the weather.')."
+        }
+      ],
+      stimulusSets: [
+        {
+          title: "Listen to a conversation",
+          image: PHOTOS.dialogueLibrary,
+          speechParts: [
+            { speaker: 'narrator', text: "Listen to a conversation." },
+            { speaker: 'male', text: "Did you hear the library is closing earlier tonight?" },
+            { speaker: 'female', text: "No, I didn't. I was planning to stay there until ten because I need to finish my reading assignment." },
+            { speaker: 'male', text: "They're shutting down at seven for maintenance. The staff needs time to update the computer system and check some equipment." },
+            { speaker: 'female', text: "That's inconvenient. I need those books for tomorrow's class, and I haven't finished taking notes yet." },
+            { speaker: 'male', text: "Why don't you check if the books are available through the online database? Some of the same materials might be there." },
+            { speaker: 'female', text: "Good idea. I'll look for digital copies when I get home. If I can't find them, I'll come early tomorrow morning." }
+          ],
+          questions: [
+            {
+              id: 9,
+              prompt: "Why is the library closing early?",
+              options: ["Because of a holiday", "Because of maintenance", "Because of a staff meeting", "Because of bad weather"],
+              key: 1,
+              fullScript: "They're shutting down at seven for maintenance.",
+              klippy: "The male speaker directly states the exact reason: maintenance."
+            },
+            {
+              id: 10,
+              prompt: "What does the woman decide to do first?",
+              options: ["Finish her assignment at home", "Borrow books from a classmate", "Look for materials online", "Visit the library before seven"],
+              key: 2,
+              fullScript: "I'll look for digital copies when I get home.",
+              klippy: "The student explicitly announces her primary step: searching the digital database online."
+            }
+          ]
+        },
+        {
+          title: "Listen to a conversation",
+          image: PHOTOS.dialogueCampusPair,
+          speechParts: [
+            { speaker: 'narrator', text: "Listen to a conversation." },
+            { speaker: 'female', text: "The microscope images look much blurrier than yesterday." },
+            { speaker: 'male', text: "I see. Did you change any of the settings or use a different sample?" },
+            { speaker: 'female', text: "No, I used the same settings as before. Could the equipment be the problem?" },
+            { speaker: 'male', text: "It's possible. The objective lens probably needs recalibration after yesterday's maintenance." },
+            { speaker: 'female', text: "Can someone adjust it this afternoon? I need to continue my experiments soon." },
+            { speaker: 'male', text: "The laboratory technician will be here at two. He can check the microscope and make the necessary adjustments." },
+            { speaker: 'female', text: "That's great. I'll return after my chemistry seminar and see if the images improve." },
+            { speaker: 'male', text: "Bring one of your sample slides for testing so the technician can compare the results." }
+          ],
+          questions: [
+            {
+              id: 11,
+              prompt: "Why does the student speak with the staff member?",
+              options: ["To request permission to use another laboratory.", "To report a problem with the microscope.", "To reserve the laboratory technician for tomorrow.", "To borrow additional sample slides."],
+              key: 1,
+              fullScript: "The microscope images look much blurrier than yesterday.",
+              klippy: "The student's opening sentence defines her communicative purpose: reporting blurred microscope images."
+            },
+            {
+              id: 12,
+              prompt: "What will the student most likely do next?",
+              options: ["Attend a chemistry seminar before returning.", "Replace the microscope with another model.", "Clean every microscope in the laboratory.", "Submit the blurred images to the instructor."],
+              key: 0,
+              fullScript: "I'll return after my chemistry seminar and see if the images improve.",
+              klippy: "The student specifies her scheduled next action: attending her chemistry seminar."
+            }
+          ]
+        },
+        {
+          title: "Listen to an announcement on campus",
+          image: PHOTOS.maleHost,
+          speechParts: [
+            { speaker: 'narrator', text: "Listen to an announcement on campus." },
+            { speaker: 'male', text: "The campus printing center will be unavailable this Friday morning while new printers are installed. Students who need to print documents before noon should use the machines in the library or student union. Existing printing balances will remain active, and no additional charges will be applied during the maintenance period. The center is expected to reopen at one pm." }
+          ],
+          questions: [
+            {
+              id: 13,
+              prompt: "Why will the printing center be unavailable?",
+              options: ["Staff members are receiving training.", "New equipment is being installed.", "The building requires repairs.", "Student accounts are being updated."],
+              key: 1,
+              fullScript: "...while new printers are installed.",
+              klippy: "Direct correspondence: new printers being installed equals new equipment installation."
+            },
+            {
+              id: 14,
+              prompt: "What should students do if they need to print documents?",
+              options: ["Wait until the following day.", "Purchase a new printing card.", "Use another campus location.", "Contact the printing center staff."],
+              key: 2,
+              fullScript: "Students who need to print documents before noon should use the machines in the library or student union.",
+              klippy: "The announcement advises utilizing alternate facilities on campus."
+            }
+          ]
+        },
+        {
+          title: "Listen to an announcement in a lecture hall",
+          image: PHOTOS.femaleHost,
+          speechParts: [
+            { speaker: 'narrator', text: "Listen to an announcement in a lecture hall." },
+            { speaker: 'female', text: "The history department is changing the location of Friday's guest lecture. The event will now take place in Arts Hall two zero one instead of the main auditorium because of a scheduling conflict. The starting time remains five pm, and students who already registered do not need to sign up again. Additional seats will be available on a first-come, first-served basis." }
+          ],
+          questions: [
+            {
+              id: 15,
+              prompt: "Why was the lecture location changed?",
+              options: ["The speaker requested a smaller room.", "The auditorium is being renovated.", "Another event created a scheduling conflict.", "Too few students registered."],
+              key: 2,
+              fullScript: "...instead of the main auditorium because of a scheduling conflict.",
+              klippy: "Explicit rationale stated: scheduling conflict."
+            },
+            {
+              id: 16,
+              prompt: "What do registered students need to do?",
+              options: ["Register again online.", "Arrive at the new location.", "Contact the department office.", "Attend the lecture at a different time."],
+              key: 1,
+              fullScript: "...students who already registered do not need to sign up again.",
+              klippy: "Students do not re-register; they simply proceed to the newly assigned location."
+            }
+          ]
+        },
+        {
+          title: "Listen to part of an Environmental Science class",
+          image: PHOTOS.femaleProfessor,
+          speechParts: [
+            { speaker: 'narrator', text: "Listen to part of an Environmental Science class." },
+            { speaker: 'female', text: "Artificial light has transformed modern life by making nighttime activities safer and more convenient. However, excessive artificial lighting can create a problem known as light pollution. This occurs when unnecessary or poorly directed light changes natural patterns of darkness. One major effect of light pollution is that it makes astronomical observation more difficult. Bright skies caused by artificial light can hide faint stars and other celestial objects. Light pollution can also affect wildlife because many species depend on natural cycles of light and darkness for activities such as navigation, feeding, and reproduction. To reduce these effects, some communities are introducing dark sky measures. These include using shielded lights, reducing unnecessary illumination, and choosing lighting systems that minimize environmental disruption. Although some people worry that reducing nighttime lighting could create safety problems, experts argue that carefully designed systems can provide both visibility and conservation benefits." }
+          ],
+          questions: [
+            {
+              id: 17,
+              prompt: "What is the talk mainly about?",
+              options: ["The history of artificial lighting technology", "The effects of light pollution and ways to reduce it", "The methods scientists use to study wildlife", "The importance of observing stars and planets"],
+              key: 1,
+              fullScript: "The talk examines light pollution impacts on observation/wildlife and dark sky mitigations.",
+              klippy: "The professor balances the environmental/astronomical impacts of light pollution with mitigation strategies."
+            },
+            {
+              id: 18,
+              prompt: "According to the speaker, why does light pollution affect astronomical observation?",
+              options: ["It changes the movement of stars and planets.", "It makes faint objects in the sky harder to see.", "It damages scientific equipment used by astronomers.", "It prevents researchers from studying weather patterns."],
+              key: 1,
+              fullScript: "Bright skies caused by artificial light can hide faint stars and other celestial objects.",
+              klippy: "Literal detail: bright skies obscure faint stars."
+            },
+            {
+              id: 19,
+              prompt: "Why does the speaker mention wildlife?",
+              options: ["To explain another area affected by excessive artificial light", "To show that animals benefit from brighter environments", "To describe how scientists classify different species", "To compare wildlife research with astronomy"],
+              key: 0,
+              fullScript: "Light pollution can also affect wildlife because many species depend on natural cycles...",
+              klippy: "Wildlife serves as a second major environmental domain disrupted by nighttime illumination."
+            },
+            {
+              id: 20,
+              prompt: "What does the speaker imply about communities that adopt dark sky measures?",
+              options: ["They usually spend more money than communities with traditional lighting.", "They must completely eliminate artificial lighting at night.", "They are mainly interested in helping astronomers study the universe.", "They may reduce environmental impacts while still meeting human needs."],
+              key: 3,
+              fullScript: "...carefully designed systems can provide both visibility and conservation benefits.",
+              klippy: "The conclusion balances safety/visibility for humans alongside biological conservation."
+            }
+          ]
+        }
+      ]
+    };
+
+    const MODULE2_DATA = {
+      standaloneQuestions: [
+        {
+          id: 1,
+          prompt: 'Choose the best response',
+          image: PHOTOS.femaleStudent4,
+          speechParts: [{ speaker: 'female', text: "Could you print these slides before class?" }],
+          options: ["The printer uses recycled paper.", "The slides include several diagrams.", "I'll send them to the printer right away.", "Our class starts at nine."],
+          key: 2,
+          fullScript: "Could you print these slides before class?",
+          klippy: "Pragmatic agreement to perform a favor immediately ('I'll send them to the printer right away.')."
+        },
+        {
+          id: 2,
+          prompt: 'Choose the best response',
+          image: PHOTOS.maleStudent1,
+          speechParts: [{ speaker: 'male', text: "I can't remember my locker combination." }],
+          options: ["The hallway gets crowded before lunch.", "My backpack is still inside the locker.", "The lockers were installed last semester.", "You can ask the front office to look it up."],
+          key: 3,
+          fullScript: "I can't remember my locker combination.",
+          klippy: "Forgotten codes on campus require administrative retrieval at the front desk."
+        },
+        {
+          id: 3,
+          prompt: 'Choose the best response',
+          image: PHOTOS.femaleStudent1,
+          speechParts: [{ speaker: 'female', text: "Have you seen my calculator anywhere?" }],
+          options: ["The calculator has fresh batteries.", "Tomorrow's quiz covers statistics.", "I borrowed a ruler from the library.", "It might still be on the table in the study room."],
+          key: 3,
+          fullScript: "Have you seen my calculator anywhere?",
+          klippy: "Lost item questions are addressed by offering a plausible physical location."
+        },
+        {
+          id: 4,
+          prompt: 'Choose the best response',
+          image: PHOTOS.maleStudent2,
+          speechParts: [{ speaker: 'male', text: "I'm running a little late for the meeting." }],
+          options: ["I'll save you a seat near the front.", "The meeting agenda was emailed yesterday.", "Several new employees joined this week.", "The conference room overlooks the courtyard."],
+          key: 0,
+          fullScript: "I'm running a little late for the meeting.",
+          klippy: "A colleague running late is offered peer assistance ('I'll save you a seat near the front.')."
+        },
+        {
+          id: 5,
+          prompt: 'Choose the best response',
+          image: PHOTOS.femaleStudent3,
+          speechParts: [{ speaker: 'female', text: "Do you know when the bookstore opens?" }],
+          options: ["My history book was expensive.", "Students often study in the café nearby.", "The bookstore sells used textbooks.", "It usually opens at eight on weekdays."],
+          key: 3,
+          fullScript: "Do you know when the bookstore opens?",
+          klippy: "Operating hour inquiries demand the exact opening schedule."
+        },
+        {
+          id: 6,
+          prompt: 'Choose the best response',
+          image: PHOTOS.maleStudent3,
+          speechParts: [{ speaker: 'male', text: "I think I left my water bottle in the lecture hall." }],
+          options: ["The lecture lasted almost two hours.", "You should check the lost-and-found office.", "The lecture hall has comfortable seats.", "The bottle is made of stainless steel."],
+          key: 1,
+          fullScript: "I think I left my water bottle in the lecture hall.",
+          klippy: "Left items on campus are retrieved via the institutional lost-and-found desk."
+        },
+        {
+          id: 7,
+          prompt: 'Choose the best response',
+          image: PHOTOS.femaleStudent2,
+          speechParts: [{ speaker: 'female', text: "Can you help me move these boxes?" }],
+          options: ["The storage room is on the second floor.", "We finished organizing the shelves yesterday.", "The boxes contain old project files.", "Sure, where would you like me to take them?"],
+          key: 3,
+          fullScript: "Can you help me move these boxes?",
+          klippy: "Willingness to assist with moving items asks for the intended destination."
+        },
+        {
+          id: 8,
+          prompt: 'Choose the best response',
+          image: PHOTOS.maleStudent1,
+          speechParts: [{ speaker: 'male', text: "I haven't received the assignment instructions yet." }],
+          options: ["The professor usually posts them on the course website.", "Several students asked questions after class.", "The deadline is next Friday.", "The assignment is worth twenty percent of the final grade."],
+          key: 0,
+          fullScript: "I haven't received the assignment instructions yet.",
+          klippy: "Directing the peer to the digital learning portal resolves missing course documents."
+        }
+      ],
+      stimulusSets: [
+        {
+          title: "Listen to a conversation",
+          image: PHOTOS.dialogueCampusPair,
+          speechParts: [
+            { speaker: 'narrator', text: "Listen to a conversation." },
+            { speaker: 'female', text: "My presentation file won't open on the classroom computer." },
+            { speaker: 'male', text: "That's strange. Did you check whether the file was damaged?" },
+            { speaker: 'female', text: "I opened it successfully on my laptop, so I think the problem is with the classroom computer." },
+            { speaker: 'male', text: "I see. That computer still has the previous version of the software installed, so it may not support some of the newer features in your presentation." },
+            { speaker: 'female', text: "Is there a quick solution? I have to present in less than an hour." },
+            { speaker: 'male', text: "Yes. Open the file on another computer and save it as a PDF. That should prevent compatibility issues and preserve the formatting." },
+            { speaker: 'female', text: "That makes sense. I'll use the library computers before class and create a new copy there." },
+            { speaker: 'male', text: "Good. Just make sure you test the PDF before your presentation starts." }
+          ],
+          questions: [
+            {
+              id: 9,
+              prompt: "Why is the student having a problem?",
+              options: ["The presentation was deleted.", "The classroom computer has older software.", "The library computers are unavailable.", "The classroom projector is broken."],
+              key: 1,
+              fullScript: "That computer still has the previous version of the software installed...",
+              klippy: "The peer diagnoses the exact technical cause: an outdated software version on the classroom terminal."
+            },
+            {
+              id: 10,
+              prompt: "What will the student most likely do?",
+              options: ["Cancel the presentation.", "Install new software in the classroom.", "Save the presentation as a PDF.", "Print paper copies instead."],
+              key: 2,
+              fullScript: "Open the file on another computer and save it as a PDF.",
+              klippy: "The recommended practical fix is converting the file format to PDF."
+            }
+          ]
+        },
+        {
+          title: "Listen to an announcement on campus",
+          image: PHOTOS.maleHost,
+          speechParts: [
+            { speaker: 'narrator', text: "Listen to an announcement on campus." },
+            { speaker: 'male', text: "The chemistry department has extended the deadline for laboratory reports by two days due to a problem with the online submission system. Students who already submitted their reports do not need to upload them again. However, anyone who experienced technical difficulties should complete the submission before midnight on the new deadline. The department apologizes for the inconvenience." }
+          ],
+          questions: [
+            {
+              id: 11,
+              prompt: "Why was the deadline extended?",
+              options: ["Students requested more preparation time.", "The laboratory schedule changed.", "The submission system had problems.", "The instructor was unavailable."],
+              key: 2,
+              fullScript: "...due to a problem with the online submission system.",
+              klippy: "Explicit reason: technical issues within the submission portal."
+            },
+            {
+              id: 12,
+              prompt: "What should students who already submitted reports do?",
+              options: ["Upload their reports again.", "Contact the department immediately.", "Make changes before the deadline.", "Take no further action."],
+              key: 3,
+              fullScript: "Students who already submitted their reports do not need to upload them again.",
+              klippy: "No further action is required from students who successfully submitted."
+            }
+          ]
+        },
+        {
+          title: "Listen to part of a Business Administration class",
+          image: PHOTOS.maleStudent1,
+          speechParts: [
+            { speaker: 'narrator', text: "Listen to part of a Business Administration class." },
+            { speaker: 'male', text: "Many companies are increasingly adopting subscription-based business models in which customers make regular payments to access products or services rather than purchasing them permanently. This approach has expanded beyond traditional areas such as magazines and memberships and is now common in software, entertainment, and other industries. For businesses, subscriptions provide a more stable source of revenue, making it easier to plan investments and predict future earnings. They also encourage companies to focus on maintaining customer satisfaction because long-term success depends on retaining subscribers. However, this model can create challenges for consumers. Because payments are often small and recurring, people may lose track of their total spending or continue paying for services they no longer use. As subscription models continue to grow, experts argue that companies will need to prioritize transparency and demonstrate clear value to maintain consumer trust." }
+          ],
+          questions: [
+            {
+              id: 13,
+              prompt: "What is the talk mainly about?",
+              options: [
+                "The history of product ownership in modern economies",
+                "The expansion of subscription models and their effects on businesses and consumers",
+                "The role of technology in reducing business expenses",
+                "The reasons companies use advertising to attract new customers"
+              ],
+              key: 1,
+              fullScript: "The lecture evaluates the shift toward subscription models and their dual impacts on firms and clients.",
+              klippy: "The professor balances business advantages (recurring revenue) with consumer drawbacks."
+            },
+            {
+              id: 14,
+              prompt: "According to the speaker, why do businesses benefit from subscription models?",
+              options: [
+                "They no longer need to improve their products or services.",
+                "They can avoid competition from other companies.",
+                "They can predict revenue more easily and plan future decisions.",
+                "They can prevent customers from canceling services."
+              ],
+              key: 2,
+              fullScript: "...subscriptions provide a more stable source of revenue, making it easier to plan investments and predict future earnings.",
+              klippy: "Textual evidence: predictive revenue streams enabling stable long-term planning."
+            },
+            {
+              id: 15,
+              prompt: "Why does the speaker mention consumers continuing to pay for unused services?",
+              options: [
+                "To illustrate a potential problem caused by recurring payments.",
+                "To describe how companies attract new subscribers.",
+                "To explain why customers prefer buying products permanently.",
+                "To show that most subscription services are unsuccessful."
+              ],
+              key: 0,
+              fullScript: "...people may lose track of their total spending or continue paying for services they no longer use.",
+              klippy: "Paying for unused services exemplifies the subtle financial pitfall of recurring billing."
+            },
+            {
+              id: 16,
+              prompt: "What does the speaker imply about the future of subscription-based businesses?",
+              options: [
+                "Businesses will no longer depend on customer satisfaction.",
+                "Consumers will eventually stop using subscription services.",
+                "Companies will need to provide clear value and maintain customer trust.",
+                "Subscription models will replace all traditional purchasing methods."
+              ],
+              key: 2,
+              fullScript: "...companies will need to prioritize transparency and demonstrate clear value to maintain consumer trust.",
+              klippy: "The final remark emphasizes delivering authentic value and transparency."
+            }
+          ]
+        },
+        {
+          title: "Listen to part of a Public Health class",
+          image: PHOTOS.femaleProfessor,
+          speechParts: [
+            { speaker: 'narrator', text: "Listen to part of a Public Health class." },
+            { speaker: 'female', text: "Noise pollution refers to excessive or unwanted sound that interferes with human activities and well-being. Although it is often considered less serious than other forms of pollution, researchers have found that prolonged exposure to high noise levels can have significant consequences. In urban environments, major sources include transportation systems, construction, industrial operations, and densely populated areas. Studies indicate that continuous exposure to excessive noise can contribute to increased stress, sleep disruption, and reduced ability to concentrate. Over time, it may also be associated with health concerns, including cardiovascular conditions such as elevated blood pressure. To address these problems, cities have introduced various strategies, including redesigning urban spaces, limiting construction hours, and installing barriers that block or absorb sound. However, experts emphasize that the goal is not to eliminate all noise, which would be unrealistic in active communities. Instead, effective sound management aims to create healthier environments while allowing cities to continue functioning." }
+          ],
+          questions: [
+            {
+              id: 17,
+              prompt: "What is the talk mainly about?",
+              options: [
+                "The ways cities are expanding transportation and construction systems",
+                "The causes of noise pollution, its effects on health, and methods of reducing it",
+                "The differences between natural and human-made sounds",
+                "The reasons urban environments are becoming increasingly crowded"
+              ],
+              key: 1,
+              fullScript: "The talk systematically covers sources of noise, clinical health consequences, and urban mitigation.",
+              klippy: "The lecture spans origins, pathological impacts, and municipal acoustic interventions."
+            },
+            {
+              id: 18,
+              prompt: "According to the speaker, what health consequence may result from long-term exposure to excessive noise?",
+              options: [
+                "A higher risk of cardiovascular problems such as high blood pressure",
+                "A greater likelihood of developing allergies caused by pollution",
+                "A permanent loss of concentration during daily activities",
+                "A decrease in physical activity caused by urban conditions"
+              ],
+              key: 0,
+              fullScript: "...associated with health concerns, including cardiovascular conditions such as elevated blood pressure.",
+              klippy: "Explicit clinical link: cardiovascular conditions including high blood pressure."
+            },
+            {
+              id: 19,
+              prompt: "Why does the speaker mention sound barriers?",
+              options: [
+                "To explain one example of a strategy used to reduce harmful noise levels",
+                "To show why highway construction creates unavoidable problems",
+                "To compare different materials used in modern buildings",
+                "To describe why cities spend more money on transportation projects"
+              ],
+              key: 0,
+              fullScript: "...installing barriers that block or absorb sound.",
+              klippy: "Sound barriers illustrate structural urban strategies used to absorb acoustic energy."
+            },
+            {
+              id: 20,
+              prompt: "What does the speaker imply about managing noise pollution in cities?",
+              options: [
+                "Urban areas should eliminate most sources of sound to protect residents.",
+                "Complete silence is unnecessary because cities need to remain functional.",
+                "Noise pollution is mainly a temporary problem caused by construction.",
+                "Most cities have already solved the problem through improved planning."
+              ],
+              key: 1,
+              fullScript: "...the goal is not to eliminate all noise, which would be unrealistic in active communities. Instead, effective sound management aims to create healthier environments while allowing cities to continue functioning.",
+              klippy: "Sound management must preserve municipal functionality rather than pursuing absolute silence."
+            }
+          ]
+        }
+      ]
+    };
+
+    /* CONVERSIÓN OFICIAL CEFR & ETS 0-6 SYSTEM */
+    function calculateOfficialMetrics(raw) {
+      if (raw >= 37) {
+        return {
+          band: "6.0",
+          cefr: "C2",
+          title: "C2 Mastery / Near-Native Auditory Competence",
+          desc: "Demuestra una capacidad excepcional para procesar discusiones académicas de alta complejidad, captar implicaturas sutiles, ironía, propósitos comunicativos indirectos y variaciones acústicas complejas sin sobrecarga cognitiva."
+        };
+      } else if (raw >= 32) {
+        const bandVal = (raw >= 35) ? "5.5" : "5.0";
+        return {
+          band: bandVal,
+          cefr: "C1",
+          title: "C1 Effective Operational Proficiency",
+          desc: "Comprende discursos extensos, conferencias académicas complejas y detalles de apoyo abstractos. Identifica con precisión la postura y el tono del hablante, deduciendo conclusiones válidas a partir de información no enunciada explícitamente."
+        };
+      } else if (raw >= 24) {
+        const bandVal = (raw >= 28) ? "4.5" : "4.0";
+        return {
+          band: bandVal,
+          cefr: "B2",
+          title: "B2 Independent / High-Intermediate",
+          desc: "Capaz de entender las ideas centrales y detalles directos en conversaciones de campus y charlas introductorias. Ocasionalmente pierde conexiones lógicas densas cuando el ritmo de locución es rápido o el léxico es altamente técnico."
+        };
+      } else if (raw >= 16) {
+        const bandVal = (raw >= 20) ? "3.5" : "3.0";
+        return {
+          band: bandVal,
+          cefr: "B1",
+          title: "B1 Threshold / Intermediate",
+          desc: "Comprende información factual explícita sobre temas cotidianos de estudio o vida universitaria. Requiere apoyo contextual y presenta dificultades para inferir actitudes o sintetizar múltiples perspectivas concurrentes."
+        };
+      } else if (raw >= 9) {
+        const bandVal = (raw >= 12) ? "2.5" : "2.0";
+        return {
+          band: bandVal,
+          cefr: "A2",
+          title: "A2 Elementary / Waystage",
+          desc: "Identifica frases rutinarias y vocabulario básico sobre situaciones inmediatas en el campus. Dificultad marcada para seguir intercambios académicos fluidos o explicaciones causa-efecto."
+        };
+      } else {
+        return {
+          band: "1.0",
+          cefr: "A1",
+          title: "A1 Beginner / Breakthrough",
+          desc: "Reconoce únicamente palabras familiares aisladas y fórmulas de cortesía elementales sin suficiente dominio para desenvolverse en entornos académicos universitarios."
+        };
+      }
+    }
+
+    function buildModuleSteps(moduleData, modNumber) {
+      let steps = [];
+      moduleData.standaloneQuestions.forEach(q => {
+        steps.push({
+          stepType: 'standalone-question',
+          mod: modNumber,
+          data: q
+        });
+      });
+      moduleData.stimulusSets.forEach(set => {
+        steps.push({
+          stepType: 'stimulus-intro',
+          mod: modNumber,
+          data: set
+        });
+        set.questions.forEach(q => {
+          steps.push({
+            stepType: 'linked-question',
+            mod: modNumber,
+            data: q,
+            speechParts: set.speechParts
+          });
+        });
+      });
+      return steps;
+    }
+
+    const M1_STEPS = buildModuleSteps(MODULE1_DATA, 1);
+    const M2_STEPS = buildModuleSteps(MODULE2_DATA, 2);
+
+    let currentPhase = 'overview';
+    let currentStepIdx = 0;
+    let userAnswersM1 = {};
+    let userAnswersM2 = {};
+    let isPlayingAudio = false;
+
+    let remainingSeconds = 45 * 60;
+    let timerInterval = null;
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        remainingSeconds--;
+        if (remainingSeconds <= 0) {
+          clearInterval(timerInterval);
+          remainingSeconds = 0;
+          timeExpired();
+        }
+        updateTimerDisplay();
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const m = Math.floor(remainingSeconds / 60);
+      const s = remainingSeconds % 60;
+      const el = document.getElementById('timer-display');
+      if (el) {
+        el.textContent = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+      }
+    }
+
+    function timeExpired() {
+      stopAudio();
+      currentPhase = 'time-expired';
+      renderPhase('time-expired');
+    }
+
+    let cachedVoices = [];
+    function loadVoices() {
+      if ('speechSynthesis' in window) {
+        cachedVoices = window.speechSynthesis.getVoices();
+        window.speechSynthesis.onvoiceschanged = () => {
+          cachedVoices = window.speechSynthesis.getVoices();
+        };
+      }
+    }
+    loadVoices();
+
+    function getDifferentiatedVoice(role) {
+      if (!cachedVoices.length && 'speechSynthesis' in window) {
+        cachedVoices = window.speechSynthesis.getVoices();
+      }
+      const enVoices = cachedVoices.filter(v => v.lang.startsWith('en'));
+      if (!enVoices.length) return null;
+
+      if (role === 'narrator') {
+        const narratorVoice = enVoices.find(v => {
+          const name = v.name.toLowerCase();
+          return name.includes('natural') || name.includes('george') || name.includes('guy') || name.includes('david');
+        });
+        return narratorVoice || enVoices[0];
+      } else if (role === 'female') {
+        const femaleVoice = enVoices.find(v => {
+          const name = v.name.toLowerCase();
+          return name.includes('zira') || name.includes('female') || name.includes('samantha') || 
+                 name.includes('karen') || name.includes('victoria') || name.includes('fiona') ||
+                 name.includes('stephanie') || (name.includes('google us english') && !name.includes('male'));
+        });
+        return femaleVoice || enVoices[0];
+      } else {
+        const maleVoice = enVoices.find(v => {
+          const name = v.name.toLowerCase();
+          return name.includes('david') || name.includes('male') || name.includes('alex') || 
+                 name.includes('george') || name.includes('daniel') || name.includes('oliver');
+        });
+        if (maleVoice) return maleVoice;
+        return (enVoices.length > 1) ? enVoices[1] : enVoices[0];
+      }
+    }
+
+    function stopAudio() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+      isPlayingAudio = false;
+      const btn = document.getElementById('btn-play');
+      if (btn) {
+        btn.classList.remove('playing');
+        btn.innerHTML = '🔊 Listen Audio';
+      }
+      const imgBox = document.getElementById('stimulus-img-frame');
+      if (imgBox) imgBox.classList.remove('active-audio');
+    }
+
+    function playSpeechChain(parts, index = 0, onComplete = null) {
+      if (!('speechSynthesis' in window)) return;
+      if (index >= parts.length) {
+        stopAudio();
+        if (onComplete) onComplete();
+        return;
+      }
+
+      isPlayingAudio = true;
+      const btn = document.getElementById('btn-play');
+      const imgBox = document.getElementById('stimulus-img-frame');
+      if (btn) {
+        btn.classList.add('playing');
+        btn.innerHTML = '⏹ Stop Audio';
+      }
+      if (imgBox) imgBox.classList.add('active-audio');
+
+      const part = parts[index];
+      const utter = new SpeechSynthesisUtterance(part.text);
+      const voice = getDifferentiatedVoice(part.speaker);
+      if (voice) utter.voice = voice;
+
+      if (part.speaker === 'narrator') {
+        utter.pitch = 1.0;
+        utter.rate = 0.92;
+      } else if (part.speaker === 'female') {
+        utter.pitch = 1.35;
+        utter.rate = 1.02;
+      } else {
+        utter.pitch = 0.65;
+        utter.rate = 0.88;
+      }
+
+      utter.onend = () => {
+        const delay = (part.speaker === 'narrator') ? 600 : 250;
+        setTimeout(() => {
+          playSpeechChain(parts, index + 1, onComplete);
+        }, delay);
+      };
+
+      utter.onerror = () => {
+        stopAudio();
+      };
+
+      window.speechSynthesis.speak(utter);
+    }
+
+    function testVolumeAudio() {
+      stopAudio();
+      const utter = new SpeechSynthesisUtterance("Testing audio volume. Speaker voices are calibrated.");
+      utter.voice = getDifferentiatedVoice('narrator');
+      utter.rate = 0.95;
+      window.speechSynthesis.speak(utter);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderPhase('overview');
+    });
+
+    function renderPhase(phase) {
+      currentPhase = phase;
+      stopAudio();
+      const stage = document.getElementById('stage-content');
+      const actionSlot = document.getElementById('nav-action-slot');
+      const subTitle = document.getElementById('sub-bar-title');
+      subTitle.innerHTML = `<span>Listening — Mock 02</span><span id="sub-bar-track" style="font-size:15px; color:#64748b;">TOEFL iBT Full Diagnostic</span>`;
+
+      if (phase === 'overview') {
+        actionSlot.innerHTML = `<button class="ets-pill-btn" onclick="renderPhase('m1-intro')">Begin &gt;</button>`;
+        stage.innerHTML = `
+          <div class="ets-card">
+            <h1 class="ets-title">Listening Section — Mock 02</h1>
+            <p class="ets-desc">
+              In the listening section, you will answer 35–45 questions to demonstrate how well you understand spoken English. There are three types of tasks.
+            </p>
+            <table class="ets-table">
+              <thead>
+                <tr>
+                  <th>Type of Task</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-weight:700;">Listen and Choose a Response</td>
+                  <td>Select the best response to the question or statement.</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">Conversations</td>
+                  <td>Answer questions about short conversations.</td>
+                </tr>
+                <tr>
+                  <td style="font-weight:700;">Announcements and Academic Talks</td>
+                  <td>Answer questions about announcements and academic talks.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="ets-warning-text">You WILL NOT be able to return to previous questions.</p>
+          </div>
+        `;
+      }
+      else if (phase === 'm1-intro') {
+        actionSlot.innerHTML = `<button class="ets-pill-btn" onclick="startModule(1)">Begin &gt;</button>`;
+        stage.innerHTML = `
+          <div class="ets-card">
+            <h1 class="ets-title">Module 1</h1>
+            <p class="ets-desc">
+              In an actual test, the clock will show you how much time you have to complete each question.<br><br>
+              You can use <strong>Next</strong> to move to the next question.<br><br>
+              The first task is <strong>Listen and Choose a Response</strong>. In this task, you will listen to a sentence or question. You will then read four sentences and choose the option that is the best response.
+            </p>
+          </div>
+        `;
+      }
+      else if (phase === 'm1-end') {
+        actionSlot.innerHTML = `<button class="ets-pill-btn" onclick="renderPhase('m2-intro')">Next &gt;</button>`;
+        stage.innerHTML = `
+          <div class="ets-card">
+            <h1 class="ets-title">End of Module 1</h1>
+            <p class="ets-desc" style="font-size:22px; line-height:1.7;">
+              This is the end of Module 1 of the Listening section.<br><br>
+              You will now begin Module 2.
+            </p>
+          </div>
+        `;
+      }
+      else if (phase === 'm2-intro') {
+        actionSlot.innerHTML = `<button class="ets-pill-btn" onclick="startModule(2)">Begin &gt;</button>`;
+        stage.innerHTML = `
+          <div class="ets-card">
+            <h1 class="ets-title">Module 2</h1>
+            <p class="ets-desc">
+              In an actual test, the clock will show you how much time you have to complete each question.<br><br>
+              You can use <strong>Next</strong> to move to the next question.<br><br>
+              The first task is <strong>Listen and Choose a Response</strong>. In this task, you will listen to a sentence or question. You will then read four sentences and choose the option that is the best response.
+            </p>
+          </div>
+        `;
+      }
+      else if (phase === 'time-expired') {
+        actionSlot.innerHTML = '';
+        stage.innerHTML = `
+          <div class="ets-card" style="text-align:center; padding:60px 40px;">
+            <div style="font-size:64px; margin-bottom:16px;">⏱️</div>
+            <h1 class="ets-title" style="border:none; color:#dc2626;">Time Expired</h1>
+            <p class="ets-desc" style="font-size:22px;">
+              Your 45-minute official listening test session has concluded.<br>
+              All recorded answers have been automatically saved.
+            </p>
+            <div style="margin-top:30px;">
+              <button class="ets-pill-btn" style="background:var(--ets-teal); color:#fff; padding:14px 34px; font-size:18px;" onclick="renderPhase('results')">
+                View Evaluation Audit &amp; Score &gt;
+              </button>
+            </div>
+          </div>
+        `;
+      }
+      else if (phase === 'results') {
+        renderResults();
+      }
+    }
+
+    function startModule(modNum) {
+      if (!timerInterval) startTimer();
+      currentStepIdx = 0;
+      currentPhase = (modNum === 1) ? 'm1-flow' : 'm2-flow';
+      renderStep();
+    }
+
+    function renderStep() {
+      stopAudio();
+      const stage = document.getElementById('stage-content');
+      const actionSlot = document.getElementById('nav-action-slot');
+      const isM1 = (currentPhase === 'm1-flow');
+      const steps = isM1 ? M1_STEPS : M2_STEPS;
+      const currentStep = steps[currentStepIdx];
+      const isLastStep = (currentStepIdx === steps.length - 1 && !isM1);
+
+      actionSlot.innerHTML = `
+        <button class="ets-pill-btn" id="btn-next" onclick="handleNextStep()">
+          ${isLastStep ? 'Complete Section &gt;' : 'Next &gt;'}
+        </button>
+      `;
+
+      if (currentStep.stepType === 'stimulus-intro') {
+        const stimulus = currentStep.data;
+        stage.innerHTML = `
+          <div class="stimulus-stage">
+            <h1 class="stimulus-title">${stimulus.title}</h1>
+            <div class="stimulus-image-frame" id="stimulus-img-frame">
+              <img src="${stimulus.image}" alt="Stimulus Context" loading="eager">
+            </div>
+            <button class="btn-play-audio" id="btn-play" onclick="toggleStimulusAudio()">
+              🔊 Listen Audio
+            </button>
+          </div>
+        `;
+      }
+      else if (currentStep.stepType === 'standalone-question') {
+        const item = currentStep.data;
+        const selectedAnswers = isM1 ? userAnswersM1 : userAnswersM2;
+        const letters = ['A', 'B', 'C', 'D'];
+
+        let optionsHtml = '';
+        item.options.forEach((opt, idx) => {
+          const isSelected = (selectedAnswers[item.id] === idx);
+          optionsHtml += `
+            <div class="option-item ${isSelected ? 'selected' : ''}" id="opt-item-${idx}" onclick="selectAnswerLive(${item.id}, ${idx})">
+              <div class="option-radio">
+                <div class="option-radio-dot"></div>
+              </div>
+              <div class="option-text">(${letters[idx]}) ${opt}</div>
+            </div>
+          `;
+        });
+
+        stage.innerHTML = `
+          <div>
+            <div class="question-top-idx">Question ${item.id} of 20 • ${isM1 ? 'Module 1' : 'Module 2'}</div>
+            <div class="question-prompt">${item.prompt}</div>
+
+            <div class="question-grid">
+              <div class="speaker-card">
+                <div class="speaker-photo-frame">
+                  <img src="${item.image}" alt="Speaker" loading="eager">
+                </div>
+                <button class="btn-play-audio" id="btn-play" onclick="toggleStandaloneAudio()">
+                  🔊 Listen Audio
+                </button>
+              </div>
+
+              <div class="options-list">
+                ${optionsHtml}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+      else if (currentStep.stepType === 'linked-question') {
+        const item = currentStep.data;
+        const selectedAnswers = isM1 ? userAnswersM1 : userAnswersM2;
+        const letters = ['A', 'B', 'C', 'D'];
+
+        let optionsHtml = '';
+        item.options.forEach((opt, idx) => {
+          const isSelected = (selectedAnswers[item.id] === idx);
+          optionsHtml += `
+            <div class="option-item ${isSelected ? 'selected' : ''}" id="opt-item-${idx}" onclick="selectAnswerLive(${item.id}, ${idx})">
+              <div class="option-radio">
+                <div class="option-radio-dot"></div>
+              </div>
+              <div class="option-text">(${letters[idx]}) ${opt}</div>
+            </div>
+          `;
+        });
+
+        stage.innerHTML = `
+          <div>
+            <div class="question-top-idx">Question ${item.id} of 20 • ${isM1 ? 'Module 1' : 'Module 2'}</div>
+            <div class="question-prompt">${item.prompt}</div>
+
+            <div class="question-grid full-width">
+              <div class="options-list">
+                ${optionsHtml}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function toggleStandaloneAudio() {
+      if (isPlayingAudio) {
+        stopAudio();
+      } else {
+        const isM1 = (currentPhase === 'm1-flow');
+        const steps = isM1 ? M1_STEPS : M2_STEPS;
+        const item = steps[currentStepIdx].data;
+        playSpeechChain(item.speechParts);
+      }
+    }
+
+    function toggleStimulusAudio() {
+      if (isPlayingAudio) {
+        stopAudio();
+      } else {
+        const isM1 = (currentPhase === 'm1-flow');
+        const steps = isM1 ? M1_STEPS : M2_STEPS;
+        const stimulus = steps[currentStepIdx].data;
+        playSpeechChain(stimulus.speechParts);
+      }
+    }
+
+    function selectAnswerLive(itemId, optIdx) {
+      const isM1 = (currentPhase === 'm1-flow');
+      if (isM1) {
+        userAnswersM1[itemId] = optIdx;
+      } else {
+        userAnswersM2[itemId] = optIdx;
+      }
+
+      document.querySelectorAll('.option-item').forEach((el, idx) => {
+        if (idx === optIdx) {
+          el.classList.add('selected');
+        } else {
+          el.classList.remove('selected');
+        }
+      });
+    }
+
+    function handleNextStep() {
+      stopAudio();
+      const isM1 = (currentPhase === 'm1-flow');
+      const steps = isM1 ? M1_STEPS : M2_STEPS;
+
+      if (currentStepIdx < steps.length - 1) {
+        currentStepIdx++;
+        renderStep();
+      } else {
+        if (isM1) {
+          renderPhase('m1-end');
+        } else {
+          clearInterval(timerInterval);
+          let status = JSON.parse(localStorage.getItem('toefl_mocks_status_02')) || {};
+          status.listening_completed = true;
+          localStorage.setItem('toefl_mocks_status_02', JSON.stringify(status));
+
+          renderPhase('results');
+        }
+      }
+    }
+
+    function playFeedbackAudio(speechParts) {
+      stopAudio();
+      playSpeechChain(speechParts);
+    }
+
+    function getAllQuestions(moduleData) {
+      let qList = [];
+      moduleData.standaloneQuestions.forEach(q => {
+        qList.push({
+          ...q,
+          replaySpeech: q.speechParts
+        });
+      });
+      moduleData.stimulusSets.forEach(s => {
+        s.questions.forEach(q => {
+          qList.push({
+            ...q,
+            replaySpeech: s.speechParts
+          });
+        });
+      });
+      qList.sort((a, b) => a.id - b.id);
+      return qList;
+    }
+
+    function renderResults() {
+      stopAudio();
+      const stage = document.getElementById('stage-content');
+      const actionSlot = document.getElementById('nav-action-slot');
+      const subTitle = document.getElementById('sub-bar-title');
+      subTitle.innerHTML = `<span>Listening Diagnostic Feedback — Mock 02</span>`;
+
+      actionSlot.innerHTML = `<button class="ets-pill-btn" onclick="location.reload()">Restart Listening</button>`;
+
+      const now = new Date();
+      const day = String(now.getDate()).padStart(2, '0');
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const year = now.getFullYear();
+      const formattedDate = `${day} / ${month} / ${year}`;
+
+      let rawScore = 0;
+      let auditHtml = '';
+      const letters = ['A', 'B', 'C', 'D'];
+
+      const m1Questions = getAllQuestions(MODULE1_DATA);
+      const m2Questions = getAllQuestions(MODULE2_DATA);
+
+      m1Questions.forEach(item => {
+        const studentAns = userAnswersM1[item.id];
+        const isCorrect = (studentAns === item.key);
+        if (isCorrect) rawScore++;
+
+        const speechPayload = JSON.stringify(item.replaySpeech).replace(/"/g, '&quot;');
+
+        auditHtml += `
+          <div class="audit-card ${isCorrect ? 'correct' : 'incorrect'}">
+            <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+              <strong style="color:var(--text-main); font-size:18px;">Module 1 — Question ${item.id}</strong>
+              <span style="font-family:'JetBrains Mono'; font-weight:800; color:${isCorrect ? 'var(--accent-green)' : 'var(--accent-red)'}">
+                ${isCorrect ? '✓ CORRECT' : '✗ INCORRECT'}
+              </span>
+            </div>
+            <div style="font-size:17px; margin-bottom:6px;"><strong>Question:</strong> ${item.prompt}</div>
+            <div style="font-size:17px; margin-bottom:6px;">
+              <strong>Your Answer:</strong> ${studentAns !== undefined ? `(${letters[studentAns]})${item.options[studentAns]}` : '<span style="color:var(--accent-red);">(No answer selected)</span>'}
+            </div>
+            <div style="font-size:17px; margin-bottom:10px; color:var(--ets-teal); font-weight:700;">
+              <strong>Official Target Key:</strong> (${letters[item.key]}) ${item.options[item.key]}
+            </div>
+
+            <button class="btn-feedback-audio" onclick="playFeedbackAudio(${speechPayload})">
+              🔊 Listen Transcript Audio
+            </button>
+
+            <div style="font-size:16px; color:#475569; background:#f8fafc; padding:10px 14px; border-radius:6px; margin-bottom:8px;">
+              <strong>Official Spoken Script:</strong> "${item.fullScript}"
+            </div>
+            <div class="klippy-box">
+              📎 <strong>Klippy's Evaluation Principle:</strong> ${item.klippy}
+            </div>
+          </div>
+        `;
+      });
+
+      m2Questions.forEach(item => {
+        const studentAns = userAnswersM2[item.id];
+        const isCorrect = (studentAns === item.key);
+        if (isCorrect) rawScore++;
+
+        const speechPayload = JSON.stringify(item.replaySpeech).replace(/"/g, '&quot;');
+
+        auditHtml += `
+          <div class="audit-card ${isCorrect ? 'correct' : 'incorrect'}">
+            <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+              <strong style="color:var(--text-main); font-size:18px;">Module 2 — Question ${item.id}</strong>
+              <span style="font-family:'JetBrains Mono'; font-weight:800; color:${isCorrect ? 'var(--accent-green)' : 'var(--accent-red)'}">
+                ${isCorrect ? '✓ CORRECT' : '✗ INCORRECT'}
+              </span>
+            </div>
+            <div style="font-size:17px; margin-bottom:6px;"><strong>Question:</strong> ${item.prompt}</div>
+            <div style="font-size:17px; margin-bottom:6px;">
+              <strong>Your Answer:</strong> ${studentAns !== undefined ? `(${letters[studentAns]})${item.options[studentAns]}` : '<span style="color:var(--accent-red);">(No answer selected)</span>'}
+            </div>
+            <div style="font-size:17px; margin-bottom:10px; color:var(--ets-teal); font-weight:700;">
+              <strong>Official Target Key:</strong> (${letters[item.key]}) ${item.options[item.key]}
+            </div>
+
+            <button class="btn-feedback-audio" onclick="playFeedbackAudio(${speechPayload})">
+              🔊 Listen Transcript Audio
+            </button>
+
+            <div style="font-size:16px; color:#475569; background:#f8fafc; padding:10px 14px; border-radius:6px; margin-bottom:8px;">
+              <strong>Official Spoken Script:</strong> "${item.fullScript}"
+            </div>
+            <div class="klippy-box">
+              📎 <strong>Klippy's Evaluation Principle:</strong> ${item.klippy}
+            </div>
+          </div>
+        `;
+      });
+
+      const metrics = calculateOfficialMetrics(rawScore);
+      const percentage = Math.round((rawScore / 40) * 100);
+
+      stage.innerHTML = `
+        <div style="max-width:960px; margin:0 auto; width:100%;">
+          <div class="results-hero">
+            <h2 style="font-size:28px;">Listening Official Performance Report — Mock 02</h2>
+            <p style="color:#64748b; margin-top:6px;">Official Diagnostic Session • Exam Date: ${formattedDate}</p>
+            
+            <!-- ETS 0-6 SYSTEM & CEFR BENCHMARK INTEGRATION -->
+            <div class="metrics-grid">
+              <div class="metric-box highlight">
+                <span class="metric-label">TOEFL Official Band</span>
+                <span class="metric-value">${metrics.band}</span>
+                <span style="font-size:14px; color:#005d5d; font-weight:700; margin-top:4px;">Scale: 0.0 – 6.0</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-label">CEFR Level Equivalence</span>
+                <span class="cefr-pill">${metrics.cefr}</span>
+                <span style="font-size:14px; color:#475569; font-weight:700; margin-top:4px;">European Framework</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-label">Raw Accuracy</span>
+                <span class="metric-value" style="color:#0f172a; font-size:2.8rem;">${rawScore}<span style="font-size:1.8rem; color:#64748b;">/40</span></span>
+                <span style="font-size:14px; color:#10b981; font-weight:700; margin-top:4px;">${percentage}% Correct</span>
+              </div>
+            </div>
+
+            <div class="level-desc-box">
+              <strong style="color:var(--ets-teal); font-size:18px; display:block; margin-bottom:4px;">
+                Proficiency Classification: ${metrics.title}
+              </strong>
+              ${metrics.desc}
+            </div>
+          </div>
+
+          <div class="action-banner">
+            <h3 style="font-size:22px; color:#065f46; margin-bottom:8px;">Listening Section Concluded!</h3>
+            <p style="font-size:17px; color:#047857; margin-bottom:20px;">
+              Following the official exam battery (Reading ➔ Listening ➔ Writing ➔ Speaking), you are now ready for Writing Mock 02.
+            </p>
+            <button class="btn-forward-writing" onclick="window.location.href='writing-mock02.html'">
+              Continue to Writing Section ➔
+            </button>
+          </div>
+
+          <h3 style="margin:40px 0 20px 0; font-size:1.6rem; color:var(--ets-teal);">
+            Comprehensive Script Audit &amp; Feedback Breakdown
+          </h3>
+          <div>${auditHtml}</div>
+
+          <div style="text-align:center; margin:40px 0;">
+            <button class="ets-pill-btn" onclick="location.reload()" style="background:var(--ets-teal); color:#fff; padding:14px 36px; font-size:18px;">
+              Retake Listening Mock 02
+            </button>
+          </div>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>

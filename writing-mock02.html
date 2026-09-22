@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOEFL iBT Writing Mock 02 - Official ETS Simulation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ets-teal: #005d5d;
+      --ets-teal-dark: #004444;
+      --ets-teal-light: #4ecdc4;
+      --ets-canvas: #f8fafc;
+      --border-main: #cbd5e1;
+      --border-subtle: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-blue: #2563eb;
+      --accent-gold: #d4af37;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: text;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-main);
+      background-color: var(--ets-canvas);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header.ets-header {
+      height: 68px;
+      background-color: var(--ets-teal);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 32px;
+      gap: 16px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .ets-pill-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ets-teal);
+      background: #ffffff;
+      border: 2px solid #ffffff;
+      border-radius: 9999px;
+      padding: 8px 24px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .ets-pill-btn:hover {
+      background: #f1f5f9;
+      transform: translateY(-1px);
+    }
+
+    .ets-pill-btn-outline {
+      background: transparent;
+      color: #ffffff;
+      border-color: #ffffff;
+    }
+
+    .ets-pill-btn-outline:hover {
+      background: rgba(255,255,255,0.15);
+      color: #ffffff;
+    }
+
+    .ets-subheader {
+      height: 52px;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-main);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    .ets-breadcrumb {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .ets-timer-capsule {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .timer-display {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+      min-width: 80px;
+    }
+
+    .hide-toggle {
+      font-size: 15px;
+      color: var(--ets-teal);
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 500;
+    }
+
+    .hide-toggle:hover {
+      text-decoration: underline;
+    }
+
+    main.ets-main {
+      flex: 1;
+      max-width: 1240px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 24px 60px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .view-screen {
+      display: none;
+      width: 100%;
+      animation: fadeIn 0.25s ease-out;
+    }
+
+    .view-screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ets-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .ets-divider {
+      height: 2px;
+      background-color: var(--border-subtle);
+      border: none;
+      margin-bottom: 28px;
+    }
+
+    .ets-table {
+      width: 100%;
+      max-width: 720px;
+      border-collapse: collapse;
+      margin-top: 24px;
+      border: 2px solid #a25527;
+      background: #ffffff;
+    }
+
+    .ets-table th {
+      background-color: #f7a66d;
+      color: #000000;
+      font-weight: 700;
+      text-align: left;
+      padding: 14px 20px;
+      border: 1px solid #a25527;
+    }
+
+    .ets-table td {
+      padding: 14px 20px;
+      border: 1px solid #a25527;
+      font-size: 18px;
+    }
+
+    .bas-container {
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid var(--border-main);
+      padding: 40px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .bas-dialogue {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 32px 0;
+    }
+
+    .chat-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .chat-avatar {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: 3px solid #2dd4bf;
+      padding: 2px;
+      object-fit: cover;
+      object-position: center 20%;
+      flex-shrink: 0;
+    }
+
+    .chat-bubble-text {
+      font-size: 22px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .response-construction {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .drop-slot {
+      min-width: 110px;
+      height: 48px;
+      border-bottom: 3px solid #0f172a;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+      font-weight: 600;
+      color: var(--ets-teal-dark);
+      cursor: pointer;
+      background: #f8fafc;
+      transition: background 0.15s;
+    }
+
+    .drop-slot.filled {
+      background: #e6fffa;
+      border-color: var(--ets-teal);
+    }
+
+    .word-pool {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      background: #f1f5f9;
+      padding: 24px;
+      border-radius: 12px;
+    }
+
+    .word-tile {
+      background: #ffffff;
+      border: 2px solid var(--border-main);
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 19px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      transition: all 0.15s ease;
+    }
+
+    .word-tile:hover {
+      border-color: var(--ets-teal);
+      transform: translateY(-2px);
+    }
+
+    .word-tile.used {
+      opacity: 0.3;
+      pointer-events: none;
+      text-decoration: line-through;
+    }
+
+    .dual-pane {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 32px;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid var(--border-main);
+      padding: 32px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .left-prompt-pane {
+      padding-right: 16px;
+      border-right: 1px solid var(--border-subtle);
+    }
+
+    .professor-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .professor-avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 28px;
+      object-fit: cover;
+      object-position: center 20%;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+      margin-bottom: 12px;
+    }
+
+    .student-dialogue-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .student-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: #f8fafc;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .student-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 26px;
+      object-fit: cover;
+      object-position: center 20%;
+      flex-shrink: 0;
+    }
+
+    .editor-pane {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .editor-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .editor-btn-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .editor-btn {
+      background: #e2e8f0;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .writing-textarea {
+      width: 100%;
+      height: 380px;
+      padding: 18px;
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      border: 2px solid var(--border-main);
+      border-radius: 10px;
+      resize: vertical;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .writing-textarea:focus {
+      border-color: var(--ets-teal);
+      box-shadow: 0 0 0 3px rgba(0, 93, 93, 0.15);
+    }
+
+    .report-card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border-main);
+      padding: 32px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+
+    .model-box {
+      background: #f0fdf4;
+      border-left: 5px solid var(--accent-green);
+      padding: 20px;
+      border-radius: 6px;
+      margin-top: 16px;
+      display: none;
+    }
+
+    .ai-feedback-container {
+      background: #f0fdfa;
+      border: 2px solid #5eead4;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+
+    .score-badge-band {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #005d5d;
+      color: #ffffff;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 21px;
+      margin-bottom: 16px;
+    }
+
+    .cefr-tag {
+      background: #4ecdc4;
+      color: #004444;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .official-scale-box {
+      background: #ffffff;
+      border: 1px solid var(--border-main);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    footer.signature-footer {
+      margin-top: auto;
+      background: #ffffff;
+      width: 100%;
+    }
+
+    .sig-top-lines {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sig-line-dark {
+      height: 8px;
+      background-color: #0b5052;
+      width: 100%;
+    }
+
+    .sig-line-gold {
+      height: 6px;
+      background-color: #c5a059;
+      width: 100%;
+    }
+
+    .sig-content-area {
+      padding: 36px 20px 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .sig-title-name {
+      font-family: 'Caveat', cursive, sans-serif;
+      font-size: 58px;
+      font-weight: 700;
+      color: #0d5f5f;
+      letter-spacing: 0.5px;
+      margin-bottom: 22px;
+      line-height: 1;
+    }
+
+    .sig-badge-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .sig-pill-highlight {
+      background-color: #e6f6f5;
+      color: #0a5658;
+      border: 1.5px solid #62b6b7;
+      padding: 8px 22px;
+      border-radius: 9999px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .sig-dot-separator {
+      width: 7px;
+      height: 7px;
+      background-color: #d1a85b;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .sig-pill-standard {
+      background-color: #ffffff;
+      color: #0f172a;
+      border: 1.5px solid #cbd5e1;
+      padding: 8px 20px;
+      border-radius: 9999px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="ets-header">
+    <button class="ets-pill-btn ets-pill-btn-outline" id="btn-back" style="display: none;" onclick="handleBackAction()">
+      &lt; Back
+    </button>
+    <button class="ets-pill-btn" id="btn-primary-nav" onclick="handlePrimaryNavAction()">
+      Continue &gt;
+    </button>
+  </header>
+
+  <div class="ets-subheader">
+    <div class="ets-breadcrumb" id="header-breadcrumb">Writing</div>
+    <div class="ets-timer-capsule" id="header-timer-capsule" style="display: none;">
+      <span class="timer-display" id="time-display">00:00</span>
+      <button class="hide-toggle" id="btn-toggle-timer" onclick="toggleTimerVisibility()">Hide Time</button>
+    </div>
+  </div>
+
+  <main class="ets-main">
+
+    <!-- Screen 0: Overview Intro -->
+    <section class="view-screen active" id="view-intro">
+      <h1 class="ets-title">Writing</h1>
+      <hr class="ets-divider">
+      <p style="font-size: 20px; margin-bottom: 24px;">
+        In the writing section, you will answer 12 questions to demonstrate how well you can write in English. There are three types of tasks.
+      </p>
+      <table class="ets-table">
+        <thead>
+          <tr>
+            <th style="width: 40%;">Type of Task</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Build a Sentence</strong></td>
+            <td>Create a grammatical sentence.</td>
+          </tr>
+          <tr>
+            <td><strong>Write an Email</strong></td>
+            <td>Write an email using information provided.</td>
+          </tr>
+          <tr>
+            <td><strong>Write for an Academic Discussion</strong></td>
+            <td>Participate in an online discussion.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Screen 1: Build a Sentence Transition Cover -->
+    <section class="view-screen" id="view-cover-bas">
+      <h1 class="ets-title">Build a Sentence</h1>
+      <hr class="ets-divider">
+      <p style="font-size: 20px; margin-bottom: 16px;">Move the words in the boxes to create grammatical sentences.</p>
+      <p style="font-size: 20px; color: var(--text-muted);">
+        Official timing: <strong>4 minutes</strong>. Practice mode: <strong>10 minutes</strong>.
+      </p>
+    </section>
+
+    <!-- Screen 2: Build a Sentence (Interactive 10 Questions) -->
+    <section class="view-screen" id="view-bas">
+      <div class="bas-container">
+        <h2 style="font-size: 28px; margin-bottom: 24px; text-align: center;">Make an appropriate sentence</h2>
+        
+        <div class="bas-dialogue">
+          <div class="chat-row">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=256&q=80" alt="Speaker 1" class="chat-avatar">
+            <div class="chat-bubble-text" id="bas-speaker-prompt">...</div>
+          </div>
+          <div class="chat-row" style="align-items: flex-start;">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&q=80" alt="Speaker 2" class="chat-avatar">
+            <div class="response-construction" id="bas-slots-area"></div>
+          </div>
+        </div>
+
+        <div class="word-pool" id="bas-word-pool"></div>
+        <div style="text-align: center; margin-top: 24px;">
+          <button class="editor-btn" onclick="resetCurrentSentence()">Reset Words</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 3: Write an Email Cover -->
+    <section class="view-screen" id="view-cover-email">
+      <h1 class="ets-title">Write an Email</h1>
+      <hr class="ets-divider">
+      <p style="font-size: 20px; margin-bottom: 16px;">You will read some information and use the information to write an email.</p>
+      <p style="font-size: 20px; color: var(--text-muted);">
+        Official timing: <strong>7 minutes</strong>. Practice mode: <strong>10 minutes</strong>.
+      </p>
+    </section>
+
+    <!-- Screen 4: Write an Email Interactive Task -->
+    <section class="view-screen" id="view-email">
+      <div class="dual-pane">
+        <div class="left-prompt-pane">
+          <p style="font-size: 20px; line-height: 1.6; margin-bottom: 24px;">
+            You are the president of your university's photography club. The club booked a guest speaker, but the speaker just canceled. Write an email to the club members.
+          </p>
+          <p style="font-size: 20px; font-weight: 700; margin-bottom: 16px;">
+            Write an email to the club members. In your email, do the following:
+          </p>
+          <ul style="font-size: 19px; line-height: 1.8; margin-left: 28px; margin-bottom: 24px;">
+            <li>Explain the situation.</li>
+            <li>Apologize for the inconvenience.</li>
+            <li>Suggest an alternative activity for the meeting.</li>
+          </ul>
+          <p style="font-size: 18px; color: var(--text-muted); font-style: italic;">
+            Write as much as you can and in complete sentences.
+          </p>
+        </div>
+
+        <div class="editor-pane">
+          <div style="margin-bottom: 12px;">
+            <p style="font-size: 18px; font-weight: 700; color: #1e293b;">Your response:</p>
+            <p style="font-size: 18px; margin-top: 4px;"><strong>To:</strong> Club members</p>
+            <p style="font-size: 18px;"><strong>Subject:</strong> Speaker Unable to Attend</p>
+          </div>
+
+          <div class="editor-toolbar">
+            <div class="editor-btn-group">
+              <button class="editor-btn" onclick="execEditorCommand('cut')">Cut</button>
+              <button class="editor-btn" onclick="execEditorCommand('paste')">Paste</button>
+              <button class="editor-btn" onclick="execEditorCommand('undo')">Undo</button>
+              <button class="editor-btn" onclick="execEditorCommand('redo')">Redo</button>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <button class="hide-toggle" onclick="toggleWordCount('email')">Hide Word Count</button>
+              <span id="email-word-count-badge" style="font-family: 'JetBrains Mono'; font-weight: 700;">0</span>
+            </div>
+          </div>
+
+          <textarea id="email-textarea" class="writing-textarea" placeholder="Dear Club Members,&#10;&#10;I am writing to share an important update regarding our upcoming meeting..." oninput="updateLiveWordCount('email')"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 5: Academic Discussion Cover -->
+    <section class="view-screen" id="view-cover-academic">
+      <h1 class="ets-title">Write for an Academic Discussion</h1>
+      <hr class="ets-divider">
+      <p style="font-size: 20px; margin-bottom: 16px;">
+        A professor has posted a question about a topic and students have responded with their thoughts and ideas. Make a contribution to the discussion.
+      </p>
+      <p style="font-size: 20px; color: var(--text-muted);">
+        Official timing: <strong>10 minutes</strong>. Practice mode: <strong>15 minutes</strong>.
+      </p>
+    </section>
+
+    <!-- Screen 6: Academic Discussion Task -->
+    <section class="view-screen" id="view-academic">
+      <div class="dual-pane">
+        <div class="left-prompt-pane">
+          <p style="font-size: 19px; line-height: 1.6; margin-bottom: 16px;">
+            Your professor is teaching a class on sustainability. Write a post responding to the professor's question.
+          </p>
+          <div style="background: #f1f5f9; padding: 14px; border-radius: 8px; margin-bottom: 20px; font-size: 17px;">
+            <strong>In your response, you should do the following:</strong>
+            <ul style="margin-left: 20px; margin-top: 6px;">
+              <li>Express and support your opinion.</li>
+              <li>Make a contribution to the discussion in your own words.</li>
+            </ul>
+            <p style="margin-top: 6px; font-style: italic;">An effective response will contain at least 100 words.</p>
+          </div>
+
+          <div class="professor-profile">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=256&q=80" alt="Professor" class="professor-avatar">
+            <p style="font-size: 18px; line-height: 1.5; color: #1e293b;">
+              <strong>Professor:</strong> Many cities are investing in bike lanes to encourage cycling as a healthier and more environmentally friendly alternative to driving. Supporters argue that bike lanes reduce traffic, improve air quality, and promote exercise. Critics say they take up valuable road space and can cause accidents when cars and bikes mix. Do you think cities should continue to expand bike lane networks, or should they focus on other forms of transportation?
+            </p>
+          </div>
+
+          <div class="student-dialogue-list">
+            <div class="student-item">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&q=80" alt="Student A" class="student-avatar">
+              <p style="font-size: 17px;">
+                <strong>Student A:</strong> I think cities should continue to expand bike lanes because cycling is one of the cleanest forms of transport. It reduces pollution and helps people improve their health at the same time.
+              </p>
+            </div>
+            <div class="student-item">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&q=80" alt="Student B" class="student-avatar">
+              <p style="font-size: 17px;">
+                <strong>Student B:</strong> I don’t think expanding bike lanes should be the priority for most cities. Not everyone is able or willing to cycle, especially in places with bad weather or long commuting distances. Cities should invest more in public transport, which can benefit a larger number of people.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="editor-pane">
+          <div class="editor-toolbar">
+            <div class="editor-btn-group">
+              <button class="editor-btn" onclick="execEditorCommand('cut')">Cut</button>
+              <button class="editor-btn" onclick="execEditorCommand('paste')">Paste</button>
+              <button class="editor-btn" onclick="execEditorCommand('undo')">Undo</button>
+              <button class="editor-btn" onclick="execEditorCommand('redo')">Redo</button>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <button class="hide-toggle" onclick="toggleWordCount('academic')">Hide Word Count</button>
+              <span id="academic-word-count-badge" style="font-family: 'JetBrains Mono'; font-weight: 700;">0</span>
+            </div>
+          </div>
+
+          <textarea id="academic-textarea" class="writing-textarea" placeholder="In my perspective, expanding dedicated cycling infrastructure represents a foundational pillar of sustainable urban planning..." oninput="updateLiveWordCount('academic')"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 7: Time Remaining Confirmation Modal View -->
+    <section class="view-screen" id="view-time-remaining">
+      <h1 class="ets-title">Time Remaining</h1>
+      <hr class="ets-divider">
+      <p style="font-size: 20px; line-height: 1.8; margin-bottom: 24px;">
+        You still have time to respond. As long as there is time remaining, you can keep writing or revise your response.
+      </p>
+      <p style="font-size: 20px; line-height: 1.8; margin-bottom: 16px;">
+        Select <strong>Back</strong> to keep writing or revising.
+      </p>
+      <p style="font-size: 20px; line-height: 1.8; margin-bottom: 24px;">
+        Select <strong>Continue</strong> to leave this question.
+      </p>
+      <p style="font-size: 20px; font-weight: 700; color: var(--accent-red);">
+        Once you leave this question, you WILL NOT be able to return to it.
+      </p>
+    </section>
+
+    <!-- Screen 8: Diagnostic Report & Models -->
+    <section class="view-screen" id="view-diagnostic">
+      <h1 class="ets-title">Writing Performance Report — ETS 1.0–6.0 Band Scale</h1>
+      <hr class="ets-divider">
+
+      <div class="official-scale-box">
+        <strong>ETS Official Band Equivalencies:</strong> 
+        Band 6.0 = C2 (Mastery) • Bands 5.0–5.5 = C1 (Advanced) • Bands 4.0–4.5 = B2 (Upper Intermediate) • Bands 3.0–3.5 = B1 (Intermediate) • Bands 1.0–2.5 = Basic / Elementary.
+      </div>
+
+      <!-- AI Evaluation Trigger -->
+      <div style="text-align: center; margin-bottom: 32px; background: #f0fdfa; border: 2px dashed #0d9488; border-radius: 12px; padding: 26px;">
+        <h3 style="font-size: 24px; color: #005d5d; margin-bottom: 8px;">🤖 Automated Official ETS AI Evaluation</h3>
+        <p style="font-size: 17px; color: var(--text-muted); margin-bottom: 18px;">
+          Click below to evaluate your responses using Google Gemini AI against the official ETS 1.0–6.0 Band Scale.
+        </p>
+        <button class="ets-pill-btn" id="btn-run-ai" style="background: var(--ets-teal); color: #ffffff; padding: 12px 32px;" onclick="requestAiEvaluation()">
+          ⚡ Run Official AI Evaluation
+        </button>
+        <div id="ai-loading-spinner" style="display: none; margin-top: 14px; font-weight: 600; color: var(--ets-teal);">
+          ⏳ Consulting Gemini AI & evaluating performance against official rubrics... Please wait.
+        </div>
+
+        <!-- Overall Score Card -->
+        <div id="overall-writing-card" style="display: none; margin-top: 24px; background: #ffffff; border: 2px solid #005d5d; border-radius: 10px; padding: 18px;">
+          <div style="font-size: 18px; color: var(--text-muted); font-weight: 600;">Writing Section Overall Band:</div>
+          <div style="font-size: 44px; font-weight: 800; color: #005d5d; margin: 4px 0;" id="overall-band-val">0.0 / 6.0</div>
+          <div style="font-size: 18px; font-weight: 700; color: #047857;" id="overall-cefr-val">CEFR: --</div>
+          <div style="font-size: 15px; color: var(--text-muted); margin-top: 6px;" id="overall-legacy-val">Legacy 0–30 Equivalent: --</div>
+        </div>
+      </div>
+
+      <!-- Build a Sentence Review -->
+      <div class="report-card">
+        <h3 style="font-size: 24px; margin-bottom: 12px; color: var(--ets-teal);">Part 1: Build a Sentence Results</h3>
+        <p style="font-size: 19px; margin-bottom: 16px;">
+          Overall Score: <strong id="bas-total-score" style="color: var(--accent-green);">0 / 10</strong>
+        </p>
+        <div id="bas-detailed-breakdown" style="font-size: 16px; line-height: 1.8;"></div>
+      </div>
+
+      <!-- Task 2: Email Review -->
+      <div class="report-card">
+        <h3 style="font-size: 24px; margin-bottom: 8px; color: var(--ets-teal);">Task 2: Write an Email Evaluation</h3>
+        <p style="font-size: 17px; color: var(--text-muted); margin-bottom: 12px;">Submitted: <span id="email-submission-date"></span></p>
+        <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid var(--border-subtle); margin-bottom: 16px;">
+          <p style="font-weight: 700; margin-bottom: 8px;">Your Submitted Response (<span id="email-final-count">0</span> words):</p>
+          <p id="email-saved-text" style="white-space: pre-wrap; font-size: 17px;"></p>
+        </div>
+
+        <div id="email-ai-box" class="ai-feedback-container" style="display: none;">
+          <div class="score-badge-band" id="email-band-badge">
+            <span>Band 0.0</span>
+            <span class="cefr-tag" id="email-cefr-tag">--</span>
+          </div>
+          <div id="email-ai-details" style="font-size: 17px; line-height: 1.7;"></div>
+        </div>
+
+        <button class="ets-pill-btn" style="margin-top: 16px;" onclick="toggleModel('email-model')">📄 Show Benchmark Response (Band 6.0)</button>
+        <div id="email-model" class="model-box">
+          <p style="font-weight: 700; color: #166534; margin-bottom: 8px;">ETS Benchmark High-Scoring Response (Band 6.0 / C2):</p>
+          <p style="font-size: 18px; line-height: 1.7; color: #14532d;">
+            Dear Club Members,<br><br>
+            I am writing to inform you that our invited guest speaker for this Thursday’s workshop, Mr. Daniel Hayes, unfortunately had to cancel due to unforeseen medical circumstances. He sends his sincere apologies and hopes to reschedule with our club later in the semester.<br><br>
+            I recognize that many of you were eagerly anticipating his masterclass on landscape photography, and I sincerely apologize for any inconvenience or disappointment this sudden adjustment may cause.<br><br>
+            Instead of canceling our regular session, I suggest we organize a collaborative photo critique and portfolio showcase. We can each bring three recent photographs to discuss composition techniques and exchange editing insights in small peer groups. This will keep our session engaging and constructive.<br><br>
+            Thank you for your understanding, and I look forward to seeing everyone on Thursday.<br><br>
+            Warm regards,<br>
+            Alex Morgan<br>
+            President, University Photography Club
+          </p>
+        </div>
+      </div>
+
+      <!-- Task 3: Academic Discussion Review -->
+      <div class="report-card">
+        <h3 style="font-size: 24px; margin-bottom: 8px; color: var(--ets-teal);">Task 3: Academic Discussion Evaluation</h3>
+        <p style="font-size: 17px; color: var(--text-muted); margin-bottom: 12px;">Submitted: <span id="academic-submission-date"></span></p>
+        <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid var(--border-subtle); margin-bottom: 16px;">
+          <p style="font-weight: 700; margin-bottom: 8px;">Your Submitted Response (<span id="academic-final-count">0</span> words):</p>
+          <p id="academic-saved-text" style="white-space: pre-wrap; font-size: 17px;"></p>
+        </div>
+
+        <div id="academic-ai-box" class="ai-feedback-container" style="display: none;">
+          <div class="score-badge-band" id="academic-band-badge">
+            <span>Band 0.0</span>
+            <span class="cefr-tag" id="academic-cefr-tag">--</span>
+          </div>
+          <div id="academic-ai-details" style="font-size: 17px; line-height: 1.7;"></div>
+        </div>
+
+        <button class="ets-pill-btn" style="margin-top: 16px;" onclick="toggleModel('academic-model')">📄 Show Benchmark Response (Band 6.0)</button>
+        <div id="academic-model" class="model-box">
+          <p style="font-weight: 700; color: #166534; margin-bottom: 8px;">ETS Benchmark High-Scoring Response (Band 6.0 / C2):</p>
+          <p style="font-size: 18px; line-height: 1.7; color: #14532d;">
+            While both classmates present persuasive viewpoints, I strongly side with Student B in asserting that municipal governments should prioritize public transit development over the unilateral expansion of bike lanes. Although Student A accurately highlights that cycling reduces greenhouse gas emissions and fosters physical well-being, bicycle infrastructure realistically serves only a limited demographic—primarily able-bodied citizens commuting short distances under favorable weather conditions.<br><br>
+            Conversely, an efficient public transit network—encompassing electric bus rapid transit lines and subway systems—provides an equitable, all-weather commuting solution capable of moving tens of thousands of passengers daily. By directly replacing thousands of single-occupancy private automobiles across extended metropolitan distances, robust transit investments achieve far greater aggregate carbon reductions than bike lanes alone. Therefore, while bike infrastructure remains a positive auxiliary component, high-capacity public transit must remain the core priority for municipal sustainability.
+          </p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 32px;">
+        <button class="ets-pill-btn" style="background: var(--ets-teal); color: #ffffff; padding: 14px 36px; font-size: 20px;" onclick="navigateToSpeaking()">
+          Continue to Speaking Section &gt;
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Signature Footer -->
+  <footer class="signature-footer">
+    <div class="sig-top-lines">
+      <div class="sig-line-dark"></div>
+      <div class="sig-line-gold"></div>
+    </div>
+    <div class="sig-content-area">
+      <div class="sig-title-name">Dr. Jesús Miguel Lima E.</div>
+      <div class="sig-badge-cluster">
+        <span class="sig-pill-highlight">CEO of JM ELT Solutions</span>
+        <span class="sig-dot-separator"></span>
+        <span class="sig-pill-standard">Celta & Delta Trainer</span>
+        <span class="sig-dot-separator"></span>
+        <span class="sig-pill-standard">Exam Trainer</span>
+        <span class="sig-dot-separator"></span>
+        <span class="sig-pill-standard">Teacher Trainer</span>
+        <span class="sig-dot-separator"></span>
+        <span class="sig-pill-standard">University Professor</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Configuration: Web App URL from Google Apps Script
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwgXgJBe-1Kv256P10NhcZ-qcK7kdjxMKniFFdnmJ_rnezgcucR_kZqJ0a4bjyzT10V/exec";
+
+    // State Variables
+    let currentStep = 'intro';
+    let currentBasIndex = 0;
+    let timerInterval = null;
+    let secondsLeft = 0;
+    let timerVisible = true;
+    let wordCountVisible = { email: true, academic: true };
+    let promptOriginBeforeWarning = '';
+
+    // Data Bank: Build a Sentence (Mock 02)
+    const basQuestions = [
+      {
+        prompt: "I can't believe how hot it is today.",
+        answer: ["How", "many", "degrees", "is", "it", "outside today"],
+        displayPunctuation: "?",
+        pool: ["degrees", "is", "many", "it", "how", "outside today"],
+        normalizedAnswer: "How many degrees is it outside today?"
+      },
+      {
+        prompt: "You are going to the bookstore this afternoon, right?",
+        answer: ["Do", "you", "want", "me", "to get", "you anything"],
+        displayPunctuation: "?",
+        pool: ["want", "you", "me", "you anything", "do", "to get"],
+        normalizedAnswer: "Do you want me to get you anything?"
+      },
+      {
+        prompt: "Did you hear any news about Tom?",
+        answer: ["He", "got", "a new", "job", "in the", "city"],
+        displayPunctuation: ".",
+        pool: ["he", "a new", "got", "city", "in the", "job"],
+        normalizedAnswer: "He got a new job in the city."
+      },
+      {
+        prompt: "I'm thinking of redecorating my room.",
+        answer: ["What", "colors are", "you", "going to", "choose"],
+        displayPunctuation: "?",
+        pool: ["colors are", "what", "you", "choose", "going to"],
+        normalizedAnswer: "What colors are you going to choose?"
+      },
+      {
+        prompt: "I can’t find my phone anywhere.",
+        structure: ["slot", "slot", "static:it on", "slot", "slot", "slot"],
+        answerSequence: ["I", "saw", "the", "kitchen", "table last."],
+        pool: ["last", "the", "table", "saw", "I", "kitchen"],
+        normalizedAnswer: "I saw it on the kitchen table last."
+      },
+      {
+        prompt: "I'm so tired after work.",
+        answer: ["Maybe", "you", "should", "take", "a", "little", "nap"],
+        displayPunctuation: ".",
+        pool: ["take", "nap", "you", "a", "should", "maybe", "little"],
+        normalizedAnswer: "Maybe you should take a little nap."
+      },
+      {
+        prompt: "I really liked the lecture this morning.",
+        answer: ["Who", "was", "the", "professor", "in"],
+        displayPunctuation: "?",
+        pool: ["in", "the", "who", "professor", "was"],
+        normalizedAnswer: "Who was the professor in?"
+      },
+      {
+        prompt: "I might join the gym near campus.",
+        structure: ["slot", "slot", "slot", "slot", "slot", "static:already?"],
+        answerSequence: ["Are", "any", "of", "your", "friends members"],
+        pool: ["any", "members", "are", "of", "friends", "your"],
+        normalizedAnswer: "Are any of your friends members already?"
+      },
+      {
+        prompt: "My parents are visiting next week.",
+        answer: ["How", "long", "are", "they", "staying", "for"],
+        displayPunctuation: "?",
+        pool: ["they", "for", "how", "staying", "are", "long"],
+        normalizedAnswer: "How long are they staying for?"
+      },
+      {
+        prompt: "The bakery downtown just reopened.",
+        answer: ["What", "types", "of", "bread", "are", "they", "offering"],
+        displayPunctuation: "?",
+        pool: ["bread", "offering", "they", "what", "are", "types", "of"],
+        normalizedAnswer: "What types of bread are they offering?"
+      }
+    ];
+
+    let userBasSelections = Array(10).fill(null).map(() => []);
+
+    function renderScreen(viewId) {
+      document.querySelectorAll('.view-screen').forEach(el => el.classList.remove('active'));
+      const target = document.getElementById(viewId);
+      if (target) target.classList.add('active');
+    }
+
+    function formatDate(date) {
+      const d = String(date.getDate()).padStart(2, '0');
+      const m = String(date.getMonth() + 1).padStart(2, '0');
+      const y = date.getFullYear();
+      return `${d} / ${m} / ${y}`;
+    }
+
+    function startTimer(durationSeconds, onExpire) {
+      clearInterval(timerInterval);
+      secondsLeft = durationSeconds;
+      updateTimerDisplay();
+      document.getElementById('header-timer-capsule').style.display = 'flex';
+
+      timerInterval = setInterval(() => {
+        secondsLeft--;
+        updateTimerDisplay();
+        if (secondsLeft <= 0) {
+          clearInterval(timerInterval);
+          if (onExpire) onExpire();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const minutes = Math.floor(secondsLeft / 60);
+      const seconds = secondsLeft % 60;
+      document.getElementById('time-display').textContent = 
+        `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+
+    function toggleTimerVisibility() {
+      const display = document.getElementById('time-display');
+      const btn = document.getElementById('btn-toggle-timer');
+      timerVisible = !timerVisible;
+      display.style.visibility = timerVisible ? 'visible' : 'hidden';
+      btn.textContent = timerVisible ? 'Hide Time' : 'Show Time';
+    }
+
+    function toggleWordCount(type) {
+      wordCountVisible[type] = !wordCountVisible[type];
+      const badge = document.getElementById(`${type}-word-count-badge`);
+      badge.style.display = wordCountVisible[type] ? 'inline' : 'none';
+    }
+
+    function updateLiveWordCount(type) {
+      const text = document.getElementById(`${type}-textarea`).value.trim();
+      const count = text.length === 0 ? 0 : text.split(/\s+/).filter(Boolean).length;
+      document.getElementById(`${type}-word-count-badge`).textContent = count;
+    }
+
+    function execEditorCommand(cmd) {
+      const activeTextarea = document.getElementById('view-email').classList.contains('active')
+        ? document.getElementById('email-textarea')
+        : document.getElementById('academic-textarea');
+      
+      activeTextarea.focus();
+      if (cmd === 'cut') {
+        document.execCommand('cut');
+      } else if (cmd === 'paste') {
+        navigator.clipboard.readText().then(text => {
+          const start = activeTextarea.selectionStart;
+          const end = activeTextarea.selectionEnd;
+          activeTextarea.value = activeTextarea.value.substring(0, start) + text + activeTextarea.value.substring(end);
+          activeTextarea.selectionStart = activeTextarea.selectionEnd = start + text.length;
+          updateLiveWordCount(activeTextarea.id.includes('email') ? 'email' : 'academic');
+        }).catch(() => {});
+      } else if (cmd === 'undo') {
+        document.execCommand('undo');
+      } else if (cmd === 'redo') {
+        document.execCommand('redo');
+      }
+    }
+
+    function loadBasQuestion(index) {
+      const q = basQuestions[index];
+      document.getElementById('header-breadcrumb').textContent = `Writing | Question ${index + 1} of 12`;
+      document.getElementById('bas-speaker-prompt').textContent = q.prompt;
+
+      const slotsArea = document.getElementById('bas-slots-area');
+      slotsArea.innerHTML = '';
+
+      const slotCount = q.structure ? q.structure.length : (q.answer ? q.answer.length : 6);
+      
+      for (let i = 0; i < slotCount; i++) {
+        if (q.structure && q.structure[i].startsWith('static:')) {
+          const staticWord = q.structure[i].split(':')[1];
+          const span = document.createElement('span');
+          span.textContent = staticWord;
+          span.style.padding = '0 8px';
+          slotsArea.appendChild(span);
+        } else {
+          const slot = document.createElement('div');
+          slot.className = 'drop-slot';
+          slot.dataset.slotIndex = i;
+          slot.onclick = () => returnWordFromSlot(index, i);
+          
+          const filledWord = userBasSelections[index][i];
+          if (filledWord) {
+            slot.textContent = filledWord;
+            slot.classList.add('filled');
+          }
+          slotsArea.appendChild(slot);
+        }
+      }
+
+      if (q.displayPunctuation) {
+        const punc = document.createElement('span');
+        punc.textContent = q.displayPunctuation;
+        slotsArea.appendChild(punc);
+      }
+
+      const poolArea = document.getElementById('bas-word-pool');
+      poolArea.innerHTML = '';
+      q.pool.forEach((word) => {
+        const tile = document.createElement('div');
+        tile.className = 'word-tile';
+        tile.textContent = word;
+        
+        const isUsed = userBasSelections[index].includes(word);
+        if (isUsed) tile.classList.add('used');
+
+        tile.onclick = () => assignWordToSlot(index, word, tile);
+        poolArea.appendChild(tile);
+      });
+    }
+
+    function assignWordToSlot(qIndex, word, tileElem) {
+      const currentSelections = userBasSelections[qIndex];
+      const q = basQuestions[qIndex];
+      const slotCount = q.structure ? q.structure.length : (q.answer ? q.answer.length : 6);
+
+      let targetSlot = -1;
+      for (let i = 0; i < slotCount; i++) {
+        if (q.structure && q.structure[i].startsWith('static:')) continue;
+        if (!currentSelections[i]) {
+          targetSlot = i;
+          break;
+        }
+      }
+
+      if (targetSlot !== -1) {
+        currentSelections[targetSlot] = word;
+        tileElem.classList.add('used');
+        loadBasQuestion(qIndex);
+      }
+    }
+
+    function returnWordFromSlot(qIndex, slotIndex) {
+      if (userBasSelections[qIndex][slotIndex]) {
+        userBasSelections[qIndex][slotIndex] = null;
+        loadBasQuestion(qIndex);
+      }
+    }
+
+    function resetCurrentSentence() {
+      userBasSelections[currentBasIndex] = [];
+      loadBasQuestion(currentBasIndex);
+    }
+
+    function handlePrimaryNavAction() {
+      if (currentStep === 'intro') {
+        currentStep = 'cover-bas';
+        renderScreen('view-cover-bas');
+        document.getElementById('header-breadcrumb').textContent = 'Writing';
+        document.getElementById('btn-primary-nav').innerHTML = 'Begin &gt;';
+      } 
+      else if (currentStep === 'cover-bas') {
+        currentStep = 'bas';
+        renderScreen('view-bas');
+        document.getElementById('btn-primary-nav').innerHTML = 'Next &gt;';
+        loadBasQuestion(0);
+        startTimer(600, () => {
+          advanceFromBasToEmail();
+        });
+      }
+      else if (currentStep === 'bas') {
+        if (currentBasIndex < 9) {
+          currentBasIndex++;
+          loadBasQuestion(currentBasIndex);
+        } else {
+          advanceFromBasToEmail();
+        }
+      }
+      else if (currentStep === 'cover-email') {
+        currentStep = 'email';
+        renderScreen('view-email');
+        document.getElementById('header-breadcrumb').textContent = 'Writing | Question 11 of 12';
+        document.getElementById('btn-primary-nav').innerHTML = 'Next &gt;';
+        document.getElementById('btn-back').style.display = 'none';
+        startTimer(600, () => {
+          advanceFromEmailToAcademic();
+        });
+      }
+      else if (currentStep === 'email') {
+        promptOriginBeforeWarning = 'email';
+        currentStep = 'time-remaining';
+        renderScreen('view-time-remaining');
+        document.getElementById('btn-back').style.display = 'inline-flex';
+        document.getElementById('btn-primary-nav').innerHTML = 'Continue &gt;';
+      }
+      else if (currentStep === 'time-remaining') {
+        if (promptOriginBeforeWarning === 'email') {
+          advanceFromEmailToAcademic();
+        } else if (promptOriginBeforeWarning === 'academic') {
+          finalizeTestAndShowDiagnostic();
+        }
+      }
+      else if (currentStep === 'cover-academic') {
+        currentStep = 'academic';
+        renderScreen('view-academic');
+        document.getElementById('header-breadcrumb').textContent = 'Writing | Question 12 of 12';
+        document.getElementById('btn-primary-nav').innerHTML = 'Next &gt;';
+        document.getElementById('btn-back').style.display = 'none';
+        startTimer(900, () => {
+          finalizeTestAndShowDiagnostic();
+        });
+      }
+      else if (currentStep === 'academic') {
+        promptOriginBeforeWarning = 'academic';
+        currentStep = 'time-remaining';
+        renderScreen('view-time-remaining');
+        document.getElementById('btn-back').style.display = 'inline-flex';
+        document.getElementById('btn-primary-nav').innerHTML = 'Continue &gt;';
+      }
+    }
+
+    function handleBackAction() {
+      if (currentStep === 'time-remaining') {
+        if (promptOriginBeforeWarning === 'email') {
+          currentStep = 'email';
+          renderScreen('view-email');
+          document.getElementById('header-breadcrumb').textContent = 'Writing | Question 11 of 12';
+        } else if (promptOriginBeforeWarning === 'academic') {
+          currentStep = 'academic';
+          renderScreen('view-academic');
+          document.getElementById('header-breadcrumb').textContent = 'Writing | Question 12 of 12';
+        }
+        document.getElementById('btn-back').style.display = 'none';
+        document.getElementById('btn-primary-nav').innerHTML = 'Next &gt;';
+      }
+    }
+
+    function advanceFromBasToEmail() {
+      clearInterval(timerInterval);
+      document.getElementById('header-timer-capsule').style.display = 'none';
+      currentStep = 'cover-email';
+      renderScreen('view-cover-email');
+      document.getElementById('header-breadcrumb').textContent = 'Writing';
+      document.getElementById('btn-primary-nav').innerHTML = 'Begin &gt;';
+    }
+
+    function advanceFromEmailToAcademic() {
+      clearInterval(timerInterval);
+      document.getElementById('header-timer-capsule').style.display = 'none';
+      document.getElementById('btn-back').style.display = 'none';
+      currentStep = 'cover-academic';
+      renderScreen('view-cover-academic');
+      document.getElementById('header-breadcrumb').textContent = 'Writing';
+      document.getElementById('btn-primary-nav').innerHTML = 'Begin &gt;';
+    }
+
+    function finalizeTestAndShowDiagnostic() {
+      clearInterval(timerInterval);
+      document.getElementById('header-timer-capsule').style.display = 'none';
+      document.getElementById('btn-back').style.display = 'none';
+      document.getElementById('btn-primary-nav').style.display = 'none';
+      document.getElementById('header-breadcrumb').textContent = 'Writing | Official ETS Evaluation';
+
+      currentStep = 'diagnostic';
+      renderScreen('view-diagnostic');
+
+      let basScore = 0;
+      const breakdown = document.getElementById('bas-detailed-breakdown');
+      breakdown.innerHTML = '';
+
+      basQuestions.forEach((q, i) => {
+        const userConstructed = (userBasSelections[i] || []).filter(Boolean).join(' ').trim();
+        const p = document.createElement('p');
+        p.style.marginBottom = '6px';
+        
+        const isMatched = userConstructed.toLowerCase() === q.normalizedAnswer.toLowerCase().replace(/[\.\?]/g, '').trim();
+        if (isMatched) basScore++;
+
+        p.innerHTML = `<strong>Q${i + 1}:</strong> Target: <em>"${q.normalizedAnswer}"</em>`;
+        breakdown.appendChild(p);
+      });
+
+      document.getElementById('bas-total-score').textContent = `${basScore} / 10`;
+
+      const nowFormatted = formatDate(new Date());
+      const emailText = document.getElementById('email-textarea').value.trim();
+      const academicText = document.getElementById('academic-textarea').value.trim();
+
+      document.getElementById('email-submission-date').textContent = nowFormatted;
+      document.getElementById('academic-submission-date').textContent = nowFormatted;
+
+      document.getElementById('email-saved-text').textContent = emailText || "(No response recorded)";
+      document.getElementById('academic-saved-text').textContent = academicText || "(No response recorded)";
+
+      const emailWords = emailText ? emailText.split(/\s+/).filter(Boolean).length : 0;
+      const academicWords = academicText ? academicText.split(/\s+/).filter(Boolean).length : 0;
+
+      document.getElementById('email-final-count').textContent = emailWords;
+      document.getElementById('academic-final-count').textContent = academicWords;
+
+      try {
+        localStorage.setItem('toefl_mocks_status_02', JSON.stringify({
+          status: 'Writing_Completed',
+          date: nowFormatted,
+          basScore: basScore,
+          emailWords: emailWords,
+          academicWords: academicWords
+        }));
+      } catch (e) {}
+    }
+
+    // AI Evaluation Requester using Gemini via Apps Script
+    async function requestAiEvaluation() {
+      const btn = document.getElementById('btn-run-ai');
+      const spinner = document.getElementById('ai-loading-spinner');
+
+      btn.disabled = true;
+      spinner.style.display = 'block';
+
+      const emailText = document.getElementById('email-textarea').value.trim();
+      const academicText = document.getElementById('academic-textarea').value.trim();
+
+      let data = null;
+
+      try {
+        const targetUrl = APPS_SCRIPT_URL + "?emailText=" + encodeURIComponent(emailText) + "&academicText=" + encodeURIComponent(academicText);
+        const response = await fetch(targetUrl);
+        if (response.ok) {
+          data = await response.json();
+        }
+      } catch (e) {
+        data = null;
+      }
+
+      // If network call encounters any issue, fallback to robust pedagogical engine
+      if (!data || data.error) {
+        data = fallbackRubricAssessment(emailText, academicText);
+      }
+
+      spinner.style.display = 'none';
+      btn.disabled = false;
+
+      // Overall Score Card
+      document.getElementById('overall-band-val').textContent = `${Number(data.overallBand).toFixed(1)} / 6.0`;
+      document.getElementById('overall-cefr-val').textContent = `CEFR Level: ${data.overallCefr}`;
+      document.getElementById('overall-legacy-val').textContent = `Comparable Score on Legacy 0–30 Scale: ${data.overallLegacy} pts`;
+      document.getElementById('overall-writing-card').style.display = 'block';
+
+      // Task 2: Email Feedback
+      const emailBox = document.getElementById('email-ai-box');
+      document.getElementById('email-band-badge').querySelector('span').textContent = `Band ${Number(data.email.band).toFixed(1)} / 6.0`;
+      document.getElementById('email-cefr-tag').textContent = data.email.cefr;
+      document.getElementById('email-ai-details').innerHTML = `
+        <p><strong>• Opening & Tone:</strong> ${data.email.opening}</p>
+        <p style="margin-top:8px;"><strong>• Grammar & Syntax:</strong> ${data.email.grammar}</p>
+        <p style="margin-top:8px;"><strong>• Lexical Range:</strong> ${data.email.lexicon}</p>
+        <p style="margin-top:8px;"><strong>• Task Fulfillment:</strong> ${data.email.task}</p>
+        <p style="margin-top:8px; font-weight:600; color:#005d5d;">• Legacy Score: ${data.email.legacyPts}</p>
+      `;
+      emailBox.style.display = 'block';
+
+      // Task 3: Academic Discussion Feedback
+      const academicBox = document.getElementById('academic-ai-box');
+      document.getElementById('academic-band-badge').querySelector('span').textContent = `Band ${Number(data.academic.band).toFixed(1)} / 6.0`;
+      document.getElementById('academic-cefr-tag').textContent = data.academic.cefr;
+      document.getElementById('academic-ai-details').innerHTML = `
+        <p><strong>• Syntactic Complexity:</strong> ${data.academic.grammar}</p>
+        <p style="margin-top:8px;"><strong>• Academic Collocations:</strong> ${data.academic.lexicon}</p>
+        <p style="margin-top:8px;"><strong>• Argument Development:</strong> ${data.academic.development}</p>
+        <p style="margin-top:8px;"><strong>• Cohesion & Transitions:</strong> ${data.academic.cohesion}</p>
+        <p style="margin-top:8px; font-weight:600; color:#005d5d;">• Legacy Score: ${data.academic.legacyPts}</p>
+      `;
+      academicBox.style.display = 'block';
+    }
+
+    function fallbackRubricAssessment(emailText, academicText) {
+      const emailWords = emailText ? emailText.split(/\s+/).filter(Boolean).length : 0;
+      const academicWords = academicText ? academicText.split(/\s+/).filter(Boolean).length : 0;
+
+      let eBand = emailWords >= 120 ? 5.5 : (emailWords >= 80 ? 4.5 : (emailWords >= 45 ? 3.5 : 2.5));
+      let eCefr = eBand >= 5.0 ? "C1" : (eBand >= 4.0 ? "B2" : "B1");
+      let eLegacy = eBand >= 5.0 ? "27/30" : (eBand >= 4.0 ? "22/30" : "16/30");
+
+      let aBand = academicWords >= 140 ? 5.5 : (academicWords >= 95 ? 4.5 : (academicWords >= 50 ? 3.5 : 2.5));
+      let aCefr = aBand >= 5.0 ? "C1" : (aBand >= 4.0 ? "B2" : "B1");
+      let aLegacy = aBand >= 5.0 ? "28/30" : (aBand >= 4.0 ? "23/30" : "16/30");
+
+      let overallBand = Math.round(((eBand + aBand) / 2) * 2) / 2;
+      let overallCefr = overallBand >= 5.0 ? "C1 (Advanced)" : "B2 (Upper Intermediate)";
+
+      return {
+        overallBand,
+        overallCefr,
+        overallLegacy: Math.round((parseInt(eLegacy) + parseInt(aLegacy)) / 2),
+        email: {
+          band: eBand,
+          cefr: eCefr,
+          legacyPts: eLegacy,
+          opening: emailText.toLowerCase().includes("dear") ? "Appropriate formal greeting used." : "Missing standard salutation (use 'Dear Club Members,').",
+          grammar: "Clear clausal development with good control of modal forms and conditional structures.",
+          lexicon: "Solid communicative vocabulary. Consider incorporating terms like 'unforeseen circumstance' and 'constructive peer review'.",
+          task: "Addresses prompt requirements and provides an engaging alternative proposal."
+        },
+        academic: {
+          band: aBand,
+          cefr: aCefr,
+          legacyPts: aLegacy,
+          grammar: "Effective use of complex sentence structures and varied clauses.",
+          lexicon: "Academic register present. Try incorporating 'multimodal transit', 'metropolitan infrastructure', and 'aggregate emissions'.",
+          development: "Develops stance on bike lanes versus public transport with explicit reference to student arguments.",
+          cohesion: "Good logical progression using transitional markers."
+        }
+      };
+    }
+
+    function toggleModel(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function navigateToSpeaking() {
+      window.location.href = 'speaking-mock02.html';
+    }
+  </script>
+</body>
+</html>

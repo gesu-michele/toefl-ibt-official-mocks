@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOEFL iBT Reading Mock 2 - Official Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ets-teal: #005d5d;
+      --ets-teal-dark: #004444;
+      --ets-teal-light: #4ecdc4;
+      --ets-gold: #d4af37;
+      --canvas-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border-soft: #cbd5e1;
+      --border-subtle: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent-blue: #2563eb;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-passage: 'Merriweather', Georgia, serif;
+      --font-mono: 'JetBrains Mono', Consolas, monospace;
+      --font-signature: 'Comic Neue', cursive, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--canvas-bg);
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      font-size: 18px;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ETS Navbar */
+    header.ets-navbar {
+      height: 68px;
+      background-color: var(--ets-teal);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      user-select: none;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-timer-pill {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffffff;
+    }
+
+    .nav-timer-pill.time-warning {
+      background: rgba(239, 68, 68, 0.35);
+      border-color: #ef4444;
+      color: #fca5a5;
+      animation: pulseAlert 1.5s infinite;
+    }
+
+    @keyframes pulseAlert {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .ets-pill-btn {
+      background-color: #ffffff;
+      color: var(--ets-teal);
+      border: 1px solid transparent;
+      padding: 8px 24px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    .ets-pill-btn:hover:not(:disabled) {
+      background-color: #f1f5f9;
+      transform: translateY(-1px);
+    }
+
+    .ets-pill-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .ets-ghost-btn {
+      background: rgba(255,255,255,0.15);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 7px 18px;
+      border-radius: 9999px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s ease;
+    }
+
+    .ets-ghost-btn:hover {
+      background: rgba(255,255,255,0.28);
+    }
+
+    /* Subbar */
+    .ets-subbar {
+      height: 52px;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+      display: flex;
+      align-items: center;
+      padding: 0 28px;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .subbar-separator {
+      margin: 0 10px;
+      color: var(--border-soft);
+    }
+
+    /* Workspace */
+    main.workspace {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      max-width: 1380px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 28px 24px 40px 24px;
+    }
+
+    .screen-view {
+      display: none;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .screen-view.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .intro-card {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 44px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      max-width: 880px;
+      margin: 20px auto;
+    }
+
+    .intro-card h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 14px;
+    }
+
+    .intro-card p {
+      font-size: 19px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .exam-timer-notice-box {
+      background: #f0fdfa;
+      border-left: 5px solid var(--ets-teal);
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 17px;
+      color: #0f4a4a;
+      line-height: 1.6;
+    }
+
+    .exam-timer-notice-box strong {
+      color: var(--ets-teal-dark);
+    }
+
+    .ets-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 26px 0;
+      border: 1.5px solid var(--text-main);
+    }
+
+    .ets-table th {
+      background-color: var(--ets-teal-light);
+      color: var(--text-main);
+      padding: 14px 18px;
+      font-weight: 700;
+      text-align: left;
+      border: 1px solid var(--text-main);
+      font-size: 18px;
+    }
+
+    .ets-table td {
+      padding: 16px 18px;
+      border: 1px solid var(--text-main);
+      font-size: 17px;
+    }
+
+    .task-instruction-header {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 26px;
+      text-align: center;
+      color: #000000;
+    }
+
+    /* C-Test */
+    .ctest-container {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 45px 50px;
+      max-width: 980px;
+      margin: 0 auto;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+    }
+
+    .ctest-paragraph {
+      font-size: 20px;
+      line-height: 2.25;
+      color: #111827;
+      word-spacing: 2px;
+    }
+
+    .ctest-boxes {
+      display: inline-flex;
+      gap: 3px;
+      margin-left: 2px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    .char-input {
+      width: 25px;
+      height: 32px;
+      text-align: center;
+      background: #e2e8f0;
+      border: 1px solid #94a3b8;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: #000000;
+      text-transform: lowercase;
+      outline: none;
+      transition: all 0.15s ease;
+    }
+
+    .char-input:focus {
+      background: #ffffff;
+      border-color: var(--ets-teal);
+      box-shadow: 0 0 0 2px rgba(0, 93, 93, 0.3);
+    }
+
+    /* Split Screen */
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    @media (max-width: 992px) {
+      .split-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Poster Clipboard Card (Clean, Authentic) */
+    .poster-clipboard-card {
+      background: #fdfbf7;
+      border: 2px solid #b45309;
+      border-radius: 12px;
+      padding: 32px 36px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    .poster-heading-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #78350f;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .poster-meta-block {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #1e293b;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed #d97706;
+    }
+
+    .poster-body-text {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #334155;
+    }
+
+    /* Laptop Screen Mockup (Internship Email) */
+    .laptop-frame {
+      background: #ffffff;
+      border: 3px solid #0f172a;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .laptop-top-bar {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .laptop-screen-content {
+      padding: 28px 30px;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #1e293b;
+    }
+
+    .laptop-header-info {
+      font-size: 16px;
+      color: #475569;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    /* Clean Ad Box (Mountain Lodge Resort) */
+    .ad-box-card {
+      background: #ffffff;
+      border: 3px solid #0f172a;
+      border-radius: 8px;
+      padding: 30px 32px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+    }
+
+    .ad-title-heading {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 18px;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 10px;
+    }
+
+    .ad-content-body {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #1e293b;
+    }
+
+    .ad-content-body p {
+      margin-bottom: 16px;
+    }
+
+    /* Pinned Note Announcement (School District Update) */
+    .pinned-note-card {
+      background: #f8fafc;
+      border: 2px dashed #64748b;
+      border-radius: 10px;
+      padding: 28px 32px;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+
+    .pinned-note-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 14px;
+    }
+
+    .pinned-note-text {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #334155;
+    }
+
+    /* Academic Passages: Natural full display */
+    .academic-passage-card {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 38px 40px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      height: auto;
+      max-height: none;
+      overflow: visible;
+    }
+
+    .academic-passage-card h2 {
+      font-size: 27px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-align: center;
+      color: #0f172a;
+    }
+
+    .passage-paragraphs {
+      font-family: var(--font-passage);
+      font-size: 19px;
+      line-height: 1.8;
+      color: #1e293b;
+    }
+
+    .passage-paragraphs p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .text-target-bold {
+      font-weight: 700;
+      color: #000000;
+      background: #fef08a;
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+
+    /* Questions Panel */
+    .question-card {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 34px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    .question-stem-title {
+      font-size: 21px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 24px;
+      line-height: 1.45;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .option-btn-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 15px 18px;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .option-btn-row:hover {
+      background-color: #f1f5f9;
+      border-color: var(--border-soft);
+    }
+
+    .option-btn-row.selected {
+      border-color: var(--ets-teal);
+      background-color: #f0fdfa;
+    }
+
+    .ets-radio-indicator {
+      width: 22px;
+      height: 22px;
+      border: 2px solid #94a3b8;
+      border-radius: 50%;
+      margin-top: 2px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+
+    .option-btn-row.selected .ets-radio-indicator {
+      border-color: var(--ets-teal);
+    }
+
+    .option-btn-row.selected .ets-radio-indicator::after {
+      content: "";
+      width: 12px;
+      height: 12px;
+      background: var(--ets-teal);
+      border-radius: 50%;
+    }
+
+    .option-text-label {
+      font-size: 18px;
+      color: #334155;
+      line-height: 1.45;
+    }
+
+    /* Diagnostics Screen */
+    .diagnostic-panel {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 44px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    .diag-title-area {
+      text-align: center;
+      margin-bottom: 34px;
+      border-bottom: 2px solid var(--border-subtle);
+      padding-bottom: 22px;
+    }
+
+    .diag-title-area h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--ets-teal);
+      margin-bottom: 8px;
+    }
+
+    .score-summary-deck {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .score-summary-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-soft);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .score-summary-card .score-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .score-summary-card .score-val {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--ets-teal);
+      font-family: var(--font-mono);
+    }
+
+    .score-summary-card.below-a1 .score-val {
+      color: #b91c1c;
+    }
+
+    .klippy-feedback-wrapper {
+      background: #f0fdfa;
+      border-left: 5px solid var(--ets-teal);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .klippy-title-row {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ets-teal-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .items-audit-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .audit-row-card {
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: 20px 24px;
+      background: #ffffff;
+    }
+
+    .audit-row-card.pass {
+      border-left: 6px solid var(--accent-green);
+    }
+
+    .audit-row-card.fail {
+      border-left: 6px solid var(--accent-red);
+    }
+
+    .audit-head {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .audit-user-row {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: #334155;
+    }
+
+    .audit-quote-citation {
+      background: #f1f5f9;
+      border-left: 3px solid #94a3b8;
+      padding: 8px 12px;
+      font-size: 15px;
+      font-style: italic;
+      color: #1e293b;
+      margin: 8px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .audit-explanation-block {
+      font-size: 16px;
+      line-height: 1.55;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-top: 8px;
+    }
+
+    .audit-row-card.pass .audit-explanation-block {
+      background: #f0fdf4;
+      color: #14532d;
+    }
+
+    .audit-row-card.fail .audit-explanation-block {
+      background: #fef2f2;
+      color: #7f1d1d;
+    }
+
+    .actions-footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .finish-action-btn {
+      background-color: var(--ets-teal);
+      color: #ffffff;
+      border: none;
+      padding: 14px 38px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0, 93, 93, 0.25);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .finish-action-btn:hover {
+      background-color: var(--ets-teal-dark);
+      transform: translateY(-1px);
+    }
+
+    .secondary-dash-btn {
+      background-color: #f1f5f9;
+      color: var(--text-main);
+      border: 1.5px solid var(--border-soft);
+      padding: 14px 28px;
+      font-size: 17px;
+      font-weight: 600;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .secondary-dash-btn:hover {
+      background-color: #e2e8f0;
+      transform: translateY(-1px);
+    }
+
+    /* Corporate Footer */
+    footer.ets-corporate-footer {
+      background-color: #ffffff;
+      border-top: 1px solid #e2e8f0;
+      margin-top: auto;
+      padding: 30px 20px 34px 20px;
+      position: relative;
+    }
+
+    .footer-gradient-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #005d5d 0%, #d4af37 50%, #4ecdc4 100%);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .footer-author-signature {
+      font-family: var(--font-signature);
+      font-size: 44px;
+      font-weight: 700;
+      color: #005d5d;
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+      display: inline-block;
+      text-shadow: 0 1px 2px rgba(0, 93, 93, 0.15);
+    }
+
+    .footer-badges-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-pill-signature {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      color: #0f172a;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .badge-pill-signature.badge-ceo {
+      background: #f0fdfa;
+      border-color: #5eead4;
+      color: #0f766e;
+      font-weight: 700;
+    }
+
+    .badge-separator-dot {
+      width: 7px;
+      height: 7px;
+      background: #d4af37;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top ETS Navbar -->
+  <header class="ets-navbar">
+    <div class="navbar-left">
+      <div class="nav-timer-pill" id="timerPill">
+        <span>⏱</span>
+        <span id="timerText">45:00</span>
+      </div>
+      <button class="ets-ghost-btn" id="toggleTimerBtn" type="button" onclick="toggleTimerVisibility()">Hide Time</button>
+    </div>
+    <div class="navbar-right">
+      <button class="ets-ghost-btn" id="volumeBtn" type="button" onclick="alert('Audio volume is standard for reading prompts.')">Volume 🔊</button>
+      <button class="ets-pill-btn" id="navBackBtn" type="button" onclick="handleNavigationBack()">&lt; Back</button>
+      <button class="ets-pill-btn" id="navNextBtn" type="button" onclick="handleNavigationNext()">Begin &gt;</button>
+    </div>
+  </header>
+
+  <!-- ETS Sub-bar -->
+  <div class="ets-subbar">
+    <span>Reading</span>
+    <span class="subbar-separator">|</span>
+    <span id="subbarProgress">Overview</span>
+  </div>
+
+  <!-- Workspace Container -->
+  <main class="workspace">
+
+    <!-- Screen 0: Welcome Section -->
+    <section id="screen-welcome" class="screen-view active">
+      <div class="intro-card">
+        <h1>Reading Section</h1>
+        <p>In the Reading section, you will answer questions to demonstrate how well you understand academic and non-academic texts in English. There are three types of tasks.</p>
+
+        <div class="exam-timer-notice-box">
+          <strong>Official Test Duration Note:</strong> In the official ETS TOEFL iBT exam, candidates receive <strong>30 minutes</strong> for the complete Reading Section. For this personalized diagnostic mock test, you are granted extended coaching time of <strong>up to 45 minutes (45:00)</strong> with an active real-time countdown timer to ensure deep analysis and pedagogical review.
+        </div>
+
+        <table class="ets-table">
+          <thead>
+            <tr>
+              <th style="width: 32%;">Type of Task</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Complete the Words</strong></td>
+              <td>Fill in the missing letters in a paragraph.</td>
+            </tr>
+            <tr>
+              <td><strong>Read in Daily Life</strong></td>
+              <td>Answer questions about everyday reading material (posters, announcements, ads).</td>
+            </tr>
+            <tr>
+              <td><strong>Read an Academic Passage</strong></td>
+              <td>Answer questions about academic passages.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Screen 1: Module 1 Intro -->
+    <section id="screen-m1-intro" class="screen-view">
+      <div class="intro-card">
+        <h1>Module 1</h1>
+        <p>The timer will show you how much time you have to complete your exam session.</p>
+        <p>In an actual test, you <strong>WILL NOT</strong> be able to return to Module 1 once you have begun Module 2.</p>
+      </div>
+    </section>
+
+    <!-- Screen 2: M1 - C-Test (Solar Energy) -->
+    <section id="screen-m1-q1" class="screen-view">
+      <h2 class="task-instruction-header">Fill in the missing letters in the paragraph</h2>
+      <div class="ctest-container">
+        <div class="ctest-paragraph">
+          Solar energy is a renewable resource that harnesses power from the sun using photovoltaic cells. These ce<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="1" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="1" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="1" data-idx="2"></span>
+          convert sunli<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="2"></span>
+          directly in<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="3" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="3" data-idx="1"></span>
+          electricity with<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="4" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="4" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="4" data-idx="2"></span>
+          producing har<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="3"></span>
+          emissions. Alt<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="4"></span>
+          solar pan<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="7" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="7" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="7" data-idx="2"></span>
+          can b<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="8" data-idx="0"></span>
+          expensive to ins<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="3"></span>,
+          they signifi<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="4"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="5"></span>
+          reduce energy costs over time. In addition to powering homes and businesses, solar technology can provide electricity in remote areas where traditional grids are unavailable. Continued technological improvements are making solar energy more efficient, accessible, and essential for a sustainable future.
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 3: M1 - Poster Item 11 -->
+    <section id="screen-m1-q11" class="screen-view">
+      <h2 class="task-instruction-header">Read a poster</h2>
+      <div class="split-layout">
+        <div class="poster-clipboard-card">
+          <div class="poster-heading-title">Community Lecture Series</div>
+          <div class="poster-meta-block">
+            <strong>Topic:</strong> The Future of Urban Transportation<br>
+            <strong>Date:</strong> Wednesday, October 12<br>
+            <strong>Time:</strong> 6:30 pm<br>
+            <strong>Location:</strong> City Hall Auditorium<br>
+            <strong>Admission:</strong> Free
+          </div>
+          <div class="poster-body-text">
+            Join urban planner Dr. Mei Chen for a discussion on how electric vehicles, bike lanes, and improved public transit systems are shaping the future of city living. Open to the public – no registration required.
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the main purpose of this event?</div>
+          <div class="options-list" data-q="m1_11">
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) To promote new public transportation systems</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) To gather feedback on new government policies</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) To present a proposal for new city infrastructure</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) To discuss recent trends in city transportation</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 4: M1 - Poster Item 12 -->
+    <section id="screen-m1-q12" class="screen-view">
+      <h2 class="task-instruction-header">Read a poster</h2>
+      <div class="split-layout">
+        <div class="poster-clipboard-card">
+          <div class="poster-heading-title">Community Lecture Series</div>
+          <div class="poster-meta-block">
+            <strong>Topic:</strong> The Future of Urban Transportation<br>
+            <strong>Date:</strong> Wednesday, October 12<br>
+            <strong>Time:</strong> 6:30 pm<br>
+            <strong>Location:</strong> City Hall Auditorium<br>
+            <strong>Admission:</strong> Free
+          </div>
+          <div class="poster-body-text">
+            Join urban planner Dr. Mei Chen for a discussion on how electric vehicles, bike lanes, and improved public transit systems are shaping the future of city living. Open to the public – no registration required.
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">Who can attend the event?</div>
+          <div class="options-list" data-q="m1_12">
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Only transportation professionals</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) Public speakers only</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Anyone interested in the topic</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Registered participants only</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 5: M1 - Email Item 13 -->
+    <section id="screen-m1-q13" class="screen-view">
+      <h2 class="task-instruction-header">Read an email</h2>
+      <div class="split-layout">
+        <div class="laptop-frame">
+          <div class="laptop-top-bar">
+            <span>UnivMail Web Client</span>
+            <span>Inbox &bull; Priority</span>
+          </div>
+          <div class="laptop-screen-content">
+            <div class="laptop-header-info">
+              <strong>From:</strong> careercenter@univmail.edu<br>
+              <strong>Subject:</strong> Internship Information Session
+            </div>
+            <p>Dear Students,</p>
+            <p>Are you interested in gaining hands-on experience this summer? Join our internship information session this Friday at 2 p.m. in Room 204, where representatives from local companies will explain available positions and the application process. Attendance is free, but please register in advance using the link below.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the main purpose of this email?</div>
+          <div class="options-list" data-q="m1_13">
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) To inform students about an opportunity to learn more about internships</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) To encourage students to apply directly for summer internship positions</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) To collect student registration data for local company programs</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) To provide updates on changes to the summer internship schedule</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 6: M1 - Announcement Item 14 -->
+    <section id="screen-m1-q14" class="screen-view">
+      <h2 class="task-instruction-header">Read an announcement</h2>
+      <div class="split-layout">
+        <div class="laptop-frame">
+          <div class="laptop-top-bar">
+            <span>UnivMail Web Client</span>
+            <span>Inbox &bull; Priority</span>
+          </div>
+          <div class="laptop-screen-content">
+            <div class="laptop-header-info">
+              <strong>From:</strong> careercenter@univmail.edu<br>
+              <strong>Subject:</strong> Internship Information Session
+            </div>
+            <p>Dear Students,</p>
+            <p>Are you interested in gaining hands-on experience this summer? Join our internship information session this Friday at 2 p.m. in Room 204, where representatives from local companies will explain available positions and the application process. Attendance is free, but please register in advance using the link below.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What are students asked to do before attending the session?</div>
+          <div class="options-list" data-q="m1_14">
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Submit an internship application in advance</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) Confirm attendance by paying a small deposit</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Bring a printed copy of their résumé</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Complete the online registration form</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 7: M1 - Academic Passage Item 15 -->
+    <section id="screen-m1-q15" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>Biomimicry in Material Science</h2>
+          <div class="passage-paragraphs">
+            <p>Biomimicry, the practice of emulating nature's models to solve human problems, has led to groundbreaking advances in material science.</p>
+            <p>The lotus leaf, for example, with its self-cleaning properties, has inspired superhydrophobic coatings. Its microscopic, wax-covered structures cause water to bead up and roll off, carrying dirt particles away.</p>
+            <p>Similarly, the incredibly strong yet lightweight structure of spider silk, a protein fiber, has spurred research into synthetic polymers for use in bulletproof vests and medical sutures.</p>
+            <p>Perhaps one of the most celebrated examples is the gecko's foot. Geckos can scale vertical surfaces due to millions of microscopic hairs (setae) on their toes that exploit van der Waals forces — weak intermolecular attractions — providing strong adhesive power without liquid glue or suction. This principle has been adapted to create powerful yet reusable adhesive tapes.</p>
+            <p>These innovations demonstrate that nature, refined by billions of years of evolution, offers a vast repository of sustainable and efficient design solutions.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the main point the author makes about biomimicry?</div>
+          <div class="options-list" data-q="m1_15">
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) It is a recent fad that has yielded few practical results.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) It provides a source of efficient and sustainable designs from nature.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Its primary application is in the development of new adhesives.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) It is most useful for understanding biological processes rather than creating materials.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 8: M1 - Academic Passage Item 16 -->
+    <section id="screen-m1-q16" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>Biomimicry in Material Science</h2>
+          <div class="passage-paragraphs">
+            <p>Biomimicry, the practice of emulating nature's models to solve human problems, has led to groundbreaking advances in material science.</p>
+            <p>The lotus leaf, for example, with its self-cleaning properties, has inspired superhydrophobic coatings. Its microscopic, wax-covered structures cause water to bead up and roll off, carrying dirt particles away.</p>
+            <p>Similarly, the incredibly strong yet lightweight structure of spider silk, a protein fiber, has spurred research into synthetic polymers for use in bulletproof vests and medical sutures.</p>
+            <p>Perhaps one of the most celebrated examples is the gecko's foot. Geckos can scale vertical surfaces due to millions of microscopic hairs (setae) on their toes that <span class="text-target-bold">exploit</span> van der Waals forces — weak intermolecular attractions — providing strong adhesive power without liquid glue or suction. This principle has been adapted to create powerful yet reusable adhesive tapes.</p>
+            <p>These innovations demonstrate that nature, refined by billions of years of evolution, offers a vast repository of sustainable and efficient design solutions.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">The word "exploit" in the passage is closest in meaning to</div>
+          <div class="options-list" data-q="m1_16">
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) waste.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) generate.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) utilize.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) misunderstand.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 9: M1 - Academic Passage Item 17 -->
+    <section id="screen-m1-q17" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>Biomimicry in Material Science</h2>
+          <div class="passage-paragraphs">
+            <p>Biomimicry, the practice of emulating nature's models to solve human problems, has led to groundbreaking advances in material science.</p>
+            <p>The lotus leaf, for example, with its self-cleaning properties, has inspired superhydrophobic coatings. Its microscopic, wax-covered structures cause water to bead up and roll off, carrying dirt particles away.</p>
+            <p>Similarly, the incredibly strong yet lightweight structure of spider silk, a protein fiber, has spurred research into synthetic polymers for use in bulletproof vests and medical sutures.</p>
+            <p>Perhaps one of the most celebrated examples is the gecko's foot. Geckos can scale vertical surfaces due to millions of microscopic hairs (setae) on their toes that exploit van der Waals forces — weak intermolecular attractions — providing strong adhesive power without liquid glue or suction. This principle has been adapted to create powerful yet reusable adhesive tapes.</p>
+            <p>These innovations demonstrate that nature, refined by billions of years of evolution, offers a vast repository of sustainable and efficient design solutions.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">According to the passage, what do the lotus leaf and gecko's foot have in common?</div>
+          <div class="options-list" data-q="m1_17">
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Both rely on chemical secretions for their properties.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) Both have inspired practical human applications through their physical structures.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Both are being used directly in commercial products.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Their properties are primarily due to their chemical composition.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 10: M1 - Academic Passage Item 18 -->
+    <section id="screen-m1-q18" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>Biomimicry in Material Science</h2>
+          <div class="passage-paragraphs">
+            <p>Biomimicry, the practice of emulating nature's models to solve human problems, has led to groundbreaking advances in material science.</p>
+            <p>The lotus leaf, for example, with its self-cleaning properties, has inspired superhydrophobic coatings. Its microscopic, wax-covered structures cause water to bead up and roll off, carrying dirt particles away.</p>
+            <p>Similarly, the incredibly strong yet lightweight structure of spider silk, a protein fiber, has spurred research into synthetic polymers for use in bulletproof vests and medical sutures.</p>
+            <p>Perhaps one of the most celebrated examples is the gecko's foot. Geckos can scale vertical surfaces due to millions of microscopic hairs (setae) on their toes that exploit van der Waals forces — weak intermolecular attractions — providing strong adhesive power without liquid glue or suction. This principle has been adapted to create powerful yet reusable adhesive tapes.</p>
+            <p>These innovations demonstrate that nature, refined by billions of years of evolution, offers a vast repository of sustainable and efficient design solutions.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">The author mentions "billions of years of evolution" primarily to</div>
+          <div class="options-list" data-q="m1_18">
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) suggest that biomimicry is a slow process.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) highlight the proven efficacy of natural designs.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) argue that human science is inferior to natural selection.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) explain the complexity of van der Waals forces.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 11: M1 - Academic Passage Item 19 -->
+    <section id="screen-m1-q19" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>Biomimicry in Material Science</h2>
+          <div class="passage-paragraphs">
+            <p>Biomimicry, the practice of emulating nature's models to solve human problems, has led to groundbreaking advances in material science.</p>
+            <p>The lotus leaf, for example, with its self-cleaning properties, has inspired superhydrophobic coatings. Its microscopic, wax-covered structures cause water to bead up and roll off, carrying dirt particles away.</p>
+            <p>Similarly, the incredibly strong yet lightweight structure of spider silk, a protein fiber, has spurred research into synthetic polymers for use in bulletproof vests and medical sutures.</p>
+            <p>Perhaps one of the most celebrated examples is the gecko's foot. Geckos can scale vertical surfaces due to millions of microscopic hairs (setae) on their toes that exploit van der Waals forces — weak intermolecular attractions — providing strong adhesive power without liquid glue or suction. This principle has been adapted to create powerful yet reusable adhesive tapes.</p>
+            <p>These innovations demonstrate that nature, refined by billions of years of evolution, offers a vast repository of sustainable and efficient design solutions.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">Which of the following is NOT mentioned as an application of biomimicry?</div>
+          <div class="options-list" data-q="m1_19">
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Self-cleaning surfaces</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) Medical sutures</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Energy generation</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Reusable adhesives</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 12: End of Module 1 -->
+    <section id="screen-m1-end" class="screen-view">
+      <div class="intro-card">
+        <h1>End of Module 1</h1>
+        <p>Select <strong>Next</strong> to continue to Module 2.</p>
+        <p style="font-size:17px; color:#64748b;">Notice: The session countdown will continuously track your total remaining test time for Module 2.</p>
+      </div>
+    </section>
+
+    <!-- Screen 13: Module 2 Intro -->
+    <section id="screen-m2-intro" class="screen-view">
+      <div class="intro-card">
+        <h1>Module 2</h1>
+        <p>In this module, you will continue with the second block of reading tasks.</p>
+        <p>Your active exam timer in the top bar indicates your remaining time.</p>
+      </div>
+    </section>
+
+    <!-- Screen 14: M2 - C-Test (Volcanoes) -->
+    <section id="screen-m2-q1" class="screen-view">
+      <h2 class="task-instruction-header">Fill in the missing letters in the paragraph</h2>
+      <div class="ctest-container">
+        <div class="ctest-paragraph">
+          Volcanoes are geological structures that form when molten rock, or magma, rises from beneath the Earth’s crust. Eruptions c<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="1" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="1" data-idx="1"></span>
+          be b<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="2" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="2" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="2" data-idx="2"></span>
+          destructive and bene<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="4"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="5"></span>.
+          While th<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="4" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="4" data-idx="1"></span>
+          may dest<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="5" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="5" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="5" data-idx="2"></span>
+          nearby settle<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="4"></span>
+          and alt<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="7" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="7" data-idx="1"></span>
+          landscapes, they al<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="8" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="8" data-idx="1"></span>
+          enrich the so<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="9" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="9" data-idx="1"></span>
+          with mine<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="10" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="10" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="10" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="10" data-idx="3"></span>
+          and create new landforms. Scientists monitor volcanic activity to predict eruptions and reduce the risk to human life. Understanding volcanic behavior contributes to both safety and knowledge about the dynamic processes of our planet.
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 15: M2 - Ad Item 11 -->
+    <section id="screen-m2-q11" class="screen-view">
+      <h2 class="task-instruction-header">Read an ad</h2>
+      <div class="split-layout">
+        <div class="ad-box-card">
+          <div class="ad-title-heading">Weekend Getaway Deal — Mountain Lodge Resort</div>
+          <div class="ad-content-body">
+            <p>Escape city life and enjoy a peaceful weekend surrounded by nature!</p>
+            <p>Book a two-night stay between Friday and Sunday and get 30% off spa treatments. Activities include guided hikes, yoga by the lake, and evening bonfires. Offer valid through November 30.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is being advertised?</div>
+          <div class="options-list" data-q="m2_11">
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) A seasonal wellness retreat featuring yoga and hiking</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) A limited-time offer for weekend stays at a mountain resort</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) A promotional campaign for outdoor fitness programs</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) A special discount on luxury spa memberships</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 16: M2 - Ad Item 12 -->
+    <section id="screen-m2-q12" class="screen-view">
+      <h2 class="task-instruction-header">Read an ad</h2>
+      <div class="split-layout">
+        <div class="ad-box-card">
+          <div class="ad-title-heading">Weekend Getaway Deal — Mountain Lodge Resort</div>
+          <div class="ad-content-body">
+            <p>Escape city life and enjoy a peaceful weekend surrounded by nature!</p>
+            <p>Book a two-night stay between Friday and Sunday and get 30% off spa treatments. Activities include guided hikes, yoga by the lake, and evening bonfires. Offer valid through November 30.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">Which benefit is offered to guests?</div>
+          <div class="options-list" data-q="m2_12">
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Complimentary guided activities</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) Free room upgrades upon arrival</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Reduced prices on spa services during eligible stays</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Bonus nights for bookings over the weekend</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 17: M2 - Announcement Item 13 -->
+    <section id="screen-m2-q13" class="screen-view">
+      <h2 class="task-instruction-header">Read an announcement</h2>
+      <div class="split-layout">
+        <div class="pinned-note-card">
+          <div class="pinned-note-title">School District Update</div>
+          <div class="pinned-note-text">
+            Due to ongoing construction at Lincoln Elementary, classes will temporarily move to Jefferson Middle School starting next Monday. The schedule and bus routes will remain the same. Families will receive more details via email later this week.
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the main purpose of the announcement?</div>
+          <div class="options-list" data-q="m2_13">
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) To inform parents about the completion of construction work</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) To explain new transportation procedures for Lincoln students</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) To announce improvements being made at Jefferson Middle School</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) To notify families about a short-term relocation of classes</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 18: M2 - Announcement Item 14 -->
+    <section id="screen-m2-q14" class="screen-view">
+      <h2 class="task-instruction-header">Read an announcement</h2>
+      <div class="split-layout">
+        <div class="pinned-note-card">
+          <div class="pinned-note-title">School District Update</div>
+          <div class="pinned-note-text">
+            Due to ongoing construction at Lincoln Elementary, classes will temporarily move to Jefferson Middle School starting next Monday. The schedule and bus routes will remain the same. Families will receive more details via email later this week.
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What can be inferred from the notice?</div>
+          <div class="options-list" data-q="m2_14">
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Students will attend classes at a different site but follow their usual routine.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) The construction work at Lincoln Elementary is nearly finished.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Parents must arrange private transportation for their children.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Classes at Jefferson Middle School are being suspended for Lincoln students to use the building.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 19: M2 - Academic Passage Item 15 -->
+    <section id="screen-m2-q15" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Dunning-Kruger Effect</h2>
+          <div class="passage-paragraphs">
+            <p>The Dunning-Kruger effect is a cognitive bias wherein individuals with low ability at a task overestimate their ability. The postulated mechanism is a dual burden: these individuals not only perform poorly but also lack the metacognitive skill to accurately evaluate their performance, creating a cycle of ignorance and confidence.</p>
+            <p>Conversely, highly competent individuals may underestimate their relative competence, assuming that tasks which are easy for them are equally easy for others.</p>
+            <p>This creates a perverse cognitive landscape where the unskilled are buoyed by illusory superiority, while the expert is plagued by doubt. The effect has been demonstrated across domains from logical reasoning to emotional intelligence.</p>
+            <p>Mitigating it is challenging, as the very skills needed for accurate self-assessment are the ones lacking. Education and training that focus on metacognition—"thinking about thinking"—can help calibrate self-perception, but the bias remains a robust feature of human psychology.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">The passage primarily discusses a cognitive bias that</div>
+          <div class="options-list" data-q="m2_15">
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) affects only experts in their respective fields.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) causes everyone to overestimate their abilities.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) creates a mismatch between ability and self-assessment.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) is easily corrected through simple self-reflection.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 20: M2 - Academic Passage Item 16 -->
+    <section id="screen-m2-q16" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Dunning-Kruger Effect</h2>
+          <div class="passage-paragraphs">
+            <p>The Dunning-Kruger effect is a cognitive bias wherein individuals with low ability at a task overestimate their ability. The postulated mechanism is a <span class="text-target-bold">dual burden</span>: these individuals not only perform poorly but also lack the metacognitive skill to accurately evaluate their performance, creating a cycle of ignorance and confidence.</p>
+            <p>Conversely, highly competent individuals may underestimate their relative competence, assuming that tasks which are easy for them are equally easy for others.</p>
+            <p>This creates a perverse cognitive landscape where the unskilled are buoyed by illusory superiority, while the expert is plagued by doubt. The effect has been demonstrated across domains from logical reasoning to emotional intelligence.</p>
+            <p>Mitigating it is challenging, as the very skills needed for accurate self-assessment are the ones lacking. Education and training that focus on metacognition—"thinking about thinking"—can help calibrate self-perception, but the bias remains a robust feature of human psychology.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">According to the passage, what is the "dual burden" experienced by low-ability individuals?</div>
+          <div class="options-list" data-q="m2_16">
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) High intelligence and low confidence</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) Poor performance and an inability to recognize it</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) A desire to learn and a lack of opportunity</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Strong metacognitive skills and weak practical skills</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 21: M2 - Academic Passage Item 17 -->
+    <section id="screen-m2-q17" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Dunning-Kruger Effect</h2>
+          <div class="passage-paragraphs">
+            <p>The Dunning-Kruger effect is a cognitive bias wherein individuals with low ability at a task overestimate their ability. The postulated mechanism is a dual burden: these individuals not only perform poorly but also lack the metacognitive skill to accurately evaluate their performance, creating a cycle of ignorance and confidence.</p>
+            <p>Conversely, highly competent individuals may underestimate their relative competence, assuming that tasks which are easy for them are equally easy for others.</p>
+            <p>This creates a <span class="text-target-bold">perverse</span> cognitive landscape where the unskilled are buoyed by illusory superiority, while the expert is plagued by doubt. The effect has been demonstrated across domains from logical reasoning to emotional intelligence.</p>
+            <p>Mitigating it is challenging, as the very skills needed for accurate self-assessment are the ones lacking. Education and training that focus on metacognition—"thinking about thinking"—can help calibrate self-perception, but the bias remains a robust feature of human psychology.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">The word "perverse" in the passage is closest in meaning to</div>
+          <div class="options-list" data-q="m2_17">
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) straightforward.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) irrational.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) encouraging.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) temporary.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 22: M2 - Academic Passage Item 18 -->
+    <section id="screen-m2-q18" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Dunning-Kruger Effect</h2>
+          <div class="passage-paragraphs">
+            <p>The Dunning-Kruger effect is a cognitive bias wherein individuals with low ability at a task overestimate their ability. The postulated mechanism is a dual burden: these individuals not only perform poorly but also lack the metacognitive skill to accurately evaluate their performance, creating a cycle of ignorance and confidence.</p>
+            <p>Conversely, highly competent individuals may underestimate their relative competence, assuming that tasks which are easy for them are equally easy for others.</p>
+            <p>This creates a perverse cognitive landscape where the unskilled are buoyed by illusory superiority, while the expert is plagued by doubt. The effect has been demonstrated across domains from logical reasoning to emotional intelligence.</p>
+            <p>Mitigating it is challenging, as the very skills needed for accurate self-assessment are the ones lacking. Education and training that focus on metacognition—"thinking about thinking"—can help calibrate self-perception, but the bias remains a robust feature of human psychology.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">Why does the author mention that "tasks which are easy for them are equally easy for others" when discussing experts?</div>
+          <div class="options-list" data-q="m2_18">
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) To illustrate the experts' logical reasoning skills.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) To explain why experts often fail simple tasks.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) To describe the experts' tendency toward underestimation.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) To show that experts are generally overconfident.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 23: M2 - Academic Passage Item 19 -->
+    <section id="screen-m2-q19" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Dunning-Kruger Effect</h2>
+          <div class="passage-paragraphs">
+            <p>The Dunning-Kruger effect is a cognitive bias wherein individuals with low ability at a task overestimate their ability. The postulated mechanism is a dual burden: these individuals not only perform poorly but also lack the metacognitive skill to accurately evaluate their performance, creating a cycle of ignorance and confidence.</p>
+            <p>Conversely, highly competent individuals may underestimate their relative competence, assuming that tasks which are easy for them are equally easy for others.</p>
+            <p>This creates a perverse cognitive landscape where the unskilled are buoyed by illusory superiority, while the expert is plagued by doubt. The effect has been demonstrated across domains from logical reasoning to emotional intelligence.</p>
+            <p>Mitigating it is challenging, as the very skills needed for accurate self-assessment are the ones lacking. Education and training that focus on metacognition—"thinking about thinking"—can help calibrate self-perception, but the bias remains a robust feature of human psychology.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What does the passage suggest about mitigating the Dunning-Kruger effect?</div>
+          <div class="options-list" data-q="m2_19">
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) It is a simple process that requires minimal effort.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) It is impossible because the bias is a fundamental part of human nature.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) It can be addressed by focusing on metacognitive skills, though it is difficult.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) It is best achieved by avoiding education and training altogether.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 24: End of Reading Section -->
+    <section id="screen-m2-end" class="screen-view">
+      <div class="intro-card">
+        <h1>End of Reading Section</h1>
+        <p>Thank you for completing the reading section for Mock 2.</p>
+        <p>Select <strong>Next</strong> to generate your diagnostic assessment score and review pedagogical insights.</p>
+      </div>
+    </section>
+
+    <!-- Screen 25: Diagnostic Evaluation -->
+    <section id="screen-diagnostic" class="screen-view">
+      <div class="diagnostic-panel">
+        <div class="diag-title-area">
+          <h2>TOEFL iBT Reading Diagnostic Report</h2>
+          <p style="color:#64748b; font-size:16px;">Mock Test 2 &bull; Official Modular Assessment</p>
+        </div>
+
+        <div class="score-summary-deck">
+          <div class="score-summary-card">
+            <div class="score-title">Raw Score</div>
+            <div class="score-val" id="diagRaw">0 / 38</div>
+            <div style="font-size:14px; color:#64748b; margin-top:4px;">Total accurate answers</div>
+          </div>
+          <div class="score-summary-card">
+            <div class="score-title">Scaled Score</div>
+            <div class="score-val" id="diagScaled">0 / 30</div>
+            <div style="font-size:14px; color:#64748b; margin-top:4px;">Official ETS Band Conversion</div>
+          </div>
+          <div class="score-summary-card" id="cefrCard">
+            <div class="score-title">CEFR Level</div>
+            <div class="score-val" id="diagCefr" style="font-size:30px;">Below A1</div>
+            <div style="font-size:14px; color:#64748b; margin-top:4px;">International Framework</div>
+          </div>
+        </div>
+
+        <div class="klippy-feedback-wrapper">
+          <div class="klippy-title-row">
+            <span>📎</span> Klippy's Pedagogical Performance Audit
+          </div>
+          <p id="klippyReportSummary" style="color:#1e293b; font-size:17px; line-height:1.65;">
+            Analyzing telemetry, lexical morphology, and context clue discrimination...
+          </p>
+        </div>
+
+        <h3 style="font-size: 22px; font-weight:700; margin-bottom:18px;">Comprehensive Pedagogical Item-by-Item Review</h3>
+        <div class="items-audit-grid" id="auditItemsContainer"></div>
+
+        <div class="actions-footer-container">
+          <button class="finish-action-btn" id="continueListeningBtn" type="button" onclick="goToListeningSection()">
+            Continue to Listening Section &rarr;
+          </button>
+          <button class="secondary-dash-btn" id="returnDashboardBtn" type="button" onclick="goToDashboard()">
+            Return to Mock Dashboard
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Corporate Footer -->
+  <footer class="ets-corporate-footer">
+    <div class="footer-gradient-bar"></div>
+    <div class="footer-content">
+      <div class="footer-author-signature">Dr. Jesús Miguel Lima E.</div>
+      <div class="footer-badges-list">
+        <span class="badge-pill-signature badge-ceo">CEO of JM ELT Solutions</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">Celta &amp; Delta Trainer</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">Exam Trainer</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">Teacher Trainer</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">University Professor</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Detailed Explanations for Mock 2 Items
+    const ctest1Details = {
+      1: { full: "cells", root: "ce", ans: "lls", clue: "photovoltaic cells. These ce[lls] convert sunli[ght]", role: "Plural noun referring to photovoltaic energy conversion units." },
+      2: { full: "sunlight", root: "sunli", ans: "ght", clue: "convert sunli[ght] directly in[to] electricity", role: "Compound mass noun denoting solar electromagnetic radiation." },
+      3: { full: "into", root: "in", ans: "to", clue: "directly in[to] electricity", role: "Directional preposition governed by the transitive verb 'convert'." },
+      4: { full: "without", root: "with", ans: "out", clue: "electricity with[out] producing har[mful] emissions", role: "Preposition of exclusion paired with gerund 'producing'." },
+      5: { full: "harmful", root: "har", ans: "mful", clue: "producing har[mful] emissions", role: "Adjective with suffix '-ful' modifying negative emissions/pollutants." },
+      6: { full: "Although", root: "Alt", ans: "hough", clue: "Alt[hough] solar pan[els] can b[e] expensive...", role: "Subordinating concession conjunction introducing a contrasting clause." },
+      7: { full: "panels", root: "pan", ans: "els", clue: "solar pan[els] can b[e] expensive", role: "Plural noun referring to grouped assemblies of photovoltaic cells." },
+      8: { full: "be", root: "b", ans: "e", clue: "can b[e] expensive to ins[tall]", role: "Base form infinitive verb following modal auxiliary 'can'." },
+      9: { full: "install", root: "ins", ans: "tall", clue: "expensive to ins[tall], they signifi[cantly] reduce...", role: "Infinitive verb expressing mounting or setting up equipment." },
+      10: { full: "significantly", root: "signifi", ans: "cantly", clue: "they signifi[cantly] reduce energy costs", role: "Adverb with suffix '-cantly' modifying the action verb 'reduce'." }
+    };
+
+    const ctest2Details = {
+      1: { full: "can", root: "c", ans: "an", clue: "Eruptions c[an] be b[oth] destructive...", role: "Modal auxiliary verb denoting potentiality or capability." },
+      2: { full: "both", root: "b", ans: "oth", clue: "be b[oth] destructive and bene[ficial]", role: "Correlative coordinator pairing strictly with 'and'." },
+      3: { full: "beneficial", root: "bene", ans: "ficial", clue: "destructive and bene[ficial]", role: "Adjective ending in '-ficial' parallel to 'destructive'." },
+      4: { full: "they", root: "th", ans: "ey", clue: "While th[ey] may dest[roy] nearby settle[ments]", role: "Third-person plural subject pronoun referring to 'Eruptions'." },
+      5: { full: "destroy", root: "dest", ans: "roy", clue: "may dest[roy] nearby settle[ments]", role: "Base verb after modal 'may' denoting structural damage." },
+      6: { full: "settlements", root: "settle", ans: "ments", clue: "nearby settle[ments] and alt[er] landscapes", role: "Plural noun formed with suffix '-ments' meaning human communities." },
+      7: { full: "alter", root: "alt", ans: "er", clue: "and alt[er] landscapes", role: "Transitive base verb parallel to 'destroy' meaning to transform." },
+      8: { full: "also", root: "al", ans: "so", clue: "they al[so] enrich the so[il]", role: "Additive focusing adverb supporting constructive effects." },
+      9: { full: "soil", root: "so", ans: "il", clue: "enrich the so[il] with mine[rals]", role: "Mass noun denoting agricultural ground and earth." },
+      10: { full: "minerals", root: "mine", ans: "rals", clue: "with mine[rals] and create new landforms", role: "Plural nutrient noun deposited by volcanic ash." }
+    };
+
+    const mcAccurateExplanations = {
+      m1_11: {
+        title: "Poster Purpose (Urban Transportation)",
+        citation: "Poster: 'Join urban planner Dr. Mei Chen for a discussion on how electric vehicles, bike lanes, and improved public transit systems are shaping the future of city living.'",
+        passRationale: "Outstanding analysis! The poster advertises a public lecture discussing evolving trends (EVs, bike lanes, transit) in city living.",
+        failRationale: "Analysis of Error: The lecture is not a sales promotion (A), government survey (B), or formal policy vote (C). It is designed to discuss recent trends in urban mobility (D)."
+      },
+      m1_12: {
+        title: "Poster Detail (Event Attendance)",
+        citation: "Poster: 'Admission: Free ... Open to the public – no registration required.'",
+        passRationale: "Flawless text retrieval! 'Open to the public – no registration required' directly verifies that anyone interested can attend freely.",
+        failRationale: "Analysis of Error: Attendance is neither restricted to industry specialists (A) nor limited to registered guests (D). It is fully open to anyone interested (C)."
+      },
+      m1_13: {
+        title: "Email Purpose (Internship Session)",
+        citation: "Email: 'Join our internship information session this Friday at 2 p.m. ... where representatives from local companies will explain available positions and the application process.'",
+        passRationale: "Precise purpose identification! The email invites students to an informative session to explore internships and hear from company representatives.",
+        failRationale: "Analysis of Error: The email does not process immediate job applications (B) nor announce schedule delays (D). Its purpose is to inform students about an exploratory opportunity (A)."
+      },
+      m1_14: {
+        title: "Announcement Requirement (Pre-session Action)",
+        citation: "Email: 'Attendance is free, but please register in advance using the link below.'",
+        passRationale: "Direct factual hit! The only required preparatory action stated is registering in advance via the digital link provided.",
+        failRationale: "Analysis of Error: Admission is free with no deposit (B), and bringing printed resumes is not requested (C). Students are asked to complete the online registration form (D)."
+      },
+      m1_15: {
+        title: "Academic Main Point (Biomimicry)",
+        citation: "Text: 'These innovations demonstrate that nature, refined by billions of years of evolution, offers a vast repository of sustainable and efficient design solutions.'",
+        passRationale: "Exemplary thematic synthesis! The author argues that biological mechanisms serve as a proven, highly efficient blueprint for sustainable human engineering.",
+        failRationale: "Analysis of Error: Biomimicry is described as generating groundbreaking results, not as a passing fad (A). Its scope goes far beyond adhesives (C) into fabrics and coatings, confirming (B)."
+      },
+      m1_16: {
+        title: "Academic Vocabulary in Context ('exploit')",
+        citation: "Text: '...millions of microscopic hairs (setae) on their toes that exploit van der Waals forces — weak intermolecular attractions — providing strong adhesive power...'",
+        passRationale: "Sharp semantic precision! Here, 'exploit' means to take advantage of or utilize physical intermolecular attractions to stick to walls.",
+        failRationale: "Analysis of Error: Setae do not 'waste' (A) or 'generate' (B) van der Waals forces; they 'utilize' (C) these naturally existing physical properties for locomotion."
+      },
+      m1_17: {
+        title: "Academic Comparison (Lotus Leaf & Gecko Foot)",
+        citation: "Text: '...Its microscopic, wax-covered structures cause water to bead up... Geckos can scale vertical surfaces due to millions of microscopic hairs (setae)... without liquid glue or suction.'",
+        passRationale: "High-level scientific deduction! Both organisms achieve remarkable feats through microscopic physical surface architectures rather than liquid chemical glues.",
+        failRationale: "Analysis of Error: Both explicitly avoid chemical secretions or glues (A, D). Both inspired synthetic coatings and dry tapes through their specialized physical structures (B)."
+      },
+      m1_18: {
+        title: "Academic Rhetorical Purpose ('Billions of Years')",
+        citation: "Text: '...nature, refined by billions of years of evolution, offers a vast repository of sustainable and efficient design solutions.'",
+        passRationale: "Deep rhetorical insight! The immense timescale highlights that natural structures have undergone rigorous iterative testing, proving their supreme functional efficacy.",
+        failRationale: "Analysis of Error: The author is not complaining about human research speed (A) or downplaying human ingenuity (C). The phrase underlines the tested reliability and efficacy of nature's designs (B)."
+      },
+      m1_19: {
+        title: "Academic Negative Factual (NOT Mentioned)",
+        citation: "Text: Mentions 'self-cleaning properties' (A), 'medical sutures' (B), and 'reusable adhesive tapes' (D).",
+        passRationale: "Flawless elimination! The passage cites coatings, sutures, and dry adhesives, but never mentions energy generation.",
+        failRationale: "Analysis of Error: Self-cleaning coatings (A), surgical sutures (B), and gecko tapes (D) are all explicitly detailed in the text. Energy generation (C) is completely absent."
+      },
+      m2_11: {
+        title: "Ad Focus (Mountain Lodge Resort)",
+        citation: "Ad: 'Weekend Getaway Deal — Mountain Lodge Resort ... Book a two-night stay between Friday and Sunday and get 30% off spa treatments... Offer valid through November 30.'",
+        passRationale: "Accurate promotional classification! The advertisement features a time-sensitive package discount for 2-night weekend stays at a mountain lodge.",
+        failRationale: "Analysis of Error: The resort offers spa perks, not gym memberships (D), and is a resort stay rather than an exclusive fitness camp (A, C). It is a limited-time weekend stay offer (B)."
+      },
+      m2_12: {
+        title: "Ad Detail (Offered Guest Benefit)",
+        citation: "Ad: 'Book a two-night stay between Friday and Sunday and get 30% off spa treatments.'",
+        passRationale: "Direct factual retrieval! Booking an eligible weekend stay yields a 30% price reduction on spa treatments.",
+        failRationale: "Analysis of Error: Guided hikes are listed as activities, not stated as free extras (A), room upgrades are unmentioned (B), and no free nights are offered (D). The stated benefit is discounted spa services (C)."
+      },
+      m2_13: {
+        title: "Announcement Purpose (School District Update)",
+        citation: "Notice: 'Due to ongoing construction at Lincoln Elementary, classes will temporarily move to Jefferson Middle School starting next Monday.'",
+        passRationale: "Clear communicative purpose! The notice alerts families that pupils will be temporarily relocated to another school facility due to building work.",
+        failRationale: "Analysis of Error: Construction is ongoing, not completed (A), and bus routes are unchanged (B). The purpose is strictly to notify families about the temporary classroom relocation (D)."
+      },
+      m2_14: {
+        title: "Announcement Inference (Student Routine)",
+        citation: "Notice: 'classes will temporarily move to Jefferson Middle School... The schedule and bus routes will remain the same.'",
+        passRationale: "Nuanced operational deduction! Because bus routes and daily hours remain unchanged, children maintain their standard daily routine despite the change in physical location.",
+        failRationale: "Analysis of Error: Bus routes remain identical, meaning parents do not need private transport (C). Work is ongoing, not finished (B). Students attend a different building while keeping their normal schedule (A)."
+      },
+      m2_15: {
+        title: "Academic Main Idea (Dunning-Kruger Effect)",
+        citation: "Text: '...individuals with low ability at a task overestimate their ability... Conversely, highly competent individuals may underestimate their relative competence...'",
+        passRationale: "Mastery of psychological thesis! The core phenomenon is a systemic divergence between an individual's actual competence and their subjective self-evaluation.",
+        failRationale: "Analysis of Error: The bias affects novices as well as experts (A), not everyone overestimates (B), and mitigation is explicitly termed challenging rather than easy (D). It creates a mismatch between ability and assessment (C)."
+      },
+      m2_16: {
+        title: "Academic Factual Detail (The 'Dual Burden')",
+        citation: "Text: 'The postulated mechanism is a dual burden: these individuals not only perform poorly but also lack the metacognitive skill to accurately evaluate their performance...'",
+        passRationale: "Precise textual definition! The dual burden comprises objective low competence combined with the cognitive inability to perceive one's own deficiency.",
+        failRationale: "Analysis of Error: Low-ability individuals have inflated confidence, not low confidence (A). The dual burden is explicitly defined as failing at a task while lacking the insight to recognize the failure (B)."
+      },
+      m2_17: {
+        title: "Academic Vocabulary in Context ('perverse')",
+        citation: "Text: 'This creates a perverse cognitive landscape where the unskilled are buoyed by illusory superiority, while the expert is plagued by doubt.'",
+        passRationale: "Contextual vocabulary accuracy! In this inverted psychological reality, confidence contradicts competence, creating an upside-down, illogical, and irrational state of affairs.",
+        failRationale: "Analysis of Error: A situation where incompetent individuals feel superior while experts doubt themselves is not straightforward (A) or encouraging (C); it is thoroughly irrational and contrary to reason (B)."
+      },
+      m2_18: {
+        title: "Academic Rhetorical Purpose (Expert Assumption)",
+        citation: "Text: 'Conversely, highly competent individuals may underestimate their relative competence, assuming that tasks which are easy for them are equally easy for others.'",
+        passRationale: "Logical argument analysis! Experts assume that because a task feels effortless to them, anyone can do it easily, which causes them to underestimate their own exceptional skill.",
+        failRationale: "Analysis of Error: Experts do not fail easy tasks (B) and are not overconfident (D). The false assumption explains why experts underestimate their distinct advantage (C)."
+      },
+      m2_19: {
+        title: "Academic Inference (Mitigating the Bias)",
+        citation: "Text: 'Mitigating it is challenging, as the very skills needed for accurate self-assessment are the ones lacking. Education and training that focus on metacognition... can help calibrate self-perception...'",
+        passRationale: "Incisive conclusion synthesis! While overcoming the effect is arduous because the necessary evaluative skills are missing, structured metacognitive training can help calibrate self-awareness.",
+        failRationale: "Analysis of Error: It is not simple (A), nor completely impossible (B), nor solved by avoiding education (D). Metacognitive training can help address it despite the inherent difficulty (C)."
+      }
+    };
+
+    // State machine configuration
+    const testScreens = [
+      { id: 'screen-welcome', module: 0, subbar: 'Overview', showTimer: true, allowBack: false, nextLabel: 'Begin >' },
+      { id: 'screen-m1-intro', module: 1, subbar: 'Module 1 Directions', showTimer: true, allowBack: false, nextLabel: 'Begin >' },
+      { id: 'screen-m1-q1', module: 1, subbar: 'Questions 1–10 of 19', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-m1-q11', module: 1, subbar: 'Question 11 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q12', module: 1, subbar: 'Question 12 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q13', module: 1, subbar: 'Question 13 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q14', module: 1, subbar: 'Question 14 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q15', module: 1, subbar: 'Question 15 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q16', module: 1, subbar: 'Question 16 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q17', module: 1, subbar: 'Question 17 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q18', module: 1, subbar: 'Question 18 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q19', module: 1, subbar: 'Question 19 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-end', module: 1, subbar: 'End of Module 1', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-m2-intro', module: 2, subbar: 'Module 2 Directions', showTimer: true, allowBack: false, nextLabel: 'Begin >' },
+      { id: 'screen-m2-q1', module: 2, subbar: 'Questions 1–10 of 19', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-m2-q11', module: 2, subbar: 'Question 11 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q12', module: 2, subbar: 'Question 12 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q13', module: 2, subbar: 'Question 13 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q14', module: 2, subbar: 'Question 14 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q15', module: 2, subbar: 'Question 15 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q16', module: 2, subbar: 'Question 16 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q17', module: 2, subbar: 'Question 17 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q18', module: 2, subbar: 'Question 18 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q19', module: 2, subbar: 'Question 19 of 19', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-end', module: 2, subbar: 'End of Reading Section', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-diagnostic', module: 3, subbar: 'Diagnostic Evaluation', showTimer: false, allowBack: false, nextLabel: 'Next >' }
+    ];
+
+    let currentScreenIndex = 0;
+
+    // Official Answer Key for Mock 02
+    const officialKey = {
+      m1_c: { 1: "lls", 2: "ght", 3: "to", 4: "out", 5: "mful", 6: "hough", 7: "els", 8: "e", 9: "tall", 10: "cantly" },
+      m1_mc: { m1_11: "D", m1_12: "C", m1_13: "A", m1_14: "D", m1_15: "B", m1_16: "C", m1_17: "B", m1_18: "B", m1_19: "C" },
+      m2_c: { 1: "an", 2: "oth", 3: "ficial", 4: "ey", 5: "roy", 6: "ments", 7: "er", 8: "so", 9: "il", 10: "rals" },
+      m2_mc: { m2_11: "B", m2_12: "C", m2_13: "D", m2_14: "A", m2_15: "C", m2_16: "B", m2_17: "B", m2_18: "C", m2_19: "C" }
+    };
+
+    const userAnswers = {
+      m1_c: {},
+      m1_mc: {},
+      m2_c: {},
+      m2_mc: {}
+    };
+
+    // Extended Coaching Timer: 45 Minutes
+    let timeRemaining = 45 * 60;
+    let timerInterval = null;
+    let isTimerVisible = true;
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        if (timeRemaining > 0) {
+          timeRemaining--;
+          updateTimerDisplay();
+        } else {
+          clearInterval(timerInterval);
+          handleTimeExpired();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const minutes = Math.floor(timeRemaining / 60);
+      const seconds = timeRemaining % 60;
+      const formatted = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      const elem = document.getElementById('timerText');
+      const pill = document.getElementById('timerPill');
+      if (elem) elem.textContent = formatted;
+
+      if (timeRemaining <= 180 && pill) {
+        pill.classList.add('time-warning');
+      }
+    }
+
+    function toggleTimerVisibility() {
+      const pill = document.getElementById('timerPill');
+      const btn = document.getElementById('toggleTimerBtn');
+      isTimerVisible = !isTimerVisible;
+      if (isTimerVisible) {
+        pill.style.visibility = 'visible';
+        btn.textContent = 'Hide Time';
+      } else {
+        pill.style.visibility = 'hidden';
+        btn.textContent = 'Show Time';
+      }
+    }
+
+    function handleTimeExpired() {
+      alert("Session time has concluded. Transitioning to your comprehensive diagnostic report.");
+      goToScreen(25);
+    }
+
+    function setupCTestListeners() {
+      const inputs = document.querySelectorAll('.char-input');
+      inputs.forEach((input, index) => {
+        input.addEventListener('input', (e) => {
+          const val = e.target.value.toLowerCase();
+          const sec = e.target.getAttribute('data-sec');
+          const word = e.target.getAttribute('data-word');
+          const idx = e.target.getAttribute('data-idx');
+
+          const dict = sec === 'm1' ? userAnswers.m1_c : userAnswers.m2_c;
+          if (!dict[word]) dict[word] = [];
+          dict[word][idx] = val;
+
+          if (val && index < inputs.length - 1) {
+            inputs[index + 1].focus();
+          }
+        });
+
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && !input.value && index > 0) {
+            inputs[index - 1].focus();
+          }
+        });
+      });
+    }
+
+    function selectOption(qKey, val, element) {
+      if (qKey.startsWith('m1_')) {
+        userAnswers.m1_mc[qKey] = val;
+      } else {
+        userAnswers.m2_mc[qKey] = val;
+      }
+      const parent = element.closest('.options-list');
+      parent.querySelectorAll('.option-btn-row').forEach(row => row.classList.remove('selected'));
+      element.classList.add('selected');
+    }
+
+    function updateScreenView() {
+      const cfg = testScreens[currentScreenIndex];
+
+      document.querySelectorAll('.screen-view').forEach(s => s.classList.remove('active'));
+      const activeEl = document.getElementById(cfg.id);
+      if (activeEl) activeEl.classList.add('active');
+
+      document.getElementById('subbarProgress').textContent = cfg.subbar;
+      const nextBtn = document.getElementById('navNextBtn');
+      const backBtn = document.getElementById('navBackBtn');
+
+      nextBtn.textContent = cfg.nextLabel;
+      nextBtn.disabled = false;
+      backBtn.disabled = !cfg.allowBack;
+
+      const timerPill = document.getElementById('timerPill');
+      const toggleBtn = document.getElementById('toggleTimerBtn');
+
+      if (cfg.showTimer) {
+        timerPill.style.display = 'flex';
+        toggleBtn.style.display = 'inline-flex';
+        if (!timerInterval) startTimer();
+      } else {
+        timerPill.style.display = 'none';
+        toggleBtn.style.display = 'none';
+      }
+
+      if (cfg.id === 'screen-diagnostic') {
+        renderDiagnostics();
+        nextBtn.style.display = 'none';
+        backBtn.style.display = 'none';
+      } else {
+        nextBtn.style.display = 'inline-flex';
+        backBtn.style.display = 'inline-flex';
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goToScreen(idx) {
+      if (idx >= 0 && idx < testScreens.length) {
+        currentScreenIndex = idx;
+        updateScreenView();
+      }
+    }
+
+    function handleNavigationNext() {
+      if (currentScreenIndex < testScreens.length - 1) {
+        goToScreen(currentScreenIndex + 1);
+      }
+    }
+
+    function handleNavigationBack() {
+      const cfg = testScreens[currentScreenIndex];
+      if (cfg.allowBack && currentScreenIndex > 0) {
+        goToScreen(currentScreenIndex - 1);
+      }
+    }
+
+    function goToListeningSection() {
+      window.location.href = 'listening-mock02.html';
+    }
+
+    function goToDashboard() {
+      window.location.href = 'index.html';
+    }
+
+    function calculateStrictScore(rawScore) {
+      const scaledScore = Math.round((rawScore / 38) * 30);
+      
+      let cefr = "";
+      let levelDesc = "";
+      let feedbackTone = "";
+
+      if (rawScore === 0) {
+        cefr = "Below A1";
+        levelDesc = "No Scored Proficiency";
+        feedbackTone = "No responses were answered correctly. A score of 0 indicates that baseline language proficiency could not be measured on this evaluation.";
+      } else if (scaledScore <= 3) {
+        cefr = "A1";
+        levelDesc = "Breakthrough / Beginner";
+        feedbackTone = "Emergent recognition of isolated vocabulary, but insufficient comprehension for academic or structured texts.";
+      } else if (scaledScore <= 8) {
+        cefr = "A2";
+        levelDesc = "Waystage / Elementary";
+        feedbackTone = "Can identify basic factual notices and short everyday sentences, but encounters substantial difficulty with contextual morphology and academic reasoning.";
+      } else if (scaledScore <= 14) {
+        cefr = "B1";
+        levelDesc = "Threshold / Intermediate";
+        feedbackTone = "Satisfactory grasp of routine everyday texts and clear factual announcements. Needs further development in synthesizing complex academic arguments and low-frequency collocations.";
+      } else if (scaledScore <= 23) {
+        cefr = "B2";
+        levelDesc = "Vantage / Upper-Intermediate";
+        feedbackTone = "Solid, independent reading proficiency. Accurately identifies author intentions, paragraph structures, and contextual nuances in academic passages with minor gaps in high-level inference.";
+      } else if (scaledScore <= 28) {
+        cefr = "C1";
+        levelDesc = "Effective Operational Proficiency / Advanced";
+        feedbackTone = "Exceptional analytical mastery. Demonstrates fluent word restoration and subtle distractor discrimination across both colloquial and demanding academic domains.";
+      } else {
+        cefr = "C2";
+        levelDesc = "Mastery / Fluent";
+        feedbackTone = "Flawless score execution reflecting native or near-native academic reading mastery under standard standardized time pressure.";
+      }
+
+      return { scaledScore, cefr, levelDesc, feedbackTone };
+    }
+
+    function evaluateExam() {
+      let rawScore = 0;
+      const itemAudits = [];
+
+      for (let i = 1; i <= 10; i++) {
+        const u = (userAnswers.m1_c[i] || []).join('');
+        const c = officialKey.m1_c[i];
+        const isPass = u.toLowerCase() === c.toLowerCase();
+        if (isPass) rawScore++;
+        const info = ctest1Details[i];
+        itemAudits.push({
+          num: `M1 Q${i}`,
+          label: `Complete the Words: "${info.root}${info.ans}"`,
+          user: u || '(blank)',
+          correct: c,
+          isPass: isPass,
+          citation: `Context: "${info.clue}..."`,
+          exp: isPass 
+            ? `Appraisal: Flawless morphological restoration! You accurately formed the word "${info.full}". Role: ${info.role}`
+            : `Correction: Expected missing letters "${info.ans}" to complete the target word "${info.full}". Role: ${info.role}. Your input was "${u || '(blank)'}".`
+        });
+      }
+
+      for (let k in officialKey.m1_mc) {
+        const u = userAnswers.m1_mc[k] || '(none)';
+        const c = officialKey.m1_mc[k];
+        const isPass = u === c;
+        if (isPass) rawScore++;
+        const itemMeta = mcAccurateExplanations[k];
+        itemAudits.push({
+          num: `M1 ${k.replace('m1_', 'Q')}`,
+          label: itemMeta.title,
+          user: u,
+          correct: c,
+          isPass: isPass,
+          citation: itemMeta.citation,
+          exp: isPass ? itemMeta.passRationale : itemMeta.failRationale
+        });
+      }
+
+      for (let i = 1; i <= 10; i++) {
+        const u = (userAnswers.m2_c[i] || []).join('');
+        const c = officialKey.m2_c[i];
+        const isPass = u.toLowerCase() === c.toLowerCase();
+        if (isPass) rawScore++;
+        const info = ctest2Details[i];
+        itemAudits.push({
+          num: `M2 Q${i}`,
+          label: `Complete the Words: "${info.root}${info.ans}"`,
+          user: u || '(blank)',
+          correct: c,
+          isPass: isPass,
+          citation: `Context: "${info.clue}..."`,
+          exp: isPass 
+            ? `Appraisal: Precise lexical reconstruction! You correctly built "${info.full}". Role: ${info.role}`
+            : `Correction: Expected missing letters "${info.ans}" to complete "${info.full}". Role: ${info.role}. Your input was "${u || '(blank)'}".`
+        });
+      }
+
+      for (let k in officialKey.m2_mc) {
+        const u = userAnswers.m2_mc[k] || '(none)';
+        const c = officialKey.m2_mc[k];
+        const isPass = u === c;
+        if (isPass) rawScore++;
+        const itemMeta = mcAccurateExplanations[k];
+        itemAudits.push({
+          num: `M2 ${k.replace('m2_', 'Q')}`,
+          label: itemMeta.title,
+          user: u,
+          correct: c,
+          isPass: isPass,
+          citation: itemMeta.citation,
+          exp: isPass ? itemMeta.passRationale : itemMeta.failRationale
+        });
+      }
+
+      const scoreData = calculateStrictScore(rawScore);
+      return { 
+        rawScore, 
+        scaledScore: scoreData.scaledScore, 
+        cefr: scoreData.cefr, 
+        levelDesc: scoreData.levelDesc, 
+        feedbackTone: scoreData.feedbackTone, 
+        itemAudits 
+      };
+    }
+
+    function renderDiagnostics() {
+      const results = evaluateExam();
+
+      document.getElementById('diagRaw').textContent = `${results.rawScore} / 38`;
+      document.getElementById('diagScaled').textContent = `${results.scaledScore} / 30`;
+      document.getElementById('diagCefr').textContent = `${results.cefr}`;
+      
+      const cefrCard = document.getElementById('cefrCard');
+      if (results.rawScore === 0) {
+        cefrCard.classList.add('below-a1');
+      } else {
+        cefrCard.classList.remove('below-a1');
+      }
+
+      // Synchronize with Suite standard localStorage for Mock 02
+      localStorage.setItem('toefl_reading_score_02', results.scaledScore);
+      localStorage.setItem('toefl_reading_raw_02', results.rawScore);
+      localStorage.setItem('toefl_mock02_status', 'reading_done');
+
+      const klippySummary = document.getElementById('klippyReportSummary');
+      klippySummary.textContent = `${results.feedbackTone} Official Level: ${results.cefr} (${results.levelDesc}). Review the comprehensive item analysis below to identify exact textual justifications and distractor mechanics.`;
+
+      const container = document.getElementById('auditItemsContainer');
+      container.innerHTML = '';
+
+      results.itemAudits.forEach(item => {
+        const row = document.createElement('div');
+        row.className = `audit-row-card ${item.isPass ? 'pass' : 'fail'}`;
+        row.innerHTML = `
+          <div class="audit-head">
+            <span>${item.num}: ${item.label}</span>
+            <span style="color:${item.isPass ? '#10b981' : '#ef4444'}">${item.isPass ? '✔ Correct (+1 Pt)' : '✘ Incorrect (0 Pts)'}</span>
+          </div>
+          <div class="audit-user-row">
+            <strong>Your Answer:</strong> <span style="font-family:var(--font-mono); font-weight:700;">${item.user}</span> &nbsp;|&nbsp; 
+            <strong>Official Key:</strong> <span style="font-family:var(--font-mono); font-weight:700; color:var(--ets-teal);">${item.correct}</span>
+          </div>
+          <div class="audit-quote-citation">${item.citation}</div>
+          <div class="audit-explanation-block">
+            <strong>Pedagogical Analysis:</strong> ${item.exp}
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setupCTestListeners();
+      updateScreenView();
+      updateTimerDisplay();
+      startTimer();
+    });
+  </script>
+</body>
+</html>
