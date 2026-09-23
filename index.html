@@ -554,15 +554,6 @@
       box-shadow: 0 0 16px rgba(56, 189, 248, 0.15);
     }
 
-    .mock-block.current {
-      border-left: 5px solid var(--accent-gold);
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(7, 14, 28, 0.9) 100%);
-    }
-
-    .mock-block.locked {
-      opacity: 0.55;
-    }
-
     .mock-header-row {
       display: flex;
       justify-content: space-between;
@@ -607,12 +598,6 @@
       color: var(--accent-green);
     }
 
-    .badge-locked {
-      background: rgba(148, 163, 184, 0.1);
-      border: 1px solid #475569;
-      color: var(--text-muted);
-    }
-
     .badge-done {
       background: rgba(37, 99, 235, 0.25);
       border: 1px solid var(--accent-blue-light);
@@ -643,16 +628,10 @@
       cursor: pointer;
     }
 
-    .section-chip-btn:hover:not(.btn-disabled) {
+    .section-chip-btn:hover {
       border-color: var(--accent-cyan);
       background: rgba(37, 99, 235, 0.25);
       transform: translateY(-2px);
-    }
-
-    .section-chip-btn.btn-disabled {
-      cursor: not-allowed;
-      opacity: 0.45;
-      border-color: transparent;
     }
 
     .section-chip-btn span.chip-tag {
@@ -783,7 +762,7 @@
     <div class="screen-container" id="mountNode"></div>
 
     <div class="institutional-bottom">
-      <span>Official TOEFL iBT Simulation Suite • Modular Architecture</span>
+      <span>Official TOEFL iBT Simulation Suite • Free Choice Modular Architecture</span>
       <span>All Rights Reserved © by <strong>Dr. Jesús Miguel Lima E.</strong> • CEO of JM ELT Solutions</span>
     </div>
 
@@ -803,11 +782,9 @@
     let mocksStatus = {};
 
     function initData() {
-      // Initialize 30 mocks status
       for (let m = 1; m <= 30; m++) {
         mocksStatus[m] = { 
           completed: false, 
-          unlocked: m === 1,
           readingScore: null,
           listeningScore: null,
           writingScore: null
@@ -828,17 +805,11 @@
         } catch(e) {}
       }
 
-      // Check single mock scores in localStorage and unlock next
       for (let m = 1; m <= 30; m++) {
         const padded = String(m).padStart(2, '0');
         const rScore = localStorage.getItem(`toefl_reading_score_${padded}`);
         if (rScore !== null) {
           mocksStatus[m].readingScore = rScore;
-        }
-        
-        // Progression unlock
-        if (m > 1 && mocksStatus[m - 1] && mocksStatus[m - 1].completed) {
-          mocksStatus[m].unlocked = true;
         }
       }
     }
@@ -905,10 +876,10 @@
 
               <div class="welcome-text-block">
                 <p class="welcome-en">
-                  Welcome to the official full-length diagnostic suite. Complete each standard examination through its integrated sequence: <strong>Reading ➔ Listening ➔ Writing</strong> under authentic ETS testing criteria.
+                  Welcome to the official diagnostic suite. All 30 complete mock examinations are unlocked and available for self-paced practice.
                 </p>
                 <p class="welcome-es">
-                  (Bienvenido a la suite oficial de simulacros integrales. Completa cada examen en su orden oficial: <strong>Reading ➔ Listening ➔ Writing</strong> bajo los estándares oficiales de evaluación.)
+                  (Bienvenido a la suite oficial de simulacros. Los 30 exámenes están completamente habilitados para que elijas libremente cuál rendir.)
                 </p>
               </div>
             </div>
@@ -978,8 +949,8 @@
                 </div>
                 <div class="companion-text">
                   ${userState.name 
-                    ? `"Welcome back, <strong>${userState.name}</strong>! Your simulator vault is active. You will start with Mock 01 Reading and advance consecutively."`
-                    : `"Hi there! I'm <strong>Klippy</strong>, your academic mentor. I will track your diagnostic progress across Mocks 01 to 30!"`}
+                    ? `"Welcome back, <strong>${userState.name}</strong>! All 30 Mocks are unlocked and ready. Pick any exam to start practicing!"`
+                    : `"Hi there! I'm <strong>Klippy</strong>, your academic mentor. All 30 TOEFL iBT Mocks are open for your independent practice!"`}
                 </div>
               </div>
             </div>
@@ -1021,24 +992,17 @@
 
       for (let i = 1; i <= 30; i++) {
         const padded = String(i).padStart(2, '0');
-        const isUnlocked = mocksStatus[i] && mocksStatus[i].unlocked;
         const isCompleted = mocksStatus[i] && mocksStatus[i].completed;
-        const isCurrent = isUnlocked && !isCompleted;
         const scoreBadge = mocksStatus[i].readingScore !== null 
           ? `<span class="mock-score-pill">Reading: ${mocksStatus[i].readingScore}/30</span>` 
           : '';
 
-        let statusBadge = '';
-        if (isCompleted) {
-          statusBadge = `<span class="mock-badge-status badge-done">✔ COMPLETED</span>`;
-        } else if (isUnlocked) {
-          statusBadge = `<span class="mock-badge-status badge-ready">🟢 AVAILABLE</span>`;
-        } else {
-          statusBadge = `<span class="mock-badge-status badge-locked">🔒 LOCKED (COMPLETE MOCK ${i - 1})</span>`;
-        }
+        let statusBadge = isCompleted 
+          ? `<span class="mock-badge-status badge-done">✔ COMPLETED</span>` 
+          : `<span class="mock-badge-status badge-ready">🟢 UNLOCKED</span>`;
 
         mocksHtml += `
-          <div class="mock-block ${isUnlocked ? 'unlocked' : 'locked'} ${isCurrent ? 'current' : ''}">
+          <div class="mock-block unlocked">
             <div class="mock-header-row">
               <div class="mock-title">
                 <span>📋 TOEFL iBT Mock Test N° ${padded}</span>
@@ -1049,8 +1013,7 @@
             
             <div class="mock-sections-grid">
               <!-- Step 1: Reading Section -->
-              <a href="${isUnlocked ? `reading-mock${padded}.html` : '#'}" 
-                 class="section-chip-btn ${!isUnlocked ? 'btn-disabled' : ''}">
+              <a href="reading-mock${padded}.html" class="section-chip-btn">
                 <div>
                   <div>📖 1. Reading Section</div>
                   <span class="chip-tag">Modular Format • 45 Min</span>
@@ -1059,8 +1022,7 @@
               </a>
 
               <!-- Step 2: Listening Section -->
-              <a href="${isUnlocked ? `listening-mock${padded}.html` : '#'}" 
-                 class="section-chip-btn ${!isUnlocked ? 'btn-disabled' : ''}">
+              <a href="listening-mock${padded}.html" class="section-chip-btn">
                 <div>
                   <div>🎧 2. Listening Section</div>
                   <span class="chip-tag">Conversations & Lectures</span>
@@ -1069,8 +1031,7 @@
               </a>
 
               <!-- Step 3: Writing Section -->
-              <a href="${isUnlocked ? `writing-mock${padded}.html` : '#'}" 
-                 class="section-chip-btn ${!isUnlocked ? 'btn-disabled' : ''}">
+              <a href="writing-mock${padded}.html" class="section-chip-btn">
                 <div>
                   <div>✍️ 3. Writing Section</div>
                   <span class="chip-tag">Academic Discussion & Tasks</span>
@@ -1089,10 +1050,10 @@
             <h2 class="center-title">OFFICIAL TEST BATTERY: MOCKS 01 TO 30</h2>
             <div style="max-width: 720px; margin-bottom: 8px;">
               <p style="font-size:15px; color:#e2e8f0; line-height:1.5;">
-                Candidate: <strong style="color:var(--accent-gold);">${userState.name}</strong> • Follow the official articulated path: <strong>Reading ➔ Listening ➔ Writing</strong>.
+                Candidate: <strong style="color:var(--accent-gold);">${userState.name}</strong> • All exams are open. Select any module to practice freely.
               </p>
               <p style="font-style:italic; font-size:13px; color:var(--text-spanish); margin-top:4px;">
-                (Cada examen inicia con la sección de lectura y se enlaza consecutivamente al finalizar.)
+                (Todos los exámenes están disponibles libremente. Selecciona el simulacro y la sección que desees practicar.)
               </p>
             </div>
 
