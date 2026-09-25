@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOEFL iBT Reading Mock 3 - Official Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ets-teal: #005d5d;
+      --ets-teal-dark: #004444;
+      --ets-teal-light: #4ecdc4;
+      --ets-gold: #d4af37;
+      --canvas-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border-soft: #cbd5e1;
+      --border-subtle: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent-blue: #2563eb;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-passage: 'Merriweather', Georgia, serif;
+      --font-mono: 'JetBrains Mono', Consolas, monospace;
+      --font-signature: 'Comic Neue', cursive, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--canvas-bg);
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      font-size: 18px;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header.ets-navbar {
+      height: 68px;
+      background-color: var(--ets-teal);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      user-select: none;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-timer-pill {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffffff;
+    }
+
+    .nav-timer-pill.time-warning {
+      background: rgba(239, 68, 68, 0.35);
+      border-color: #ef4444;
+      color: #fca5a5;
+      animation: pulseAlert 1.5s infinite;
+    }
+
+    @keyframes pulseAlert {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .ets-pill-btn {
+      background-color: #ffffff;
+      color: var(--ets-teal);
+      border: 1px solid transparent;
+      padding: 8px 24px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    .ets-pill-btn:hover:not(:disabled) {
+      background-color: #f1f5f9;
+      transform: translateY(-1px);
+    }
+
+    .ets-pill-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .ets-ghost-btn {
+      background: rgba(255,255,255,0.15);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 7px 18px;
+      border-radius: 9999px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s ease;
+    }
+
+    .ets-ghost-btn:hover {
+      background: rgba(255,255,255,0.28);
+    }
+
+    .ets-subbar {
+      height: 52px;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+      display: flex;
+      align-items: center;
+      padding: 0 28px;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .subbar-separator {
+      margin: 0 10px;
+      color: var(--border-soft);
+    }
+
+    main.workspace {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      max-width: 1380px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 28px 24px 40px 24px;
+    }
+
+    .screen-view {
+      display: none;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .screen-view.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .intro-card {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 44px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      max-width: 880px;
+      margin: 20px auto;
+    }
+
+    .intro-card h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 14px;
+    }
+
+    .intro-card p {
+      font-size: 19px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .exam-timer-notice-box {
+      background: #f0fdfa;
+      border-left: 5px solid var(--ets-teal);
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 17px;
+      color: #0f4a4a;
+      line-height: 1.6;
+    }
+
+    .exam-timer-notice-box strong {
+      color: var(--ets-teal-dark);
+    }
+
+    .ets-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 26px 0;
+      border: 1.5px solid var(--text-main);
+    }
+
+    .ets-table th {
+      background-color: var(--ets-teal-light);
+      color: var(--text-main);
+      padding: 14px 18px;
+      font-weight: 700;
+      text-align: left;
+      border: 1px solid var(--text-main);
+      font-size: 18px;
+    }
+
+    .ets-table td {
+      padding: 16px 18px;
+      border: 1px solid var(--text-main);
+      font-size: 17px;
+    }
+
+    .task-instruction-header {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 26px;
+      text-align: center;
+      color: #000000;
+    }
+
+    /* C-Test */
+    .ctest-container {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 45px 50px;
+      max-width: 980px;
+      margin: 0 auto;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+    }
+
+    .ctest-paragraph {
+      font-size: 20px;
+      line-height: 2.25;
+      color: #111827;
+      word-spacing: 2px;
+    }
+
+    .ctest-boxes {
+      display: inline-flex;
+      gap: 3px;
+      margin-left: 2px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    .char-input {
+      width: 25px;
+      height: 32px;
+      text-align: center;
+      background: #e2e8f0;
+      border: 1px solid #94a3b8;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: #000000;
+      text-transform: lowercase;
+      outline: none;
+      transition: all 0.15s ease;
+    }
+
+    .char-input:focus {
+      background: #ffffff;
+      border-color: var(--ets-teal);
+      box-shadow: 0 0 0 2px rgba(0, 93, 93, 0.3);
+    }
+
+    /* Split Screen */
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    @media (max-width: 992px) {
+      .split-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Clean Authentic Stimulus Containers */
+    .stimulus-menu-card {
+      background: #ffffff;
+      border: 3px solid #0f172a;
+      border-radius: 8px;
+      padding: 28px 30px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .stimulus-menu-header {
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 6px;
+      color: #0f172a;
+      letter-spacing: 1px;
+    }
+
+    .stimulus-menu-sub {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #0f172a;
+    }
+
+    .laptop-frame {
+      background: #ffffff;
+      border: 3px solid #0f172a;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .laptop-top-bar {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .laptop-screen-content {
+      padding: 28px 30px;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #1e293b;
+    }
+
+    .laptop-header-info {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .poster-clipboard-card {
+      background: #fdfbf7;
+      border: 2px solid #b45309;
+      border-radius: 12px;
+      padding: 32px 36px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    .poster-heading-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #78350f;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .poster-body-text {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #334155;
+    }
+
+    .ad-box-card {
+      background: #ffffff;
+      border: 3px solid #0f172a;
+      border-radius: 8px;
+      padding: 30px 32px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      font-size: 18px;
+      line-height: 1.7;
+      color: #1e293b;
+    }
+
+    .ad-box-card p {
+      margin-bottom: 14px;
+    }
+
+    .ad-box-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Academic Passages */
+    .academic-passage-card {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 38px 40px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      height: auto;
+      max-height: none;
+      overflow: visible;
+    }
+
+    .academic-passage-card h2 {
+      font-size: 27px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-align: center;
+      color: #0f172a;
+    }
+
+    .passage-paragraphs {
+      font-family: var(--font-passage);
+      font-size: 19px;
+      line-height: 1.8;
+      color: #1e293b;
+    }
+
+    .passage-paragraphs p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .text-target-bold {
+      font-weight: 700;
+      color: #000000;
+      background: #fef08a;
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+
+    /* Questions Panel */
+    .question-card {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 34px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    .question-stem-title {
+      font-size: 21px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 24px;
+      line-height: 1.45;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .option-btn-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 15px 18px;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .option-btn-row:hover {
+      background-color: #f1f5f9;
+      border-color: var(--border-soft);
+    }
+
+    .option-btn-row.selected {
+      border-color: var(--ets-teal);
+      background-color: #f0fdfa;
+    }
+
+    .ets-radio-indicator {
+      width: 22px;
+      height: 22px;
+      border: 2px solid #94a3b8;
+      border-radius: 50%;
+      margin-top: 2px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+
+    .option-btn-row.selected .ets-radio-indicator {
+      border-color: var(--ets-teal);
+    }
+
+    .option-btn-row.selected .ets-radio-indicator::after {
+      content: "";
+      width: 12px;
+      height: 12px;
+      background: var(--ets-teal);
+      border-radius: 50%;
+    }
+
+    .option-text-label {
+      font-size: 18px;
+      color: #334155;
+      line-height: 1.45;
+    }
+
+    /* Diagnostics Screen */
+    .diagnostic-panel {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 44px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    .diag-title-area {
+      text-align: center;
+      margin-bottom: 34px;
+      border-bottom: 2px solid var(--border-subtle);
+      padding-bottom: 22px;
+    }
+
+    .diag-title-area h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--ets-teal);
+      margin-bottom: 8px;
+    }
+
+    .score-summary-deck {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .score-summary-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-soft);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .score-summary-card .score-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .score-summary-card .score-val {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--ets-teal);
+      font-family: var(--font-mono);
+    }
+
+    .score-summary-card.below-a1 .score-val {
+      color: #b91c1c;
+    }
+
+    .klippy-feedback-wrapper {
+      background: #f0fdfa;
+      border-left: 5px solid var(--ets-teal);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .klippy-title-row {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ets-teal-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .items-audit-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .audit-row-card {
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: 20px 24px;
+      background: #ffffff;
+    }
+
+    .audit-row-card.pass {
+      border-left: 6px solid var(--accent-green);
+    }
+
+    .audit-row-card.fail {
+      border-left: 6px solid var(--accent-red);
+    }
+
+    .audit-head {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .audit-user-row {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: #334155;
+    }
+
+    .audit-quote-citation {
+      background: #f1f5f9;
+      border-left: 3px solid #94a3b8;
+      padding: 8px 12px;
+      font-size: 15px;
+      font-style: italic;
+      color: #1e293b;
+      margin: 8px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .audit-explanation-block {
+      font-size: 16px;
+      line-height: 1.55;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-top: 8px;
+    }
+
+    .audit-row-card.pass .audit-explanation-block {
+      background: #f0fdf4;
+      color: #14532d;
+    }
+
+    .audit-row-card.fail .audit-explanation-block {
+      background: #fef2f2;
+      color: #7f1d1d;
+    }
+
+    .actions-footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .finish-action-btn {
+      background-color: var(--ets-teal);
+      color: #ffffff;
+      border: none;
+      padding: 14px 38px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0, 93, 93, 0.25);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .finish-action-btn:hover {
+      background-color: var(--ets-teal-dark);
+      transform: translateY(-1px);
+    }
+
+    .secondary-dash-btn {
+      background-color: #f1f5f9;
+      color: var(--text-main);
+      border: 1.5px solid var(--border-soft);
+      padding: 14px 28px;
+      font-size: 17px;
+      font-weight: 600;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .secondary-dash-btn:hover {
+      background-color: #e2e8f0;
+      transform: translateY(-1px);
+    }
+
+    /* Corporate Footer */
+    footer.ets-corporate-footer {
+      background-color: #ffffff;
+      border-top: 1px solid #e2e8f0;
+      margin-top: auto;
+      padding: 30px 20px 34px 20px;
+      position: relative;
+    }
+
+    .footer-gradient-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #005d5d 0%, #d4af37 50%, #4ecdc4 100%);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .footer-author-signature {
+      font-family: var(--font-signature);
+      font-size: 44px;
+      font-weight: 700;
+      color: #005d5d;
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+      display: inline-block;
+      text-shadow: 0 1px 2px rgba(0, 93, 93, 0.15);
+    }
+
+    .footer-badges-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-pill-signature {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      color: #0f172a;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .badge-pill-signature.badge-ceo {
+      background: #f0fdfa;
+      border-color: #5eead4;
+      color: #0f766e;
+      font-weight: 700;
+    }
+
+    .badge-separator-dot {
+      width: 7px;
+      height: 7px;
+      background: #d4af37;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ETS Top Navbar -->
+  <header class="ets-navbar">
+    <div class="navbar-left">
+      <div class="nav-timer-pill" id="timerPill">
+        <span>⏱</span>
+        <span id="timerText">45:00</span>
+      </div>
+      <button class="ets-ghost-btn" id="toggleTimerBtn" type="button" onclick="toggleTimerVisibility()">Hide Time</button>
+    </div>
+    <div class="navbar-right">
+      <button class="ets-ghost-btn" id="volumeBtn" type="button" onclick="alert('Audio volume is standard for reading prompts.')">Volume 🔊</button>
+      <button class="ets-pill-btn" id="navBackBtn" type="button" onclick="handleNavigationBack()">&lt; Back</button>
+      <button class="ets-pill-btn" id="navNextBtn" type="button" onclick="handleNavigationNext()">Begin &gt;</button>
+    </div>
+  </header>
+
+  <!-- ETS Sub-bar -->
+  <div class="ets-subbar">
+    <span>Reading</span>
+    <span class="subbar-separator">|</span>
+    <span id="subbarProgress">Overview</span>
+  </div>
+
+  <!-- Workspace Container -->
+  <main class="workspace">
+
+    <!-- Screen 0: Welcome Section -->
+    <section id="screen-welcome" class="screen-view active">
+      <div class="intro-card">
+        <h1>Reading Section</h1>
+        <p>In the Reading section, you will answer questions to demonstrate how well you understand academic and non-academic texts in English. There are three types of tasks.</p>
+
+        <div class="exam-timer-notice-box">
+          <strong>Official Test Duration Note:</strong> In the official ETS TOEFL iBT exam, candidates receive <strong>30 minutes</strong> for the complete Reading Section. For this personalized diagnostic mock test, you are granted extended coaching time of <strong>up to 45 minutes (45:00)</strong> with an active real-time countdown timer to ensure deep analysis and pedagogical review.
+        </div>
+
+        <table class="ets-table">
+          <thead>
+            <tr>
+              <th style="width: 32%;">Type of Task</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Complete the Words</strong></td>
+              <td>Fill in the missing letters in a paragraph.</td>
+            </tr>
+            <tr>
+              <td><strong>Read in Daily Life</strong></td>
+              <td>Answer questions about everyday reading material (menus, notices, signs, social media posts).</td>
+            </tr>
+            <tr>
+              <td><strong>Read an Academic Passage</strong></td>
+              <td>Answer questions about academic passages.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Screen 1: Module 1 Intro -->
+    <section id="screen-m1-intro" class="screen-view">
+      <div class="intro-card">
+        <h1>Module 1</h1>
+        <p>The timer will show you how much time you have to complete your exam session.</p>
+        <p>In an actual test, you <strong>WILL NOT</strong> be able to return to Module 1 once you have begun Module 2.</p>
+      </div>
+    </section>
+
+    <!-- Screen 2: M1 - C-Test (Printing Press) -->
+    <section id="screen-m1-q1" class="screen-view">
+      <h2 class="task-instruction-header">Fill in the missing letters in the paragraph</h2>
+      <div class="ctest-container">
+        <div class="ctest-paragraph">
+          The invention of the printing press by Johannes Gutenberg in the fifteenth century transformed human communication. Bef<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="1" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="1" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="1" data-idx="2"></span>
+          this inve<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="4"></span>,
+          books we<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="3" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="3" data-idx="1"></span>
+          copied b<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="4" data-idx="0"></span>
+          hand, mak<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="2"></span>
+          them expe<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="4"></span>
+          and ra<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="7" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="7" data-idx="1"></span>.
+          The prin<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="8" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="8" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="8" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="8" data-idx="3"></span>
+          press allo<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="2"></span>
+          ideas to spr<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="2"></span>
+          rapidly, fueling the Renaissance and the Reformation. It also encouraged literacy and education among ordinary people. Today, Gutenberg’s innovation is regarded as one of the most important developments in human history, laying the foundation for the modern knowledge-based society.
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 3: M1 - Menu Item 11 -->
+    <section id="screen-m1-q11" class="screen-view">
+      <h2 class="task-instruction-header">Read a restaurant menu</h2>
+      <div class="split-layout">
+        <div class="stimulus-menu-card">
+          <div class="stimulus-menu-header">MENU</div>
+          <div class="stimulus-menu-sub">Lunch Specials (11 a.m.–3 p.m.)</div>
+          <p><strong>Grilled Chicken Wrap</strong> — $10 (served with chips)</p>
+          <p><strong>Vegetarian Lasagna</strong> — $12 (includes garlic bread)</p>
+          <p><strong>Shrimp Tacos (3 pcs)</strong> — $14</p>
+          <p style="margin-top: 12px;">Includes a drink of your choice: iced tea, coffee, or soda.</p>
+          <p>Add a side salad for $3 or upgrade your drink to fresh juice for $2.</p>
+          <p style="margin-top: 12px; font-weight: 600;">Lunch specials are available Monday through Friday.</p>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is true about the lunch specials?</div>
+          <div class="options-list" data-q="m1_11">
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) They come with a side salad.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) They are available every day of the week.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) They are available only in the afternoon.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) They are served with a drink included.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 4: M1 - Menu Item 12 -->
+    <section id="screen-m1-q12" class="screen-view">
+      <h2 class="task-instruction-header">Read a restaurant menu</h2>
+      <div class="split-layout">
+        <div class="stimulus-menu-card">
+          <div class="stimulus-menu-header">MENU</div>
+          <div class="stimulus-menu-sub">Lunch Specials (11 a.m.–3 p.m.)</div>
+          <p><strong>Grilled Chicken Wrap</strong> — $10 (served with chips)</p>
+          <p><strong>Vegetarian Lasagna</strong> — $12 (includes garlic bread)</p>
+          <p><strong>Shrimp Tacos (3 pcs)</strong> — $14</p>
+          <p style="margin-top: 12px;">Includes a drink of your choice: iced tea, coffee, or soda.</p>
+          <p>Add a side salad for $3 or upgrade your drink to fresh juice for $2.</p>
+          <p style="margin-top: 12px; font-weight: 600;">Lunch specials are available Monday through Friday.</p>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">How much would a Shrimp Taco meal with a side salad and a coffee cost?</div>
+          <div class="options-list" data-q="m1_12">
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) $14</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) $16</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) $17</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) $19</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 5: M1 - Notice Item 13 -->
+    <section id="screen-m1-q13" class="screen-view">
+      <h2 class="task-instruction-header">Read a webpage notice</h2>
+      <div class="split-layout">
+        <div class="laptop-frame">
+          <div class="laptop-top-bar">
+            <span>Campus IT Services Portal</span>
+            <span>Security Announcement</span>
+          </div>
+          <div class="laptop-screen-content">
+            <div class="laptop-header-info">Update from Campus IT Services</div>
+            <p>Starting this weekend, all university email passwords will automatically expire every 90 days.</p>
+            <p>Users will receive a reminder 10 days before expiration, containing a secure link to reset their passwords.</p>
+            <p>Those who fail to reset their passwords in time may temporarily lose access to their email and online course platforms.</p>
+            <p>This new policy is part of the university’s effort to enhance data protection and prevent unauthorized access to student information.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the reason for this policy update?</div>
+          <div class="options-list" data-q="m1_13">
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) To make logging in faster</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) To protect sensitive data</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) To simplify password recovery</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) To comply with university attendance rules</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 6: M1 - Notice Item 14 -->
+    <section id="screen-m1-q14" class="screen-view">
+      <h2 class="task-instruction-header">Read a webpage notice</h2>
+      <div class="split-layout">
+        <div class="laptop-frame">
+          <div class="laptop-top-bar">
+            <span>Campus IT Services Portal</span>
+            <span>Security Announcement</span>
+          </div>
+          <div class="laptop-screen-content">
+            <div class="laptop-header-info">Update from Campus IT Services</div>
+            <p>Starting this weekend, all university email passwords will automatically expire every 90 days.</p>
+            <p>Users will receive a reminder 10 days before expiration, containing a secure link to reset their passwords.</p>
+            <p>Those who fail to reset their passwords in time may temporarily lose access to their email and online course platforms.</p>
+            <p>This new policy is part of the university’s effort to enhance data protection and prevent unauthorized access to student information.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What will users receive before their passwords expire?</div>
+          <div class="options-list" data-q="m1_14">
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) A security code</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) A call from IT support</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) A warning message</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) A list of old passwords</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 7: M1 - Notice Item 15 -->
+    <section id="screen-m1-q15" class="screen-view">
+      <h2 class="task-instruction-header">Read a webpage notice</h2>
+      <div class="split-layout">
+        <div class="laptop-frame">
+          <div class="laptop-top-bar">
+            <span>Campus IT Services Portal</span>
+            <span>Security Announcement</span>
+          </div>
+          <div class="laptop-screen-content">
+            <div class="laptop-header-info">Update from Campus IT Services</div>
+            <p>Starting this weekend, all university email passwords will automatically expire every 90 days.</p>
+            <p>Users will receive a reminder 10 days before expiration, containing a secure link to reset their passwords.</p>
+            <p>Those who fail to reset their passwords in time may temporarily lose access to their email and online course platforms.</p>
+            <p>This new policy is part of the university’s effort to enhance data protection and prevent unauthorized access to student information.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What may happen if users don't reset their passwords on time?</div>
+          <div class="options-list" data-q="m1_15">
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Their accounts will be permanently deleted</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) They may be locked out of their accounts temporarily</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Their passwords will reset automatically</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) They will need to create a new university email account</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 8: M1 - Academic Passage Item 16 -->
+    <section id="screen-m1-q16" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Concept of Linguistic Relativity</h2>
+          <div class="passage-paragraphs">
+            <p>The principle of linguistic relativity, often associated with the Sapir-Whorf hypothesis, posits that the structure of a language influences its speakers' worldview and cognition.</p>
+            <p>The strong version, linguistic determinism, argues that language determines thought and that linguistic categories limit cognitive categories. This view is largely discredited.</p>
+            <p>However, a weaker, more tenable version suggests that language influences thought processes, such as memory, perception, and attention.</p>
+            <p>For example, speakers of languages that have multiple distinct words for blue (e.g., light blue vs. dark blue) may be faster at discriminating between these shades. Similarly, languages that use cardinal directions (north, south) instead of egocentric coordinates (left, right) require their speakers to maintain a constant, subconscious awareness of their orientation in space.</p>
+            <p>While evidence for the strong version is scant, a growing body of research supports the weak version, indicating that the language we speak can shape, though not imprison, our cognitive habits.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the main idea of the passage?</div>
+          <div class="options-list" data-q="m1_16">
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) The strong version of the Sapir-Whorf hypothesis has been conclusively proven.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) Language may influence how we think, but it does not strictly determine it.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) All cognitive processes are entirely dependent on the language one speaks.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) The concept of linguistic relativity has been rejected by modern science.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 9: M1 - Academic Passage Item 17 -->
+    <section id="screen-m1-q17" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Concept of Linguistic Relativity</h2>
+          <div class="passage-paragraphs">
+            <p>The principle of linguistic relativity, often associated with the Sapir-Whorf hypothesis, posits that the structure of a language influences its speakers' worldview and cognition.</p>
+            <p>The strong version, linguistic determinism, argues that language determines thought and that linguistic categories limit cognitive categories. This view is largely discredited.</p>
+            <p>However, a weaker, more <span class="text-target-bold">tenable</span> version suggests that language influences thought processes, such as memory, perception, and attention.</p>
+            <p>For example, speakers of languages that have multiple distinct words for blue (e.g., light blue vs. dark blue) may be faster at discriminating between these shades. Similarly, languages that use cardinal directions (north, south) instead of egocentric coordinates (left, right) require their speakers to maintain a constant, subconscious awareness of their orientation in space.</p>
+            <p>While evidence for the strong version is scant, a growing body of research supports the weak version, indicating that the language we speak can shape, though not imprison, our cognitive habits.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">The word "tenable" in the passage is closest in meaning to</div>
+          <div class="options-list" data-q="m1_17">
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) defensible.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) weak.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) outdated.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) radical.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 10: M1 - Academic Passage Item 18 -->
+    <section id="screen-m1-q18" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Concept of Linguistic Relativity</h2>
+          <div class="passage-paragraphs">
+            <p>The principle of linguistic relativity, often associated with the Sapir-Whorf hypothesis, posits that the structure of a language influences its speakers' worldview and cognition.</p>
+            <p>The strong version, linguistic determinism, argues that language determines thought and that linguistic categories limit cognitive categories. This view is largely discredited.</p>
+            <p>However, a weaker, more tenable version suggests that language influences thought processes, such as memory, perception, and attention.</p>
+            <p>For example, speakers of languages that have multiple distinct words for blue (e.g., light blue vs. dark blue) may be faster at discriminating between these shades. Similarly, languages that use cardinal directions (north, south) instead of egocentric coordinates (left, right) require their speakers to maintain a constant, subconscious awareness of their orientation in space.</p>
+            <p>While evidence for the strong version is scant, a growing body of research supports the weak version, indicating that the language we speak can shape, though not imprison, our cognitive habits.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">According to the passage, how might a language that uses cardinal directions affect its speakers?</div>
+          <div class="options-list" data-q="m1_18">
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) It would make them worse at giving directions.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) It would force them to think longer.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) It would require them to be constantly aware of their spatial orientation.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) It would limit their vocabulary for describing colors.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 11: M1 - Academic Passage Item 19 -->
+    <section id="screen-m1-q19" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Concept of Linguistic Relativity</h2>
+          <div class="passage-paragraphs">
+            <p>The principle of linguistic relativity, often associated with the Sapir-Whorf hypothesis, posits that the structure of a language influences its speakers' worldview and cognition.</p>
+            <p>The strong version, linguistic determinism, argues that language determines thought and that linguistic categories limit cognitive categories. This view is largely discredited.</p>
+            <p>However, a weaker, more tenable version suggests that language influences thought processes, such as memory, perception, and attention.</p>
+            <p>For example, speakers of languages that have multiple distinct words for blue (e.g., light blue vs. dark blue) may be faster at discriminating between these shades. Similarly, languages that use cardinal directions (north, south) instead of egocentric coordinates (left, right) require their speakers to maintain a constant, subconscious awareness of their orientation in space.</p>
+            <p>While evidence for the strong version is scant, a growing body of research supports the weak version, indicating that the language we speak can shape, though not imprison, our cognitive habits.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">The author discusses the example of words for blue primarily to</div>
+          <div class="options-list" data-q="m1_19">
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) prove the strong version of linguistic determinism.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) illustrate a potential influence of language on perception.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) argue that some languages are more descriptive than others.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) show that color perception is universal across cultures.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 12: M1 - Academic Passage Item 20 -->
+    <section id="screen-m1-q20" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Concept of Linguistic Relativity</h2>
+          <div class="passage-paragraphs">
+            <p>The principle of linguistic relativity, often associated with the Sapir-Whorf hypothesis, posits that the structure of a language influences its speakers' worldview and cognition.</p>
+            <p>The strong version, linguistic determinism, argues that language determines thought and that linguistic categories limit cognitive categories. This view is largely discredited.</p>
+            <p>However, a weaker, more tenable version suggests that language influences thought processes, such as memory, perception, and attention.</p>
+            <p>For example, speakers of languages that have multiple distinct words for blue (e.g., light blue vs. dark blue) may be faster at discriminating between these shades. Similarly, languages that use cardinal directions (north, south) instead of egocentric coordinates (left, right) require their speakers to maintain a constant, subconscious awareness of their orientation in space.</p>
+            <p>While evidence for the strong version is scant, a growing body of research supports the weak version, indicating that the language we speak can shape, though not imprison, our cognitive habits.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the relationship between the strong and weak versions of linguistic relativity as described in the passage?</div>
+          <div class="options-list" data-q="m1_20">
+            <div class="option-btn-row" onclick="selectOption('m1_20', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) The weak version is a more extreme form of the strong version.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_20', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) The strong version is a widely accepted refinement of the weak version.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_20', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) The weak version is a less absolute and more supported alternative to the strong version.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_20', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Both versions are considered equally valid by contemporary researchers.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 13: End of Module 1 -->
+    <section id="screen-m1-end" class="screen-view">
+      <div class="intro-card">
+        <h1>End of Module 1</h1>
+        <p>Select <strong>Next</strong> to continue to Module 2.</p>
+        <p style="font-size:17px; color:#64748b;">Notice: The session countdown will continuously track your total remaining test time for Module 2.</p>
+      </div>
+    </section>
+
+    <!-- Screen 14: Module 2 Intro -->
+    <section id="screen-m2-intro" class="screen-view">
+      <div class="intro-card">
+        <h1>Module 2</h1>
+        <p>In this module, you will continue with the second block of reading tasks.</p>
+        <p>Your active exam timer in the top bar indicates your remaining time.</p>
+      </div>
+    </section>
+
+    <!-- Screen 15: M2 - C-Test (Photosynthesis) -->
+    <section id="screen-m2-q1" class="screen-view">
+      <h2 class="task-instruction-header">Fill in the missing letters in the paragraph</h2>
+      <div class="ctest-container">
+        <div class="ctest-paragraph">
+          Photosynthesis is the process by which green plants convert sunlight into chemical energy. Using chlorophyll, they abs<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="1" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="1" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="1" data-idx="2"></span>
+          light and trans<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="2" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="2" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="2" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="2" data-idx="3"></span>
+          carbon diox<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="2"></span>
+          and wat<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="4" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="4" data-idx="1"></span>
+          into gluco<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="5" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="5" data-idx="1"></span>
+          and oxy<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="2"></span>.
+          This proc<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="7" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="7" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="7" data-idx="2"></span>
+          not on<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="8" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="8" data-idx="1"></span>
+          sustains pl<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="9" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="9" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="9" data-idx="2"></span>
+          life b<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="10" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="10" data-idx="1"></span>
+          also provides the oxygen that animals and humans breathe. Without photosynthesis, life on Earth would not exist in its current form. Scientists study this process to develop artificial methods of capturing solar energy efficiently for renewable power.
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 16: M2 - Sign Item 11 -->
+    <section id="screen-m2-q11" class="screen-view">
+      <h2 class="task-instruction-header">Read a sign</h2>
+      <div class="split-layout">
+        <div class="poster-clipboard-card">
+          <div class="poster-heading-title">City Library Announcement</div>
+          <div class="poster-body-text">
+            <p>Due to maintenance, the City Library will close early at 5 p.m. from Monday to Thursday next week. Weekend hours remain unchanged.</p>
+            <p style="margin-top: 14px;">During this period, you can still return borrowed books using the drop box at the main entrance or access digital materials through the library’s online portal. We apologize for any inconvenience.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the main purpose of this notice?</div>
+          <div class="options-list" data-q="m2_11">
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) To advertise the library’s new online services</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) To inform users about temporary changes in operating hours</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) To announce the renovation of the entire building</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) To explain how to borrow books</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 17: M2 - Sign Item 12 -->
+    <section id="screen-m2-q12" class="screen-view">
+      <h2 class="task-instruction-header">Read a sign</h2>
+      <div class="split-layout">
+        <div class="poster-clipboard-card">
+          <div class="poster-heading-title">City Library Announcement</div>
+          <div class="poster-body-text">
+            <p>Due to maintenance, the City Library will close early at 5 p.m. from Monday to Thursday next week. Weekend hours remain unchanged.</p>
+            <p style="margin-top: 14px;">During this period, you can still return borrowed books using the drop box at the main entrance or access digital materials through the library’s online portal. We apologize for any inconvenience.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What will remain the same during the maintenance period?</div>
+          <div class="options-list" data-q="m2_12">
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) The library’s weekday closing time</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) The main entrance location</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Access to physical books</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) The schedule for the weekend</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 18: M2 - Social Post Item 13 -->
+    <section id="screen-m2-q13" class="screen-view">
+      <h2 class="task-instruction-header">Read a social media post.</h2>
+      <div class="split-layout">
+        <div class="ad-box-card">
+          <p>Feeling overwhelmed at work? Take a mindful break and join our <em>Lunchtime Meditation Group</em> at Central Park, every Tuesday from 12:30 to 12:55 p.m.</p>
+          <p>Each 25-minute session, led by a certified mindfulness coach, focuses on simple breathing and relaxation techniques that can help reduce stress and improve focus.</p>
+          <p>Participation is free, but please bring your own mat or towel. No prior experience is required — just come with an open mind and a calm spirit.</p>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the main purpose of the post?</div>
+          <div class="options-list" data-q="m2_13">
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) To advertise yoga classes</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) To invite people to join short meditation sessions</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) To provide detailed instructions for meditation</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) To announce the opening of a new wellness center</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 19: M2 - Social Post Item 14 -->
+    <section id="screen-m2-q14" class="screen-view">
+      <h2 class="task-instruction-header">Read a social media post.</h2>
+      <div class="split-layout">
+        <div class="ad-box-card">
+          <p>Feeling overwhelmed at work? Take a mindful break and join our <em>Lunchtime Meditation Group</em> at Central Park, every Tuesday from 12:30 to 12:55 p.m.</p>
+          <p>Each 25-minute session, led by a certified mindfulness coach, focuses on simple breathing and relaxation techniques that can help reduce stress and improve focus.</p>
+          <p>Participation is free, but please bring your own mat or towel. No prior experience is required — just come with an open mind and a calm spirit.</p>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">Who is most likely to attend these sessions?</div>
+          <div class="options-list" data-q="m2_14">
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Employees looking for a quick way to unwind during lunch</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) People exercising in the park</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) People who have a towel</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Students taking online meditation courses</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 20: M2 - Social Post Item 15 -->
+    <section id="screen-m2-q15" class="screen-view">
+      <h2 class="task-instruction-header">Read a social media post.</h2>
+      <div class="split-layout">
+        <div class="ad-box-card">
+          <p>Feeling overwhelmed at work? Take a mindful break and join our <em>Lunchtime Meditation Group</em> at Central Park, every Tuesday from 12:30 to 12:55 p.m.</p>
+          <p>Each 25-minute session, led by a certified mindfulness coach, focuses on simple breathing and relaxation techniques that can help reduce stress and improve focus.</p>
+          <p>Participation is free, but please bring your own mat or towel. No prior experience is required — just come with an open mind and a calm spirit.</p>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What can be inferred about the sessions?</div>
+          <div class="options-list" data-q="m2_15">
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) They take place indoors during bad weather</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) They require participants to register in advance</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) They are mostly intended for experienced meditators</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) They are designed to fit into people’s workday schedules</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 21: M2 - Academic Passage Item 16 -->
+    <section id="screen-m2-q16" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>Epigenetics: Beyond the Genetic Code</h2>
+          <div class="passage-paragraphs">
+            <p>The central dogma of biology long held that DNA sequence was the sole biological inheritance, a fixed blueprint for an organism.</p>
+            <p>Epigenetics, however, has revolutionized this view. It refers to the study of heritable changes in gene expression that do not involve alterations to the underlying DNA sequence. These changes, such as DNA methylation or histone modification, act as "switches" that turn genes on or off in response to environmental factors like diet, stress, and toxin exposure.</p>
+            <p>This means that experiences can leave a molecular scar or a benefit that can be passed to subsequent generations. For instance, studies have shown that the nutritional status of grandparents can affect the health outcomes of their grandchildren, even in the absence of continued exposure.</p>
+            <p>This Lamarckian-like inheritance challenges the strict Darwinian model and has profound implications for our understanding of evolution, disease susceptibility, and the complex interplay between nature and nurture.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">The primary purpose of the passage is to</div>
+          <div class="options-list" data-q="m2_16">
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) defend the central dogma of biology against new evidence.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) describe a field that studies non-sequence-based genetic inheritance.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) argue that DNA sequence is irrelevant to gene expression.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) detail the specific biochemical processes of DNA methylation.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 22: M2 - Academic Passage Item 17 -->
+    <section id="screen-m2-q17" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>Epigenetics: Beyond the Genetic Code</h2>
+          <div class="passage-paragraphs">
+            <p>The central dogma of biology long held that DNA sequence was the sole biological inheritance, a fixed blueprint for an organism.</p>
+            <p>Epigenetics, however, has revolutionized this view. It refers to the study of <span class="text-target-bold">heritable</span> changes in gene expression that do not involve alterations to the underlying DNA sequence. These changes, such as DNA methylation or histone modification, act as "switches" that turn genes on or off in response to environmental factors like diet, stress, and toxin exposure.</p>
+            <p>This means that experiences can leave a molecular scar or a benefit that can be passed to subsequent generations. For instance, studies have shown that the nutritional status of grandparents can affect the health outcomes of their grandchildren, even in the absence of continued exposure.</p>
+            <p>This Lamarckian-like inheritance challenges the strict Darwinian model and has profound implications for our understanding of evolution, disease susceptibility, and the complex interplay between nature and nurture.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">The word "heritable" in the passage is closest in meaning to</div>
+          <div class="options-list" data-q="m2_17">
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) temporary.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) observable.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) transmissible.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) harmful.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 23: M2 - Academic Passage Item 18 -->
+    <section id="screen-m2-q18" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>Epigenetics: Beyond the Genetic Code</h2>
+          <div class="passage-paragraphs">
+            <p>The central dogma of biology long held that DNA sequence was the sole biological inheritance, a fixed blueprint for an organism.</p>
+            <p>Epigenetics, however, has revolutionized this view. It refers to the study of heritable changes in gene expression that do not involve alterations to the underlying DNA sequence. These changes, such as DNA methylation or histone modification, act as "switches" that turn genes on or off in response to environmental factors like diet, stress, and toxin exposure.</p>
+            <p>This means that experiences can leave a molecular scar or a benefit that can be passed to subsequent generations. For instance, studies have shown that the nutritional status of grandparents can affect the health outcomes of their grandchildren, even in the absence of continued exposure.</p>
+            <p>This Lamarckian-like inheritance challenges the strict Darwinian model and has profound implications for our understanding of evolution, disease susceptibility, and the complex interplay between nature and nurture.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">According to the passage, what is the role of environmental factors in epigenetics?</div>
+          <div class="options-list" data-q="m2_18">
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) They directly change the DNA sequence.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) They have no impact on gene expression.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) They can influence the chemical markers that control gene activity.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) They only affect the individual exposed, not their offspring.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 24: M2 - Academic Passage Item 19 -->
+    <section id="screen-m2-q19" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>Epigenetics: Beyond the Genetic Code</h2>
+          <div class="passage-paragraphs">
+            <p>The central dogma of biology long held that DNA sequence was the sole biological inheritance, a fixed blueprint for an organism.</p>
+            <p>Epigenetics, however, has revolutionized this view. It refers to the study of heritable changes in gene expression that do not involve alterations to the underlying DNA sequence. These changes, such as DNA methylation or histone modification, act as "switches" that turn genes on or off in response to environmental factors like diet, stress, and toxin exposure.</p>
+            <p>This means that experiences can leave a molecular scar or a benefit that can be passed to subsequent generations. For instance, studies have shown that the nutritional status of grandparents can affect the health outcomes of their grandchildren, even in the absence of continued exposure.</p>
+            <p>This Lamarckian-like inheritance challenges the strict Darwinian model and has profound implications for our understanding of evolution, disease susceptibility, and the complex interplay between nature and nurture.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">The author mentions the "nutritional status of grandparents" to provide an example of</div>
+          <div class="options-list" data-q="m2_19">
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) the irrelevance of past generations to current health.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) a purely genetic disease.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) the transgenerational impact of epigenetic changes.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) a flaw in epigenetic research methodology.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 25: M2 - Academic Passage Item 20 -->
+    <section id="screen-m2-q20" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>Epigenetics: Beyond the Genetic Code</h2>
+          <div class="passage-paragraphs">
+            <p>The central dogma of biology long held that DNA sequence was the sole biological inheritance, a fixed blueprint for an organism.</p>
+            <p>Epigenetics, however, has revolutionized this view. It refers to the study of heritable changes in gene expression that do not involve alterations to the underlying DNA sequence. These changes, such as DNA methylation or histone modification, act as "switches" that turn genes on or off in response to environmental factors like diet, stress, and toxin exposure.</p>
+            <p>This means that experiences can leave a molecular scar or a benefit that can be passed to subsequent generations. For instance, studies have shown that the nutritional status of grandparents can affect the health outcomes of their grandchildren, even in the absence of continued exposure.</p>
+            <p>This Lamarckian-like inheritance challenges the strict Darwinian model and has profound implications for our understanding of evolution, disease susceptibility, and the complex interplay between nature and nurture.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">It can be inferred from the passage that epigenetics challenges traditional views by suggesting that</div>
+          <div class="options-list" data-q="m2_20">
+            <div class="option-btn-row" onclick="selectOption('m2_20', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) acquired characteristics can never be inherited.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_20', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) the environment can play a role in what is passed to offspring.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_20', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) DNA is the only source of biological information.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_20', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Darwin's theory of evolution is entirely incorrect.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 26: End of Reading Section -->
+    <section id="screen-m2-end" class="screen-view">
+      <div class="intro-card">
+        <h1>End of Reading Section</h1>
+        <p>Thank you for completing the reading section for Mock 3.</p>
+        <p>Select <strong>Next</strong> to generate your diagnostic assessment score and review pedagogical insights.</p>
+      </div>
+    </section>
+
+    <!-- Screen 27: Diagnostic Evaluation -->
+    <section id="screen-diagnostic" class="screen-view">
+      <div class="diagnostic-panel">
+        <div class="diag-title-area">
+          <h2>TOEFL iBT Reading Diagnostic Report</h2>
+          <p style="color:#64748b; font-size:16px;">Mock Test 3 &bull; Official Modular Assessment</p>
+        </div>
+
+        <div class="score-summary-deck">
+          <div class="score-summary-card">
+            <div class="score-title">Raw Score</div>
+            <div class="score-val" id="diagRaw">0 / 40</div>
+            <div style="font-size:14px; color:#64748b; margin-top:4px;">Total accurate answers</div>
+          </div>
+          <div class="score-summary-card">
+            <div class="score-title">Scaled Score</div>
+            <div class="score-val" id="diagScaled">0 / 30</div>
+            <div style="font-size:14px; color:#64748b; margin-top:4px;">Official ETS Band Conversion</div>
+          </div>
+          <div class="score-summary-card" id="cefrCard">
+            <div class="score-title">CEFR Level</div>
+            <div class="score-val" id="diagCefr" style="font-size:30px;">Below A1</div>
+            <div style="font-size:14px; color:#64748b; margin-top:4px;">International Framework</div>
+          </div>
+        </div>
+
+        <div class="klippy-feedback-wrapper">
+          <div class="klippy-title-row">
+            <span>📎</span> Klippy's Pedagogical Performance Audit
+          </div>
+          <p id="klippyReportSummary" style="color:#1e293b; font-size:17px; line-height:1.65;">
+            Analyzing telemetry, lexical morphology, and context clue discrimination...
+          </p>
+        </div>
+
+        <h3 style="font-size: 22px; font-weight:700; margin-bottom:18px;">Comprehensive Pedagogical Item-by-Item Review</h3>
+        <div class="items-audit-grid" id="auditItemsContainer"></div>
+
+        <div class="actions-footer-container">
+          <button class="finish-action-btn" id="continueListeningBtn" type="button" onclick="goToListeningSection()">
+            Continue to Listening Section &rarr;
+          </button>
+          <button class="secondary-dash-btn" id="returnDashboardBtn" type="button" onclick="goToDashboard()">
+            Return to Mock Dashboard
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Corporate Footer -->
+  <footer class="ets-corporate-footer">
+    <div class="footer-gradient-bar"></div>
+    <div class="footer-content">
+      <div class="footer-author-signature">Dr. Jesús Miguel Lima E.</div>
+      <div class="footer-badges-list">
+        <span class="badge-pill-signature badge-ceo">CEO of JM ELT Solutions</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">Celta &amp; Delta Trainer</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">Exam Trainer</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">Teacher Trainer</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">University Professor</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Detailed Explanations for Mock 3 Items
+    const ctest1Details = {
+      1: { full: "Before", root: "Bef", ans: "ore", clue: "Bef[ore] this inve[ntion], books we[re]...", role: "Preposition of time indicating prior historical state." },
+      2: { full: "invention", root: "inve", ans: "ntion", clue: "Before this inve[ntion], books we[re]...", role: "Singular abstract noun with Latinate suffix '-ntion'." },
+      3: { full: "were", root: "we", ans: "re", clue: "books we[re] copied b[y] hand", role: "Past plural passive auxiliary agreeing with 'books'." },
+      4: { full: "by", root: "b", ans: "y", clue: "copied b[y] hand, mak[ing] them...", role: "Preposition marking the agent or instrument in passive voice." },
+      5: { full: "making", root: "mak", ans: "ing", clue: "copied by hand, mak[ing] them expe[nsive]...", role: "Participle clause expressing consequence." },
+      6: { full: "expensive", root: "expe", ans: "nsive", clue: "making them expe[nsive] and ra[re]", role: "Adjective modifying books denoting high monetary cost." },
+      7: { full: "rare", root: "ra", ans: "re", clue: "expensive and ra[re]", role: "Adjective parallel to 'expensive' denoting scarcity." },
+      8: { full: "printing", root: "prin", ans: "ting", clue: "The prin[ting] press allo[wed] ideas...", role: "Attributive noun/gerund defining Gutenberg's machine." },
+      9: { full: "allowed", root: "allo", ans: "wed", clue: "press allo[wed] ideas to spr[ead] rapidly", role: "Past simple transitive verb governing infinitive 'to spread'." },
+      10: { full: "spread", root: "spr", ans: "ead", clue: "allowed ideas to spr[ead] rapidly", role: "Base infinitive verb denoting rapid ideological dissemination." }
+    };
+
+    const ctest2Details = {
+      1: { full: "absorb", root: "abs", ans: "orb", clue: "Using chlorophyll, they abs[orb] light", role: "Transitive base verb describing photon capture by plants." },
+      2: { full: "transform", root: "trans", ans: "form", clue: "and trans[form] carbon diox[ide]...", role: "Base verb parallel to 'absorb' denoting chemical conversion." },
+      3: { full: "dioxide", root: "diox", ans: "ide", clue: "carbon diox[ide] and wat[er]", role: "Chemical nomenclature noun completing 'carbon dioxide'." },
+      4: { full: "water", root: "wat", ans: "er", clue: "carbon dioxide and wat[er] into gluco[se]", role: "Essential liquid compound noun involved in photosynthesis." },
+      5: { full: "glucose", root: "gluco", ans: "se", clue: "into gluco[se] and oxy[gen]", role: "Simple sugar compound noun ending in '-se'." },
+      6: { full: "oxygen", root: "oxy", ans: "gen", clue: "into glucose and oxy[gen]", role: "Atmospheric elemental gas noun released by plants." },
+      7: { full: "process", root: "proc", ans: "ess", clue: "This proc[ess] not on[ly] sustains...", role: "Singular abstract noun referring to photosynthesis." },
+      8: { full: "only", root: "on", ans: "ly", clue: "not on[ly] sustains pl[ant] life", role: "Focusing adverb completing the correlative pair 'not only... but also'." },
+      9: { full: "plant", root: "pl", ans: "ant", clue: "sustains pl[ant] life b[ut] also...", role: "Attributive noun qualifying 'life'." },
+      10: { full: "but", root: "b", ans: "ut", clue: "life b[ut] also provides the oxygen", role: "Correlative coordinator pairing strictly with 'not only'." }
+    };
+
+    const mcAccurateExplanations = {
+      m1_11: {
+        title: "Menu Detail (Lunch Specials Features)",
+        citation: "Menu: 'Includes a drink of your choice: iced tea, coffee, or soda.'",
+        passRationale: "Outstanding analysis! The menu explicitly states that all lunch specials include a chosen beverage without extra cost.",
+        failRationale: "Analysis of Error: Side salads cost $3 extra (A), specials run Monday through Friday only (B), and they start at 11 a.m. (morning, C). The accurate fact is that a drink is included (D)."
+      },
+      m1_12: {
+        title: "Menu Calculation (Shrimp Taco Meal)",
+        citation: "Menu: 'Shrimp Tacos (3 pcs) — $14 ... Includes a drink of your choice: iced tea, coffee, or soda ... Add a side salad for $3'",
+        passRationale: "Exact mathematical deduction! Shrimp Tacos cost $14, coffee is included free as the chosen drink, and the side salad adds $3 ($14 + $3 = $17).",
+        failRationale: "Analysis of Error: Coffee does not add an extra fee because it is one of the free drink choices included with the special. Adding only the $3 side salad to the $14 tacos equals $17 (C)."
+      },
+      m1_13: {
+        title: "Webpage Notice Purpose (Campus IT Update)",
+        citation: "Notice: 'This new policy is part of the university’s effort to enhance data protection and prevent unauthorized access to student information.'",
+        passRationale: "Superb purpose identification! The mandatory 90-day password expiration is implemented directly to enhance data security and safeguard student records.",
+        failRationale: "Analysis of Error: The policy does not speed up logins (A), simplify recovery (C), or relate to classroom attendance (D). Its explicit goal is to protect sensitive student data (B)."
+      },
+      m1_14: {
+        title: "Webpage Notice Detail (Pre-expiration Notification)",
+        citation: "Notice: 'Users will receive a reminder 10 days before expiration, containing a secure link to reset their passwords.'",
+        passRationale: "Direct factual retrieval! The university sends users a 10-day advance reminder warning message with a reset link.",
+        failRationale: "Analysis of Error: IT services will not phone users (B) or send previous passwords (D). Users receive a warning reminder message (C)."
+      },
+      m1_15: {
+        title: "Webpage Notice Consequence (Unreset Passwords)",
+        citation: "Notice: 'Those who fail to reset their passwords in time may temporarily lose access to their email and online course platforms.'",
+        passRationale: "Accurate procedural reading! Missing the expiration deadline results in a temporary account lockout until reset.",
+        failRationale: "Analysis of Error: Accounts are not deleted permanently (A), passwords do not auto-reset (C), and students do not create brand new emails (D). Access is temporarily locked (B)."
+      },
+      m1_16: {
+        title: "Academic Main Idea (Linguistic Relativity)",
+        citation: "Text: 'While evidence for the strong version is scant, a growing body of research supports the weak version, indicating that the language we speak can shape, though not imprison, our cognitive habits.'",
+        passRationale: "Flawless thesis synthesis! The text establishes that while language influences perception and memory, it does not strictly determine or imprison our thoughts.",
+        failRationale: "Analysis of Error: Determinism (the strong version) is largely discredited, not proven (A). Science has not rejected relativity entirely (D). Language influences thought but does not strictly dictate it (B)."
+      },
+      m1_17: {
+        title: "Academic Vocabulary in Context ('tenable')",
+        citation: "Text: 'However, a weaker, more tenable version suggests that language influences thought processes, such as memory, perception, and attention.'",
+        passRationale: "Sharp semantic precision! In scientific discourse, a 'tenable' hypothesis is one that is reasonable, defensible, and capable of being supported by evidence.",
+        failRationale: "Analysis of Error: A 'tenable' claim is not weak (B), outdated (C), or radical (D); it is defensible and plausible based on empirical observation (A)."
+      },
+      m1_18: {
+        title: "Academic Factual Detail (Cardinal Direction Languages)",
+        citation: "Text: '...languages that use cardinal directions (north, south)... require their speakers to maintain a constant, subconscious awareness of their orientation in space.'",
+        passRationale: "Direct textual alignment! Speakers of languages utilizing absolute geographic directions must maintain continuous subconscious spatial orientation.",
+        failRationale: "Analysis of Error: Cardinal direction speakers are remarkably skilled at navigation, not worse (A). The text explicitly states it requires constant subconscious spatial awareness (C)."
+      },
+      m1_19: {
+        title: "Academic Rhetorical Purpose (Words for Blue)",
+        citation: "Text: '...speakers of languages that have multiple distinct words for blue... may be faster at discriminating between these shades.'",
+        passRationale: "Insightful rhetorical mapping! Distinct color terms illustrate how lexical divisions can directly enhance the speed of visual perception.",
+        failRationale: "Analysis of Error: It does not prove linguistic determinism (A) or assert universal color perception (D). It serves as an empirical example of language shaping perceptual processing (B)."
+      },
+      m1_20: {
+        title: "Academic Contrast (Strong vs. Weak Relativity)",
+        citation: "Text: 'The strong version... is largely discredited. However, a weaker, more tenable version... a growing body of research supports the weak version...'",
+        passRationale: "Exemplary theoretical contrast! The weak version rejects rigid determinism, presenting a nuanced, less absolute model backed by contemporary scientific research.",
+        failRationale: "Analysis of Error: The weak version is less extreme, not more extreme (A). Both are not equally valid since the strong version is discredited (D). The weak version is a less absolute and better-supported alternative (C)."
+      },
+      m2_11: {
+        title: "Sign Purpose (City Library Notice)",
+        citation: "Sign: 'Due to maintenance, the City Library will close early at 5 p.m. from Monday to Thursday next week. Weekend hours remain unchanged.'",
+        passRationale: "Accurate communicative categorization! The sign informs patrons about temporary afternoon schedule adjustments during maintenance.",
+        failRationale: "Analysis of Error: The notice does not advertise online services (A) or full-building renovation (C). It alerts users to temporary changes in operating hours (B)."
+      },
+      m2_12: {
+        title: "Sign Detail (Unchanged Library Service)",
+        citation: "Sign: 'Weekend hours remain unchanged.'",
+        passRationale: "Direct factual retrieval! While Monday–Thursday hours close early at 5 p.m., the weekend operating schedule remains unaffected.",
+        failRationale: "Analysis of Error: Weekday hours are altered (A). The schedule that remains completely unchanged is the weekend timetable (D)."
+      },
+      m2_13: {
+        title: "Social Post Purpose (Lunchtime Meditation)",
+        citation: "Post: 'Take a mindful break and join our Lunchtime Meditation Group at Central Park, every Tuesday from 12:30 to 12:55 p.m.'",
+        passRationale: "Clear promotional purpose! The post invites busy workers to participate in free 25-minute midday relaxation sessions.",
+        failRationale: "Analysis of Error: The group practices meditation rather than yoga classes (A) and does not launch a facility (D). It invites individuals to short meditation sessions (B)."
+      },
+      m2_14: {
+        title: "Social Post Target Audience (Likely Attendees)",
+        citation: "Post: 'Feeling overwhelmed at work? Take a mindful break and join our Lunchtime Meditation Group... every Tuesday from 12:30 to 12:55 p.m.'",
+        passRationale: "Incisive audience deduction! Targeting work-related stress during lunch hours shows the initiative is tailored for local corporate employees.",
+        failRationale: "Analysis of Error: The text directly opens with 'Feeling overwhelmed at work?', indicating employees seeking a quick midday break are the primary intended attendees (A)."
+      },
+      m2_15: {
+        title: "Social Post Inference (Program Design)",
+        citation: "Post: 'every Tuesday from 12:30 to 12:55 p.m. Each 25-minute session...'",
+        passRationale: "Deep operational inference! Fitting within a 25-minute midday window proves the program is calibrated around standard office workdays.",
+        failRationale: "Analysis of Error: No advance registration is required (B) and beginners are welcomed (C). The short duration and midday timing show it is tailored to workday schedules (D)."
+      },
+      m2_16: {
+        title: "Academic Primary Purpose (Epigenetics Overview)",
+        citation: "Text: 'Epigenetics... refers to the study of heritable changes in gene expression that do not involve alterations to the underlying DNA sequence.'",
+        passRationale: "Mastery of scientific exposition! The author introduces and explains epigenetics as a discipline investigating genetic inheritance beyond DNA sequence mutations.",
+        failRationale: "Analysis of Error: The passage challenges the central dogma rather than defending it (A). It does not claim DNA is irrelevant (C). It describes non-sequence-based inheritance (B)."
+      },
+      m2_17: {
+        title: "Academic Vocabulary in Context ('heritable')",
+        citation: "Text: '...heritable changes in gene expression... experiences can leave a molecular scar or a benefit that can be passed to subsequent generations.'",
+        passRationale: "Exact semantic substitution! 'Heritable' characteristics can be passed down to offspring, making 'transmissible' the precise synonym.",
+        failRationale: "Analysis of Error: Epigenetic changes can be enduring across generations, not temporary (A) or inherently harmful (D). They are transmissible to offspring (C)."
+      },
+      m2_18: {
+        title: "Academic Factual Detail (Environmental Factors in Epigenetics)",
+        citation: "Text: 'These changes... act as \"switches\" that turn genes on or off in response to environmental factors like diet, stress, and toxin exposure.'",
+        passRationale: "High-level biological comprehension! Environmental factors regulate molecular chemical markers (methylation, histones) without altering base nucleotides.",
+        failRationale: "Analysis of Error: Epigenetics explicitly does not change DNA sequences (A). Environmental factors influence chemical switches that regulate gene activity (C)."
+      },
+      m2_19: {
+        title: "Academic Rhetorical Purpose (Grandparents' Nutrition)",
+        citation: "Text: '...studies have shown that the nutritional status of grandparents can affect the health outcomes of their grandchildren, even in the absence of continued exposure.'",
+        passRationale: "Rhetorical exemplification! Grandparents' dietary health affecting grandchildren illustrates that epigenetic marks travel across multiple generations.",
+        failRationale: "Analysis of Error: It proves past generations directly influence future health, making (A) incorrect. It exemplifies the transgenerational impact of epigenetic shifts (C)."
+      },
+      m2_20: {
+        title: "Academic Inference (Epigenetics vs. Traditional Models)",
+        citation: "Text: 'This Lamarckian-like inheritance challenges the strict Darwinian model and has profound implications for our understanding of evolution... complex interplay between nature and nurture.'",
+        passRationale: "Exemplary theoretical synthesis! Traditional models treated DNA as an impervious blueprint; epigenetics proves the environment influences what gets transmitted to descendants.",
+        failRationale: "Analysis of Error: It shows acquired markers can be inherited, refuting (A). It does not reject Darwin completely (D). It proves the environment helps determine what is passed to offspring (B)."
+      }
+    };
+
+    // State machine configuration for Mock 3 (20 items in Mod 1, 20 items in Mod 2)
+    const testScreens = [
+      { id: 'screen-welcome', module: 0, subbar: 'Overview', showTimer: true, allowBack: false, nextLabel: 'Begin >' },
+      { id: 'screen-m1-intro', module: 1, subbar: 'Module 1 Directions', showTimer: true, allowBack: false, nextLabel: 'Begin >' },
+      { id: 'screen-m1-q1', module: 1, subbar: 'Questions 1–10 of 20', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-m1-q11', module: 1, subbar: 'Question 11 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q12', module: 1, subbar: 'Question 12 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q13', module: 1, subbar: 'Question 13 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q14', module: 1, subbar: 'Question 14 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q15', module: 1, subbar: 'Question 15 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q16', module: 1, subbar: 'Question 16 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q17', module: 1, subbar: 'Question 17 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q18', module: 1, subbar: 'Question 18 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q19', module: 1, subbar: 'Question 19 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q20', module: 1, subbar: 'Question 20 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-end', module: 1, subbar: 'End of Module 1', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-m2-intro', module: 2, subbar: 'Module 2 Directions', showTimer: true, allowBack: false, nextLabel: 'Begin >' },
+      { id: 'screen-m2-q1', module: 2, subbar: 'Questions 1–10 of 20', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-m2-q11', module: 2, subbar: 'Question 11 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q12', module: 2, subbar: 'Question 12 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q13', module: 2, subbar: 'Question 13 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q14', module: 2, subbar: 'Question 14 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q15', module: 2, subbar: 'Question 15 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q16', module: 2, subbar: 'Question 16 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q17', module: 2, subbar: 'Question 17 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q18', module: 2, subbar: 'Question 18 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q19', module: 2, subbar: 'Question 19 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q20', module: 2, subbar: 'Question 20 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-end', module: 2, subbar: 'End of Reading Section', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-diagnostic', module: 3, subbar: 'Diagnostic Evaluation', showTimer: false, allowBack: false, nextLabel: 'Next >' }
+    ];
+
+    let currentScreenIndex = 0;
+
+    // Official Answer Key for Mock 03
+    const officialKey = {
+      m1_c: { 1: "ore", 2: "ntion", 3: "re", 4: "y", 5: "ing", 6: "nsive", 7: "re", 8: "ting", 9: "wed", 10: "ead" },
+      m1_mc: { m1_11: "D", m1_12: "C", m1_13: "B", m1_14: "C", m1_15: "B", m1_16: "B", m1_17: "A", m1_18: "C", m1_19: "B", m1_20: "C" },
+      m2_c: { 1: "orb", 2: "form", 3: "ide", 4: "er", 5: "se", 6: "gen", 7: "ess", 8: "ly", 9: "ant", 10: "ut" },
+      m2_mc: { m2_11: "B", m2_12: "D", m2_13: "B", m2_14: "A", m2_15: "D", m2_16: "B", m2_17: "C", m2_18: "C", m2_19: "C", m2_20: "B" }
+    };
+
+    const userAnswers = {
+      m1_c: {},
+      m1_mc: {},
+      m2_c: {},
+      m2_mc: {}
+    };
+
+    // Extended Coaching Timer: 45 Minutes
+    let timeRemaining = 45 * 60;
+    let timerInterval = null;
+    let isTimerVisible = true;
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        if (timeRemaining > 0) {
+          timeRemaining--;
+          updateTimerDisplay();
+        } else {
+          clearInterval(timerInterval);
+          handleTimeExpired();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const minutes = Math.floor(timeRemaining / 60);
+      const seconds = timeRemaining % 60;
+      const formatted = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      const elem = document.getElementById('timerText');
+      const pill = document.getElementById('timerPill');
+      if (elem) elem.textContent = formatted;
+
+      if (timeRemaining <= 180 && pill) {
+        pill.classList.add('time-warning');
+      }
+    }
+
+    function toggleTimerVisibility() {
+      const pill = document.getElementById('timerPill');
+      const btn = document.getElementById('toggleTimerBtn');
+      isTimerVisible = !isTimerVisible;
+      if (isTimerVisible) {
+        pill.style.visibility = 'visible';
+        btn.textContent = 'Hide Time';
+      } else {
+        pill.style.visibility = 'hidden';
+        btn.textContent = 'Show Time';
+      }
+    }
+
+    function handleTimeExpired() {
+      alert("Session time has concluded. Transitioning to your comprehensive diagnostic report.");
+      goToScreen(27);
+    }
+
+    function setupCTestListeners() {
+      const inputs = document.querySelectorAll('.char-input');
+      inputs.forEach((input, index) => {
+        input.addEventListener('input', (e) => {
+          const val = e.target.value.toLowerCase();
+          const sec = e.target.getAttribute('data-sec');
+          const word = e.target.getAttribute('data-word');
+          const idx = e.target.getAttribute('data-idx');
+
+          const dict = sec === 'm1' ? userAnswers.m1_c : userAnswers.m2_c;
+          if (!dict[word]) dict[word] = [];
+          dict[word][idx] = val;
+
+          if (val && index < inputs.length - 1) {
+            inputs[index + 1].focus();
+          }
+        });
+
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && !input.value && index > 0) {
+            inputs[index - 1].focus();
+          }
+        });
+      });
+    }
+
+    function selectOption(qKey, val, element) {
+      if (qKey.startsWith('m1_')) {
+        userAnswers.m1_mc[qKey] = val;
+      } else {
+        userAnswers.m2_mc[qKey] = val;
+      }
+      const parent = element.closest('.options-list');
+      parent.querySelectorAll('.option-btn-row').forEach(row => row.classList.remove('selected'));
+      element.classList.add('selected');
+    }
+
+    function updateScreenView() {
+      const cfg = testScreens[currentScreenIndex];
+
+      document.querySelectorAll('.screen-view').forEach(s => s.classList.remove('active'));
+      const activeEl = document.getElementById(cfg.id);
+      if (activeEl) activeEl.classList.add('active');
+
+      document.getElementById('subbarProgress').textContent = cfg.subbar;
+      const nextBtn = document.getElementById('navNextBtn');
+      const backBtn = document.getElementById('navBackBtn');
+
+      nextBtn.textContent = cfg.nextLabel;
+      nextBtn.disabled = false;
+      backBtn.disabled = !cfg.allowBack;
+
+      const timerPill = document.getElementById('timerPill');
+      const toggleBtn = document.getElementById('toggleTimerBtn');
+
+      if (cfg.showTimer) {
+        timerPill.style.display = 'flex';
+        toggleBtn.style.display = 'inline-flex';
+        if (!timerInterval) startTimer();
+      } else {
+        timerPill.style.display = 'none';
+        toggleBtn.style.display = 'none';
+      }
+
+      if (cfg.id === 'screen-diagnostic') {
+        renderDiagnostics();
+        nextBtn.style.display = 'none';
+        backBtn.style.display = 'none';
+      } else {
+        nextBtn.style.display = 'inline-flex';
+        backBtn.style.display = 'inline-flex';
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goToScreen(idx) {
+      if (idx >= 0 && idx < testScreens.length) {
+        currentScreenIndex = idx;
+        updateScreenView();
+      }
+    }
+
+    function handleNavigationNext() {
+      if (currentScreenIndex < testScreens.length - 1) {
+        goToScreen(currentScreenIndex + 1);
+      }
+    }
+
+    function handleNavigationBack() {
+      const cfg = testScreens[currentScreenIndex];
+      if (cfg.allowBack && currentScreenIndex > 0) {
+        goToScreen(currentScreenIndex - 1);
+      }
+    }
+
+    function goToListeningSection() {
+      window.location.href = 'listening-mock03.html';
+    }
+
+    function goToDashboard() {
+      window.location.href = 'index.html';
+    }
+
+    function calculateStrictScore(rawScore) {
+      // 40 items total -> Scaled to 0-30 ETS scale
+      const scaledScore = Math.round((rawScore / 40) * 30);
+      
+      let cefr = "";
+      let levelDesc = "";
+      let feedbackTone = "";
+
+      if (rawScore === 0) {
+        cefr = "Below A1";
+        levelDesc = "No Scored Proficiency";
+        feedbackTone = "No responses were answered correctly. A score of 0 indicates that baseline language proficiency could not be measured on this evaluation.";
+      } else if (scaledScore <= 3) {
+        cefr = "A1";
+        levelDesc = "Breakthrough / Beginner";
+        feedbackTone = "Emergent recognition of isolated vocabulary, but insufficient comprehension for academic or structured texts.";
+      } else if (scaledScore <= 8) {
+        cefr = "A2";
+        levelDesc = "Waystage / Elementary";
+        feedbackTone = "Can identify basic factual notices and short everyday sentences, but encounters substantial difficulty with contextual morphology and academic reasoning.";
+      } else if (scaledScore <= 14) {
+        cefr = "B1";
+        levelDesc = "Threshold / Intermediate";
+        feedbackTone = "Satisfactory grasp of routine everyday texts and clear factual announcements. Needs further development in synthesizing complex academic arguments and low-frequency collocations.";
+      } else if (scaledScore <= 23) {
+        cefr = "B2";
+        levelDesc = "Vantage / Upper-Intermediate";
+        feedbackTone = "Solid, independent reading proficiency. Accurately identifies author intentions, paragraph structures, and contextual nuances in academic passages with minor gaps in high-level inference.";
+      } else if (scaledScore <= 28) {
+        cefr = "C1";
+        levelDesc = "Effective Operational Proficiency / Advanced";
+        feedbackTone = "Exceptional analytical mastery. Demonstrates fluent word restoration and subtle distractor discrimination across both colloquial and demanding academic domains.";
+      } else {
+        cefr = "C2";
+        levelDesc = "Mastery / Fluent";
+        feedbackTone = "Flawless score execution reflecting native or near-native academic reading mastery under standard standardized time pressure.";
+      }
+
+      return { scaledScore, cefr, levelDesc, feedbackTone };
+    }
+
+    function evaluateExam() {
+      let rawScore = 0;
+      const itemAudits = [];
+
+      for (let i = 1; i <= 10; i++) {
+        const u = (userAnswers.m1_c[i] || []).join('');
+        const c = officialKey.m1_c[i];
+        const isPass = u.toLowerCase() === c.toLowerCase();
+        if (isPass) rawScore++;
+        const info = ctest1Details[i];
+        itemAudits.push({
+          num: `M1 Q${i}`,
+          label: `Complete the Words: "${info.root}${info.ans}"`,
+          user: u || '(blank)',
+          correct: c,
+          isPass: isPass,
+          citation: `Context: "${info.clue}..."`,
+          exp: isPass 
+            ? `Appraisal: Flawless morphological restoration! You accurately formed the word "${info.full}". Role: ${info.role}`
+            : `Correction: Expected missing letters "${info.ans}" to complete the target word "${info.full}". Role: ${info.role}. Your input was "${u || '(blank)'}".`
+        });
+      }
+
+      for (let k in officialKey.m1_mc) {
+        const u = userAnswers.m1_mc[k] || '(none)';
+        const c = officialKey.m1_mc[k];
+        const isPass = u === c;
+        if (isPass) rawScore++;
+        const itemMeta = mcAccurateExplanations[k];
+        itemAudits.push({
+          num: `M1 ${k.replace('m1_', 'Q')}`,
+          label: itemMeta.title,
+          user: u,
+          correct: c,
+          isPass: isPass,
+          citation: itemMeta.citation,
+          exp: isPass ? itemMeta.passRationale : itemMeta.failRationale
+        });
+      }
+
+      for (let i = 1; i <= 10; i++) {
+        const u = (userAnswers.m2_c[i] || []).join('');
+        const c = officialKey.m2_c[i];
+        const isPass = u.toLowerCase() === c.toLowerCase();
+        if (isPass) rawScore++;
+        const info = ctest2Details[i];
+        itemAudits.push({
+          num: `M2 Q${i}`,
+          label: `Complete the Words: "${info.root}${info.ans}"`,
+          user: u || '(blank)',
+          correct: c,
+          isPass: isPass,
+          citation: `Context: "${info.clue}..."`,
+          exp: isPass 
+            ? `Appraisal: Precise lexical reconstruction! You correctly built "${info.full}". Role: ${info.role}`
+            : `Correction: Expected missing letters "${info.ans}" to complete "${info.full}". Role: ${info.role}. Your input was "${u || '(blank)'}".`
+        });
+      }
+
+      for (let k in officialKey.m2_mc) {
+        const u = userAnswers.m2_mc[k] || '(none)';
+        const c = officialKey.m2_mc[k];
+        const isPass = u === c;
+        if (isPass) rawScore++;
+        const itemMeta = mcAccurateExplanations[k];
+        itemAudits.push({
+          num: `M2 ${k.replace('m2_', 'Q')}`,
+          label: itemMeta.title,
+          user: u,
+          correct: c,
+          isPass: isPass,
+          citation: itemMeta.citation,
+          exp: isPass ? itemMeta.passRationale : itemMeta.failRationale
+        });
+      }
+
+      const scoreData = calculateStrictScore(rawScore);
+      return { 
+        rawScore, 
+        scaledScore: scoreData.scaledScore, 
+        cefr: scoreData.cefr, 
+        levelDesc: scoreData.levelDesc, 
+        feedbackTone: scoreData.feedbackTone, 
+        itemAudits 
+      };
+    }
+
+    function renderDiagnostics() {
+      const results = evaluateExam();
+
+      document.getElementById('diagRaw').textContent = `${results.rawScore} / 40`;
+      document.getElementById('diagScaled').textContent = `${results.scaledScore} / 30`;
+      document.getElementById('diagCefr').textContent = `${results.cefr}`;
+      
+      const cefrCard = document.getElementById('cefrCard');
+      if (results.rawScore === 0) {
+        cefrCard.classList.add('below-a1');
+      } else {
+        cefrCard.classList.remove('below-a1');
+      }
+
+      // Synchronize with Suite standard localStorage for Mock 03
+      localStorage.setItem('toefl_reading_score_03', results.scaledScore);
+      localStorage.setItem('toefl_reading_raw_03', results.rawScore);
+      localStorage.setItem('toefl_mock03_status', 'reading_done');
+
+      const klippySummary = document.getElementById('klippyReportSummary');
+      klippySummary.textContent = `${results.feedbackTone} Official Level: ${results.cefr} (${results.levelDesc}). Review the comprehensive item analysis below to identify exact textual justifications and distractor mechanics.`;
+
+      const container = document.getElementById('auditItemsContainer');
+      container.innerHTML = '';
+
+      results.itemAudits.forEach(item => {
+        const row = document.createElement('div');
+        row.className = `audit-row-card ${item.isPass ? 'pass' : 'fail'}`;
+        row.innerHTML = `
+          <div class="audit-head">
+            <span>${item.num}: ${item.label}</span>
+            <span style="color:${item.isPass ? '#10b981' : '#ef4444'}">${item.isPass ? '✔ Correct (+1 Pt)' : '✘ Incorrect (0 Pts)'}</span>
+          </div>
+          <div class="audit-user-row">
+            <strong>Your Answer:</strong> <span style="font-family:var(--font-mono); font-weight:700;">${item.user}</span> &nbsp;|&nbsp; 
+            <strong>Official Key:</strong> <span style="font-family:var(--font-mono); font-weight:700; color:var(--ets-teal);">${item.correct}</span>
+          </div>
+          <div class="audit-quote-citation">${item.citation}</div>
+          <div class="audit-explanation-block">
+            <strong>Pedagogical Analysis:</strong> ${item.exp}
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setupCTestListeners();
+      updateScreenView();
+      updateTimerDisplay();
+      startTimer();
+    });
+  </script>
+</body>
+</html>
