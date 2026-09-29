@@ -1,0 +1,1984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOEFL iBT Reading Mock 4 - Official Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ets-teal: #005d5d;
+      --ets-teal-dark: #004444;
+      --ets-teal-light: #4ecdc4;
+      --ets-gold: #d4af37;
+      --canvas-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border-soft: #cbd5e1;
+      --border-subtle: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent-blue: #2563eb;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-passage: 'Merriweather', Georgia, serif;
+      --font-mono: 'JetBrains Mono', Consolas, monospace;
+      --font-signature: 'Comic Neue', cursive, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--canvas-bg);
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      font-size: 18px;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header.ets-navbar {
+      height: 68px;
+      background-color: var(--ets-teal);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      user-select: none;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-timer-pill {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffffff;
+    }
+
+    .nav-timer-pill.time-warning {
+      background: rgba(239, 68, 68, 0.35);
+      border-color: #ef4444;
+      color: #fca5a5;
+      animation: pulseAlert 1.5s infinite;
+    }
+
+    @keyframes pulseAlert {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .ets-pill-btn {
+      background-color: #ffffff;
+      color: var(--ets-teal);
+      border: 1px solid transparent;
+      padding: 8px 24px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    .ets-pill-btn:hover:not(:disabled) {
+      background-color: #f1f5f9;
+      transform: translateY(-1px);
+    }
+
+    .ets-pill-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .ets-ghost-btn {
+      background: rgba(255,255,255,0.15);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 7px 18px;
+      border-radius: 9999px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s ease;
+    }
+
+    .ets-ghost-btn:hover {
+      background: rgba(255,255,255,0.28);
+    }
+
+    .ets-subbar {
+      height: 52px;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+      display: flex;
+      align-items: center;
+      padding: 0 28px;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .subbar-separator {
+      margin: 0 10px;
+      color: var(--border-soft);
+    }
+
+    main.workspace {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      max-width: 1380px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 28px 24px 40px 24px;
+    }
+
+    .screen-view {
+      display: none;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .screen-view.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .intro-card {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 44px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      max-width: 880px;
+      margin: 20px auto;
+    }
+
+    .intro-card h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 14px;
+    }
+
+    .intro-card p {
+      font-size: 19px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .exam-timer-notice-box {
+      background: #f0fdfa;
+      border-left: 5px solid var(--ets-teal);
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 17px;
+      color: #0f4a4a;
+      line-height: 1.6;
+    }
+
+    .exam-timer-notice-box strong {
+      color: var(--ets-teal-dark);
+    }
+
+    .ets-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 26px 0;
+      border: 1.5px solid var(--text-main);
+    }
+
+    .ets-table th {
+      background-color: var(--ets-teal-light);
+      color: var(--text-main);
+      padding: 14px 18px;
+      font-weight: 700;
+      text-align: left;
+      border: 1px solid var(--text-main);
+      font-size: 18px;
+    }
+
+    .ets-table td {
+      padding: 16px 18px;
+      border: 1px solid var(--text-main);
+      font-size: 17px;
+    }
+
+    .task-instruction-header {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 26px;
+      text-align: center;
+      color: #000000;
+    }
+
+    /* C-Test */
+    .ctest-container {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 45px 50px;
+      max-width: 980px;
+      margin: 0 auto;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+    }
+
+    .ctest-paragraph {
+      font-size: 20px;
+      line-height: 2.25;
+      color: #111827;
+      word-spacing: 2px;
+    }
+
+    .ctest-boxes {
+      display: inline-flex;
+      gap: 3px;
+      margin-left: 2px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    .char-input {
+      width: 25px;
+      height: 32px;
+      text-align: center;
+      background: #e2e8f0;
+      border: 1px solid #94a3b8;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: #000000;
+      text-transform: lowercase;
+      outline: none;
+      transition: all 0.15s ease;
+    }
+
+    .char-input:focus {
+      background: #ffffff;
+      border-color: var(--ets-teal);
+      box-shadow: 0 0 0 2px rgba(0, 93, 93, 0.3);
+    }
+
+    /* Split Screen */
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    @media (max-width: 992px) {
+      .split-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Laptop Frame */
+    .laptop-frame {
+      background: #ffffff;
+      border: 3px solid #0f172a;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .laptop-top-bar {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .laptop-screen-content {
+      padding: 28px 30px;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #1e293b;
+    }
+
+    .laptop-header-info {
+      font-size: 16px;
+      color: #475569;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    /* Ad and Review Cards */
+    .ad-box-card {
+      background: #ffffff;
+      border: 3px solid #0f172a;
+      border-radius: 8px;
+      padding: 30px 32px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      font-size: 18px;
+      line-height: 1.7;
+      color: #1e293b;
+    }
+
+    .ad-box-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 14px;
+    }
+
+    .ad-box-card p {
+      margin-bottom: 14px;
+    }
+
+    .ad-box-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Academic Passages */
+    .academic-passage-card {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 38px 40px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      height: auto;
+      max-height: none;
+      overflow: visible;
+    }
+
+    .academic-passage-card h2 {
+      font-size: 27px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-align: center;
+      color: #0f172a;
+    }
+
+    .passage-paragraphs {
+      font-family: var(--font-passage);
+      font-size: 19px;
+      line-height: 1.8;
+      color: #1e293b;
+    }
+
+    .passage-paragraphs p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .text-target-bold {
+      font-weight: 700;
+      color: #000000;
+      background: #fef08a;
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+
+    /* Questions Panel */
+    .question-card {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 34px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    .question-stem-title {
+      font-size: 21px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 24px;
+      line-height: 1.45;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .option-btn-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 15px 18px;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .option-btn-row:hover {
+      background-color: #f1f5f9;
+      border-color: var(--border-soft);
+    }
+
+    .option-btn-row.selected {
+      border-color: var(--ets-teal);
+      background-color: #f0fdfa;
+    }
+
+    .ets-radio-indicator {
+      width: 22px;
+      height: 22px;
+      border: 2px solid #94a3b8;
+      border-radius: 50%;
+      margin-top: 2px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+
+    .option-btn-row.selected .ets-radio-indicator {
+      border-color: var(--ets-teal);
+    }
+
+    .option-btn-row.selected .ets-radio-indicator::after {
+      content: "";
+      width: 12px;
+      height: 12px;
+      background: var(--ets-teal);
+      border-radius: 50%;
+    }
+
+    .option-text-label {
+      font-size: 18px;
+      color: #334155;
+      line-height: 1.45;
+    }
+
+    /* Diagnostics Screen */
+    .diagnostic-panel {
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      padding: 44px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    .diag-title-area {
+      text-align: center;
+      margin-bottom: 34px;
+      border-bottom: 2px solid var(--border-subtle);
+      padding-bottom: 22px;
+    }
+
+    .diag-title-area h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--ets-teal);
+      margin-bottom: 8px;
+    }
+
+    .score-summary-deck {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .score-summary-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-soft);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .score-summary-card .score-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .score-summary-card .score-val {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--ets-teal);
+      font-family: var(--font-mono);
+    }
+
+    .score-summary-card.below-a1 .score-val {
+      color: #b91c1c;
+    }
+
+    .klippy-feedback-wrapper {
+      background: #f0fdfa;
+      border-left: 5px solid var(--ets-teal);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .klippy-title-row {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ets-teal-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .items-audit-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .audit-row-card {
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: 20px 24px;
+      background: #ffffff;
+    }
+
+    .audit-row-card.pass {
+      border-left: 6px solid var(--accent-green);
+    }
+
+    .audit-row-card.fail {
+      border-left: 6px solid var(--accent-red);
+    }
+
+    .audit-head {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .audit-user-row {
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: #334155;
+    }
+
+    .audit-quote-citation {
+      background: #f1f5f9;
+      border-left: 3px solid #94a3b8;
+      padding: 8px 12px;
+      font-size: 15px;
+      font-style: italic;
+      color: #1e293b;
+      margin: 8px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .audit-explanation-block {
+      font-size: 16px;
+      line-height: 1.55;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-top: 8px;
+    }
+
+    .audit-row-card.pass .audit-explanation-block {
+      background: #f0fdf4;
+      color: #14532d;
+    }
+
+    .audit-row-card.fail .audit-explanation-block {
+      background: #fef2f2;
+      color: #7f1d1d;
+    }
+
+    .actions-footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .finish-action-btn {
+      background-color: var(--ets-teal);
+      color: #ffffff;
+      border: none;
+      padding: 14px 38px;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0, 93, 93, 0.25);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .finish-action-btn:hover {
+      background-color: var(--ets-teal-dark);
+      transform: translateY(-1px);
+    }
+
+    .secondary-dash-btn {
+      background-color: #f1f5f9;
+      color: var(--text-main);
+      border: 1.5px solid var(--border-soft);
+      padding: 14px 28px;
+      font-size: 17px;
+      font-weight: 600;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .secondary-dash-btn:hover {
+      background-color: #e2e8f0;
+      transform: translateY(-1px);
+    }
+
+    /* Corporate Footer */
+    footer.ets-corporate-footer {
+      background-color: #ffffff;
+      border-top: 1px solid #e2e8f0;
+      margin-top: auto;
+      padding: 30px 20px 34px 20px;
+      position: relative;
+    }
+
+    .footer-gradient-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #005d5d 0%, #d4af37 50%, #4ecdc4 100%);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .footer-author-signature {
+      font-family: var(--font-signature);
+      font-size: 44px;
+      font-weight: 700;
+      color: #005d5d;
+      letter-spacing: 0.5px;
+      line-height: 1.1;
+      display: inline-block;
+      text-shadow: 0 1px 2px rgba(0, 93, 93, 0.15);
+    }
+
+    .footer-badges-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-pill-signature {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      color: #0f172a;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .badge-pill-signature.badge-ceo {
+      background: #f0fdfa;
+      border-color: #5eead4;
+      color: #0f766e;
+      font-weight: 700;
+    }
+
+    .badge-separator-dot {
+      width: 7px;
+      height: 7px;
+      background: #d4af37;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top ETS Navbar -->
+  <header class="ets-navbar">
+    <div class="navbar-left">
+      <div class="nav-timer-pill" id="timerPill">
+        <span>⏱</span>
+        <span id="timerText">45:00</span>
+      </div>
+      <button class="ets-ghost-btn" id="toggleTimerBtn" type="button" onclick="toggleTimerVisibility()">Hide Time</button>
+    </div>
+    <div class="navbar-right">
+      <button class="ets-ghost-btn" id="volumeBtn" type="button" onclick="alert('Audio volume is standard for reading prompts.')">Volume 🔊</button>
+      <button class="ets-pill-btn" id="navBackBtn" type="button" onclick="handleNavigationBack()">&lt; Back</button>
+      <button class="ets-pill-btn" id="navNextBtn" type="button" onclick="handleNavigationNext()">Begin &gt;</button>
+    </div>
+  </header>
+
+  <!-- ETS Sub-bar -->
+  <div class="ets-subbar">
+    <span>Reading</span>
+    <span class="subbar-separator">|</span>
+    <span id="subbarProgress">Overview</span>
+  </div>
+
+  <!-- Workspace Container -->
+  <main class="workspace">
+
+    <!-- Screen 0: Welcome Section -->
+    <section id="screen-welcome" class="screen-view active">
+      <div class="intro-card">
+        <h1>Reading Section</h1>
+        <p>In the Reading section, you will answer questions to demonstrate how well you understand academic and non-academic texts in English. There are three types of tasks.</p>
+
+        <div class="exam-timer-notice-box">
+          <strong>Official Test Duration Note:</strong> In the official ETS TOEFL iBT exam, candidates receive <strong>30 minutes</strong> for the complete Reading Section. For this personalized diagnostic mock test, you are granted extended coaching time of <strong>up to 45 minutes (45:00)</strong> with an active real-time countdown timer to ensure deep analysis and pedagogical review.
+        </div>
+
+        <table class="ets-table">
+          <thead>
+            <tr>
+              <th style="width: 32%;">Type of Task</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Complete the Words</strong></td>
+              <td>Fill in the missing letters in a paragraph.</td>
+            </tr>
+            <tr>
+              <td><strong>Read in Daily Life</strong></td>
+              <td>Answer questions about everyday reading material (emails, announcements, reviews, ads).</td>
+            </tr>
+            <tr>
+              <td><strong>Read an Academic Passage</strong></td>
+              <td>Answer questions about academic passages.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Screen 1: Module 1 Intro -->
+    <section id="screen-m1-intro" class="screen-view">
+      <div class="intro-card">
+        <h1>Module 1</h1>
+        <p>The timer will show you how much time you have to complete your exam session.</p>
+        <p>In an actual test, you <strong>WILL NOT</strong> be able to return to Module 1 once you have begun Module 2.</p>
+      </div>
+    </section>
+
+    <!-- Screen 2: M1 - C-Test (Great Wall of China) -->
+    <section id="screen-m1-q1" class="screen-view">
+      <h2 class="task-instruction-header">Fill in the missing letters in the paragraph</h2>
+      <div class="ctest-container">
+        <div class="ctest-paragraph">
+          The Great Wall of China is one of the most iconic structures in the world. Built ov<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="1" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="1" data-idx="1"></span>
+          centuries, it orig<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="2" data-idx="4"></span>
+          served a<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="3" data-idx="0"></span>
+          a def<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="4" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="4" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="4" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="4" data-idx="3"></span>
+          system ag<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="5" data-idx="4"></span>
+          invasions fr<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="6" data-idx="1"></span>
+          northern tri<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="7" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="7" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="7" data-idx="2"></span>.
+          Stretching thou<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="8" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="8" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="8" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="8" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="8" data-idx="4"></span>
+          of kil<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="4"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="9" data-idx="5"></span>,
+          it demon<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="4"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="5"><input type="text" maxlength="1" class="char-input" data-sec="m1" data-word="10" data-idx="6"></span>
+          remarkable engineering and human perseverance. Although no longer used for military purposes, it remains a symbol of Chinese history and culture. Today, it attracts millions of visitors each year, highlighting the importance of preserving historical monuments.
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 3: M1 - Email Item 11 -->
+    <section id="screen-m1-q11" class="screen-view">
+      <h2 class="task-instruction-header">Read an email</h2>
+      <div class="split-layout">
+        <div class="laptop-frame">
+          <div class="laptop-top-bar">
+            <span>ModernUni Student Portal</span>
+            <span>Inbox &bull; Student Services</span>
+          </div>
+          <div class="laptop-screen-content">
+            <div class="laptop-header-info">
+              <strong>From:</strong> StudentServices@modernuni.edu<br>
+              <strong>Subject:</strong> Orientation Reminder
+            </div>
+            <p>Dear Students,</p>
+            <p>We look forward to welcoming you to campus! Please note that orientation will begin at 9:30 a.m. in the Main Hall this Friday. You’ll receive your student ID, meet your academic advisor, and attend a brief tour of the campus. Light refreshments will be provided. Be sure to bring a valid photo ID.</p>
+            <p>Sincerely,<br>Student Services</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the purpose of this email?</div>
+          <div class="options-list" data-q="m1_11">
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) To confirm the start of classes</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) To announce changes in the orientation schedule</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) To request missing student information</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_11', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) To invite students to attend an introductory event</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 4: M1 - Email Item 12 -->
+    <section id="screen-m1-q12" class="screen-view">
+      <h2 class="task-instruction-header">Read an email</h2>
+      <div class="split-layout">
+        <div class="laptop-frame">
+          <div class="laptop-top-bar">
+            <span>ModernUni Student Portal</span>
+            <span>Inbox &bull; Student Services</span>
+          </div>
+          <div class="laptop-screen-content">
+            <div class="laptop-header-info">
+              <strong>From:</strong> StudentServices@modernuni.edu<br>
+              <strong>Subject:</strong> Orientation Reminder
+            </div>
+            <p>Dear Students,</p>
+            <p>We look forward to welcoming you to campus! Please note that orientation will begin at 9:30 a.m. in the Main Hall this Friday. You’ll receive your student ID, meet your academic advisor, and attend a brief tour of the campus. Light refreshments will be provided. Be sure to bring a valid photo ID.</p>
+            <p>Sincerely,<br>Student Services</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What should students bring to the orientation?</div>
+          <div class="options-list" data-q="m1_12">
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Student ID cards</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) Academic transcripts</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) A photo identification</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_12', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Admission letters</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 5: M1 - Ad Item 13 -->
+    <section id="screen-m1-q13" class="screen-view">
+      <h2 class="task-instruction-header">Read an advertisement</h2>
+      <div class="split-layout">
+        <div class="ad-box-card">
+          <h3>SkyReach Language App</h3>
+          <p>Want to learn a new language without feeling overwhelmed? SkyReach helps you practice in short, fun lessons designed by professional teachers. Track your progress, earn badges, and review tricky vocabulary anytime.</p>
+          <p>Start your free 7-day trial today and experience how quickly you can improve!</p>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is being promoted in this advertisement?</div>
+          <div class="options-list" data-q="m1_13">
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) A study-abroad program</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) A digital learning platform</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) A live online course with teachers</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_13', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) A vocabulary book</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 6: M1 - Ad Item 14 -->
+    <section id="screen-m1-q14" class="screen-view">
+      <h2 class="task-instruction-header">Read an advertisement</h2>
+      <div class="split-layout">
+        <div class="ad-box-card">
+          <h3>SkyReach Language App</h3>
+          <p>Want to learn a new language without feeling overwhelmed? SkyReach helps you practice in short, fun lessons designed by professional teachers. Track your progress, earn badges, and review tricky vocabulary anytime.</p>
+          <p>Start your free 7-day trial today and experience how quickly you can improve!</p>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">Why might users find SkyReach appealing?</div>
+          <div class="options-list" data-q="m1_14">
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) It offers a 7-day free trial</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) It provides access to professional teachers</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) It allows flexible, short practice sessions</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_14', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) It guarantees fluency within a week</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 7: M1 - Ad Item 15 -->
+    <section id="screen-m1-q15" class="screen-view">
+      <h2 class="task-instruction-header">Read an advertisement</h2>
+      <div class="split-layout">
+        <div class="ad-box-card">
+          <h3>SkyReach Language App</h3>
+          <p>Want to learn a new language without feeling overwhelmed? SkyReach helps you practice in short, fun lessons designed by professional teachers. Track your progress, earn badges, and review tricky vocabulary anytime.</p>
+          <p>Start your free 7-day trial today and experience how quickly you can improve!</p>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What feature of SkyReach is emphasized as a way to support ongoing learning?</div>
+          <div class="options-list" data-q="m1_15">
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Tracking progress and earning rewards</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) Personalized one-on-one lessons</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Intensive daily homework assignments</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_15', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Group discussion forums</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 8: M1 - Academic Passage Item 16 -->
+    <section id="screen-m1-q16" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>Trophic Cascades and the Role of Keystone Species</h2>
+          <div class="passage-paragraphs">
+            <p>The concept of a keystone species, one that exerts a disproportionate influence on its ecosystem relative to its abundance, is central to understanding ecological stability. The removal of such a species can trigger a trophic cascade — a series of indirect effects that ripple through the food web, drastically altering ecosystem structure and function.</p>
+            <p>The classic example is the gray wolf in Yellowstone National Park. Following their extirpation in the 1920s, elk populations surged, leading to overgrazing of willow and aspen saplings. This denudation negatively impacted beaver populations, which rely on these trees for food and dam-building. The loss of beaver dams reduced aquatic habitats, affecting fish, amphibians, and riverbank structure.</p>
+            <p>Upon the wolves' reintroduction in 1995, a remarkable reversal began. The presence of wolves not only directly reduced elk numbers but also changed elk behavior, a phenomenon known as the "ecology of fear." Elk avoided vulnerable valleys and gorges, allowing riparian vegetation to recover. This, in turn, supported the return of beavers and the biodiversity associated with their wetlands.</p>
+            <p>This case illustrates that apex predators are not merely passengers in an ecosystem but are often fundamental architects, maintaining balance through both predation and the intimidation they inspire.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">Which of the following best expresses the main idea of the passage?</div>
+          <div class="options-list" data-q="m1_16">
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Elk are the most important species in the Yellowstone ecosystem.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) The reintroduction of wolves was a controversial policy.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Beaver dams are the primary factor in maintaining riverbank health.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_16', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Keystone species can shape entire ecosystems through direct and indirect effects.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 9: M1 - Academic Passage Item 17 -->
+    <section id="screen-m1-q17" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>Trophic Cascades and the Role of Keystone Species</h2>
+          <div class="passage-paragraphs">
+            <p>The concept of a keystone species, one that exerts a disproportionate influence on its ecosystem relative to its abundance, is central to understanding ecological stability. The removal of such a species can trigger a trophic cascade — a series of indirect effects that ripple through the food web, drastically altering ecosystem structure and function.</p>
+            <p>The classic example is the gray wolf in Yellowstone National Park. Following their extirpation in the 1920s, elk populations surged, leading to overgrazing of willow and aspen saplings. This <span class="text-target-bold">denudation</span> negatively impacted beaver populations, which rely on these trees for food and dam-building. The loss of beaver dams reduced aquatic habitats, affecting fish, amphibians, and riverbank structure.</p>
+            <p>Upon the wolves' reintroduction in 1995, a remarkable reversal began. The presence of wolves not only directly reduced elk numbers but also changed elk behavior, a phenomenon known as the "ecology of fear." Elk avoided vulnerable valleys and gorges, allowing riparian vegetation to recover. This, in turn, supported the return of beavers and the biodiversity associated with their wetlands.</p>
+            <p>This case illustrates that apex predators are not merely passengers in an ecosystem but are often fundamental architects, maintaining balance through both predation and the intimidation they inspire.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">The word "denudation" in the passage is closest in meaning to</div>
+          <div class="options-list" data-q="m1_17">
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) stripping.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) planting.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) fertilization.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_17', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) cultivation.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 10: M1 - Academic Passage Item 18 -->
+    <section id="screen-m1-q18" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>Trophic Cascades and the Role of Keystone Species</h2>
+          <div class="passage-paragraphs">
+            <p>The concept of a keystone species, one that exerts a disproportionate influence on its ecosystem relative to its abundance, is central to understanding ecological stability. The removal of such a species can trigger a trophic cascade — a series of indirect effects that ripple through the food web, drastically altering ecosystem structure and function.</p>
+            <p>The classic example is the gray wolf in Yellowstone National Park. Following their extirpation in the 1920s, elk populations surged, leading to overgrazing of willow and aspen saplings. This denudation negatively impacted beaver populations, which rely on these trees for food and dam-building. The loss of beaver dams reduced aquatic habitats, affecting fish, amphibians, and riverbank structure.</p>
+            <p>Upon the wolves' reintroduction in 1995, a remarkable reversal began. The presence of wolves not only directly reduced elk numbers but also changed elk behavior, a phenomenon known as the "ecology of fear." Elk avoided vulnerable valleys and gorges, allowing riparian vegetation to recover. This, in turn, supported the return of beavers and the biodiversity associated with their wetlands.</p>
+            <p>This case illustrates that apex predators are not merely passengers in an ecosystem but are often fundamental architects, maintaining balance through both predation and the intimidation they inspire.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">According to the passage, how did the reintroduction of wolves affect elk behavior?</div>
+          <div class="options-list" data-q="m1_18">
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) It caused elk to congregate in larger herds in open valleys.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) It made elk less fearful of other predators.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) It led elk to avoid certain areas, allowing plants to regrow.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_18', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) It had no significant impact on elk behavior.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 11: M1 - Academic Passage Item 19 -->
+    <section id="screen-m1-q19" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>Trophic Cascades and the Role of Keystone Species</h2>
+          <div class="passage-paragraphs">
+            <p>The concept of a keystone species, one that exerts a disproportionate influence on its ecosystem relative to its abundance, is central to understanding ecological stability. The removal of such a species can trigger a trophic cascade — a series of indirect effects that ripple through the food web, drastically altering ecosystem structure and function.</p>
+            <p>The classic example is the gray wolf in Yellowstone National Park. Following their extirpation in the 1920s, elk populations surged, leading to overgrazing of willow and aspen saplings. This denudation negatively impacted beaver populations, which rely on these trees for food and dam-building. The loss of beaver dams reduced aquatic habitats, affecting fish, amphibians, and riverbank structure.</p>
+            <p>Upon the wolves' reintroduction in 1995, a remarkable reversal began. The presence of wolves not only directly reduced elk numbers but also changed elk behavior, a phenomenon known as the "ecology of fear." Elk avoided vulnerable valleys and gorges, allowing riparian vegetation to recover. This, in turn, supported the return of beavers and the biodiversity associated with their wetlands.</p>
+            <p>This case illustrates that apex predators are not merely passengers in an ecosystem but are often fundamental architects, maintaining balance through both predation and the intimidation they inspire.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">The author refers to the "ecology of fear" in order to</div>
+          <div class="options-list" data-q="m1_19">
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) describe a negative consequence of wolf reintroduction.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) highlight a psychological problem in elk populations.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) argue that fear is the most important factor in ecosystem management.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_19', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) explain a mechanism by which wolves indirectly affect vegetation.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 12: M1 - Academic Passage Item 20 -->
+    <section id="screen-m1-q20" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>Trophic Cascades and the Role of Keystone Species</h2>
+          <div class="passage-paragraphs">
+            <p>The concept of a keystone species, one that exerts a disproportionate influence on its ecosystem relative to its abundance, is central to understanding ecological stability. The removal of such a species can trigger a trophic cascade — a series of indirect effects that ripple through the food web, drastically altering ecosystem structure and function.</p>
+            <p>The classic example is the gray wolf in Yellowstone National Park. Following their extirpation in the 1920s, elk populations surged, leading to overgrazing of willow and aspen saplings. This denudation negatively impacted beaver populations, which rely on these trees for food and dam-building. The loss of beaver dams reduced aquatic habitats, affecting fish, amphibians, and riverbank structure.</p>
+            <p>Upon the wolves' reintroduction in 1995, a remarkable reversal began. The presence of wolves not only directly reduced elk numbers but also changed elk behavior, a phenomenon known as the "ecology of fear." Elk avoided vulnerable valleys and gorges, allowing riparian vegetation to recover. This, in turn, supported the return of beavers and the biodiversity associated with their wetlands.</p>
+            <p>This case illustrates that apex predators are not merely passengers in an ecosystem but are often fundamental architects, maintaining balance through both predation and the intimidation they inspire.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">Based on the passage, what can be inferred about the role of beavers in this trophic cascade?</div>
+          <div class="options-list" data-q="m1_20">
+            <div class="option-btn-row" onclick="selectOption('m1_20', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) They were the primary cause of the overgrazing problem.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_20', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) Their population decline was a direct result of wolf predation.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_20', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Their return was a secondary effect of the wolves' influence on elk and vegetation.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m1_20', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) They are considered the keystone species in Yellowstone.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 13: End of Module 1 -->
+    <section id="screen-m1-end" class="screen-view">
+      <div class="intro-card">
+        <h1>End of Module 1</h1>
+        <p>Select <strong>Next</strong> to continue to Module 2.</p>
+        <p style="font-size:17px; color:#64748b;">Notice: The session countdown will continuously track your total remaining test time for Module 2.</p>
+      </div>
+    </section>
+
+    <!-- Screen 14: Module 2 Intro -->
+    <section id="screen-m2-intro" class="screen-view">
+      <div class="intro-card">
+        <h1>Module 2</h1>
+        <p>In this module, you will continue with the second block of reading tasks.</p>
+        <p>Your active exam timer in the top bar indicates your remaining time.</p>
+      </div>
+    </section>
+
+    <!-- Screen 15: M2 - C-Test (Water Vital Resource) -->
+    <section id="screen-m2-q1" class="screen-view">
+      <h2 class="task-instruction-header">Fill in the missing letters in the paragraph</h2>
+      <div class="ctest-container">
+        <div class="ctest-paragraph">
+          Water is a vital resource for all living organisms. It suppo<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="1" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="1" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="1" data-idx="2"></span>
+          plant gro<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="2" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="2" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="2" data-idx="2"></span>,
+          regulates clim<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="3" data-idx="2"></span>,
+          and ena<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="4" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="4" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="4" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="4" data-idx="3"></span>
+          biological proce<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="5" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="5" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="5" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="5" data-idx="3"></span>
+          in ani<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="6" data-idx="3"></span>
+          and hu<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="7" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="7" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="7" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="7" data-idx="3"></span>.
+          Despite i<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="8" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="8" data-idx="1"></span>
+          abundance, on<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="9" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="9" data-idx="1"></span>
+          a small perce<span class="ctest-boxes"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="10" data-idx="0"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="10" data-idx="1"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="10" data-idx="2"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="10" data-idx="3"><input type="text" maxlength="1" class="char-input" data-sec="m2" data-word="10" data-idx="4"></span>
+          of Earth’s water is fresh and available for consumption. Increasing population and industrial pollution are putting this resource under pressure. Governments and scientists promote water conservation, improved infrastructure, and sustainable agriculture to ensure future generations have access to clean water.
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 16: M2 - Review Item 11 -->
+    <section id="screen-m2-q11" class="screen-view">
+      <h2 class="task-instruction-header">Read an online review</h2>
+      <div class="split-layout">
+        <div class="ad-box-card">
+          <p>I stayed at the Mountain Peak Hotel last weekend. The location is perfect — just a short walk from the hiking trails. The staff were friendly, but the Wi-Fi connection was unreliable, and breakfast choices were limited. Overall, it’s a comfortable place if you value peace and scenery more than modern facilities.</p>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What aspect of the hotel does the reviewer praise most?</div>
+          <div class="options-list" data-q="m2_11">
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) The food options</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) The staff</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) The setting</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_11', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) The modern facilities</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 17: M2 - Review Item 12 -->
+    <section id="screen-m2-q12" class="screen-view">
+      <h2 class="task-instruction-header">Read an online review</h2>
+      <div class="split-layout">
+        <div class="ad-box-card">
+          <p>I stayed at the Mountain Peak Hotel last weekend. The location is perfect — just a short walk from the hiking trails. The staff were friendly, but the Wi-Fi connection was unreliable, and breakfast choices were limited. Overall, it’s a comfortable place if you value peace and scenery more than modern facilities.</p>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What can be inferred about the hotel?</div>
+          <div class="options-list" data-q="m2_12">
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) It’s more suitable for people who enjoy nature</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) It’s mainly used for business trips</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) It offers luxury-level comfort</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_12', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) It’s under renovation</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 18: M2 - Announcement Item 13 -->
+    <section id="screen-m2-q13" class="screen-view">
+      <h2 class="task-instruction-header">Read a web announcement</h2>
+      <div class="split-layout">
+        <div class="laptop-frame">
+          <div class="laptop-top-bar">
+            <span>EcoSteps Portal</span>
+            <span>Community Events</span>
+          </div>
+          <div class="laptop-screen-content">
+            <div class="laptop-header-info">Volunteer with EcoSteps!</div>
+            <p>EcoSteps is looking for enthusiastic volunteers for its annual river cleanup event. Participants will meet at the Riverside Park entrance at 8 a.m. on April 22. Gloves and trash bags will be provided, but please bring your own reusable water bottle. Help us protect wildlife habitats and make a tangible difference in your community!</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the primary aim of the EcoSteps event?</div>
+          <div class="options-list" data-q="m2_13">
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) To educate participants about waste management</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) To fundraise for EcoSteps</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) To clean the river area</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_13', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) To provide reusable bottles to participants</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 19: M2 - Announcement Item 14 -->
+    <section id="screen-m2-q14" class="screen-view">
+      <h2 class="task-instruction-header">Read a web announcement</h2>
+      <div class="split-layout">
+        <div class="laptop-frame">
+          <div class="laptop-top-bar">
+            <span>EcoSteps Portal</span>
+            <span>Community Events</span>
+          </div>
+          <div class="laptop-screen-content">
+            <div class="laptop-header-info">Volunteer with EcoSteps!</div>
+            <p>EcoSteps is looking for enthusiastic volunteers for its annual river cleanup event. Participants will meet at the Riverside Park entrance at 8 a.m. on April 22. Gloves and trash bags will be provided, but please bring your own reusable water bottle. Help us protect wildlife habitats and make a tangible difference in your community!</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What item are volunteers advised to bring?</div>
+          <div class="options-list" data-q="m2_14">
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Gloves</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) A water bottle</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Trash bags</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_14', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Cleaning products</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 20: M2 - Announcement Item 15 -->
+    <section id="screen-m2-q15" class="screen-view">
+      <h2 class="task-instruction-header">Read a web announcement</h2>
+      <div class="split-layout">
+        <div class="laptop-frame">
+          <div class="laptop-top-bar">
+            <span>EcoSteps Portal</span>
+            <span>Community Events</span>
+          </div>
+          <div class="laptop-screen-content">
+            <div class="laptop-header-info">Volunteer with EcoSteps!</div>
+            <p>EcoSteps is looking for enthusiastic volunteers for its annual river cleanup event. Participants will meet at the Riverside Park entrance at 8 a.m. on April 22. Gloves and trash bags will be provided, but please bring your own reusable water bottle. Help us protect wildlife habitats and make a tangible difference in your community!</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What additional benefit of volunteering is mentioned in the text?</div>
+          <div class="options-list" data-q="m2_15">
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Building a supportive community</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) Gaining practical skills in environmental science</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Meeting professional environmentalists</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_15', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Making a visible difference in the community</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 21: M2 - Academic Passage Item 16 -->
+    <section id="screen-m2-q16" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Philosophical Underpinnings of Utilitarianism</h2>
+          <div class="passage-paragraphs">
+            <p>Utilitarianism is an ethical theory that posits that the right action is the one that creates the most happiness and the least suffering for the greatest number of people. Philosophers like Jeremy Bentham and John Stuart Mill developed it to give a clear way to make moral decisions: compare the benefits and harms of different actions and choose the one that produces the best overall result.</p>
+            <p>Bentham suggested measuring happiness with a "hedonic calculus," looking at how much pleasure an action brings and how long it lasts. Mill added that some pleasures, like intellectual ones, are better than simple physical pleasures. He argued that it is better to be a dissatisfied human than a satisfied pig. This idea responded to criticism that utilitarianism could justify wrong actions if they created more overall happiness.</p>
+            <p>Despite being appealing and logical, utilitarianism faces significant challenges. It can be demanding to calculate the effects of every action. It also struggles with justice and rights, as it seems to allow sacrificing an innocent individual if it benefits the majority. These criticisms highlight that focusing only on outcomes can conflict with following moral rules.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What is the main purpose of the text?</div>
+          <div class="options-list" data-q="m2_16">
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) To argue that happiness is the only moral value.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) To prove that Jeremy Bentham's ideas were superior to John Stuart Mill's.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) To explain that utilitarianism is always wrong.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_16', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) To trace the development and outline key criticisms of a philosophical theory.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 22: M2 - Academic Passage Item 17 -->
+    <section id="screen-m2-q17" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Philosophical Underpinnings of Utilitarianism</h2>
+          <div class="passage-paragraphs">
+            <p>Utilitarianism is an ethical theory that posits that the right action is the one that creates the most happiness and the least suffering for the greatest number of people. Philosophers like Jeremy Bentham and John Stuart Mill developed it to give a clear way to make moral decisions: compare the benefits and harms of different actions and choose the one that produces the best overall result.</p>
+            <p>Bentham suggested measuring happiness with a "hedonic calculus," looking at how much pleasure an action brings and how long it lasts. Mill added that some pleasures, like intellectual ones, are better than simple physical pleasures. He argued that it is better to be a dissatisfied human than a satisfied pig. This idea responded to criticism that utilitarianism could justify wrong actions if they created more overall happiness.</p>
+            <p>Despite being appealing and logical, utilitarianism faces significant challenges. It can be demanding to calculate the effects of every action. It also struggles with justice and rights, as it seems to allow sacrificing an innocent individual if it benefits the majority. These <span class="text-target-bold">criticisms</span> highlight that focusing only on outcomes can conflict with following moral rules.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">The word "criticisms" in paragraph 3 is closest in meaning to:</div>
+          <div class="options-list" data-q="m2_17">
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) praise</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) complaints</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) instructions</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_17', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) rules</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 23: M2 - Academic Passage Item 18 -->
+    <section id="screen-m2-q18" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Philosophical Underpinnings of Utilitarianism</h2>
+          <div class="passage-paragraphs">
+            <p>Utilitarianism is an ethical theory that posits that the right action is the one that creates the most happiness and the least suffering for the greatest number of people. Philosophers like Jeremy Bentham and John Stuart Mill developed it to give a clear way to make moral decisions: compare the benefits and harms of different actions and choose the one that produces the best overall result.</p>
+            <p>Bentham suggested measuring happiness with a "hedonic calculus," looking at how much pleasure an action brings and how long it lasts. Mill added that some pleasures, like intellectual ones, are better than simple physical pleasures. He argued that it is better to be a dissatisfied human than a satisfied pig. This idea responded to criticism that utilitarianism could justify wrong actions if they created more overall happiness.</p>
+            <p>Despite being appealing and logical, utilitarianism faces significant challenges. It can be demanding to calculate the effects of every action. It also struggles with justice and rights, as it seems to allow sacrificing an innocent individual if it benefits the majority. These criticisms highlight that focusing only on outcomes can conflict with following moral rules.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">According to the passage, what was the key difference between Bentham's and Mill's versions of utilitarianism?</div>
+          <div class="options-list" data-q="m2_18">
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) Bentham focused on the quantity of pleasure, while Mill emphasized the quality of pleasures.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) Mill rejected the idea of increasing happiness.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) Mill focused only on physical pleasures.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_18', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) Bentham believed only humans deserved moral consideration, while Mill included animals.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 24: M2 - Academic Passage Item 19 -->
+    <section id="screen-m2-q19" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Philosophical Underpinnings of Utilitarianism</h2>
+          <div class="passage-paragraphs">
+            <p>Utilitarianism is an ethical theory that posits that the right action is the one that creates the most happiness and the least suffering for the greatest number of people. Philosophers like Jeremy Bentham and John Stuart Mill developed it to give a clear way to make moral decisions: compare the benefits and harms of different actions and choose the one that produces the best overall result.</p>
+            <p>Bentham suggested measuring happiness with a "hedonic calculus," looking at how much pleasure an action brings and how long it lasts. Mill added that some pleasures, like intellectual ones, are better than simple physical pleasures. He argued that it is better to be a dissatisfied human than a satisfied pig. This idea responded to criticism that utilitarianism could justify wrong actions if they created more overall happiness.</p>
+            <p>Despite being appealing and logical, utilitarianism faces significant challenges. It can be demanding to calculate the effects of every action. It also struggles with justice and rights, as it seems to allow sacrificing an innocent individual if it benefits the majority. These criticisms highlight that focusing only on outcomes can conflict with following moral rules.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">Why does the author mention the "sacrificing of an innocent individual"?</div>
+          <div class="options-list" data-q="m2_19">
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) To provide an example of a utilitarian successful decision.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) To illustrate a potential problem with utilitarianism.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) To demonstrate how utilitarianism protects individual rights.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_19', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) To show that this scenario never happens in real life.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 25: M2 - Academic Passage Item 20 -->
+    <section id="screen-m2-q20" class="screen-view">
+      <div class="split-layout">
+        <div class="academic-passage-card">
+          <h2>The Philosophical Underpinnings of Utilitarianism</h2>
+          <div class="passage-paragraphs">
+            <p>Utilitarianism is an ethical theory that posits that the right action is the one that creates the most happiness and the least suffering for the greatest number of people. Philosophers like Jeremy Bentham and John Stuart Mill developed it to give a clear way to make moral decisions: compare the benefits and harms of different actions and choose the one that produces the best overall result.</p>
+            <p>Bentham suggested measuring happiness with a "hedonic calculus," looking at how much pleasure an action brings and how long it lasts. Mill added that some pleasures, like intellectual ones, are better than simple physical pleasures. He argued that it is better to be a dissatisfied human than a satisfied pig. This idea responded to criticism that utilitarianism could justify wrong actions if they created more overall happiness.</p>
+            <p>Despite being appealing and logical, utilitarianism faces significant challenges. It can be demanding to calculate the effects of every action. It also struggles with justice and rights, as it seems to allow sacrificing an innocent individual if it benefits the majority. These criticisms highlight that focusing only on outcomes can conflict with following moral rules.</p>
+          </div>
+        </div>
+        <div class="question-card">
+          <div class="question-stem-title">What can be inferred about utilitarianism from the text?</div>
+          <div class="options-list" data-q="m2_20">
+            <div class="option-btn-row" onclick="selectOption('m2_20', 'A', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(A) It is the easiest ethical theory to apply in daily life.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_20', 'B', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(B) It was developed without any consideration for human happiness.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_20', 'C', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(C) It may conflict with fairness or moral rules.</div></div>
+            <div class="option-btn-row" onclick="selectOption('m2_20', 'D', this)"><div class="ets-radio-indicator"></div><div class="option-text-label">(D) It is too concerned with individual rights and freedoms.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 26: End of Reading Section -->
+    <section id="screen-m2-end" class="screen-view">
+      <div class="intro-card">
+        <h1>End of Reading Section</h1>
+        <p>Thank you for completing the reading section for Mock 4.</p>
+        <p>Select <strong>Next</strong> to generate your diagnostic assessment score and review pedagogical insights.</p>
+      </div>
+    </section>
+
+    <!-- Screen 27: Diagnostic Evaluation -->
+    <section id="screen-diagnostic" class="screen-view">
+      <div class="diagnostic-panel">
+        <div class="diag-title-area">
+          <h2>TOEFL iBT Reading Diagnostic Report</h2>
+          <p style="color:#64748b; font-size:16px;">Mock Test 4 &bull; Official Modular Assessment</p>
+        </div>
+
+        <div class="score-summary-deck">
+          <div class="score-summary-card">
+            <div class="score-title">Raw Score</div>
+            <div class="score-val" id="diagRaw">0 / 40</div>
+            <div style="font-size:14px; color:#64748b; margin-top:4px;">Total accurate answers</div>
+          </div>
+          <div class="score-summary-card">
+            <div class="score-title">Scaled Score</div>
+            <div class="score-val" id="diagScaled">0 / 30</div>
+            <div style="font-size:14px; color:#64748b; margin-top:4px;">Official ETS Band Conversion</div>
+          </div>
+          <div class="score-summary-card" id="cefrCard">
+            <div class="score-title">CEFR Level</div>
+            <div class="score-val" id="diagCefr" style="font-size:30px;">Below A1</div>
+            <div style="font-size:14px; color:#64748b; margin-top:4px;">International Framework</div>
+          </div>
+        </div>
+
+        <div class="klippy-feedback-wrapper">
+          <div class="klippy-title-row">
+            <span>📎</span> Klippy's Pedagogical Performance Audit
+          </div>
+          <p id="klippyReportSummary" style="color:#1e293b; font-size:17px; line-height:1.65;">
+            Analyzing telemetry, lexical morphology, and context clue discrimination...
+          </p>
+        </div>
+
+        <h3 style="font-size: 22px; font-weight:700; margin-bottom:18px;">Comprehensive Pedagogical Item-by-Item Review</h3>
+        <div class="items-audit-grid" id="auditItemsContainer"></div>
+
+        <div class="actions-footer-container">
+          <button class="finish-action-btn" id="continueListeningBtn" type="button" onclick="goToListeningSection()">
+            Continue to Listening Section &rarr;
+          </button>
+          <button class="secondary-dash-btn" id="returnDashboardBtn" type="button" onclick="goToDashboard()">
+            Return to Mock Dashboard
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Corporate Footer -->
+  <footer class="ets-corporate-footer">
+    <div class="footer-gradient-bar"></div>
+    <div class="footer-content">
+      <div class="footer-author-signature">Dr. Jesús Miguel Lima E.</div>
+      <div class="footer-badges-list">
+        <span class="badge-pill-signature badge-ceo">CEO of JM ELT Solutions</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">Celta &amp; Delta Trainer</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">Exam Trainer</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">Teacher Trainer</span>
+        <span class="badge-separator-dot"></span>
+        <span class="badge-pill-signature">University Professor</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Detailed Explanations for Mock 4 Items
+    const ctest1Details = {
+      1: { full: "over", root: "ov", ans: "er", clue: "Built ov[er] centuries, it orig[inally]...", role: "Preposition of time denoting duration across historical epochs." },
+      2: { full: "originally", root: "orig", ans: "inally", clue: "it orig[inally] served a[s] a def[ence]...", role: "Adverb with suffix '-inally' qualifying the original function." },
+      3: { full: "as", root: "a", ans: "s", clue: "served a[s] a def[ence] system", role: "Preposition indicating role or capacity after the verb 'served'." },
+      4: { full: "defence", root: "def", ans: "ence", alt: "ense", clue: "a def[ence] system ag[ainst]...", role: "Noun/attributive noun denoting military protection system." },
+      5: { full: "against", root: "ag", ans: "ainst", clue: "system ag[ainst] invasions fr[om]...", role: "Preposition of resistance or defense against threats." },
+      6: { full: "from", root: "fr", ans: "om", clue: "invasions fr[om] northern tri[bes]", role: "Preposition indicating geographical source or origin." },
+      7: { full: "tribes", root: "tri", ans: "bes", clue: "northern tri[bes]", role: "Plural collective noun denoting invading nomadic groups." },
+      8: { full: "thousands", root: "thou", ans: "sands", clue: "Stretching thou[sands] of kil[ometers]...", role: "Plural numeral noun expressing vast distance." },
+      9: { full: "kilometers", root: "kil", ans: "ometers", alt: "ometres", clue: "thousands of kil[ometers], it demon[strates]...", role: "Metric plural unit of length distance." },
+      10: { full: "demonstrates", root: "demon", ans: "strates", clue: "it demon[strates] remarkable engineering", role: "Third-person singular present verb meaning exhibits or proves." }
+    };
+
+    const ctest2Details = {
+      1: { full: "supports", root: "suppo", ans: "rts", clue: "It suppo[rts] plant gro[wth]...", role: "Third-person singular transitive verb meaning sustains." },
+      2: { full: "growth", root: "gro", ans: "wth", clue: "suppo[rts] plant gro[wth], regulates...", role: "Non-count noun ending in '-wth' meaning development." },
+      3: { full: "climate", root: "clim", ans: "ate", clue: "regulates clim[ate], and ena[bles]...", role: "Noun denoting global weather patterns." },
+      4: { full: "enables", root: "ena", ans: "bles", clue: "and ena[bles] biological proce[sses]...", role: "Third-person singular verb meaning makes possible." },
+      5: { full: "processes", root: "proce", ans: "sses", alt: "cces", clue: "biological proce[sses] in ani[mals]...", role: "Plural noun formed from root 'proce-' meaning biological mechanisms." },
+      6: { full: "animals", root: "ani", ans: "mals", clue: "in ani[mals] and hu[mans]", role: "Plural living organisms noun parallel to 'humans'." },
+      7: { full: "humans", root: "hu", ans: "mans", clue: "in animals and hu[mans]", role: "Plural noun denoting people." },
+      8: { full: "its", root: "i", ans: "ts", clue: "Despite i[ts] abundance, on[ly] a small...", role: "Possessive pronoun referring back to 'Water'." },
+      9: { full: "only", root: "on", ans: "ly", clue: "on[ly] a small perce[ntage] of Earth’s water...", role: "Restrictive focusing adverb meaning merely or solely." },
+      10: { full: "percentage", root: "perce", ans: "ntage", clue: "a small perce[ntage] of Earth’s water is fresh", role: "Noun formed with suffix '-ntage' meaning fraction/proportion." }
+    };
+
+    const mcAccurateExplanations = {
+      m1_11: {
+        title: "Email Purpose (Orientation Reminder)",
+        citation: "Email: 'We look forward to welcoming you to campus! Please note that orientation will begin at 9:30 a.m. in the Main Hall this Friday.'",
+        passRationale: "Superb purpose identification! The email welcomes students and reminds them to attend the upcoming campus orientation session.",
+        failRationale: "Analysis of Error: The email does not confirm classes starting (A), announce schedule delays (B), or request missing files (C). It invites students to an introductory orientation event (D)."
+      },
+      m1_12: {
+        title: "Email Requirement (What to Bring)",
+        citation: "Email: 'Light refreshments will be provided. Be sure to bring a valid photo ID.'",
+        passRationale: "Direct factual hit! The notice explicitly instructs incoming students to bring a valid photo ID.",
+        failRationale: "Analysis of Error: Student IDs are received at the event, not brought (A). The text specifically requests that students bring a valid photo identification (C)."
+      },
+      m1_13: {
+        title: "Advertisement Focus (SkyReach Language App)",
+        citation: "Ad: 'SkyReach Language App ... helps you practice in short, fun lessons designed by professional teachers. Track your progress, earn badges, and review tricky vocabulary anytime.'",
+        passRationale: "Accurate product categorization! SkyReach is promoted as a digital mobile application/platform for language learning.",
+        failRationale: "Analysis of Error: It is not a study-abroad program (A), a live tutoring service (C), or a printed textbook (D). It is a digital learning platform (B)."
+      },
+      m1_14: {
+        title: "Advertisement Appeal (Short & Flexible Lessons)",
+        citation: "Ad: 'Want to learn a new language without feeling overwhelmed? SkyReach helps you practice in short, fun lessons... review tricky vocabulary anytime.'",
+        passRationale: "Incisive appeal deduction! The app appeals to busy users by breaking learning into bite-sized, flexible, low-stress practice sessions.",
+        failRationale: "Analysis of Error: A free trial is standard, but the main pedagogical appeal highlighted is the ability to practice flexibly in short sessions without feeling overwhelmed (C)."
+      },
+      m1_15: {
+        title: "Advertisement Feature (Ongoing Learning Support)",
+        citation: "Ad: 'Track your progress, earn badges, and review tricky vocabulary anytime.'",
+        passRationale: "Direct feature retrieval! Tracking personal progress and earning badges serve as motivational mechanisms supporting continuous practice.",
+        failRationale: "Analysis of Error: There are no one-on-one tutors (B), heavy homework assignments (C), or group forums (D). The emphasized ongoing support feature is tracking progress and earning rewards (A)."
+      },
+      m1_16: {
+        title: "Academic Main Idea (Trophic Cascades & Apex Predators)",
+        citation: "Text: 'This case illustrates that apex predators are not merely passengers in an ecosystem but are often fundamental architects, maintaining balance through both predation and the intimidation they inspire.'",
+        passRationale: "Exemplary thematic synthesis! Keystone apex predators profoundly shape entire ecosystem structures via both direct predation and indirect behavioral cascades.",
+        failRationale: "Analysis of Error: The passage does not focus on controversy (B) or crown elks/beavers as supreme (A, C). It demonstrates how keystone species govern entire ecosystems through direct and indirect effects (D)."
+      },
+      m1_17: {
+        title: "Academic Vocabulary in Context ('denudation')",
+        citation: "Text: '...elk populations surged, leading to overgrazing of willow and aspen saplings. This denudation negatively impacted beaver populations...'",
+        passRationale: "Precise biological deduction! In the context of heavy overgrazing, 'denudation' denotes stripping the land bare of its protective vegetation.",
+        failRationale: "Analysis of Error: Overgrazing destroys plants; it does not plant (B), fertilize (C), or cultivate (D). Denudation directly means stripping or denuding the landscape (A)."
+      },
+      m1_18: {
+        title: "Academic Detail (Wolf Impact on Elk Behavior)",
+        citation: "Text: 'Elk avoided vulnerable valleys and gorges, allowing riparian vegetation to recover.'",
+        passRationale: "Direct textual alignment! Fear of wolves forced elk away from exposed valleys and riverbanks, enabling young trees and plants to regenerate.",
+        failRationale: "Analysis of Error: Elk did not gather in open valleys (A); they avoided them, allowing riparian trees and vegetation to recover and regrow (C)."
+      },
+      m1_19: {
+        title: "Academic Rhetorical Purpose ('Ecology of Fear')",
+        citation: "Text: 'The presence of wolves not only directly reduced elk numbers but also changed elk behavior, a phenomenon known as the \"ecology of fear.\" Elk avoided vulnerable valleys and gorges, allowing riparian vegetation to recover.'",
+        passRationale: "Deep rhetorical insight! The phrase explains the psychological behavioral mechanism through which predators indirectly safeguard vegetation from herbivore grazing.",
+        failRationale: "Analysis of Error: It does not describe a negative flaw (A) or psychological pathology (B). It explains the indirect behavioral mechanism by which wolves facilitate plant regeneration (D)."
+      },
+      m1_20: {
+        title: "Academic Inference (Beavers in the Trophic Cascade)",
+        citation: "Text: 'Elk avoided vulnerable valleys... allowing riparian vegetation to recover. This, in turn, supported the return of beavers and the biodiversity associated with their wetlands.'",
+        passRationale: "Flawless causal inference! The return of beavers was not direct from wolves, but an indirect secondary consequence of restored willow/aspen vegetation.",
+        failRationale: "Analysis of Error: Beavers were not the cause of overgrazing (A) and wolves did not eradicate them (B). Their return was a secondary outcome of restored riparian foliage (C)."
+      },
+      m2_11: {
+        title: "Review Aspect (Mountain Peak Hotel Praise)",
+        citation: "Review: 'The location is perfect — just a short walk from the hiking trails... if you value peace and scenery more than modern facilities.'",
+        passRationale: "Accurate praise extraction! The reviewer explicitly commends the scenic, tranquil location right next to hiking trails.",
+        failRationale: "Analysis of Error: Breakfast was limited (A), modern facilities were lacking (D), and Wi-Fi was unreliable. The aspect receiving unambiguous praise is the setting and natural location (C)."
+      },
+      m2_12: {
+        title: "Review Inference (Hotel Suitability)",
+        citation: "Review: 'The location is perfect — just a short walk from the hiking trails... Overall, it’s a comfortable place if you value peace and scenery more than modern facilities.'",
+        passRationale: "Nuanced evaluative deduction! With hiking trails and natural scenery but spotty Wi-Fi and basic amenities, the hotel is ideal for outdoor nature lovers.",
+        failRationale: "Analysis of Error: Unreliable Wi-Fi makes it poor for business (B), and it lacks luxury amenities (C). It is ideally suited for visitors who value nature and quiet scenery (A)."
+      },
+      m2_13: {
+        title: "Web Announcement Purpose (EcoSteps Clean-up)",
+        citation: "Notice: 'EcoSteps is looking for enthusiastic volunteers for its annual river cleanup event... Help us protect wildlife habitats...'",
+        passRationale: "Clear communicative purpose! The announcement calls on community volunteers to clean up litter along the local river and park.",
+        failRationale: "Analysis of Error: The event is not an educational lecture (A) or fundraiser (B). Its core practical goal is to clean the river area (C)."
+      },
+      m2_14: {
+        title: "Web Announcement Detail (What Volunteers Bring)",
+        citation: "Notice: 'Gloves and trash bags will be provided, but please bring your own reusable water bottle.'",
+        passRationale: "Direct factual retrieval! The organization provides gloves and bags, asking participants specifically to bring their own water bottle.",
+        failRationale: "Analysis of Error: Gloves (A) and trash bags (C) are provided by EcoSteps. Volunteers are explicitly told to bring a reusable water bottle (B)."
+      },
+      m2_15: {
+        title: "Web Announcement Benefit (Making a Difference)",
+        citation: "Notice: 'Help us protect wildlife habitats and make a tangible difference in your community!'",
+        passRationale: "Precise paraphrase recognition! Making a 'tangible difference' directly matches making a visible, real impact in the local community.",
+        failRationale: "Analysis of Error: The text does not promise science training (B) or networking with career experts (C). It emphasizes making a visible, tangible difference in the community (D)."
+      },
+      m2_16: {
+        title: "Academic Main Purpose (Utilitarianism Overview)",
+        citation: "Text: 'Utilitarianism is an ethical theory that posits that the right action is the one that creates the most happiness... Bentham suggested... Mill added... Despite being appealing... faces significant challenges...'",
+        passRationale: "Mastery of expository structure! The passage traces how utilitarianism originated with Bentham, evolved through Mill, and outlines its key philosophical criticisms.",
+        failRationale: "Analysis of Error: The passage does not claim utilitarianism is completely flawed (C) or pit Bentham as superior (B). It traces its historical development and outlines key criticisms (D)."
+      },
+      m2_17: {
+        title: "Academic Vocabulary in Context ('criticisms')",
+        citation: "Text: 'These criticisms highlight that focusing only on outcomes can conflict with following moral rules.'",
+        passRationale: "Contextual vocabulary mapping! In evaluating philosophical shortcomings, 'criticisms' refers to objections, counterarguments, and complaints raised against the theory.",
+        failRationale: "Analysis of Error: Criticisms here represent objections, complaints, or challenges to the theory, not praise (A) or instructions (C). In this multiple-choice key, it corresponds to complaints (B)."
+      },
+      m2_18: {
+        title: "Academic Comparison (Bentham vs. Mill)",
+        citation: "Text: 'Bentham suggested measuring happiness with a \"hedonic calculus,\" looking at how much pleasure an action brings and how long it lasts. Mill added that some pleasures, like intellectual ones, are better than simple physical pleasures.'",
+        passRationale: "High-level theoretical contrast! Bentham treated pleasure quantitatively through duration and intensity; Mill introduced a qualitative hierarchy prioritizing intellectual pursuits.",
+        failRationale: "Analysis of Error: Mill never rejected happiness (B) or restricted ethics to physical sensations (C). Bentham focused on quantity of pleasure, while Mill emphasized the quality of pleasures (A)."
+      },
+      m2_19: {
+        title: "Academic Rhetorical Purpose (Sacrificing the Innocent)",
+        citation: "Text: 'It also struggles with justice and rights, as it seems to allow sacrificing an innocent individual if it benefits the majority. These criticisms highlight that focusing only on outcomes can conflict with following moral rules.'",
+        passRationale: "Incisive rhetorical analysis! The extreme hypothetical scenario illustrates how pure outcome-based utilitarianism can violate fundamental human rights and justice.",
+        failRationale: "Analysis of Error: It is not a successful moral blueprint (A) or proof of rights protection (C). It serves to illustrate a severe potential flaw/problem with utilitarianism (B)."
+      },
+      m2_20: {
+        title: "Academic Inference (Utilitarianism vs. Moral Rules)",
+        citation: "Text: 'These criticisms highlight that focusing only on outcomes can conflict with following moral rules.'",
+        passRationale: "Exemplary theoretical deduction! Because utilitarianism prioritizes aggregated net outcomes above all else, it can directly clash with fairness, justice, and absolute moral duties.",
+        failRationale: "Analysis of Error: Utilitarianism is demanding to calculate, not easy (A), and aims directly at happiness (B). The passage establishes that it can conflict with fairness or established moral rules (C)."
+      }
+    };
+
+    // State machine configuration for Mock 4 (20 items in Mod 1, 20 items in Mod 2)
+    const testScreens = [
+      { id: 'screen-welcome', module: 0, subbar: 'Overview', showTimer: true, allowBack: false, nextLabel: 'Begin >' },
+      { id: 'screen-m1-intro', module: 1, subbar: 'Module 1 Directions', showTimer: true, allowBack: false, nextLabel: 'Begin >' },
+      { id: 'screen-m1-q1', module: 1, subbar: 'Questions 1–10 of 20', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-m1-q11', module: 1, subbar: 'Question 11 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q12', module: 1, subbar: 'Question 12 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q13', module: 1, subbar: 'Question 13 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q14', module: 1, subbar: 'Question 14 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q15', module: 1, subbar: 'Question 15 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q16', module: 1, subbar: 'Question 16 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q17', module: 1, subbar: 'Question 17 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q18', module: 1, subbar: 'Question 18 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q19', module: 1, subbar: 'Question 19 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-q20', module: 1, subbar: 'Question 20 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m1-end', module: 1, subbar: 'End of Module 1', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-m2-intro', module: 2, subbar: 'Module 2 Directions', showTimer: true, allowBack: false, nextLabel: 'Begin >' },
+      { id: 'screen-m2-q1', module: 2, subbar: 'Questions 1–10 of 20', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-m2-q11', module: 2, subbar: 'Question 11 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q12', module: 2, subbar: 'Question 12 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q13', module: 2, subbar: 'Question 13 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q14', module: 2, subbar: 'Question 14 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q15', module: 2, subbar: 'Question 15 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q16', module: 2, subbar: 'Question 16 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q17', module: 2, subbar: 'Question 17 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q18', module: 2, subbar: 'Question 18 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q19', module: 2, subbar: 'Question 19 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-q20', module: 2, subbar: 'Question 20 of 20', showTimer: true, allowBack: true, nextLabel: 'Next >' },
+      { id: 'screen-m2-end', module: 2, subbar: 'End of Reading Section', showTimer: true, allowBack: false, nextLabel: 'Next >' },
+      { id: 'screen-diagnostic', module: 3, subbar: 'Diagnostic Evaluation', showTimer: false, allowBack: false, nextLabel: 'Next >' }
+    ];
+
+    let currentScreenIndex = 0;
+
+    // Official Answer Key for Mock 04
+    const officialKey = {
+      m1_c: { 1: "er", 2: "inally", 3: "s", 4: "ence", 5: "ainst", 6: "om", 7: "bes", 8: "sands", 9: "ometers", 10: "strates" },
+      m1_mc: { m1_11: "D", m1_12: "C", m1_13: "B", m1_14: "C", m1_15: "A", m1_16: "D", m1_17: "A", m1_18: "C", m1_19: "D", m1_20: "C" },
+      m2_c: { 1: "rts", 2: "wth", 3: "ate", 4: "bles", 5: "cces", 6: "mals", 7: "mans", 8: "ts", 9: "ly", 10: "ntage" },
+      m2_mc: { m2_11: "C", m2_12: "A", m2_13: "C", m2_14: "B", m2_15: "D", m2_16: "D", m2_17: "B", m2_18: "A", m2_19: "B", m2_20: "C" }
+    };
+
+    const userAnswers = {
+      m1_c: {},
+      m1_mc: {},
+      m2_c: {},
+      m2_mc: {}
+    };
+
+    let timeRemaining = 45 * 60;
+    let timerInterval = null;
+    let isTimerVisible = true;
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        if (timeRemaining > 0) {
+          timeRemaining--;
+          updateTimerDisplay();
+        } else {
+          clearInterval(timerInterval);
+          handleTimeExpired();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const minutes = Math.floor(timeRemaining / 60);
+      const seconds = timeRemaining % 60;
+      const formatted = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      const elem = document.getElementById('timerText');
+      const pill = document.getElementById('timerPill');
+      if (elem) elem.textContent = formatted;
+
+      if (timeRemaining <= 180 && pill) {
+        pill.classList.add('time-warning');
+      }
+    }
+
+    function toggleTimerVisibility() {
+      const pill = document.getElementById('timerPill');
+      const btn = document.getElementById('toggleTimerBtn');
+      isTimerVisible = !isTimerVisible;
+      if (isTimerVisible) {
+        pill.style.visibility = 'visible';
+        btn.textContent = 'Hide Time';
+      } else {
+        pill.style.visibility = 'hidden';
+        btn.textContent = 'Show Time';
+      }
+    }
+
+    function handleTimeExpired() {
+      alert("Session time has concluded. Transitioning to your comprehensive diagnostic report.");
+      goToScreen(27);
+    }
+
+    function setupCTestListeners() {
+      const inputs = document.querySelectorAll('.char-input');
+      inputs.forEach((input, index) => {
+        input.addEventListener('input', (e) => {
+          const val = e.target.value.toLowerCase();
+          const sec = e.target.getAttribute('data-sec');
+          const word = e.target.getAttribute('data-word');
+          const idx = e.target.getAttribute('data-idx');
+
+          const dict = sec === 'm1' ? userAnswers.m1_c : userAnswers.m2_c;
+          if (!dict[word]) dict[word] = [];
+          dict[word][idx] = val;
+
+          if (val && index < inputs.length - 1) {
+            inputs[index + 1].focus();
+          }
+        });
+
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && !input.value && index > 0) {
+            inputs[index - 1].focus();
+          }
+        });
+      });
+    }
+
+    function selectOption(qKey, val, element) {
+      if (qKey.startsWith('m1_')) {
+        userAnswers.m1_mc[qKey] = val;
+      } else {
+        userAnswers.m2_mc[qKey] = val;
+      }
+      const parent = element.closest('.options-list');
+      parent.querySelectorAll('.option-btn-row').forEach(row => row.classList.remove('selected'));
+      element.classList.add('selected');
+    }
+
+    function updateScreenView() {
+      const cfg = testScreens[currentScreenIndex];
+
+      document.querySelectorAll('.screen-view').forEach(s => s.classList.remove('active'));
+      const activeEl = document.getElementById(cfg.id);
+      if (activeEl) activeEl.classList.add('active');
+
+      document.getElementById('subbarProgress').textContent = cfg.subbar;
+      const nextBtn = document.getElementById('navNextBtn');
+      const backBtn = document.getElementById('navBackBtn');
+
+      nextBtn.textContent = cfg.nextLabel;
+      nextBtn.disabled = false;
+      backBtn.disabled = !cfg.allowBack;
+
+      const timerPill = document.getElementById('timerPill');
+      const toggleBtn = document.getElementById('toggleTimerBtn');
+
+      if (cfg.showTimer) {
+        timerPill.style.display = 'flex';
+        toggleBtn.style.display = 'inline-flex';
+        if (!timerInterval) startTimer();
+      } else {
+        timerPill.style.display = 'none';
+        toggleBtn.style.display = 'none';
+      }
+
+      if (cfg.id === 'screen-diagnostic') {
+        renderDiagnostics();
+        nextBtn.style.display = 'none';
+        backBtn.style.display = 'none';
+      } else {
+        nextBtn.style.display = 'inline-flex';
+        backBtn.style.display = 'inline-flex';
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goToScreen(idx) {
+      if (idx >= 0 && idx < testScreens.length) {
+        currentScreenIndex = idx;
+        updateScreenView();
+      }
+    }
+
+    function handleNavigationNext() {
+      if (currentScreenIndex < testScreens.length - 1) {
+        goToScreen(currentScreenIndex + 1);
+      }
+    }
+
+    function handleNavigationBack() {
+      const cfg = testScreens[currentScreenIndex];
+      if (cfg.allowBack && currentScreenIndex > 0) {
+        goToScreen(currentScreenIndex - 1);
+      }
+    }
+
+    function goToListeningSection() {
+      window.location.href = 'listening-mock04.html';
+    }
+
+    function goToDashboard() {
+      window.location.href = 'index.html';
+    }
+
+    function calculateStrictScore(rawScore) {
+      const scaledScore = Math.round((rawScore / 40) * 30);
+      
+      let cefr = "";
+      let levelDesc = "";
+      let feedbackTone = "";
+
+      if (rawScore === 0) {
+        cefr = "Below A1";
+        levelDesc = "No Scored Proficiency";
+        feedbackTone = "No responses were answered correctly. A score of 0 indicates that baseline language proficiency could not be measured on this evaluation.";
+      } else if (scaledScore <= 3) {
+        cefr = "A1";
+        levelDesc = "Breakthrough / Beginner";
+        feedbackTone = "Emergent recognition of isolated vocabulary, but insufficient comprehension for academic or structured texts.";
+      } else if (scaledScore <= 8) {
+        cefr = "A2";
+        levelDesc = "Waystage / Elementary";
+        feedbackTone = "Can identify basic factual notices and short everyday sentences, but encounters substantial difficulty with contextual morphology and academic reasoning.";
+      } else if (scaledScore <= 14) {
+        cefr = "B1";
+        levelDesc = "Threshold / Intermediate";
+        feedbackTone = "Satisfactory grasp of routine everyday texts and clear factual announcements. Needs further development in synthesizing complex academic arguments and low-frequency collocations.";
+      } else if (scaledScore <= 23) {
+        cefr = "B2";
+        levelDesc = "Vantage / Upper-Intermediate";
+        feedbackTone = "Solid, independent reading proficiency. Accurately identifies author intentions, paragraph structures, and contextual nuances in academic passages with minor gaps in high-level inference.";
+      } else if (scaledScore <= 28) {
+        cefr = "C1";
+        levelDesc = "Effective Operational Proficiency / Advanced";
+        feedbackTone = "Exceptional analytical mastery. Demonstrates fluent word restoration and subtle distractor discrimination across both colloquial and demanding academic domains.";
+      } else {
+        cefr = "C2";
+        levelDesc = "Mastery / Fluent";
+        feedbackTone = "Flawless score execution reflecting native or near-native academic reading mastery under standard standardized time pressure.";
+      }
+
+      return { scaledScore, cefr, levelDesc, feedbackTone };
+    }
+
+    function evaluateExam() {
+      let rawScore = 0;
+      const itemAudits = [];
+
+      for (let i = 1; i <= 10; i++) {
+        const u = (userAnswers.m1_c[i] || []).join('').toLowerCase();
+        const c = officialKey.m1_c[i].toLowerCase();
+        const info = ctest1Details[i];
+        
+        let isPass = (u === c);
+        if (info.alt && u === info.alt) isPass = true;
+
+        if (isPass) rawScore++;
+        itemAudits.push({
+          num: `M1 Q${i}`,
+          label: `Complete the Words: "${info.root}${info.ans}"`,
+          user: u || '(blank)',
+          correct: c,
+          isPass: isPass,
+          citation: `Context: "${info.clue}..."`,
+          exp: isPass 
+            ? `Appraisal: Flawless morphological restoration! You accurately formed the word "${info.full}". Role: ${info.role}`
+            : `Correction: Expected missing letters "${info.ans}" to complete the target word "${info.full}". Role: ${info.role}. Your input was "${u || '(blank)'}".`
+        });
+      }
+
+      for (let k in officialKey.m1_mc) {
+        const u = userAnswers.m1_mc[k] || '(none)';
+        const c = officialKey.m1_mc[k];
+        const isPass = u === c;
+        if (isPass) rawScore++;
+        const itemMeta = mcAccurateExplanations[k];
+        itemAudits.push({
+          num: `M1 ${k.replace('m1_', 'Q')}`,
+          label: itemMeta.title,
+          user: u,
+          correct: c,
+          isPass: isPass,
+          citation: itemMeta.citation,
+          exp: isPass ? itemMeta.passRationale : itemMeta.failRationale
+        });
+      }
+
+      for (let i = 1; i <= 10; i++) {
+        const u = (userAnswers.m2_c[i] || []).join('').toLowerCase();
+        const c = officialKey.m2_c[i].toLowerCase();
+        const info = ctest2Details[i];
+
+        let isPass = (u === c);
+        if (info.alt && u === info.alt) isPass = true;
+
+        if (isPass) rawScore++;
+        itemAudits.push({
+          num: `M2 Q${i}`,
+          label: `Complete the Words: "${info.root}${info.ans}"`,
+          user: u || '(blank)',
+          correct: c,
+          isPass: isPass,
+          citation: `Context: "${info.clue}..."`,
+          exp: isPass 
+            ? `Appraisal: Precise lexical reconstruction! You correctly built "${info.full}". Role: ${info.role}`
+            : `Correction: Expected missing letters "${info.ans}" to complete "${info.full}". Role: ${info.role}. Your input was "${u || '(blank)'}".`
+        });
+      }
+
+      for (let k in officialKey.m2_mc) {
+        const u = userAnswers.m2_mc[k] || '(none)';
+        const c = officialKey.m2_mc[k];
+        const isPass = u === c;
+        if (isPass) rawScore++;
+        const itemMeta = mcAccurateExplanations[k];
+        itemAudits.push({
+          num: `M2 ${k.replace('m2_', 'Q')}`,
+          label: itemMeta.title,
+          user: u,
+          correct: c,
+          isPass: isPass,
+          citation: itemMeta.citation,
+          exp: isPass ? itemMeta.passRationale : itemMeta.failRationale
+        });
+      }
+
+      const scoreData = calculateStrictScore(rawScore);
+      return { 
+        rawScore, 
+        scaledScore: scoreData.scaledScore, 
+        cefr: scoreData.cefr, 
+        levelDesc: scoreData.levelDesc, 
+        feedbackTone: scoreData.feedbackTone, 
+        itemAudits 
+      };
+    }
+
+    function renderDiagnostics() {
+      const results = evaluateExam();
+
+      document.getElementById('diagRaw').textContent = `${results.rawScore} / 40`;
+      document.getElementById('diagScaled').textContent = `${results.scaledScore} / 30`;
+      document.getElementById('diagCefr').textContent = `${results.cefr}`;
+      
+      const cefrCard = document.getElementById('cefrCard');
+      if (results.rawScore === 0) {
+        cefrCard.classList.add('below-a1');
+      } else {
+        cefrCard.classList.remove('below-a1');
+      }
+
+      localStorage.setItem('toefl_reading_score_04', results.scaledScore);
+      localStorage.setItem('toefl_reading_raw_04', results.rawScore);
+      localStorage.setItem('toefl_mock04_status', 'reading_done');
+
+      const klippySummary = document.getElementById('klippyReportSummary');
+      klippySummary.textContent = `${results.feedbackTone} Official Level: ${results.cefr} (${results.levelDesc}). Review the comprehensive item analysis below to identify exact textual justifications and distractor mechanics.`;
+
+      const container = document.getElementById('auditItemsContainer');
+      container.innerHTML = '';
+
+      results.itemAudits.forEach(item => {
+        const row = document.createElement('div');
+        row.className = `audit-row-card ${item.isPass ? 'pass' : 'fail'}`;
+        row.innerHTML = `
+          <div class="audit-head">
+            <span>${item.num}: ${item.label}</span>
+            <span style="color:${item.isPass ? '#10b981' : '#ef4444'}">${item.isPass ? '✔ Correct (+1 Pt)' : '✘ Incorrect (0 Pts)'}</span>
+          </div>
+          <div class="audit-user-row">
+            <strong>Your Answer:</strong> <span style="font-family:var(--font-mono); font-weight:700;">${item.user}</span> &nbsp;|&nbsp; 
+            <strong>Official Key:</strong> <span style="font-family:var(--font-mono); font-weight:700; color:var(--ets-teal);">${item.correct}</span>
+          </div>
+          <div class="audit-quote-citation">${item.citation}</div>
+          <div class="audit-explanation-block">
+            <strong>Pedagogical Analysis:</strong> ${item.exp}
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setupCTestListeners();
+      updateScreenView();
+      updateTimerDisplay();
+      startTimer();
+    });
+  </script>
+</body>
+</html>
